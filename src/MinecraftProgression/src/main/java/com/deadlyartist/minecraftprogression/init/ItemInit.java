@@ -10,7 +10,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Progression.MODID);
-	public static final RegistryObject<Item> INGOT_STEEL = register("steel_ingot", () -> new Item(new Item.Properties().tab(Progression.MAIN_TAB)));
+	public static final RegistryObject<Item> INGOT_STEEL = register("steel_ingot", () -> new Item(new Item.Properties()
+			.tab(Progression.MAIN_TAB)));
 	
 	private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item) {
 		return ITEMS.register(name, item);
