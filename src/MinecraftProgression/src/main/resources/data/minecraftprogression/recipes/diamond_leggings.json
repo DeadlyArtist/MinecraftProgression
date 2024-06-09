@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "minecraftprogression:steelbound_iron_leggings"
+    },
+    "addition": {
+        "item": "minecraftprogression:diamond_heart"
+    },
+    "result": {
+        "item": "minecraftprogression:diamond_leggings"
+    }
+}

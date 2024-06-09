@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "minecraft:iron_axe"
+    },
+    "addition": {
+        "item": "minecraftprogression:steel_binding"
+    },
+    "result": {
+        "item": "minecraftprogression:steelbound_iron_axe"
+    }
+}

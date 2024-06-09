@@ -3,8 +3,11 @@ package com.deadlyartist.minecraftprogression;
 import com.deadlyartist.minecraftprogression.init.BlockInit;
 import com.deadlyartist.minecraftprogression.init.ItemInit;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,13 +25,13 @@ public class Progression {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack makeIcon() {
-			return new ItemStack(ItemInit.INGOT_STEEL.get());
+			return new ItemStack(ItemInit.STEEL_INGOT.get());
 		}
 	};
 	
 	public Progression() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-		
+
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
 		

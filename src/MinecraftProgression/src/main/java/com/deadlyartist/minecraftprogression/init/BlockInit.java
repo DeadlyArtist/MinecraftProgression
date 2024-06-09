@@ -19,7 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Progression.MODID);
 	public static final DeferredRegister<Item> ITEMS = ItemInit.ITEMS;
-	public static final RegistryObject<Block> BLOCK_STEEL = register("steel_block",
+	public static final RegistryObject<Block> STEEL_BLOCK = register("steel_block",
 			() -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.NONE)
 					.strength(6)
 					.sound(SoundType.METAL)

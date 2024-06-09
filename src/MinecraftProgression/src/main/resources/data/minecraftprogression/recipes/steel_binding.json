@@ -1,0 +1,17 @@
+{
+	"type": "crafting_shaped",
+	"pattern": [
+		"I I",
+		" I ",
+		"I I"
+	],
+	"key": {
+		"I": {
+			"item": "minecraftprogression:steel_ingot"
+		}
+	},
+	"result": {
+		"item": "minecraftprogression:steel_binding",
+		"count": 2
+	}
+}

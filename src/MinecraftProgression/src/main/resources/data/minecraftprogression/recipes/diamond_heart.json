@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#D#",
+        "DBD",
+        " D "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:lapis_lazuli"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "B": {
+            "item": "minecraft:book"
+        }
+    },
+    "result": {
+		"item": "minecraftprogression:diamond_heart"
+	}
+}
