@@ -2,18 +2,17 @@ package com.deadlyartist.minecraftprogression;
 
 import com.deadlyartist.minecraftprogression.init.BlockInit;
 import com.deadlyartist.minecraftprogression.init.ItemInit;
+import com.deadlyartist.minecraftprogression.init.RecipeEvent;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tiers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("minecraftprogression")
@@ -37,4 +36,9 @@ public class Progression {
 		
 		MinecraftForge.EVENT_BUS.register(this);
 	}
+	
+	@SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+        RecipeEvent.replaceRecipes(event);
+    }
 }

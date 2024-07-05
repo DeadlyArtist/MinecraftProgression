@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraftprogression:steelbound_iron_helmet",
-    "minecraftprogression:steel_helmet"
+    "minecraftprogression:steelbound_iron_helmet"
   ]
 }

@@ -26,6 +26,8 @@ public class ItemInit {
 			.tab(Progression.MAIN_TAB)));
 	public static final RegistryObject<Item> STEEL_BINDING = register("steel_binding", () -> new Item(new Item.Properties()
 			.tab(Progression.MAIN_TAB)));
+	//public static final RegistryObject<Item> STEEL_FRAME = register("steel_frame", () -> new Item(new Item.Properties()
+	//		.tab(Progression.MAIN_TAB)));
 	
 	// Steelbound
 	public static final RegistryObject<Item> STEELBOUND_IRON_AXE = register("steelbound_iron_axe", () -> new AxeItem(ModTiers.STEELBOUND_IRON, 6.0F, -3.1F, new Item.Properties()

@@ -25,6 +25,12 @@ public class BlockInit {
 					.sound(SoundType.METAL)
 					.requiresCorrectToolForDrops()),
 			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(Progression.MAIN_TAB)));
+	public static final RegistryObject<Block> STEEL_FRAME = register("steel_frame",
+			() -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.NONE)
+					.strength(6)
+					.sound(SoundType.METAL)
+					.requiresCorrectToolForDrops()),
+			object -> () -> new BlockItem(object.get(), new Item.Properties().tab(Progression.MAIN_TAB)));
 	
 	private static <T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<? extends T> block) {
 		return BLOCKS.register(name, block);

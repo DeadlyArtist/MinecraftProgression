@@ -13,5 +13,8 @@
             "item": "minecraft:stick"
         }
     },
-    "result": {}
+	"result": {
+	    "item": "minecraft:air",
+	    "count": 0
+	}
 }

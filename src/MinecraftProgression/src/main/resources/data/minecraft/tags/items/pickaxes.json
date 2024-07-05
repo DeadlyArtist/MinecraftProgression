@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraftprogression:steelbound_iron_pickaxe",
-    "minecraftprogression:steel_pickaxe"
+    "minecraftprogression:steelbound_iron_pickaxe"
   ]
 }
