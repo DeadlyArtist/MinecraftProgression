@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraftprogression:steel_ingots"
+    ]
+  },
+  "criteria": {
+    "has_steel_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraftprogression:steel_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraftprogression:steel_ingots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_block",
+      "has_the_recipe"
+    ]
+  ]
+}
