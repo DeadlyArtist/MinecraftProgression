@@ -3,23 +3,26 @@
 	"id": "prog",
 	"version": "${version}",
 	"name": "Minecraft: Progression",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Minecraft: Progression. A minecraft mod that builds upon and extends vanilla minecraft progression.",
 	"authors": [
-		"Me!"
+		"Deadly Artist"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/DeadlyArtist/MinecraftProgression/tree/fabric_1.20.1"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/prog/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.prog.MinecraftProgression"
+          "com.prog.Prog"
+		],
+		"client": [
+			"com.prog.ProgClient"
 		],
 		"fabric-datagen": [
-			"com.prog.MinecraftProgressionDataGenerator"
+			"com.prog.ProgDataGenerator"
 		]
 	},
 	"mixins": [
@@ -29,7 +32,8 @@
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"nbt-recipes": "1.0.1+1.20.1"
 	},
 	"suggests": {
 		"another-mod": "*"
