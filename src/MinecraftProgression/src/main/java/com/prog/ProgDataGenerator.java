@@ -9,10 +9,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 public class ProgDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator generator) {
-		FabricDataGenerator.Pack pack = generator.createPack();
-
-		pack.addProvider(PLangProvider::new);
-		pack.addProvider(PModelProvider::new);
-		pack.addProvider(PRecipeProvider::new);
+		generator.addProvider(PLangProvider::new);
+		generator.addProvider(PModelProvider::new);
+		generator.addProvider(PRecipeProvider::new);
 	}
 }

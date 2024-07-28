@@ -1,33 +1,35 @@
 package com.prog.item;
 
 import com.prog.Prog;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.Item;
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PItemGroups {
-    public static final Map<RegistryKey<ItemGroup>, String> names = new HashMap<>();
+    public static class ItemGroupData {
+        public String name;
+
+        public ItemGroupData(String name) {
+            this.name = name;
+        }
+    }
+
+    public static final Map<ItemGroup, ItemGroupData> data = new HashMap<>();
 
 
 
-    public static final RegistryKey<ItemGroup> UPGRADES_TAB = registerItemGroup("upgrades", "Upgrades", FabricItemGroup.builder().icon(() -> new ItemStack(PItems.STEEL)));
+    public static final ItemGroup UPGRADES_TAB = registerItemGroup("upgrades", "Upgrades", () -> new ItemStack(PItems.STEEL_INGOT));
 
 
 
-    private static RegistryKey<ItemGroup> registerItemGroup(String id, String name, ItemGroup.Builder itemGroupBuilder) {
-        ItemGroup itemGroup = Registry.register(Registries.ITEM_GROUP, new Identifier(Prog.MOD_ID, id), itemGroupBuilder.displayName(Text.translatable("itemGroup." + Prog.MOD_ID + "." + id)).build());
-        RegistryKey<ItemGroup> key = RegistryKey.of(Registries.ITEM_GROUP.getKey(), new Identifier(Prog.MOD_ID, id));
-        names.put(key, name);
-        return key;
+    private static ItemGroup registerItemGroup(String id, String name, java.util.function.Supplier<net.minecraft.item.ItemStack> iconSupplier) {
+        ItemGroup itemGroup = FabricItemGroupBuilder.create(new Identifier(Prog.MOD_ID, id)).build();
+        data.put(itemGroup, new ItemGroupData(name));
+        return itemGroup;
     }
 
     public static void init() {

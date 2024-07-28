@@ -1,4 +1,6 @@
 {
-  "item.prog.steel": "Steel",
+  "block.prog.steel_block": "Steel Block",
+  "item.prog.steel_binding": "Steel Binding",
+  "item.prog.steel_ingot": "Steel Ingot",
   "itemGroup.prog.upgrades": "Upgrades"
 }

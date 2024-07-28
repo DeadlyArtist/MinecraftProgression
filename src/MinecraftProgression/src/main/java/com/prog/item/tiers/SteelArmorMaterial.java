@@ -1,5 +1,6 @@
 package com.prog.item.tiers;
 
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -8,16 +9,16 @@ import net.minecraft.sound.SoundEvents;
 
 public class SteelArmorMaterial implements ArmorMaterial {
     @Override
-    public int getDurability(ArmorItem.Type type) {
+    public int getDurability(EquipmentSlot slot) {
         return 0;
     }
 
     @Override
-    public int getProtection(ArmorItem.Type type) {
-        return switch (type) {
-            case BOOTS, HELMET -> 2;
-            case LEGGINGS -> 5;
-            case CHESTPLATE -> 6;
+    public int getProtectionAmount(EquipmentSlot slot) {
+        return switch (slot) {
+            case FEET, HEAD -> 2;
+            case LEGS -> 5;
+            case CHEST -> 6;
             default -> 0;
         };
     }

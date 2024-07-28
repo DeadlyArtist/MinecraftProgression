@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 300,
+  "experience": 0.45,
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": "prog:steel_ingot"
+}
