@@ -4,16 +4,19 @@
     "#": {
       "item": "prog:steel_ingot"
     },
-    "I": {
-      "item": "minecraft:stick"
+    "p": {
+      "tag": "minecraft:planks"
+    },
+    "s": {
+      "item": "minecraft:stone"
     }
   },
   "pattern": [
     "###",
-    " I ",
-    " I "
+    "psp",
+    "psp"
   ],
   "result": {
-    "item": "prog:steel_pickaxe"
+    "item": "minecraft:smithing_table"
   }
 }

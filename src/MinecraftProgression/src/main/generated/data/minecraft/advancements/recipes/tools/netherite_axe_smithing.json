@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_steel_ingot": {
+    "has_netherite_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:steel_ingot"
+              "minecraft:netherite_ingot"
             ]
           }
         ]
@@ -27,21 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:steel_axe"
+        "recipe": "minecraft:netherite_axe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_steel_ingot",
+      "has_netherite_ingot",
       "has_stick",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:steel_axe"
+      "minecraft:netherite_axe_smithing"
     ]
   }
 }

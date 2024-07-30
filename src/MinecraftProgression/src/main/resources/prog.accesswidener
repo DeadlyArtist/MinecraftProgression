@@ -1,0 +1,29 @@
+accessWidener v2 named
+accessible field net/minecraft/data/server/RecipeProvider recipesPathResolver Lnet/minecraft/data/DataGenerator$PathResolver;
+accessible field net/minecraft/data/server/RecipeProvider advancementsPathResolver Lnet/minecraft/data/DataGenerator$PathResolver;
+accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
+
+# Smithing Recipe Builder
+accessible class net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder advancementBuilder Lnet/minecraft/advancement/Advancement$Builder;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder serializer Lnet/minecraft/recipe/RecipeSerializer;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder base Lnet/minecraft/recipe/Ingredient;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder addition Lnet/minecraft/recipe/Ingredient;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder result Lnet/minecraft/item/Item;
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder criterion (Ljava/lang/String;Lnet/minecraft/advancement/criterion/CriterionConditions;)Lnet/minecraft/data/server/recipe/SmithingRecipeJsonBuilder;
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder offerTo (Ljava/util/function/Consumer;Ljava/lang/String;)V
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder offerTo (Ljava/util/function/Consumer;Lnet/minecraft/util/Identifier;)V
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder validate (Lnet/minecraft/util/Identifier;)V
+accessible class net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider recipeId Lnet/minecraft/util/Identifier;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider base Lnet/minecraft/recipe/Ingredient;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider addition Lnet/minecraft/recipe/Ingredient;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider result Lnet/minecraft/item/Item;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider advancementBuilder Lnet/minecraft/advancement/Advancement$Builder;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider advancementId Lnet/minecraft/util/Identifier;
+accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider serializer Lnet/minecraft/recipe/RecipeSerializer;
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider serialize (Lcom/google/gson/JsonObject;)V
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider getRecipeId ()Lnet/minecraft/util/Identifier;
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider getSerializer ()Lnet/minecraft/recipe/RecipeSerializer;
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider toAdvancementJson ()Lcom/google/gson/JsonObject;
+accessible method net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder$SmithingRecipeJsonProvider getAdvancementId ()Lnet/minecraft/util/Identifier;

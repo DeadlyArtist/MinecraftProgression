@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "prog:steel_ingot"
+      "item": "minecraft:netherite_ingot"
     },
     "I": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "#",
-    "#",
-    "I"
+    "##",
+    "#I",
+    " I"
   ],
   "result": {
-    "item": "prog:steel_sword"
+    "item": "minecraft:netherite_axe"
   }
 }

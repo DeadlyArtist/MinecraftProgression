@@ -1,12 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_steel_ingot": {
+    "has_iron_boots": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:steel_ingot"
+              "minecraft:iron_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_steel_binding": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_binding"
             ]
           }
         ]
@@ -15,20 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:steel_boots"
+        "recipe": "prog:steel_boots_from_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_steel_ingot",
+      "has_iron_boots",
+      "has_steel_binding",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:steel_boots"
+      "prog:steel_boots_from_smithing"
     ]
   }
 }

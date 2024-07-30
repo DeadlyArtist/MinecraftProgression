@@ -8,15 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
+// Not used, only for future reference
 @Mixin(RecipeProvider.class)
 public abstract class RecipeProviderMixin implements IRecipeProvider {
-    // Shadow the private final field
-    @Final
-    @Shadow private DataGenerator.PathResolver recipesPathResolver;
-    @Final
-    @Shadow
-    private DataGenerator.PathResolver advancementsPathResolver;
-
     @Accessor("recipesPathResolver")
     public abstract DataGenerator.PathResolver getRecipesPathResolver();
 

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_axe": {
+    "has_iron_helmet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:iron_axe"
+              "minecraft:iron_helmet"
             ]
           }
         ]
@@ -27,21 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "prog:steel_axe_from_smithing"
+        "recipe": "prog:steel_helmet_from_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_iron_axe",
+      "has_iron_helmet",
       "has_steel_binding",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "prog:steel_axe_from_smithing"
+      "prog:steel_helmet_from_smithing"
     ]
   }
 }

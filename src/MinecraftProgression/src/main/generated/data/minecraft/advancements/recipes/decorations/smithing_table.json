@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_planks": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_steel_ingot": {
       "conditions": {
         "items": [
@@ -13,12 +23,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stick": {
+    "has_stone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stick"
+              "minecraft:stone"
             ]
           }
         ]
@@ -27,7 +37,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:steel_hoe"
+        "recipe": "minecraft:smithing_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -35,13 +45,14 @@
   "requirements": [
     [
       "has_steel_ingot",
-      "has_stick",
+      "has_planks",
+      "has_stone",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:steel_hoe"
+      "minecraft:smithing_table"
     ]
   }
 }

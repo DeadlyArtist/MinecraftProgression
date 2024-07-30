@@ -1,7 +1,7 @@
 {
   "type": "nbtcrafting:smithing",
   "base": {
-    "item": "minecraft:iron_axe"
+    "item": "minecraft:iron_shovel"
   },
   "ingredient": {
     "item": "prog:steel_binding"
@@ -11,6 +11,6 @@
       "$": "$base",
       "Unbreakable": true
     },
-    "item": "prog:steel_axe"
+    "item": "prog:steel_shovel"
   }
 }

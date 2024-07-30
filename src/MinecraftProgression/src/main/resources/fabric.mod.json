@@ -25,6 +25,7 @@
 	"mixins": [
 		"prog.mixins.json"
 	],
+	"accessWidener": "prog.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.19.2",

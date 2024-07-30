@@ -22,13 +22,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class PItems {
-    // Simple fix of HoeItem constructor being protected
-    public static class HoeItem extends net.minecraft.item.HoeItem {
-        public HoeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-            super(material, attackDamage, attackSpeed, settings);
-        }
-    }
-
     public static class ItemData {
         public String name;
         public Consumer<ItemModelGenerator> modelSupplier;
@@ -57,7 +50,7 @@ public class PItems {
 
     // Steel tier tools
     public static final Item STEEL_AXE = registerItem("STEEL_AXE", new AxeItem(PToolMaterial.STEEL, 6.0F, -3.1F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-    public static final Item STEEL_HOE = registerItem("STEEL_HOE", new HoeItem(PToolMaterial.STEEL, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item STEEL_HOE = registerItem("STEEL_HOE", new HoeItem(PToolMaterial.STEEL, -2, -1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
     public static final Item STEEL_PICKAXE = registerItem("STEEL_PICKAXE", new PickaxeItem(PToolMaterial.STEEL, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
     public static final Item STEEL_SHOVEL = registerItem("STEEL_SHOVEL", new ShovelItem(PToolMaterial.STEEL, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 

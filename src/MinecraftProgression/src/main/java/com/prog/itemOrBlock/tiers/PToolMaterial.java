@@ -7,27 +7,23 @@ import net.minecraft.recipe.Ingredient;
 import java.util.function.Supplier;
 
 public enum PToolMaterial implements ToolMaterial {
-    STEEL(MiningLevels.IRON,1800,7.0F,7.0F,25, null);
+    STEEL(MiningLevels.IRON, 6.0F, 2.0F, 14);
 
     private final int miningLevel;
-    private final int itemDurability;
     private final float miningSpeed;
     private final float attackDamage;
     private final int enchantability;
-    private final Supplier<Ingredient> repairIngredient;
 
-    private PToolMaterial(int miningLevel, int itemDurability, float miningSpeed, float attackDamage,
-                            int enchantability, Supplier<Ingredient> repairIngredient) {
+    private PToolMaterial(int miningLevel, float miningSpeed, float attackDamage,
+                            int enchantability) {
         this.miningLevel = miningLevel;
-        this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = repairIngredient;
     }
 
     public int getDurability() {
-        return this.itemDurability;
+        return 0;
     }
 
     public float getMiningSpeedMultiplier() {
@@ -47,6 +43,6 @@ public enum PToolMaterial implements ToolMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
+        return null;
     }
 }
