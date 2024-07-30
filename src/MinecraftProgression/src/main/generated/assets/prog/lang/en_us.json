@@ -1,6 +1,16 @@
 {
   "block.prog.steel_block": "Steel Block",
+  "block.prog.steel_frame": "Steel Frame",
+  "item.prog.steel_axe": "Steel Axe",
   "item.prog.steel_binding": "Steel Binding",
+  "item.prog.steel_boots": "Steel Boots",
+  "item.prog.steel_chestplate": "Steel Chestplate",
+  "item.prog.steel_helmet": "Steel Helmet",
+  "item.prog.steel_hoe": "Steel Hoe",
   "item.prog.steel_ingot": "Steel Ingot",
+  "item.prog.steel_leggings": "Steel Leggings",
+  "item.prog.steel_pickaxe": "Steel Pickaxe",
+  "item.prog.steel_shovel": "Steel Shovel",
+  "item.prog.steel_sword": "Steel Sword",
   "itemGroup.prog.upgrades": "Upgrades"
 }

@@ -1,9 +1,9 @@
-// 1.19.2	2024-07-28T14:27:09.819224	Recipes
+// 1.19.2	2024-07-30T01:18:44.3717088	Recipes
 2e6146d48568aa37074fa48f5584dabf7c88d7db data\prog\advancements\recipes\misc\steel_ingot.json
 b68b9df580e13e3a8c02ae39755f85ce84628b1e data\prog\advancements\recipes\misc\steel_binding.json
+30011d649a42a8ba8e0a5a402608f19b6f297e6b data\prog\advancements\recipes\misc\steel_ingot_from_smelting.json
 71005be9e85234b16f755ee1ccb81267fc6cfde7 data\prog\recipes\steel_ingot.json
-2782c247588af69877fb97ccfb85e46c6991d826 data\prog\recipes\smelting.json
 cdb202b9454a075b88edc3252acaa288a7e64a35 data\prog\advancements\recipes\building_blocks\steel_block.json
-093bc194e071889b91482d2b7c3063f41ba43edf data\prog\advancements\recipes\misc\smelting.json
+2782c247588af69877fb97ccfb85e46c6991d826 data\prog\recipes\steel_ingot_from_smelting.json
 5fbbc54e18fc7d1add94cf8c34680a282d19f413 data\prog\recipes\steel_block.json
 ab46c3f6dedfc7bda529c31cb2cf2ac6dd8ee845 data\prog\recipes\steel_binding.json

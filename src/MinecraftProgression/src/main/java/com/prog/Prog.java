@@ -1,13 +1,10 @@
 package com.prog;
 
-import com.prog.block.PBlocks;
-import com.prog.item.PItemGroups;
-import com.prog.item.PItems;
+import com.prog.itemOrBlock.PBlocks;
+import com.prog.itemOrBlock.PItemGroups;
+import com.prog.itemOrBlock.PItems;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

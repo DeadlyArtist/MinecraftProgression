@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "steel_ingot_from_minecraft:smelting"
+        "recipe": "prog:steel_ingot_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "steel_ingot_from_minecraft:smelting"
+      "prog:steel_ingot_from_smelting"
     ]
   }
 }

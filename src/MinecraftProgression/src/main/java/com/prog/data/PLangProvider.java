@@ -1,8 +1,8 @@
 package com.prog.data;
 
-import com.prog.block.PBlocks;
-import com.prog.item.PItemGroups;
-import com.prog.item.PItems;
+import com.prog.itemOrBlock.PBlocks;
+import com.prog.itemOrBlock.PItemGroups;
+import com.prog.itemOrBlock.PItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 

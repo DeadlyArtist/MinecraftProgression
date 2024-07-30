@@ -1,7 +1,8 @@
 package com.prog.data;
 
-import com.prog.block.PBlocks;
-import com.prog.item.PItems;
+import com.prog.Prog;
+import com.prog.itemOrBlock.PBlocks;
+import com.prog.itemOrBlock.PItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
@@ -12,6 +13,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.List;
@@ -63,7 +65,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
     ) {
         CookingRecipeJsonBuilder.create(Ingredient.ofItems(input), output, experience, cookingTime, serializer)
                 .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter, getItemPath(output) + "_from_" + Registry.RECIPE_SERIALIZER.getId(serializer));
+                .offerTo(exporter, new Identifier(Prog.MOD_ID, getItemPath(output) + "_from_" + Registry.RECIPE_SERIALIZER.getId(serializer).getPath()));
     }
 
     @Override

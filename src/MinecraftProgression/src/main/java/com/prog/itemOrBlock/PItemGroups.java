@@ -1,6 +1,7 @@
-package com.prog.item;
+package com.prog.itemOrBlock;
 
 import com.prog.Prog;
+import com.prog.utils.StringUtils;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -22,12 +23,14 @@ public class PItemGroups {
 
 
 
-    public static final ItemGroup UPGRADES_TAB = registerItemGroup("upgrades", "Upgrades", () -> new ItemStack(PItems.STEEL_INGOT));
+    public static final ItemGroup UPGRADES = registerItemGroup("UPGRADES", () -> new ItemStack(PItems.STEEL_INGOT));
 
 
 
-    private static ItemGroup registerItemGroup(String id, String name, java.util.function.Supplier<net.minecraft.item.ItemStack> iconSupplier) {
-        ItemGroup itemGroup = FabricItemGroupBuilder.create(new Identifier(Prog.MOD_ID, id)).build();
+    private static ItemGroup registerItemGroup(String id, java.util.function.Supplier<net.minecraft.item.ItemStack> iconSupplier) {
+        id = id.toLowerCase();
+        String name = StringUtils.toNormalCase(id);
+        ItemGroup itemGroup = FabricItemGroupBuilder.create(new Identifier(Prog.MOD_ID, id)).icon(iconSupplier).build();
         data.put(itemGroup, new ItemGroupData(name));
         return itemGroup;
     }
