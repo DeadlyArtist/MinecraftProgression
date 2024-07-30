@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:steel_binding"
+        "recipe": "minecraft:steel_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:steel_binding"
+      "minecraft:steel_leggings"
     ]
   }
 }

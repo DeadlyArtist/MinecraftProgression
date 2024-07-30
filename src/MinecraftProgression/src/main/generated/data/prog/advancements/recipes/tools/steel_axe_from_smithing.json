@@ -1,6 +1,18 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_iron_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_axe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_steel_ingot": {
       "conditions": {
         "items": [
@@ -15,20 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:steel_binding"
+        "recipe": "prog:steel_axe_from_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
+      "has_iron_axe",
       "has_steel_ingot",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:steel_binding"
+      "prog:steel_axe_from_smithing"
     ]
   }
 }

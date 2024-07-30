@@ -1,10 +1,12 @@
 package com.prog.itemOrBlock.tiers;
 
+import com.prog.Prog;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 
 public enum PArmorMaterial implements ArmorMaterial {
     STEEL("steel", new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F, 0.0F);
@@ -59,7 +61,7 @@ public enum PArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return this.name;
+        return new Identifier(Prog.MOD_ID, this.name).toString();
     }
 
     @Override

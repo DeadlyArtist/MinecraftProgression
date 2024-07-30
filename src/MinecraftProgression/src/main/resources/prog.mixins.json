@@ -3,7 +3,8 @@
 	"package": "com.prog.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"RecipeProviderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
