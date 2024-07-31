@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_chorus_fruit": true
+      }
+    },
+    "item": "prog:primal_netherite_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:chorus_fruit"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_chorus_fruit": true
+    },
+    "item": "prog:primal_netherite_helmet"
+  }
+}

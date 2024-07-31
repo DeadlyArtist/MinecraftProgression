@@ -1,10 +1,14 @@
 package com.prog.data;
 
+import com.prog.IDRef;
 import com.prog.Prog;
+import com.prog.itemOrBlock.PBlockTags;
 import com.prog.itemOrBlock.PBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.TagKey;
 
@@ -20,19 +24,23 @@ public class PBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     public static final Map<TagKey<Block>, ArrayList<Block>> tags = new HashMap<>();
 
+    public static void addToTag(TagKey<Block> tag, Block block) {
+        tags.computeIfAbsent(tag, k -> new ArrayList<>()).add(block);
+    }
+
     @Override
     protected void generateTags() {
-        PBlocks.data.forEach((block, data) -> data.tags.forEach(tag -> tags.computeIfAbsent(tag, k -> new ArrayList<>()).add(block)));
+        // Vanilla Overrides
+        addToTag(PBlockTags.NEEDS_TITAN_TOOL, Blocks.ANCIENT_DEBRIS);
 
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-                .add(PBlocks.STEEL_BLOCK)
-                .add(PBlocks.STEEL_FRAME)
-        ;
+        // Preregistered
+        PBlocks.data.forEach((block, data) -> data.tags.forEach(tag -> addToTag(tag, block)));
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
-                .add(PBlocks.STEEL_BLOCK)
-                .add(PBlocks.STEEL_FRAME)
-        ;
+        // Add all tags
+        tags.forEach((tag, blocks) -> {
+            FabricTagProvider<Block>.FabricTagBuilder<Block> tagBuilder = getOrCreateTagBuilder(tag);
+            blocks.forEach(block -> tagBuilder.add(block));
+        });
     }
 
     public FabricTagBuilder<Block> getOrCreateTagBuilder(TagKey<Block> tag) {

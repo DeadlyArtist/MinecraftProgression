@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_phantom_membrane": true
+      }
+    },
+    "item": "prog:primal_netherite_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:phantom_membrane"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_phantom_membrane": true
+    },
+    "item": "prog:primal_netherite_chestplate"
+  }
+}

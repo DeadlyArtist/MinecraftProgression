@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_prismarine_shard": true
+      }
+    },
+    "item": "prog:steel_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:prismarine_shard"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_prismarine_shard": true
+    },
+    "item": "prog:steel_axe"
+  }
+}

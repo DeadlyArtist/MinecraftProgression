@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "base": {
+    "item": "prog:steel_pickaxe"
+  },
+  "result": {
+    "item": "prog:ultimate_diamond_pickaxe"
+  }
+}

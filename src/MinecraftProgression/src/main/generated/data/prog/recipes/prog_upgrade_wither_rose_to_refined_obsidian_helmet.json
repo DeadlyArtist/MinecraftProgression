@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_wither_rose": true
+      }
+    },
+    "item": "prog:refined_obsidian_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:wither_rose"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_wither_rose": true
+    },
+    "item": "prog:refined_obsidian_helmet"
+  }
+}

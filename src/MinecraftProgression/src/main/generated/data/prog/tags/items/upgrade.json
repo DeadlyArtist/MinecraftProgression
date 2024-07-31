@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:prismarine_shard",
+    "minecraft:blaze_powder",
+    "minecraft:chorus_fruit",
+    "minecraft:honey_block",
+    "minecraft:phantom_membrane",
+    "minecraft:wither_rose",
+    "minecraft:heart_of_the_sea",
+    "minecraft:emerald",
+    "minecraft:music_disc_pigstep"
+  ]
+}

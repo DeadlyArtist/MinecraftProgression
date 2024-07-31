@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_emerald": true
+      }
+    },
+    "item": "prog:primal_netherite_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_emerald": true
+    },
+    "item": "prog:primal_netherite_axe"
+  }
+}

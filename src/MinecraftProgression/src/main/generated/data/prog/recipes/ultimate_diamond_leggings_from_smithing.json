@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:diamond_leggings"
+  },
+  "base": {
+    "item": "prog:steel_leggings"
+  },
+  "result": {
+    "item": "prog:ultimate_diamond_leggings"
+  }
+}

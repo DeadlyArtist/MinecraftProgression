@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:diamond_boots"
+  },
+  "base": {
+    "item": "prog:steel_boots"
+  },
+  "result": {
+    "item": "prog:ultimate_diamond_boots"
+  }
+}

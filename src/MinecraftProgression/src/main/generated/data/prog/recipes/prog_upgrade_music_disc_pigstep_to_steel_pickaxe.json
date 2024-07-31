@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_music_disc_pigstep": true
+      }
+    },
+    "item": "prog:steel_pickaxe"
+  },
+  "ingredient": {
+    "item": "minecraft:music_disc_pigstep"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_music_disc_pigstep": true
+    },
+    "item": "prog:steel_pickaxe"
+  }
+}

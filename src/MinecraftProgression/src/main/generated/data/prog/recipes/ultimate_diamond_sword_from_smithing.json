@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:diamond_sword"
+  },
+  "base": {
+    "item": "prog:steel_sword"
+  },
+  "result": {
+    "item": "prog:ultimate_diamond_sword"
+  }
+}

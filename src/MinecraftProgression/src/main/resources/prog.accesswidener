@@ -3,6 +3,24 @@ accessible field net/minecraft/data/server/RecipeProvider recipesPathResolver Ln
 accessible field net/minecraft/data/server/RecipeProvider advancementsPathResolver Lnet/minecraft/data/DataGenerator$PathResolver;
 accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMaterial;IFLnet/minecraft/item/Item$Settings;)V
 
+# HoeItem fix that doesn't work
+accessible field net/minecraft/item/MiningToolItem attackDamage F
+mutable field net/minecraft/item/MiningToolItem attackDamage F
+
+# ArmorItem
+accessible field net/minecraft/item/ArmorItem attributeModifiers Lcom/google/common/collect/Multimap;
+mutable field net/minecraft/item/ArmorItem attributeModifiers Lcom/google/common/collect/Multimap;
+accessible field net/minecraft/item/ArmorItem MODIFIERS [Ljava/util/UUID;
+accessible field net/minecraft/item/ArmorItem protection I
+accessible field net/minecraft/item/ArmorItem toughness F
+
+# ItemStack
+accessible field net/minecraft/item/ItemStack UNBREAKABLE_KEY Ljava/lang/String;
+accessible field net/minecraft/item/ItemStack REPAIR_COST_KEY Ljava/lang/String;
+accessible field net/minecraft/item/ItemStack CAN_DESTROY_KEY Ljava/lang/String;
+accessible field net/minecraft/item/ItemStack CAN_PLACE_ON_KEY Ljava/lang/String;
+accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
+
 # Smithing Recipe Builder
 accessible class net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder
 accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder advancementBuilder Lnet/minecraft/advancement/Advancement$Builder;

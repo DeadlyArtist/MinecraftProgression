@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_heart_of_the_sea": true
+      }
+    },
+    "item": "prog:refined_obsidian_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:heart_of_the_sea"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_heart_of_the_sea": true
+    },
+    "item": "prog:refined_obsidian_boots"
+  }
+}

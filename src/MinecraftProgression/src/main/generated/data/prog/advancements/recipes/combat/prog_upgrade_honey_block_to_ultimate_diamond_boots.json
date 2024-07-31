@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_honey_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:honey_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:prog_upgrade_honey_block_to_ultimate_diamond_boots"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultimate_diamond_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:ultimate_diamond_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_ultimate_diamond_boots",
+      "has_honey_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:prog_upgrade_honey_block_to_ultimate_diamond_boots"
+    ]
+  }
+}
