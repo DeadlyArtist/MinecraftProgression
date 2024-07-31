@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_enchanted_golden_apple": ""
+      }
+    },
+    "item": "prog:primal_netherite_leggings"
+  },
+  "ingredient": {
+    "item": "minecraft:enchanted_golden_apple"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_enchanted_golden_apple": "minecraft:enchanted_golden_apple"
+    },
+    "item": "prog:primal_netherite_leggings"
+  }
+}

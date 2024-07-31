@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_poisonous_potato": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_sword"
+  },
+  "ingredient": {
+    "item": "minecraft:poisonous_potato"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_poisonous_potato": "minecraft:poisonous_potato"
+    },
+    "item": "prog:ultimate_diamond_sword"
+  }
+}

@@ -402,7 +402,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
             finalUpgrades.forEach(upgrade -> {
                 String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(upgrade);
                 String recipePath = UpgradeUtils.getRecipePath(upgrade, target);
-                createSmithingRecipe(Input.of(target), Input.of(upgrade), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(true), false).addResultNbt(upgradeNbtName, new JsonPrimitive(true)).setPath(recipePath).offer(exporter);
+                createSmithingRecipe(Input.of(target), Input.of(upgrade), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, new JsonPrimitive(Registry.ITEM.getId(upgrade.asItem()).toString())).setPath(recipePath).offer(exporter);
             });
         });
     }

@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_emerald": true
+        "prog_upgrade_emerald": ""
       }
     },
     "item": "prog:primal_netherite_axe"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_emerald": true
+      "prog_upgrade_emerald": "minecraft:emerald"
     },
     "item": "prog:primal_netherite_axe"
   }

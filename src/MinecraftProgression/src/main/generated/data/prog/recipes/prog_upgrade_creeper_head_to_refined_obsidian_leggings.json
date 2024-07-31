@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_creeper_head": ""
+      }
+    },
+    "item": "prog:refined_obsidian_leggings"
+  },
+  "ingredient": {
+    "item": "minecraft:creeper_head"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_creeper_head": "minecraft:creeper_head"
+    },
+    "item": "prog:refined_obsidian_leggings"
+  }
+}

@@ -1,11 +1,15 @@
 package com.prog.utils;
 
+import com.prog.Prog;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static net.minecraft.data.server.RecipeProvider.getItemPath;
 
@@ -20,8 +24,8 @@ public class UpgradeUtils {
         return getUpgradeNbtName(upgrade) + "_to_" + getItemPath(target);
     }
 
-    public static List<NbtElement> extractUpgradeData(NbtCompound nbt) {
-        List<NbtElement> upgradeData = new ArrayList<>();
+    public static Map<String, NbtElement> extractUpgradeData(NbtCompound nbt) {
+        Map<String, NbtElement> upgradeData = new HashMap<>();
 
         // Iterate over the keys of the NbtCompound
         for (String key : nbt.getKeys()) {
@@ -30,11 +34,15 @@ public class UpgradeUtils {
                 // Get the corresponding NbtElement for each key
                 NbtElement element = nbt.get(key);
                 if (element != null) {
-                    upgradeData.add(element);
+                    upgradeData.put(key, element);
                 }
             }
         }
 
         return upgradeData;
+    }
+
+    public static Item getItemFromUpgradeNbt(NbtElement nbt) {
+        return Registry.ITEM.get(new Identifier(nbt.asString()));
     }
 }

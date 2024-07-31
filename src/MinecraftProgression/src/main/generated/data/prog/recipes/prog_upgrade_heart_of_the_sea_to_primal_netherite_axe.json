@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_heart_of_the_sea": true
+        "prog_upgrade_heart_of_the_sea": ""
       }
     },
     "item": "prog:primal_netherite_axe"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_heart_of_the_sea": true
+      "prog_upgrade_heart_of_the_sea": "minecraft:heart_of_the_sea"
     },
     "item": "prog:primal_netherite_axe"
   }

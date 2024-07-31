@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_totem_of_undying": ""
+      }
+    },
+    "item": "prog:refined_obsidian_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:totem_of_undying"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_totem_of_undying": "minecraft:totem_of_undying"
+    },
+    "item": "prog:refined_obsidian_boots"
+  }
+}

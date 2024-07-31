@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_prismarine_shard": true
+        "prog_upgrade_prismarine_shard": ""
       }
     },
     "item": "prog:primal_netherite_boots"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_prismarine_shard": true
+      "prog_upgrade_prismarine_shard": "minecraft:prismarine_shard"
     },
     "item": "prog:primal_netherite_boots"
   }

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_primal_netherite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:prog_upgrade_totem_of_undying_to_primal_netherite_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_totem_of_undying": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:totem_of_undying"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_primal_netherite_chestplate",
+      "has_totem_of_undying",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:prog_upgrade_totem_of_undying_to_primal_netherite_chestplate"
+    ]
+  }
+}

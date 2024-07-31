@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_honey_block": true
+        "prog_upgrade_honey_block": ""
       }
     },
     "item": "prog:steel_leggings"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_honey_block": true
+      "prog_upgrade_honey_block": "minecraft:honey_block"
     },
     "item": "prog:steel_leggings"
   }

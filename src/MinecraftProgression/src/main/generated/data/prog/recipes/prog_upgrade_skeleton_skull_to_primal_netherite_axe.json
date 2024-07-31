@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_skeleton_skull": ""
+      }
+    },
+    "item": "prog:primal_netherite_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:skeleton_skull"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_skeleton_skull": "minecraft:skeleton_skull"
+    },
+    "item": "prog:primal_netherite_axe"
+  }
+}

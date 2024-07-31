@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_magma_cream": ""
+      }
+    },
+    "item": "prog:refined_obsidian_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:magma_cream"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_magma_cream": "minecraft:magma_cream"
+    },
+    "item": "prog:refined_obsidian_axe"
+  }
+}

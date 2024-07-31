@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_golden_apple": ""
+      }
+    },
+    "item": "prog:refined_obsidian_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:golden_apple"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_golden_apple": "minecraft:golden_apple"
+    },
+    "item": "prog:refined_obsidian_axe"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_goat_horn": ""
+      }
+    },
+    "item": "prog:refined_obsidian_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:goat_horn"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_goat_horn": "minecraft:goat_horn"
+    },
+    "item": "prog:refined_obsidian_chestplate"
+  }
+}

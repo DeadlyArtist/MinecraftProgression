@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_chorus_fruit": true
+        "prog_upgrade_chorus_fruit": ""
       }
     },
     "item": "prog:refined_obsidian_pickaxe"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_chorus_fruit": true
+      "prog_upgrade_chorus_fruit": "minecraft:chorus_fruit"
     },
     "item": "prog:refined_obsidian_pickaxe"
   }

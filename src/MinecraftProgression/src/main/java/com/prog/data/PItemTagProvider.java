@@ -29,18 +29,34 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         tags.computeIfAbsent(tag, k -> new ArrayList<>()).add(item);
     }
 
+    public static void addToUpgrades(Item item) {
+        addToTag(PItemTags.UPGRADE, item);
+    }
+
     @Override
     protected void generateTags() {
         // Vanilla overrides
-        addToTag(PItemTags.UPGRADE, Items.PRISMARINE_SHARD);
-        addToTag(PItemTags.UPGRADE, Items.BLAZE_POWDER);
-        addToTag(PItemTags.UPGRADE, Items.CHORUS_FRUIT);
-        addToTag(PItemTags.UPGRADE, Items.HONEY_BLOCK);
-        addToTag(PItemTags.UPGRADE, Items.PHANTOM_MEMBRANE);
-        addToTag(PItemTags.UPGRADE, Items.WITHER_ROSE);
-        addToTag(PItemTags.UPGRADE, Items.HEART_OF_THE_SEA);
-        addToTag(PItemTags.UPGRADE, Items.EMERALD);
-        addToTag(PItemTags.UPGRADE, Items.MUSIC_DISC_PIGSTEP);
+        addToUpgrades(Items.PRISMARINE_SHARD);
+        addToUpgrades(Items.MAGMA_CREAM);
+        addToUpgrades(Items.CHORUS_FRUIT);
+        addToUpgrades(Items.HONEY_BLOCK);
+        addToUpgrades(Items.PHANTOM_MEMBRANE);
+        addToUpgrades(Items.WITHER_ROSE);
+        addToUpgrades(Items.HEART_OF_THE_SEA);
+        addToUpgrades(Items.EMERALD);
+        addToUpgrades(Items.MUSIC_DISC_PIGSTEP);
+        addToUpgrades(Items.SCUTE);
+        addToUpgrades(Items.GOLDEN_APPLE);
+        addToUpgrades(Items.ENCHANTED_GOLDEN_APPLE);
+        addToUpgrades(Items.SLIME_BALL);
+        addToUpgrades(Items.ENDER_EYE);
+        addToUpgrades(Items.POISONOUS_POTATO);
+        addToUpgrades(Items.TOTEM_OF_UNDYING);
+        addToUpgrades(Items.GOAT_HORN);
+        addToUpgrades(Items.CREEPER_HEAD);
+        addToUpgrades(Items.ZOMBIE_HEAD);
+        addToUpgrades(Items.SKELETON_SKULL);
+        addToUpgrades(Items.WITHER_SKELETON_SKULL);
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));

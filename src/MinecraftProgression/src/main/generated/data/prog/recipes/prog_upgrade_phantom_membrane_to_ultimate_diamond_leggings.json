@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_phantom_membrane": true
+        "prog_upgrade_phantom_membrane": ""
       }
     },
     "item": "prog:ultimate_diamond_leggings"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_phantom_membrane": true
+      "prog_upgrade_phantom_membrane": "minecraft:phantom_membrane"
     },
     "item": "prog:ultimate_diamond_leggings"
   }

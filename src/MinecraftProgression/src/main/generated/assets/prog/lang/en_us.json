@@ -40,5 +40,6 @@
   "item.prog.ultimate_diamond_pickaxe": "Ultimate Diamond Pickaxe",
   "item.prog.ultimate_diamond_shovel": "Ultimate Diamond Shovel",
   "item.prog.ultimate_diamond_sword": "Ultimate Diamond Sword",
-  "itemGroup.prog.upgrades": "Upgrades"
+  "itemGroup.prog.upgrades": "Upgrades",
+  "text.prog.upgradeable_upgrade_tooltip": "Upgrades"
 }

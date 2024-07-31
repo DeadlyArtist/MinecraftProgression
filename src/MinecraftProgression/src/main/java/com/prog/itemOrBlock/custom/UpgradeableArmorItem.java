@@ -5,7 +5,11 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.prog.Prog;
+import com.prog.text.PTexts;
+import com.prog.utils.StringUtils;
 import com.prog.utils.UpgradeUtils;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -16,14 +20,16 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.text.Text;
+import net.minecraft.text.TextContent;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class UpgradeableArmorItem extends ArmorItem {
-    public List<NbtElement> upgrades = List.of();
+    public Map<String, NbtElement> upgrades = new HashMap<>();
 
     public UpgradeableArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);
@@ -74,5 +80,17 @@ public class UpgradeableArmorItem extends ArmorItem {
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player) {
         updateUpgrades(stack);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        super.appendTooltip(stack, world, tooltip, context);
+
+        if (upgrades.isEmpty()) return;
+
+        tooltip.add(Text.of("\n" + PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()));
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.of("    " + String.join(", ", upgrades.values().stream().map(nbt -> UpgradeUtils.getItemFromUpgradeNbt(nbt).getName().getString()).toList())));
+        }
     }
 }

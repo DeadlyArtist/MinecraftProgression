@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_ender_eye": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:ender_eye"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_ender_eye": "minecraft:ender_eye"
+    },
+    "item": "prog:ultimate_diamond_axe"
+  }
+}

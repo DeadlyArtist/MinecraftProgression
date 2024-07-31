@@ -3,7 +3,7 @@
   "base": {
     "data": {
       "deny": {
-        "prog_upgrade_music_disc_pigstep": true
+        "prog_upgrade_music_disc_pigstep": ""
       }
     },
     "item": "prog:primal_netherite_leggings"
@@ -14,7 +14,7 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_music_disc_pigstep": true
+      "prog_upgrade_music_disc_pigstep": "minecraft:music_disc_pigstep"
     },
     "item": "prog:primal_netherite_leggings"
   }

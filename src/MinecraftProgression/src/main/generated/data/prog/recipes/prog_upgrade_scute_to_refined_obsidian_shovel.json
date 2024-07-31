@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_scute": ""
+      }
+    },
+    "item": "prog:refined_obsidian_shovel"
+  },
+  "ingredient": {
+    "item": "minecraft:scute"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_scute": "minecraft:scute"
+    },
+    "item": "prog:refined_obsidian_shovel"
+  }
+}

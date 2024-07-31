@@ -1,0 +1,21 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_slime_ball": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:slime_ball"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_slime_ball": "minecraft:slime_ball"
+    },
+    "item": "prog:ultimate_diamond_chestplate"
+  }
+}
