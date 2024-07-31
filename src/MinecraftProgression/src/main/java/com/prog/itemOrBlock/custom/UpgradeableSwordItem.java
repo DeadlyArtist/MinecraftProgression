@@ -59,18 +59,18 @@ public class UpgradeableSwordItem extends SwordItem {
     }
 
     public void updateUpgrades(ItemStack stack) {
+        if (!stack.hasNbt()) {
+            stack.setNbt(new NbtCompound());
+        }
+
         NbtCompound nbt = stack.getNbt();
+        if (!nbt.contains(ItemStack.UNBREAKABLE_KEY)) nbt.put(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
         upgrades = UpgradeUtils.extractUpgradeData(nbt);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (world.isClient) return;
-
-        if (!stack.hasNbt()) {
-            stack.setNbt(new NbtCompound());
-            stack.getNbt().put(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
-        }
 
         updateUpgrades(stack);
     }

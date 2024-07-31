@@ -52,7 +52,7 @@ public class UpgradeableArmorItem extends ArmorItem {
 
         Multimap<EntityAttribute, EntityAttributeModifier> mutableMultimap = LinkedHashMultimap.create(this.attributeModifiers);
         UUID uUID = MODIFIERS[slot.getEntitySlotId()];
-        mutableMultimap.removeAll(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+        mutableMultimap.removeAll(EntityAttributes.GENERIC_ARMOR);
         mutableMultimap.put(
                 EntityAttributes.GENERIC_ARMOR, new EntityAttributeModifier(uUID, "Armor modifier", (double) getProtection(), EntityAttributeModifier.Operation.ADDITION)
         );
@@ -60,19 +60,19 @@ public class UpgradeableArmorItem extends ArmorItem {
         return ImmutableMultimap.copyOf(mutableMultimap);
     }
 
-    public void updateUpgrades(ItemStack stack){
+    public void updateUpgrades(ItemStack stack) {
+        if (!stack.hasNbt()) {
+            stack.setNbt(new NbtCompound());
+        }
+
         NbtCompound nbt = stack.getNbt();
+        if (!nbt.contains(ItemStack.UNBREAKABLE_KEY)) nbt.put(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
         upgrades = UpgradeUtils.extractUpgradeData(nbt);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (world.isClient) return;
-
-        if (!stack.hasNbt()) {
-            stack.setNbt(new NbtCompound());
-            stack.getNbt().put(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
-        }
 
         updateUpgrades(stack);
     }

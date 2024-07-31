@@ -1,16 +1,12 @@
 {
-  "type": "nbtcrafting:smithing",
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:steel_binding"
+  },
   "base": {
     "item": "minecraft:iron_chestplate"
   },
-  "ingredient": {
-    "item": "prog:steel_binding"
-  },
   "result": {
-    "data": {
-      "$": "$base",
-      "Unbreakable": true
-    },
     "item": "prog:steel_chestplate"
   }
 }

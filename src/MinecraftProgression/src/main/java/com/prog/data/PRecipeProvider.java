@@ -367,17 +367,17 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         // Tier Upgrades
         // Steel
-        createSmithingRecipe(Input.of(Items.IRON_BOOTS), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOOTS).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
-        createSmithingRecipe(Input.of(Items.IRON_CHESTPLATE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_CHESTPLATE).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
-        createSmithingRecipe(Input.of(Items.IRON_HELMET), Input.of(PItems.STEEL_BINDING), PItems.STEEL_HELMET).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
-        createSmithingRecipe(Input.of(Items.IRON_LEGGINGS), Input.of(PItems.STEEL_BINDING), PItems.STEEL_LEGGINGS).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_BOOTS), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_CHESTPLATE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_HELMET), Input.of(PItems.STEEL_BINDING), PItems.STEEL_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_LEGGINGS), Input.of(PItems.STEEL_BINDING), PItems.STEEL_LEGGINGS).offer(exporter);
 
-        createSmithingRecipe(Input.of(Items.IRON_AXE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_AXE).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
-        createSmithingRecipe(Input.of(Items.IRON_HOE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_HOE).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
-        createSmithingRecipe(Input.of(Items.IRON_PICKAXE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_PICKAXE).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
-        createSmithingRecipe(Input.of(Items.IRON_SHOVEL), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SHOVEL).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_AXE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_HOE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_PICKAXE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_SHOVEL), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SHOVEL).offer(exporter);
 
-        createSmithingRecipe(Input.of(Items.IRON_SWORD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SWORD).addResultNbt("Unbreakable", new JsonPrimitive(true)).offer(exporter);
+        createSmithingRecipe(Input.of(Items.IRON_SWORD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SWORD).offer(exporter);
 
         // Ultimate diamond
         createSmithingRecipe(Input.of(PItems.STEEL_BOOTS), Input.of(Items.DIAMOND_BOOTS), PItems.ULTIMATE_DIAMOND_BOOTS).offer(exporter);

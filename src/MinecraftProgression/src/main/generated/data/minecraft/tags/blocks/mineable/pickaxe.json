@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "prog:steel_block",
-    "prog:steel_frame"
+    "prog:steel_frame",
+    "prog:steel_block"
   ]
 }
