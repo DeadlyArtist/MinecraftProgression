@@ -1,10 +1,13 @@
 package com.prog.utils;
 
 import com.prog.Prog;
+import com.prog.text.PTexts;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -44,5 +47,14 @@ public class UpgradeUtils {
 
     public static Item getItemFromUpgradeNbt(NbtElement nbt) {
         return Registry.ITEM.get(new Identifier(nbt.asString()));
+    }
+
+    public static void addUpgradeTooltip(List<Text> tooltip, Map<String, NbtElement> upgrades) {
+        if (upgrades.isEmpty()) return;
+
+        tooltip.add(Text.of("\n" + PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()));
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.of("    " + String.join(", ", upgrades.values().stream().map(nbt -> UpgradeUtils.getItemFromUpgradeNbt(nbt).getName().getString()).toList())));
+        }
     }
 }

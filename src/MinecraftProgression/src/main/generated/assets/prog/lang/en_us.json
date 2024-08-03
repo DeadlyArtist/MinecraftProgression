@@ -1,4 +1,6 @@
 {
+  "block.prog.assembly": "Assembly",
+  "block.prog.cosmic_constructor": "Cosmic Constructor",
   "block.prog.steel_block": "Steel Block",
   "block.prog.steel_frame": "Steel Frame",
   "item.prog.primal_netherite_axe": "Primal Netherite Axe",
@@ -41,5 +43,7 @@
   "item.prog.ultimate_diamond_shovel": "Ultimate Diamond Shovel",
   "item.prog.ultimate_diamond_sword": "Ultimate Diamond Sword",
   "itemGroup.prog.upgrades": "Upgrades",
+  "text.prog.assembly_ui_title": "Assembly",
+  "text.prog.cosmic_constructor_ui_title": "Cosmic Constructor",
   "text.prog.upgradeable_upgrade_tooltip": "Upgrades"
 }

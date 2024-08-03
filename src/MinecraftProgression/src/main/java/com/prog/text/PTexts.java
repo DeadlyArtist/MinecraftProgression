@@ -33,11 +33,17 @@ public class PTexts {
 
 
     public static final TextWrapper UPGRADEABLE_UPGRADE_TOOLTIP = registerText("UPGRADEABLE_UPGRADE_TOOLTIP", "Upgrades");
+    public static final TextWrapper ASSEMBLY_UI_TITLE = registerText("ASSEMBLY_UI_TITLE", "Assembly");
+    public static final TextWrapper COSMIC_CONSTRUCTOR_UI_TITLE = registerText("COSMIC_CONSTRUCTOR_UI_TITLE", "Cosmic Constructor");
 
 
     public static TextWrapper registerText(String id, String text) {
         TextWrapper wrapper = new TextWrapper("text." + Prog.MOD_ID + "." + id.toLowerCase());
         data.put(wrapper, new TextData(text));
         return wrapper;
+    }
+
+    public static void init() {
+        Prog.LOGGER.info("Registering Translatable Texts for: " + Prog.MOD_ID);
     }
 }

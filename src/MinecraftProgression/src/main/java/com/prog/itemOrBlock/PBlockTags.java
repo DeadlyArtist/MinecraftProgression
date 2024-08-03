@@ -27,4 +27,8 @@ public class PBlockTags {
     private static TagKey<Block> createExternalTag(String namespace, String id) {
         return TagKey.of(Registry.BLOCK.getKey(), new Identifier(namespace, id.toLowerCase()));
     }
+
+    public static void init() {
+        Prog.LOGGER.info("Registering Block Tags for: " + Prog.MOD_ID);
+    }
 }

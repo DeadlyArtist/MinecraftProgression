@@ -18,4 +18,8 @@ public class PItemTags {
     private static TagKey<Item> createExternalTag(String namespace, String id) {
         return TagKey.of(Registry.ITEM.getKey(), new Identifier(namespace, id.toLowerCase()));
     }
+
+    public static void init() {
+        Prog.LOGGER.info("Registering Item Tags for: " + Prog.MOD_ID);
+    }
 }

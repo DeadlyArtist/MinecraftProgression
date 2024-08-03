@@ -87,9 +87,6 @@ public class UpgradeablePickaxeItem extends PickaxeItem {
 
         if (upgrades.isEmpty()) return;
 
-        tooltip.add(Text.of("\n" + PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()));
-        if (Screen.hasShiftDown()) {
-            tooltip.add(Text.of("    " + String.join(", ", upgrades.values().stream().map(nbt -> UpgradeUtils.getItemFromUpgradeNbt(nbt).getName().getString()).toList())));
-        }
+        UpgradeUtils.addUpgradeTooltip(tooltip, upgrades);
     }
 }

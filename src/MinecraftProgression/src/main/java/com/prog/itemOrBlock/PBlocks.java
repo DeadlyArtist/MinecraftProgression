@@ -3,12 +3,19 @@ package com.prog.itemOrBlock;
 import com.prog.Prog;
 import com.prog.data.PBlockTagProvider;
 import com.prog.data.PLootTableProvider;
+import com.prog.itemOrBlock.custom.FlexibleCraftingBlock;
+import com.prog.itemOrBlock.data.FlexibleCraftingData;
+import com.prog.recipe.PRecipeTypes;
+import com.prog.text.PTexts;
 import com.prog.utils.StringUtils;
+import com.prog.utils.TextureMapUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.TextureMap;
+import net.minecraft.data.client.TexturedModel;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -43,7 +50,11 @@ public class PBlocks {
 
     public static final Map<Block, PBlocks.BlockData> data = new HashMap<>();
 
+    // Machines
+    public static final Block ASSEMBLY = registerBlock("ASSEMBLY", new FlexibleCraftingBlock(FlexibleCraftingData.ASSEMBLY, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerSingleton(self, TexturedModel.ORIENTABLE_WITH_BOTTOM), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
+    public static final Block COSMIC_CONSTRUCTOR = registerBlock("COSMIC_CONSTRUCTOR", new FlexibleCraftingBlock(FlexibleCraftingData.COSMIC_CONSTRUCTOR, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerSingleton(self, TexturedModel.CUBE_BOTTOM_TOP), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, PBlockTags.NEEDS_PRIMAL_NETHERITE_TOOL));
 
+    // Materials
     public static final Block STEEL_BLOCK = registerBlock("STEEL_BLOCK", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
     public static final Block STEEL_FRAME = registerBlock("STEEL_FRAME", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
 
@@ -66,6 +77,6 @@ public class PBlocks {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Mod Blocks for: " + Prog.MOD_ID);
+        Prog.LOGGER.info("Registering Blocks for: " + Prog.MOD_ID);
     }
 }

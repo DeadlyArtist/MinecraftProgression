@@ -147,6 +147,6 @@ public class PItems {
     }
 
     public static void init(){
-        Prog.LOGGER.info("Registering Mod Items for: " + Prog.MOD_ID);
+        Prog.LOGGER.info("Registering Items for: " + Prog.MOD_ID);
     }
 }

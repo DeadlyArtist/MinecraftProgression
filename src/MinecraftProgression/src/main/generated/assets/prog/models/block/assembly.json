@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "prog:block/assembly_bottom",
+    "front": "prog:block/assembly_front",
+    "side": "prog:block/assembly_side",
+    "top": "prog:block/assembly_top"
+  }
+}

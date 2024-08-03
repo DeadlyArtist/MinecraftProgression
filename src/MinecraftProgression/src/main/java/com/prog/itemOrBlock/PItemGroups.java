@@ -36,6 +36,6 @@ public class PItemGroups {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Mod Item Groups for: " + Prog.MOD_ID);
+        Prog.LOGGER.info("Registering Item Groups for: " + Prog.MOD_ID);
     }
 }

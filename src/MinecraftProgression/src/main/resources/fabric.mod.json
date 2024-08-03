@@ -18,6 +18,9 @@
 		"main": [
 			"com.prog.Prog"
 		],
+		"client": [
+			"com.prog.client.PClient"
+		],
 		"fabric-datagen": [
 			"com.prog.ProgDataGenerator"
 		]

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "prog:block/cosmic_constructor_bottom",
+    "side": "prog:block/cosmic_constructor_side",
+    "top": "prog:block/cosmic_constructor_top"
+  }
+}

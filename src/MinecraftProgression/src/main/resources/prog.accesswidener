@@ -26,6 +26,11 @@ accessible field net/minecraft/item/ItemStack CAN_DESTROY_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack CAN_PLACE_ON_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
 
+# RecipeManager
+accessible field net/minecraft/recipe/RecipeManager recipes Ljava/util/Map;
+accessible field net/minecraft/recipe/RecipeManager recipesById Ljava/util/Map;
+accessible method net/minecraft/recipe/RecipeManager getAllOfType (Lnet/minecraft/recipe/RecipeType;)Ljava/util/Map;
+
 # Smithing Recipe Builder
 accessible class net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder
 accessible field net/minecraft/data/server/recipe/SmithingRecipeJsonBuilder advancementBuilder Lnet/minecraft/advancement/Advancement$Builder;
