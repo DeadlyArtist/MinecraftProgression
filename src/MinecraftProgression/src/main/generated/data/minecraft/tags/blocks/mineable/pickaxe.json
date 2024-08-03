@@ -2,8 +2,8 @@
   "replace": false,
   "values": [
     "prog:steel_frame",
+    "prog:steel_block",
     "prog:cosmic_constructor",
-    "prog:assembly",
-    "prog:steel_block"
+    "prog:assembly"
   ]
 }

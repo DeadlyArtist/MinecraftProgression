@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.prog.IDRef;
 import com.prog.Prog;
+import com.prog.data.custom.FlexibleShapedRecipeBuilder;
 import com.prog.data.custom.NbtSmithingRecipeJsonBuilder;
 import com.prog.itemOrBlock.PBlockTags;
 import com.prog.itemOrBlock.PBlocks;
@@ -105,13 +106,23 @@ public class PRecipeProvider extends FabricRecipeProvider {
     }
 
     public static class ShapedRecipeBuilderWrapper {
-        private final ShapedRecipeJsonBuilder internalBuilder;
+        private final FlexibleShapedRecipeBuilder internalBuilder;
         private String path;
         private String namespace = null;
 
-        public ShapedRecipeBuilderWrapper(ShapedRecipeJsonBuilder internalBuilder, String path) {
+        public ShapedRecipeBuilderWrapper(FlexibleShapedRecipeBuilder internalBuilder, String path) {
             this.internalBuilder = internalBuilder;
             this.path = path;
+        }
+
+        public ShapedRecipeBuilderWrapper requireAssembly() {
+            internalBuilder.requireAssembly();
+            return this;
+        }
+
+        public ShapedRecipeBuilderWrapper requireCosmicConstructor() {
+            internalBuilder.requireCosmicConstructor();
+            return this;
         }
 
         public ShapedRecipeBuilderWrapper pattern(String pattern) {
@@ -237,7 +248,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
     }
 
     public static ShapedRecipeBuilderWrapper createShapedRecipeSpecific(List<String> pattern, List<Input> inputs, ItemConvertible output) {
-        ShapedRecipeJsonBuilder internalBuilder = ShapedRecipeJsonBuilder.create(output);
+        FlexibleShapedRecipeBuilder internalBuilder = FlexibleShapedRecipeBuilder.create(output);
         ShapedRecipeBuilderWrapper builder = new ShapedRecipeBuilderWrapper(internalBuilder, getItemPath(output));
 
         pattern.forEach(builder::pattern);
@@ -334,15 +345,15 @@ public class PRecipeProvider extends FabricRecipeProvider {
     @Override
     public void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
         // Vanilla Overrides
-        createShapedRecipe(List.of("# #", "# #"),Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_BOOTS).setNamespace(IDRef.VANILLA).setPath("netherite_boots_smithing").offer(exporter);
-        createShapedRecipe(List.of("# #", "###", "###"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_CHESTPLATE).setNamespace(IDRef.VANILLA).setPath("netherite_chestplate_smithing").offer(exporter);
-        createShapedRecipe(List.of("###", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_HELMET).setNamespace(IDRef.VANILLA).setPath("netherite_helmet_smithing").offer(exporter);
-        createShapedRecipe(List.of("###", "# #", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_LEGGINGS).setNamespace(IDRef.VANILLA).setPath("netherite_leggings_smithing").offer(exporter);
-        createShapedRecipe(List.of("##", "#I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_AXE).setNamespace(IDRef.VANILLA).setPath("netherite_axe_smithing").offer(exporter);
-        createShapedRecipe(List.of("##", " I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_HOE).setNamespace(IDRef.VANILLA).setPath("netherite_hoe_smithing").offer(exporter);
-        createShapedRecipe(List.of("###", " I ", " I "), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_PICKAXE).setNamespace(IDRef.VANILLA).setPath("netherite_pickaxe_smithing").offer(exporter);
-        createShapedRecipe(List.of("#", "I", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SHOVEL).setNamespace(IDRef.VANILLA).setPath("netherite_shovel_smithing").offer(exporter);
-        createShapedRecipe(List.of("#", "#", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SWORD).setNamespace(IDRef.VANILLA).setPath("netherite_sword_smithing").offer(exporter);
+        createShapedRecipe(List.of("# #", "# #"),Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_BOOTS).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_boots_smithing").offer(exporter);
+        createShapedRecipe(List.of("# #", "###", "###"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_CHESTPLATE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_chestplate_smithing").offer(exporter);
+        createShapedRecipe(List.of("###", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_HELMET).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_helmet_smithing").offer(exporter);
+        createShapedRecipe(List.of("###", "# #", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_LEGGINGS).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_leggings_smithing").offer(exporter);
+        createShapedRecipe(List.of("##", "#I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_AXE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_axe_smithing").offer(exporter);
+        createShapedRecipe(List.of("##", " I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_HOE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_hoe_smithing").offer(exporter);
+        createShapedRecipe(List.of("###", " I ", " I "), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_PICKAXE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_pickaxe_smithing").offer(exporter);
+        createShapedRecipe(List.of("#", "I", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SHOVEL).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_shovel_smithing").offer(exporter);
+        createShapedRecipe(List.of("#", "#", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SWORD).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_sword_smithing").offer(exporter);
         createShapedRecipe(List.of("###", "psp", "psp"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(ItemTags.PLANKS), Input.of(Items.STONE)), Items.SMITHING_TABLE).setNamespace(IDRef.VANILLA).setPath("smithing_table").offer(exporter);
 
         // Misc

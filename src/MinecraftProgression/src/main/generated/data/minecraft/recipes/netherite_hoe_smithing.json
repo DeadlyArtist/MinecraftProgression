@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "prog:assembly_shaped",
   "key": {
     "#": {
       "item": "minecraft:netherite_ingot"
