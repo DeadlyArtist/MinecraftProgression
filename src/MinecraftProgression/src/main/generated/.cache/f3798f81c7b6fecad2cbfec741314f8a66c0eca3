@@ -1,4 +1,4 @@
-// 1.19.2	2024-08-03T02:47:00.8548681	Models
+// 1.19.2	2024-08-04T03:08:27.1487268	Models
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
 8ad18a21e476171f69020b246d1b99264d1810ce assets\prog\models\item\primal_netherite_leggings.json
@@ -8,11 +8,12 @@ c4946fbd6d9d8501189a5e49b13d343ba6901ba5 assets\prog\models\item\refined_obsidia
 7802258049b4c6f96bbfaa705c56f5e8c365292c assets\prog\models\item\steel_chestplate.json
 fa6105fae161c8c554e7975096a76d724324244d assets\prog\models\item\ultimate_diamond_helmet.json
 eff237307038dae3c406c617518b043f59c2d1b5 assets\prog\models\item\refined_obsidian_pickaxe.json
-cba9485d1c47998b1020e5726fafd4c6191b3e0f assets\prog\models\item\steel_shovel.json
 462811da02150d0a2c5ad0f3e0b5d9285e43cbc9 assets\prog\models\item\steel_axe.json
+cba9485d1c47998b1020e5726fafd4c6191b3e0f assets\prog\models\item\steel_shovel.json
 f5b031acc559e4d3423a6cbbbdc407115647d8dc assets\prog\models\block\assembly.json
 69b316ab19be37c26005a3db099a442fe8a1cc99 assets\prog\models\item\primal_netherite_chestplate.json
 2a6fa71e041b061d8b0dc58d1c801ccfcfbfc3e6 assets\prog\models\item\primal_netherite_sword.json
+360605f1e147f0318f2be4e5d5d1eed8142396d9 assets\prog\models\block\incinerator.json
 011a26a83a9014086c232991ffec95554266313b assets\prog\models\item\primal_netherite_hoe.json
 52c1a6ba0526e5bf9e8eab0bca5f0df4856da9c2 assets\prog\models\item\primal_netherite_axe.json
 5ee23dcd61faca935d3b2cd3d82e52f23820d510 assets\prog\models\item\ultimate_diamond_axe.json
@@ -20,9 +21,10 @@ f5b031acc559e4d3423a6cbbbdc407115647d8dc assets\prog\models\block\assembly.json
 c003634e004203429a96cf1f5998b1f9a1f6924b assets\prog\blockstates\cosmic_constructor.json
 0d1c6b9d702a0379d37704be78c18e9a9b05050d assets\prog\models\item\ultimate_diamond_pickaxe.json
 889d725cefccc5168d021fbb0186da4bec370c0a assets\prog\models\item\steel_hoe.json
+b0c49151a38311b4789ff55e2ffc514c61f453b3 assets\prog\models\block\incinerator_on.json
 53d0494af9a18a4ef4826552c20194e99818a52a assets\prog\models\block\steel_frame.json
-4110316dc2f12421835e62877f0633f459081d3c assets\prog\models\item\ultimate_diamond_boots.json
 6ee10549516129c1fe8b313e8877f1dfb3b08710 assets\prog\models\item\steel_leggings.json
+4110316dc2f12421835e62877f0633f459081d3c assets\prog\models\item\ultimate_diamond_boots.json
 c8eefefac87f3885bde8c2f45b7fde0a5b0fe150 assets\prog\blockstates\steel_block.json
 fabd7e80678235ef142e778c3a515083fda50caf assets\prog\models\item\steel_frame.json
 94e302be05bc9245e4cbd115066062c5b40afc4c assets\prog\models\item\primal_netherite_boots.json
@@ -30,6 +32,7 @@ afb0f08c9a49a373cf7a775037f882811a795995 assets\prog\models\block\cosmic_constru
 6697167fc09148e6bedf2b2908aa8ff3e829114c assets\prog\models\item\ultimate_diamond_chestplate.json
 af8d2472c7de402c2178dfb8e02f5877e6cd021c assets\prog\models\item\refined_obsidian_ingot.json
 398c52162db30f11ef7f92374c3a3cc0039e7e9b assets\prog\models\item\ultimate_diamond_leggings.json
+4c08c4bc08f30820254483722963baf963cb4691 assets\prog\models\item\incinerator.json
 9d8cb6187695346ce1448ce222a1c1f9f62e1c4c assets\prog\models\block\steel_block.json
 a03f0cacb78b98040185262fca9ef26368a69c11 assets\prog\models\item\steel_block.json
 af8dd98cf8dd25b51a51aa630047a4d401d2dbfb assets\prog\models\item\steel_ingot.json
@@ -46,6 +49,7 @@ b7a8b5fcddca9dc40235f3a7d88622195e945961 assets\prog\models\item\ultimate_diamon
 c4e76de059bd917484756b9d925fc7542d1a83f8 assets\prog\models\item\primal_netherite_shovel.json
 458ab25da05a9781a7f95fa7b13073a2438ed09d assets\prog\blockstates\steel_frame.json
 e867ed510f11d54922b45cc7435d4670ca17a530 assets\prog\models\item\steel_binding.json
+11945599f052d9a30bcda74114f9c7e1b16ac321 assets\prog\blockstates\incinerator.json
 b0049a46a24cc5c620ae9e7a61003dd838928c72 assets\prog\models\item\refined_obsidian_helmet.json
 cb9c2d07e4f99533b6a87e414dce55a4c9604cb7 assets\prog\blockstates\assembly.json
 c220c6d22adb950ceb3fa77228f9be19dec3cd03 assets\prog\models\item\primal_netherite_pickaxe.json

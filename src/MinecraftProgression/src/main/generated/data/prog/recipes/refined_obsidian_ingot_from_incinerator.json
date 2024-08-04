@@ -1,0 +1,9 @@
+{
+  "type": "prog:incinerator",
+  "cookingtime": 1500,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": "prog:refined_obsidian_ingot"
+}

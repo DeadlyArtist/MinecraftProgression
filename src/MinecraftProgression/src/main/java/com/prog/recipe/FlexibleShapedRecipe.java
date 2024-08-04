@@ -20,7 +20,9 @@ import net.minecraft.world.World;
 import java.util.Map;
 import java.util.Set;
 
-public abstract class FlexibleShapedRecipe implements FlexibleRecipe {
+public class FlexibleShapedRecipe implements FlexibleCraftingRecipe {
+    final RecipeType<?> recipeType;
+    final RecipeSerializer<?> recipeSerializer;
     final int width;
     final int height;
     final DefaultedList<Ingredient> input;
@@ -29,7 +31,9 @@ public abstract class FlexibleShapedRecipe implements FlexibleRecipe {
     final String group;
 
 
-    public FlexibleShapedRecipe(Identifier id, String group, int width, int height, DefaultedList<Ingredient> input, ItemStack output) {
+    public FlexibleShapedRecipe(RecipeType<?> recipeType, Identifier id, String group, int width, int height, DefaultedList<Ingredient> input, ItemStack output) {
+        this.recipeType = recipeType;
+        this.recipeSerializer = new Serializer(recipeType, width, height);
         this.id = id;
         this.group = group;
         this.width = width;
@@ -41,6 +45,16 @@ public abstract class FlexibleShapedRecipe implements FlexibleRecipe {
     @Override
     public Identifier getId() {
         return this.id;
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return recipeSerializer;
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return recipeType;
     }
 
     @Override
@@ -310,8 +324,8 @@ public abstract class FlexibleShapedRecipe implements FlexibleRecipe {
             this.height = height;
         }
 
-        public Serializer(RecipeType<?> recipeType, FlexibleCraftingData data) {
-            this(recipeType, data.width, data.height);
+        public Serializer(FlexibleCraftingData data) {
+            this(data.recipeType, data.width, data.height);
         }
 
         public FlexibleShapedRecipe read(Identifier identifier, JsonObject jsonObject) {
@@ -322,17 +336,7 @@ public abstract class FlexibleShapedRecipe implements FlexibleRecipe {
             int j = strings.length;
             DefaultedList<Ingredient> defaultedList = FlexibleShapedRecipe.createPatternMatrix(strings, map, i, j);
             ItemStack itemStack = FlexibleShapedRecipe.outputFromJson(JsonHelper.getObject(jsonObject, "result"));
-            return new FlexibleShapedRecipe(identifier, string, i, j, defaultedList, itemStack) {
-                @Override
-                public RecipeType<?> getType() {
-                    return recipeType;
-                }
-
-                @Override
-                public RecipeSerializer<?> getSerializer() {
-                    return new Serializer(recipeType, width, height);
-                }
-            };
+            return new FlexibleShapedRecipe(recipeType, identifier, string, i, j, defaultedList, itemStack);
         }
 
         public FlexibleShapedRecipe read(Identifier identifier, PacketByteBuf packetByteBuf) {
@@ -346,17 +350,7 @@ public abstract class FlexibleShapedRecipe implements FlexibleRecipe {
             }
 
             ItemStack itemStack = packetByteBuf.readItemStack();
-            return new FlexibleShapedRecipe(identifier, string, i, j, defaultedList, itemStack) {
-                @Override
-                public RecipeType<?> getType() {
-                    return recipeType;
-                }
-
-                @Override
-                public RecipeSerializer<?> getSerializer() {
-                    return new Serializer(recipeType, width, height);
-                }
-            };
+            return new FlexibleShapedRecipe(recipeType, identifier, string, i, j, defaultedList, itemStack);
         }
 
         public void write(PacketByteBuf packetByteBuf, FlexibleShapedRecipe shapedRecipe) {

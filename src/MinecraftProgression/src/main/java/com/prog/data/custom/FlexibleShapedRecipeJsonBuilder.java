@@ -13,7 +13,6 @@ import net.minecraft.advancement.criterion.CriterionConditions;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.Ingredient;
@@ -28,7 +27,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class FlexibleShapedRecipeBuilder implements CraftingRecipeJsonBuilder {
+public class FlexibleShapedRecipeJsonBuilder implements CraftingRecipeJsonBuilder {
     private final Item output;
     private final int outputCount;
     private final List<String> pattern = Lists.<String>newArrayList();
@@ -38,43 +37,41 @@ public class FlexibleShapedRecipeBuilder implements CraftingRecipeJsonBuilder {
     private String group;
     public RecipeSerializer<?> recipeSerializer = RecipeSerializer.SHAPED;
 
-    public FlexibleShapedRecipeBuilder(ItemConvertible output, int outputCount) {
+    public FlexibleShapedRecipeJsonBuilder(ItemConvertible output, int outputCount) {
         this.output = output.asItem();
         this.outputCount = outputCount;
     }
 
-    public static FlexibleShapedRecipeBuilder create(ItemConvertible output) {
+    public static FlexibleShapedRecipeJsonBuilder create(ItemConvertible output) {
         return create(output, 1);
     }
 
-    public static FlexibleShapedRecipeBuilder create(ItemConvertible output, int outputCount) {
-        return new FlexibleShapedRecipeBuilder(output, outputCount);
+    public static FlexibleShapedRecipeJsonBuilder create(ItemConvertible output, int outputCount) {
+        return new FlexibleShapedRecipeJsonBuilder(output, outputCount);
     }
 
-    public FlexibleShapedRecipeBuilder setSerializer(RecipeSerializer<?> recipeSerializer) {
+    public FlexibleShapedRecipeJsonBuilder setSerializer(RecipeSerializer<?> recipeSerializer) {
         this.recipeSerializer = recipeSerializer;
         return this;
     }
 
-    public FlexibleShapedRecipeBuilder requireAssembly() {
-        this.recipeSerializer = PRecipeSerializers.ASSEMBLY_SHAPED;
-        return this;
+    public FlexibleShapedRecipeJsonBuilder requireAssembly() {
+        return setSerializer(PRecipeSerializers.ASSEMBLY_SHAPED);
     }
 
-    public FlexibleShapedRecipeBuilder requireCosmicConstructor() {
-        this.recipeSerializer = PRecipeSerializers.COSMIC_CONSTRUCTOR_SHAPED;
-        return this;
+    public FlexibleShapedRecipeJsonBuilder requireCosmicConstructor() {
+        return setSerializer(PRecipeSerializers.COSMIC_CONSTRUCTOR_SHAPED);
     }
 
-    public FlexibleShapedRecipeBuilder input(Character c, TagKey<Item> tag) {
+    public FlexibleShapedRecipeJsonBuilder input(Character c, TagKey<Item> tag) {
         return this.input(c, Ingredient.fromTag(tag));
     }
 
-    public FlexibleShapedRecipeBuilder input(Character c, ItemConvertible itemProvider) {
+    public FlexibleShapedRecipeJsonBuilder input(Character c, ItemConvertible itemProvider) {
         return this.input(c, Ingredient.ofItems(itemProvider));
     }
 
-    public FlexibleShapedRecipeBuilder input(Character c, Ingredient ingredient) {
+    public FlexibleShapedRecipeJsonBuilder input(Character c, Ingredient ingredient) {
         if (this.inputs.containsKey(c)) {
             throw new IllegalArgumentException("Symbol '" + c + "' is already defined!");
         } else if (c == ' ') {
@@ -85,7 +82,7 @@ public class FlexibleShapedRecipeBuilder implements CraftingRecipeJsonBuilder {
         }
     }
 
-    public FlexibleShapedRecipeBuilder pattern(String patternStr) {
+    public FlexibleShapedRecipeJsonBuilder pattern(String patternStr) {
         if (!this.pattern.isEmpty() && patternStr.length() != ((String) this.pattern.get(0)).length()) {
             throw new IllegalArgumentException("Pattern must be the same width on every line!");
         } else {
@@ -94,12 +91,12 @@ public class FlexibleShapedRecipeBuilder implements CraftingRecipeJsonBuilder {
         }
     }
 
-    public FlexibleShapedRecipeBuilder criterion(String string, CriterionConditions criterionConditions) {
+    public FlexibleShapedRecipeJsonBuilder criterion(String string, CriterionConditions criterionConditions) {
         this.advancementBuilder.criterion(string, criterionConditions);
         return this;
     }
 
-    public FlexibleShapedRecipeBuilder group(@Nullable String string) {
+    public FlexibleShapedRecipeJsonBuilder group(@Nullable String string) {
         this.group = string;
         return this;
     }
@@ -118,7 +115,7 @@ public class FlexibleShapedRecipeBuilder implements CraftingRecipeJsonBuilder {
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
                 .criteriaMerger(CriterionMerger.OR);
         exporter.accept(
-                new FlexibleShapedRecipeBuilder.ShapedRecipeJsonProvider(
+                new FlexibleShapedRecipeJsonBuilder.ShapedRecipeJsonProvider(
                         recipeSerializer,
                         recipeId,
                         this.output,

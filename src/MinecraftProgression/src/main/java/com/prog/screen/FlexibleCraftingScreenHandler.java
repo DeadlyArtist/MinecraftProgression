@@ -1,13 +1,9 @@
 package com.prog.screen;
 
-import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
-import com.prog.recipe.FlexibleShapedRecipe;
-import com.prog.recipe.PRecipeTypes;
 import com.prog.utils.InventoryUtils;
 import com.prog.utils.ScreenUtils;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
@@ -15,7 +11,6 @@ import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
-import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.recipe.RecipeType;
@@ -45,7 +40,7 @@ public class FlexibleCraftingScreenHandler extends AbstractRecipeScreenHandler<C
 
 
     public FlexibleCraftingScreenHandler(FlexibleCraftingData flexibleCraftingData, int syncId, PlayerInventory playerInventory) {
-        this(flexibleCraftingData.block.get(), flexibleCraftingData.screenHandlerType.get(), flexibleCraftingData.recipeTypes, flexibleCraftingData.width, flexibleCraftingData.height, syncId, playerInventory, ScreenHandlerContext.EMPTY);
+        this(flexibleCraftingData.block.get(), flexibleCraftingData.screenHandlerType.get(), flexibleCraftingData.supportedRecipeTypes, flexibleCraftingData.width, flexibleCraftingData.height, syncId, playerInventory, ScreenHandlerContext.EMPTY);
     }
 
     public FlexibleCraftingScreenHandler(Block block, ScreenHandlerType<?> screenHandlerType, List<RecipeType<? extends Recipe<CraftingInventory>>> recipeTypes, int width, int height, int syncId, PlayerInventory playerInventory) {
@@ -79,7 +74,7 @@ public class FlexibleCraftingScreenHandler extends AbstractRecipeScreenHandler<C
     }
 
     public static ScreenHandlerType.Factory<FlexibleCraftingScreenHandler> factory(FlexibleCraftingData data) {
-        return factory(data.block.get(), data.screenHandlerType, data.recipeTypes, data.width, data.height);
+        return factory(data.block.get(), data.screenHandlerType, data.supportedRecipeTypes, data.width, data.height);
     }
 
     protected void updateResult(

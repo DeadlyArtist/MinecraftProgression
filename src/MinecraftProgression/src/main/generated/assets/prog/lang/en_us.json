@@ -1,6 +1,7 @@
 {
   "block.prog.assembly": "Assembly",
   "block.prog.cosmic_constructor": "Cosmic Constructor",
+  "block.prog.incinerator": "Incinerator",
   "block.prog.steel_block": "Steel Block",
   "block.prog.steel_frame": "Steel Frame",
   "item.prog.primal_netherite_axe": "Primal Netherite Axe",
@@ -45,5 +46,6 @@
   "itemGroup.prog.upgrades": "Upgrades",
   "text.prog.assembly_ui_title": "Assembly",
   "text.prog.cosmic_constructor_ui_title": "Cosmic Constructor",
+  "text.prog.incinerator_ui_title": "Incinerator",
   "text.prog.upgradeable_upgrade_tooltip": "Upgrades"
 }

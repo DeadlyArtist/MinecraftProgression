@@ -3,7 +3,9 @@ package com.prog.itemOrBlock;
 import com.prog.Prog;
 import com.prog.data.PBlockTagProvider;
 import com.prog.data.PLootTableProvider;
+import com.prog.itemOrBlock.custom.FlexibleCookingBlock;
 import com.prog.itemOrBlock.custom.FlexibleCraftingBlock;
+import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
@@ -12,6 +14,7 @@ import com.prog.utils.TextureMapUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.TextureMap;
@@ -19,6 +22,7 @@ import net.minecraft.data.client.TexturedModel;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -30,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.ToIntFunction;
 
 public class PBlocks {
     public static class BlockData {
@@ -51,13 +56,18 @@ public class PBlocks {
     public static final Map<Block, PBlocks.BlockData> data = new HashMap<>();
 
     // Machines
-    public static final Block ASSEMBLY = registerBlock("ASSEMBLY", new FlexibleCraftingBlock(FlexibleCraftingData.ASSEMBLY, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerSingleton(self, TexturedModel.ORIENTABLE_WITH_BOTTOM), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
-    public static final Block COSMIC_CONSTRUCTOR = registerBlock("COSMIC_CONSTRUCTOR", new FlexibleCraftingBlock(FlexibleCraftingData.COSMIC_CONSTRUCTOR, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerSingleton(self, TexturedModel.CUBE_BOTTOM_TOP), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, PBlockTags.NEEDS_PRIMAL_NETHERITE_TOOL));
+    public static final Block ASSEMBLY = registerBlock("ASSEMBLY", new FlexibleCraftingBlock(FlexibleCraftingData.ASSEMBLY, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.DECORATIONS, (modelSupplier, self) -> modelSupplier.registerSingleton(self, TexturedModel.ORIENTABLE_WITH_BOTTOM), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
+    public static final Block COSMIC_CONSTRUCTOR = registerBlock("COSMIC_CONSTRUCTOR", new FlexibleCraftingBlock(FlexibleCraftingData.COSMIC_CONSTRUCTOR, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.DECORATIONS, (modelSupplier, self) -> modelSupplier.registerSingleton(self, TexturedModel.CUBE_BOTTOM_TOP), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, PBlockTags.NEEDS_PRIMAL_NETHERITE_TOOL));
+    public static final Block INCINERATOR = registerBlock("INCINERATOR", new FlexibleCookingBlock(FlexibleCookingData.INCINERATOR, FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().luminance(createLightLevelFromLitBlockState(13))), ItemGroup.DECORATIONS, (modelSupplier, self) -> modelSupplier.registerCooker(self, TexturedModel.ORIENTABLE), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
 
     // Materials
     public static final Block STEEL_BLOCK = registerBlock("STEEL_BLOCK", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
     public static final Block STEEL_FRAME = registerBlock("STEEL_FRAME", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
 
+
+    private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
+        return state -> state.get(Properties.LIT) ? litLevel : 0;
+    }
 
     private static Block registerBlock(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PLootTableProvider, Block> lootSupplier, List<TagKey<Block>> tags) {
         id = id.toLowerCase();

@@ -26,6 +26,7 @@ public class PHandledScreens {
     static {
         register(PScreenHandlerTypes.ASSEMBLY, FlexibleCraftingScreen::new);
         register(PScreenHandlerTypes.COSMIC_CONSTRUCTOR, FlexibleCraftingScreen::new);
+        register(PScreenHandlerTypes.INCINERATOR, FlexibleCookingScreen::new);
     }
 
     public static <M extends ScreenHandler, U extends Screen & ScreenHandlerProvider<M>> void register(

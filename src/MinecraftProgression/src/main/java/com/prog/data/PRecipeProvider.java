@@ -6,12 +6,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.prog.IDRef;
 import com.prog.Prog;
-import com.prog.data.custom.FlexibleShapedRecipeBuilder;
+import com.prog.data.custom.FlexibleShapedRecipeJsonBuilder;
+import com.prog.data.custom.FlexibleShapelessRecipeJsonBuilder;
 import com.prog.data.custom.NbtSmithingRecipeJsonBuilder;
-import com.prog.itemOrBlock.PBlockTags;
 import com.prog.itemOrBlock.PBlocks;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.itemOrBlock.PItems;
+import com.prog.recipe.PRecipeSerializers;
 import com.prog.utils.UpgradeUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -21,7 +22,6 @@ import net.minecraft.advancement.criterion.CriterionConditions;
 import net.minecraft.data.DataWriter;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -73,19 +73,30 @@ public class PRecipeProvider extends FabricRecipeProvider {
         public final Ingredient ingredient;
         public final ItemConvertible item;
         public final TagKey<Item> tag;
-        public Input(char identifier, Ingredient ingredient, ItemConvertible item, TagKey<Item> tag) {
+        public final int size;
+
+        public Input(int size, char identifier, Ingredient ingredient, ItemConvertible item, TagKey<Item> tag) {
             this.identifier = identifier;
+            this.size = size;
             this.ingredient = ingredient;
             this.item = item;
             this.tag = tag;
         }
 
         public Input(char identifier, ItemConvertible item) {
-            this(identifier, Ingredient.ofItems(item), item, null);
+            this(1, identifier, Ingredient.ofItems(item), item, null);
         }
 
         public Input(char identifier, TagKey<Item> tag) {
-            this(identifier, Ingredient.fromTag(tag), null, tag);
+            this(1, identifier, Ingredient.fromTag(tag), null, tag);
+        }
+
+        public Input(int size, ItemConvertible item) {
+            this(size, Character.MIN_VALUE, Ingredient.ofItems(item), item, null);
+        }
+
+        public Input(int size, TagKey<Item> tag) {
+            this(size, Character.MIN_VALUE, Ingredient.fromTag(tag), null, tag);
         }
 
         public static Input of(char identifier, ItemConvertible item) {
@@ -103,14 +114,22 @@ public class PRecipeProvider extends FabricRecipeProvider {
         public static Input of(TagKey<Item> tag) {
             return new Input(Character.MIN_VALUE, tag);
         }
+
+        public static Input of(ItemConvertible item, int size) {
+            return new Input(size, item);
+        }
+
+        public static Input of(TagKey<Item> tag, int size) {
+            return new Input(size, tag);
+        }
     }
 
     public static class ShapedRecipeBuilderWrapper {
-        private final FlexibleShapedRecipeBuilder internalBuilder;
+        private final FlexibleShapedRecipeJsonBuilder internalBuilder;
         private String path;
         private String namespace = null;
 
-        public ShapedRecipeBuilderWrapper(FlexibleShapedRecipeBuilder internalBuilder, String path) {
+        public ShapedRecipeBuilderWrapper(FlexibleShapedRecipeJsonBuilder internalBuilder, String path) {
             this.internalBuilder = internalBuilder;
             this.path = path;
         }
@@ -146,6 +165,58 @@ public class PRecipeProvider extends FabricRecipeProvider {
         }
 
         public ShapedRecipeBuilderWrapper setNamespace(String namespace) {
+            this.namespace = namespace;
+            return this;
+        }
+
+        public void offer(Consumer<RecipeJsonProvider> exporter) {
+            Identifier identifier = new Identifier(namespace, path);
+            if (namespace != null) recipesWithCustomNamespace.add(String.valueOf(identifier));
+            internalBuilder.offerTo(exporter, identifier);
+        }
+    }
+
+    public static class ShapelessRecipeBuilderWrapper {
+        private final FlexibleShapelessRecipeJsonBuilder internalBuilder;
+        private String path;
+        private String namespace = null;
+
+        public ShapelessRecipeBuilderWrapper(FlexibleShapelessRecipeJsonBuilder internalBuilder, String path) {
+            this.internalBuilder = internalBuilder;
+            this.path = path;
+        }
+
+        public ShapelessRecipeBuilderWrapper requireAssembly() {
+            internalBuilder.requireAssembly();
+            return this;
+        }
+
+        public ShapelessRecipeBuilderWrapper requireCosmicConstructor() {
+            internalBuilder.requireCosmicConstructor();
+            return this;
+        }
+
+        public ShapelessRecipeBuilderWrapper input(Ingredient ingredient, int size) {
+            internalBuilder.input(ingredient, size);
+            return this;
+        }
+
+        public ShapelessRecipeBuilderWrapper input(Ingredient ingredient) {
+            internalBuilder.input(ingredient, 1);
+            return this;
+        }
+
+        public ShapelessRecipeBuilderWrapper criterion(String criterionName, net.minecraft.advancement.criterion.CriterionConditions conditions) {
+            internalBuilder.criterion(criterionName, conditions);
+            return this;
+        }
+
+        public ShapelessRecipeBuilderWrapper setPath(String path) {
+            this.path = path;
+            return this;
+        }
+
+        public ShapelessRecipeBuilderWrapper setNamespace(String namespace) {
             this.namespace = namespace;
             return this;
         }
@@ -248,7 +319,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
     }
 
     public static ShapedRecipeBuilderWrapper createShapedRecipeSpecific(List<String> pattern, List<Input> inputs, ItemConvertible output) {
-        FlexibleShapedRecipeBuilder internalBuilder = FlexibleShapedRecipeBuilder.create(output);
+        FlexibleShapedRecipeJsonBuilder internalBuilder = FlexibleShapedRecipeJsonBuilder.create(output);
         ShapedRecipeBuilderWrapper builder = new ShapedRecipeBuilderWrapper(internalBuilder, getItemPath(output));
 
         pattern.forEach(builder::pattern);
@@ -261,13 +332,23 @@ public class PRecipeProvider extends FabricRecipeProvider {
     public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, List<Input> inputs, ItemConvertible output) {
         List<Character> uniqueChars = ShapedRecipeUtils.getUniqueChars(pattern);
         List<Input> inputsMapped = IntStream.range(0, Math.min(uniqueChars.size(), inputs.size()))
-                .mapToObj(i -> new Input(uniqueChars.get(i), inputs.get(i).ingredient, inputs.get(i).item, inputs.get(i).tag))
+                .mapToObj(i -> new Input(1, uniqueChars.get(i), inputs.get(i).ingredient, inputs.get(i).item, inputs.get(i).tag))
                 .toList();
         return createShapedRecipeSpecific(pattern, inputsMapped, output);
     }
 
     public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, Input input, ItemConvertible output) {
         return createShapedRecipe(pattern, List.of(input), output);
+    }
+
+    public static ShapelessRecipeBuilderWrapper createShapelessRecipe(List<Input> inputs, ItemConvertible output) {
+        FlexibleShapelessRecipeJsonBuilder internalBuilder = FlexibleShapelessRecipeJsonBuilder.create(output);
+        ShapelessRecipeBuilderWrapper builder = new ShapelessRecipeBuilderWrapper(internalBuilder, getItemPath(output));
+
+        inputs.forEach(input -> builder.input(input.ingredient, input.size));
+        inputs.forEach(input -> builder.criterion(hasInput(input), conditionsFromInput(input)));
+
+        return builder;
     }
 
     public static CookingRecipeBuilderWrapper createCookingRecipe(CookingRecipeSerializer<?> serializer, Input input, ItemConvertible output, int cookingTime, float experience) {
@@ -358,7 +439,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         // Misc
         createShapedRecipe(List.of("# #", " # ", "# #"),Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);
-        createCookingRecipe(RecipeSerializer.SMELTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300,0.45F).offer(exporter);
+        createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
+        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500,2F).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
 
         // Armor

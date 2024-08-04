@@ -1,15 +1,10 @@
 package com.prog.itemOrBlock.custom;
 
-import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
-import com.prog.recipe.FlexibleShapedRecipe;
-import com.prog.recipe.PRecipeTypes;
 import com.prog.screen.FlexibleCraftingScreenHandler;
-import com.prog.text.PTexts;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.recipe.Recipe;
@@ -45,7 +40,7 @@ public class FlexibleCraftingBlock extends Block {
     }
 
     public FlexibleCraftingBlock(FlexibleCraftingData data, AbstractBlock.Settings settings) {
-        this(data.screenHandlerType.get(), data.recipeTypes, data.width, data.height, data.title, settings);
+        this(data.screenHandlerType.get(), data.supportedRecipeTypes, data.width, data.height, data.title, settings);
     }
 
     @Override

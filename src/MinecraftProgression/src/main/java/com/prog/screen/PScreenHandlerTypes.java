@@ -1,6 +1,7 @@
 package com.prog.screen;
 
 import com.prog.Prog;
+import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
 import com.prog.recipe.PRecipeTypes;
 import net.minecraft.recipe.RecipeType;
@@ -15,6 +16,7 @@ import java.util.List;
 public class PScreenHandlerTypes {
     public static final ScreenHandlerType<FlexibleCraftingScreenHandler> ASSEMBLY = register("ASSEMBLY", FlexibleCraftingScreenHandler.factory(FlexibleCraftingData.ASSEMBLY));
     public static final ScreenHandlerType<FlexibleCraftingScreenHandler> COSMIC_CONSTRUCTOR = register("COSMIC_CONSTRUCTOR", FlexibleCraftingScreenHandler.factory(FlexibleCraftingData.COSMIC_CONSTRUCTOR));
+    public static final ScreenHandlerType<FlexibleCookingScreenHandler> INCINERATOR = register("INCINERATOR", FlexibleCookingScreenHandler.factory(FlexibleCookingData.INCINERATOR));
 
     private static <T extends ScreenHandler> ScreenHandlerType<T> register(String id, ScreenHandlerType.Factory<T> factory) {
         return Registry.register(Registry.SCREEN_HANDLER, new Identifier(Prog.MOD_ID, id.toLowerCase()), new ScreenHandlerType<>(factory));

@@ -29,5 +29,6 @@ public class Prog implements ModInitializer {
         PItemGroups.init();
         PItems.init();
         PBlocks.init();
+        PBlockEntityTypes.init();
     }
 }
