@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.prog.Prog;
+import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.text.PTexts;
 import com.prog.utils.UpgradeUtils;
 import net.minecraft.client.gui.screen.Screen;
@@ -56,6 +57,7 @@ public class UpgradeableAxeItem extends AxeItem {
                 EntityAttributes.GENERIC_ATTACK_DAMAGE,
                 new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", (double) getAttackDamage(), EntityAttributeModifier.Operation.ADDITION)
         );
+        mutableMultimap.put(PEntityAttributes.STEP_HEIGHT, new EntityAttributeModifier("Axe step height modifier", 2, EntityAttributeModifier.Operation.ADDITION));
 
         return ImmutableMultimap.copyOf(mutableMultimap);
     }

@@ -77,6 +77,8 @@ public class PItems {
 
 
     // Refined obsidian
+    public static final Item REFINED_OBSIDIAN_MODULE = registerItem("REFINED_OBSIDIAN_MODULE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+
     // Refined obsidian tier armor
     public static final Item REFINED_OBSIDIAN_BOOTS = registerItem("REFINED_OBSIDIAN_BOOTS", new UpgradeableArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
     public static final Item REFINED_OBSIDIAN_CHESTPLATE = registerItem("REFINED_OBSIDIAN_CHESTPLATE", new UpgradeableArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
@@ -126,6 +128,9 @@ public class PItems {
 
     // Primal netherite tier weapons
     public static final Item PRIMAL_NETHERITE_SWORD = registerItem("PRIMAL_NETHERITE_SWORD", new UpgradeableSwordItem(PToolMaterials.PRIMAL_NETHERITE, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+
+    // Upgrades
+    public static final Item MECHANICAL_BOOTS = registerItem("MECHANICAL_BOOTS", new ArmorItem(PArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADE));
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {

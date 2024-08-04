@@ -1,0 +1,25 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "#": {
+      "item": "prog:refined_obsidian_ingot"
+    },
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "cr#rc",
+    "c#g#c",
+    "cr#rc"
+  ],
+  "result": {
+    "item": "prog:refined_obsidian_module"
+  }
+}

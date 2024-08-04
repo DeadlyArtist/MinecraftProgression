@@ -440,6 +440,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         // Misc
         createShapedRecipe(List.of("# #", " # ", "# #"),Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);
         createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
+        createShapedRecipe(List.of("cr#rc", "c#g#c", "cr#rc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.GOLD_INGOT)), PItems.REFINED_OBSIDIAN_MODULE).requireAssembly().offer(exporter);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500,2F).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
 

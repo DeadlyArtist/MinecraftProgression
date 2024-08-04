@@ -1,4 +1,5 @@
 {
+  "attribute.name.generic.step_height": "Step Height",
   "block.prog.assembly": "Assembly",
   "block.prog.cosmic_constructor": "Cosmic Constructor",
   "block.prog.incinerator": "Incinerator",
@@ -20,6 +21,7 @@
   "item.prog.refined_obsidian_hoe": "Refined Obsidian Hoe",
   "item.prog.refined_obsidian_ingot": "Refined Obsidian Ingot",
   "item.prog.refined_obsidian_leggings": "Refined Obsidian Leggings",
+  "item.prog.refined_obsidian_module": "Refined Obsidian Module",
   "item.prog.refined_obsidian_pickaxe": "Refined Obsidian Pickaxe",
   "item.prog.refined_obsidian_shovel": "Refined Obsidian Shovel",
   "item.prog.refined_obsidian_sword": "Refined Obsidian Sword",

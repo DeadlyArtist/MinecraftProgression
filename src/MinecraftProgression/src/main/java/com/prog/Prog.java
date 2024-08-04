@@ -1,12 +1,12 @@
 package com.prog;
 
-import com.prog.client.gui.screen.ingame.PHandledScreens;
+import com.prog.entity.attribute.PDefaultAttributes;
+import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.event.EntityTickEvents;
 import com.prog.itemOrBlock.*;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -30,5 +30,14 @@ public class Prog implements ModInitializer {
         PItems.init();
         PBlocks.init();
         PBlockEntityTypes.init();
+        PEntityAttributes.init();
+        PDefaultAttributes.init();
+
+        final boolean[] test = {true};
+        // Events
+        //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
+        EntityTickEvents.LIVING_ENTITY_TICK.register(entity -> {
+            entity.stepHeight = (float) entity.getAttributeValue(PEntityAttributes.STEP_HEIGHT);
+        });
     }
 }
