@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_scute": "minecraft:scute"
+      "prog_upgrade_scute": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:scute"
+      }
     },
     "item": "prog:steel_boots"
   }

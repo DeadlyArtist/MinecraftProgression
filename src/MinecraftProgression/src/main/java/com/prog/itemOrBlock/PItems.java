@@ -1,6 +1,7 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
+import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.itemOrBlock.custom.*;
 import com.prog.itemOrBlock.tiers.PArmorMaterials;
 import com.prog.itemOrBlock.tiers.PToolMaterials;
@@ -10,16 +11,20 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.recipe.AbstractCookingRecipe;
+import net.minecraft.recipe.RecipeType;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class PItems {
     public static class ItemData {
@@ -130,7 +135,7 @@ public class PItems {
     public static final Item PRIMAL_NETHERITE_SWORD = registerItem("PRIMAL_NETHERITE_SWORD", new UpgradeableSwordItem(PToolMaterials.PRIMAL_NETHERITE, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
 
     // Upgrades
-    public static final Item MECHANICAL_BOOTS = registerItem("MECHANICAL_BOOTS", new ArmorItem(PArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADE));
+    public static final Item MECHANICAL_BOOTS = registerUpgrade("MECHANICAL_BOOTS", new ArmorItem(PArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
@@ -149,6 +154,18 @@ public class PItems {
 
     private static Item registerItem(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier) {
         return registerItem(id, item, modelSupplier, null);
+    }
+
+    private static Item registerUpgrade(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier, List<TagKey<Item>> tags, Function<Item, List<UEffect>> effects) {
+        tags = new ArrayList<>(tags);
+        tags.add(PItemTags.UPGRADE);
+        Item registeredItem = registerItem(id, item, modelSupplier, tags);
+        Upgrades.register(registeredItem, effects);
+        return registeredItem;
+    }
+
+    private static Item registerUpgrade(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier, Function<Item, List<UEffect>> effects) {
+        return registerUpgrade(id, item, modelSupplier, List.of(), effects);
     }
 
     public static void init(){

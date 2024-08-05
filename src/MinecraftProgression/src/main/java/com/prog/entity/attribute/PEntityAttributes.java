@@ -22,6 +22,7 @@ public class PEntityAttributes {
     public static final Map<EntityAttribute, EntityAttributeData> data = new HashMap<>();
 
     public static final EntityAttribute STEP_HEIGHT = registerClampedEntityAttribute("STEP_HEIGHT", 0.6, 0.0, 1000.0);
+    public static final EntityAttribute FALL_DAMAGE_DIVISOR = registerClampedEntityAttribute("FALL_DAMAGE_DIVISOR", 0.0, 0.0, 1000.0); // 0 for immunity
 
     public static EntityAttribute registerClampedEntityAttribute(String id, double fallback, double min, double max){
         id = id.toLowerCase();

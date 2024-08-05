@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_goat_horn": "minecraft:goat_horn"
+      "prog_upgrade_goat_horn": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 5.0
+            },
+            "target": "additionalentityattributes:generic.lung_capacity"
+          }
+        ],
+        "id": "minecraft:goat_horn"
+      }
     },
     "item": "prog:refined_obsidian_chestplate"
   }

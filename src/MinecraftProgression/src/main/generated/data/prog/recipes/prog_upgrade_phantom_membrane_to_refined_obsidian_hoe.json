@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_phantom_membrane": "minecraft:phantom_membrane"
+      "prog_upgrade_phantom_membrane": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:phantom_membrane"
+      }
     },
     "item": "prog:refined_obsidian_hoe"
   }

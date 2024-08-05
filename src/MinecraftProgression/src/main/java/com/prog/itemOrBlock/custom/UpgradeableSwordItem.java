@@ -64,7 +64,6 @@ public class UpgradeableSwordItem extends SwordItem {
         }
 
         NbtCompound nbt = stack.getNbt();
-        if (!nbt.contains(ItemStack.UNBREAKABLE_KEY)) nbt.put(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
         upgrades = UpgradeUtils.extractUpgradeData(nbt);
     }
 

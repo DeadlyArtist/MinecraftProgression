@@ -42,9 +42,9 @@ public enum FlexibleCookingData {
         this.title = title;
         this.screenHandlerType = screenHandlerType;
 
-        List<RecipeType<? extends AbstractCookingRecipe>> tempList = new ArrayList<>(additionalSupportedRecipeTypes);
-        tempList.add(recipeType);
-        this.supportedRecipeTypes = tempList;
+        additionalSupportedRecipeTypes = new ArrayList<>(additionalSupportedRecipeTypes);
+        additionalSupportedRecipeTypes.add(recipeType);
+        this.supportedRecipeTypes = additionalSupportedRecipeTypes;
     }
 
     FlexibleCookingData(Supplier<Block> block, Supplier<BlockEntityType<FlexibleCookingBlockEntity>> blockEntityType, Supplier<RecipeSerializer<?>> recipeSerializerSupplier, RecipeType<? extends AbstractCookingRecipe> recipeType, int defaultCookingTime, float cookingTimeDivisor, Text title, Supplier<ScreenHandlerType<?>> screenHandlerType) {

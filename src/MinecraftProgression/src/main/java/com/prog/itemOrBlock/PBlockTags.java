@@ -21,11 +21,11 @@ public class PBlockTags {
     }
 
     private static TagKey<Block> createTag(String id) {
-        return TagKey.of(Registry.BLOCK.getKey(), new Identifier(Prog.MOD_ID, id.toLowerCase()));
+        return TagKey.of(Registry.BLOCK_KEY, new Identifier(Prog.MOD_ID, id.toLowerCase()));
     }
 
     private static TagKey<Block> createExternalTag(String namespace, String id) {
-        return TagKey.of(Registry.BLOCK.getKey(), new Identifier(namespace, id.toLowerCase()));
+        return TagKey.of(Registry.BLOCK_KEY, new Identifier(namespace, id.toLowerCase()));
     }
 
     public static void init() {

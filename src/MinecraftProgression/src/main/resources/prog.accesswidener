@@ -19,6 +19,12 @@ accessible field net/minecraft/item/MiningToolItem attributeModifiers Lcom/googl
 accessible field net/minecraft/item/SwordItem attributeModifiers Lcom/google/common/collect/Multimap;
 accessible field net/minecraft/item/SwordItem attackDamage F
 
+# Item
+accessible field net/minecraft/item/Item foodComponent Lnet/minecraft/item/FoodComponent;
+mutable field net/minecraft/item/Item foodComponent Lnet/minecraft/item/FoodComponent;
+accessible field net/minecraft/item/Item group Lnet/minecraft/item/ItemGroup;
+mutable field net/minecraft/item/Item group Lnet/minecraft/item/ItemGroup;
+
 # ItemStack
 accessible field net/minecraft/item/ItemStack UNBREAKABLE_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack REPAIR_COST_KEY Ljava/lang/String;

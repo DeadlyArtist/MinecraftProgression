@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_wither_rose": "minecraft:wither_rose"
+      "prog_upgrade_wither_rose": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:wither_rose"
+      }
     },
     "item": "prog:refined_obsidian_sword"
   }

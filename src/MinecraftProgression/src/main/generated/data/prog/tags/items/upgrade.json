@@ -3,7 +3,6 @@
   "values": [
     "minecraft:prismarine_shard",
     "minecraft:magma_cream",
-    "minecraft:chorus_fruit",
     "minecraft:honey_block",
     "minecraft:phantom_membrane",
     "minecraft:wither_rose",
@@ -11,16 +10,15 @@
     "minecraft:emerald",
     "minecraft:music_disc_pigstep",
     "minecraft:scute",
-    "minecraft:golden_apple",
-    "minecraft:enchanted_golden_apple",
     "minecraft:slime_ball",
     "minecraft:ender_eye",
-    "minecraft:poisonous_potato",
     "minecraft:totem_of_undying",
     "minecraft:goat_horn",
     "minecraft:creeper_head",
     "minecraft:zombie_head",
     "minecraft:skeleton_skull",
-    "minecraft:wither_skeleton_skull"
+    "minecraft:wither_skeleton_skull",
+    "minecraft:nether_star",
+    "prog:mechanical_boots"
   ]
 }

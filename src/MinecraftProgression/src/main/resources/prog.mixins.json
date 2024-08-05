@@ -3,11 +3,13 @@
 	"package": "com.prog.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin",
 		"RecipeProviderMixin",
 		"EntityMixin",
 		"LivingEntityMixin",
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"ItemStackMixin",
+		"ItemMixin",
+		"ItemsMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

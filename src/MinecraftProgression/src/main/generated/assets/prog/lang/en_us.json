@@ -1,10 +1,13 @@
 {
+  "attribute.name.generic.fall_damage_divisor": "Fall Damage Divisor",
   "attribute.name.generic.step_height": "Step Height",
   "block.prog.assembly": "Assembly",
   "block.prog.cosmic_constructor": "Cosmic Constructor",
   "block.prog.incinerator": "Incinerator",
   "block.prog.steel_block": "Steel Block",
   "block.prog.steel_frame": "Steel Frame",
+  "enchantment.prog.air_affinity": "Air Affinity",
+  "item.prog.mechanical_boots": "Mechanical Boots",
   "item.prog.primal_netherite_axe": "Primal Netherite Axe",
   "item.prog.primal_netherite_boots": "Primal Netherite Boots",
   "item.prog.primal_netherite_chestplate": "Primal Netherite Chestplate",

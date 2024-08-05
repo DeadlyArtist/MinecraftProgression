@@ -1,3 +1,4 @@
-// 1.19.2	2024-08-04T08:13:37.2318964	Tags for minecraft:item
-54e40c963655ac00db79fa2d710cda698829023b data\prog\tags\items\upgrade.json
-1063578ecd258d65ce1b8c753f3fcc18d4c9d916 data\prog\tags\items\upgradeable.json
+// 1.19.2	2024-08-05T22:41:18.764479	Tags for minecraft:item
+d7689832e9a8bc26e9770879d0335d607840643d data\prog\tags\items\gourmet_food.json
+d30b38a7970ee7e6f2e81c09b9dc356e17b9fc10 data\prog\tags\items\upgrade.json
+04716ff25051ab5566335d63b9309feeb7e6f7fc data\prog\tags\items\upgradeable.json

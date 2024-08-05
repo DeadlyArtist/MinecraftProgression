@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_scute": "minecraft:scute"
+      "prog_upgrade_scute": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:scute"
+      }
     },
     "item": "prog:ultimate_diamond_shovel"
   }

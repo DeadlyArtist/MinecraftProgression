@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_zombie_head": "minecraft:zombie_head"
+      "prog_upgrade_zombie_head": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:zombie_head"
+      }
     },
     "item": "prog:primal_netherite_helmet"
   }

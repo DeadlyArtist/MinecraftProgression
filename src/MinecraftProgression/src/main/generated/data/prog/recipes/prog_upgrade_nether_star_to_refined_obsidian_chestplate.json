@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_nether_star": ""
+      }
+    },
+    "item": "prog:refined_obsidian_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:nether_star"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_nether_star": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 2.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:nether_star"
+      }
+    },
+    "item": "prog:refined_obsidian_chestplate"
+  }
+}

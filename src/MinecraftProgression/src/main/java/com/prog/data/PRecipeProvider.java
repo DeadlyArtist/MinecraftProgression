@@ -1,6 +1,7 @@
 package com.prog.data;
 
 import com.google.common.collect.Sets;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -9,9 +10,7 @@ import com.prog.Prog;
 import com.prog.data.custom.FlexibleShapedRecipeJsonBuilder;
 import com.prog.data.custom.FlexibleShapelessRecipeJsonBuilder;
 import com.prog.data.custom.NbtSmithingRecipeJsonBuilder;
-import com.prog.itemOrBlock.PBlocks;
-import com.prog.itemOrBlock.PItemTags;
-import com.prog.itemOrBlock.PItems;
+import com.prog.itemOrBlock.*;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.utils.UpgradeUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -25,6 +24,7 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
@@ -32,6 +32,8 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntryList;
+import net.minecraft.util.registry.RegistryKey;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -488,15 +490,17 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         // Upgrades
         List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADEABLE);
-        if (upgradeTargets == null) upgradeTargets = List.of();
-        List<Item> upgrades = PItemTagProvider.tags.get(PItemTags.UPGRADE);
-        if (upgrades == null) upgrades = List.of();
-        List<Item> finalUpgrades = upgrades;
+        List<Upgrade> upgrades = Upgrades.all;
         upgradeTargets.forEach(target -> {
-            finalUpgrades.forEach(upgrade -> {
-                String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(upgrade);
-                String recipePath = UpgradeUtils.getRecipePath(upgrade, target);
-                createSmithingRecipe(Input.of(target), Input.of(upgrade), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, new JsonPrimitive(Registry.ITEM.getId(upgrade.asItem()).toString())).setPath(recipePath).offer(exporter);
+            upgrades.forEach(upgrade -> {
+                var effects = upgrade.effects.apply(target);
+                if (effects == null || effects.isEmpty()) return;
+
+                String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(upgrade.item);
+                String recipePath = UpgradeUtils.getRecipePath(upgrade.item, target);
+                var effectsJson = new JsonArray();
+                effects.forEach(effect -> effectsJson.add(effect.toJson()));
+                createSmithingRecipe(Input.of(target), Input.of(upgrade.item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, effectsJson).setPath(recipePath).offer(exporter);
             });
         });
     }

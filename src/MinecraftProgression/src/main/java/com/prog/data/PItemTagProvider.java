@@ -1,12 +1,15 @@
 package com.prog.data;
 
-import com.prog.itemOrBlock.PBlocks;
-import com.prog.itemOrBlock.PItemTags;
-import com.prog.itemOrBlock.PItems;
+import com.prog.Prog;
+import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.entity.attribute.XEntityAttributes;
+import com.prog.itemOrBlock.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
@@ -16,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
@@ -29,34 +33,52 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         tags.computeIfAbsent(tag, k -> new ArrayList<>()).add(item);
     }
 
-    public static void addToUpgrades(Item item) {
+    public static void addToUpgrades(Item item, Function<Item, List<UEffect>> effects) {
         addToTag(PItemTags.UPGRADE, item);
+        Upgrades.register(item, effects);
+    }
+
+    public static void addToGourmetFood(Item item, List<UEffect> effects) {
+        addToTag(PItemTags.GOURMET_FOOD, item);
+        GourmetFoods.register(item, effects);
+    }
+
+    public static void addToGourmetFood(Item item, UEffect effect) {
+        addToTag(PItemTags.GOURMET_FOOD, item);
+        GourmetFoods.register(item, List.of(effect));
     }
 
     @Override
     protected void generateTags() {
-        // Vanilla overrides
-        addToUpgrades(Items.PRISMARINE_SHARD);
-        addToUpgrades(Items.MAGMA_CREAM);
-        addToUpgrades(Items.CHORUS_FRUIT);
-        addToUpgrades(Items.HONEY_BLOCK);
-        addToUpgrades(Items.PHANTOM_MEMBRANE);
-        addToUpgrades(Items.WITHER_ROSE);
-        addToUpgrades(Items.HEART_OF_THE_SEA);
-        addToUpgrades(Items.EMERALD);
-        addToUpgrades(Items.MUSIC_DISC_PIGSTEP);
-        addToUpgrades(Items.SCUTE);
-        addToUpgrades(Items.GOLDEN_APPLE);
-        addToUpgrades(Items.ENCHANTED_GOLDEN_APPLE);
-        addToUpgrades(Items.SLIME_BALL);
-        addToUpgrades(Items.ENDER_EYE);
-        addToUpgrades(Items.POISONOUS_POTATO);
-        addToUpgrades(Items.TOTEM_OF_UNDYING);
-        addToUpgrades(Items.GOAT_HORN);
-        addToUpgrades(Items.CREEPER_HEAD);
-        addToUpgrades(Items.ZOMBIE_HEAD);
-        addToUpgrades(Items.SKELETON_SKULL);
-        addToUpgrades(Items.WITHER_SKELETON_SKULL);
+        // Vanilla upgrade overrides
+        addToUpgrades(Items.PRISMARINE_SHARD, UEffectMapper.damage());
+        addToUpgrades(Items.MAGMA_CREAM, UEffectMapper.best());
+        addToUpgrades(Items.HONEY_BLOCK, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
+        addToUpgrades(Items.PHANTOM_MEMBRANE, UEffectMapper.best());
+        addToUpgrades(Items.WITHER_ROSE, UEffectMapper.best());
+        addToUpgrades(Items.HEART_OF_THE_SEA, UEffectMapper.best());
+        addToUpgrades(Items.EMERALD, UEffectMapper.best());
+        addToUpgrades(Items.MUSIC_DISC_PIGSTEP, UEffectMapper.best());
+        addToUpgrades(Items.SCUTE, UEffectMapper.best());
+        addToUpgrades(Items.SLIME_BALL, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
+        addToUpgrades(Items.ENDER_EYE, UEffectMapper.best());
+        addToUpgrades(Items.TOTEM_OF_UNDYING, UEffectMapper.protection());
+        addToUpgrades(Items.GOAT_HORN, UEffectMapper.chestplate(UEffect.add(XEntityAttributes.LUNG_CAPACITY, 5)));
+        addToUpgrades(Items.CREEPER_HEAD, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.ZOMBIE_HEAD, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.SKELETON_SKULL, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.WITHER_SKELETON_SKULL, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.NETHER_STAR, UEffectMapper.best(2));
+
+        // Vanilla gourmet food overrides
+        addToGourmetFood(Items.GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
+        addToGourmetFood(Items.ENCHANTED_GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
+        addToGourmetFood(Items.CHORUS_FRUIT, UEffect.increment(XEntityAttributes.JUMP_HEIGHT));
+        addToGourmetFood(Items.POISONOUS_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
+        addToGourmetFood(Items.GOLDEN_CARROT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        addToGourmetFood(Items.GLISTERING_MELON_SLICE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        addToGourmetFood(Items.ROTTEN_FLESH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        addToGourmetFood(Items.SPIDER_EYE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));

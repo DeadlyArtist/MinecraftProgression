@@ -1,15 +1,20 @@
 package com.prog.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.prog.entity.attribute.PEntityAttributes;
-import com.prog.event.EntityTickEvents;
+import com.prog.event.EntityEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -17,18 +22,42 @@ public class LivingEntityMixin {
     @Inject(at = @At(value = "HEAD"), method = "tick")
     private void tick(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
-        EntityTickEvents.LIVING_ENTITY_TICK.invoker().tick(entity);
+        EntityEvents.LIVING_ENTITY_TICK.invoker().tick(entity);
     }
 
-    @Redirect(method = "createLivingAttributes", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/attribute/DefaultAttributeContainer;builder()Lnet/minecraft/entity/attribute/DefaultAttributeContainer$Builder;"))
-    private static DefaultAttributeContainer.Builder createLivingAttributes() {
+    @Inject(method = "createLivingAttributes", at = @At("RETURN"))
+    private static void createLivingAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> info) {
         // Customize the attributes
-        return DefaultAttributeContainer.builder()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 40.0) // Example: changing the default max health to 40
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED)
-                .add(EntityAttributes.GENERIC_ARMOR)
-                .add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS)
-                .add(PEntityAttributes.STEP_HEIGHT);
+        EntityEvents.CREATE_LIVING_ATTRIBUTES.invoker().create(info.getReturnValue());
+    }
+
+    @ModifyReturnValue(
+            method = "computeFallDamage",
+            at = @At("RETURN")
+    )
+    private int computeFallDamage(int originalReturnValue, float fallDistance, float damageMultiplier) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        double divisor = self.getAttributeValue(PEntityAttributes.FALL_DAMAGE_DIVISOR);
+        return divisor == 0 ? 0 : MathHelper.ceil(originalReturnValue / divisor);
+    }
+
+    @Inject(method = "applyFoodEffects", at = @At("HEAD"))
+    private void applyFoodEffects(ItemStack stack, World world, LivingEntity targetEntity, CallbackInfo info) {
+        Item item = stack.getItem();
+        if (!item.isFood()) return;
+
+        EntityEvents.APPLY_FOOD_EFFECTS.invoker().apply(targetEntity, stack);
+    }
+
+    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
+    private void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo info) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        EntityEvents.WRITE_CUSTOM_DATA_TO_NBT.invoker().write(self, nbt);
+    }
+
+    @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
+    private void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        EntityEvents.READ_CUSTOM_DATA_FROM_NBT.invoker().read(self, nbt);
     }
 }

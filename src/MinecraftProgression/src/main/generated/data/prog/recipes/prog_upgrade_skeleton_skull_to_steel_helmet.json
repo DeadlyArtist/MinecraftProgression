@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_skeleton_skull": "minecraft:skeleton_skull"
+      "prog_upgrade_skeleton_skull": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:skeleton_skull"
+      }
     },
     "item": "prog:steel_helmet"
   }

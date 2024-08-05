@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_prismarine_shard": "minecraft:prismarine_shard"
+      "prog_upgrade_prismarine_shard": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:prismarine_shard"
+      }
     },
     "item": "prog:refined_obsidian_shovel"
   }

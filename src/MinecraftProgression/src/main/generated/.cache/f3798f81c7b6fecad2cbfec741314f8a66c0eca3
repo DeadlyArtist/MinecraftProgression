@@ -1,4 +1,4 @@
-// 1.19.2	2024-08-04T08:13:37.2168963	Models
+// 1.19.2	2024-08-05T22:41:18.7624795	Models
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
 8ad18a21e476171f69020b246d1b99264d1810ce assets\prog\models\item\primal_netherite_leggings.json
@@ -38,6 +38,7 @@ d4f401fb2ca93a2b705cada1ced013106a5a4373 assets\prog\models\item\refined_obsidia
 a03f0cacb78b98040185262fca9ef26368a69c11 assets\prog\models\item\steel_block.json
 af8dd98cf8dd25b51a51aa630047a4d401d2dbfb assets\prog\models\item\steel_ingot.json
 3988de28deddf76c5fbc635c51895c12ba7e78b1 assets\prog\models\item\assembly.json
+d34c92ed7328fd327ef2940dfd1886ec906c69ac assets\prog\models\item\mechanical_boots.json
 ebe215d79138af39083d21e65b366b0211a49f04 assets\prog\models\item\cosmic_constructor.json
 2971341346917592fa54d0c7af73114a5c82546d assets\prog\models\item\primal_netherite_helmet.json
 91e936ebb175faaba7470345d80473a913500ddc assets\prog\models\item\refined_obsidian_leggings.json

@@ -11,6 +11,7 @@ public class ProgDataGenerator implements DataGeneratorEntrypoint {
 		PBlockTagProvider pBlockTagProvider = new PBlockTagProvider(generator);
 		generator.addProvider(pBlockTagProvider);
 		generator.addProvider(gen -> new PItemTagProvider(gen, pBlockTagProvider));
+		//generator.addProvider(new PItemTagProvider(generator, null));
 
 		generator.addProvider(PLangProvider::new);
 		generator.addProvider(PModelProvider::new);

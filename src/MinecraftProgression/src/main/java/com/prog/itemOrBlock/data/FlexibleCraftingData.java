@@ -35,9 +35,9 @@ public enum FlexibleCraftingData {
         this.title = title;
         this.screenHandlerType = screenHandlerType;
 
-        List<RecipeType<? extends Recipe<CraftingInventory>>> tempList = new ArrayList<>(additionalSupportedRecipeTypes);
-        tempList.add(recipeType);
-        this.supportedRecipeTypes = tempList;
+        additionalSupportedRecipeTypes = new ArrayList<>(additionalSupportedRecipeTypes);
+        additionalSupportedRecipeTypes.add(recipeType);
+        this.supportedRecipeTypes = additionalSupportedRecipeTypes;
     }
 
     FlexibleCraftingData(Supplier<Block> block, RecipeType<? extends Recipe<CraftingInventory>> recipeType, int width, int height, Text title, Supplier<ScreenHandlerType<?>> screenHandlerType) {

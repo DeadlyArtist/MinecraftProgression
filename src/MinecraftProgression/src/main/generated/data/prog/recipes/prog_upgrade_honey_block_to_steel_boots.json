@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_honey_block": "minecraft:honey_block"
+      "prog_upgrade_honey_block": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 2.0
+            },
+            "target": "prog:fall_damage_divisor"
+          }
+        ],
+        "id": "minecraft:honey_block"
+      }
     },
     "item": "prog:steel_boots"
   }

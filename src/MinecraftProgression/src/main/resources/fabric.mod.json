@@ -34,7 +34,9 @@
 		"minecraft": "~1.19.2",
 		"java": ">=17",
 		"fabric-api": "*",
-		"nbtcrafting": "*"
+		"nbtcrafting": "*",
+		"projectile_damage": "*",
+		"additionalentityattributes": "*"
 	},
 	"suggests": {
 		"another-mod": "*"

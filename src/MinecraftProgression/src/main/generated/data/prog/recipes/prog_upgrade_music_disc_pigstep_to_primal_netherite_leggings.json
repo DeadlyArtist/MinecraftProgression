@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_music_disc_pigstep": "minecraft:music_disc_pigstep"
+      "prog_upgrade_music_disc_pigstep": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:music_disc_pigstep"
+      }
     },
     "item": "prog:primal_netherite_leggings"
   }

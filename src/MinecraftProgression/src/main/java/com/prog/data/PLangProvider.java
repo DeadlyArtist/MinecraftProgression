@@ -1,5 +1,6 @@
 package com.prog.data;
 
+import com.prog.enchantment.PEnchantments;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.itemOrBlock.PBlocks;
 import com.prog.itemOrBlock.PItemGroups;
@@ -17,6 +18,7 @@ public class PLangProvider extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder translationBuilder) {
         // Preregistered
         PTexts.data.forEach((item, data) -> translationBuilder.add(item.id, data.text));
+        PEnchantments.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PItems.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PBlocks.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PItemGroups.data.forEach((item, data) -> translationBuilder.add(item, data.name));

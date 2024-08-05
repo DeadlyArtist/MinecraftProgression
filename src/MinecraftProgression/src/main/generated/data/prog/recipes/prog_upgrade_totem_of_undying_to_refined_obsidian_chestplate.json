@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_totem_of_undying": "minecraft:totem_of_undying"
+      "prog_upgrade_totem_of_undying": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:totem_of_undying"
+      }
     },
     "item": "prog:refined_obsidian_chestplate"
   }

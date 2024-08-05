@@ -14,7 +14,18 @@
   "result": {
     "data": {
       "$": "$base",
-      "prog_upgrade_emerald": "minecraft:emerald"
+      "prog_upgrade_emerald": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:emerald"
+      }
     },
     "item": "prog:steel_shovel"
   }

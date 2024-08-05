@@ -1,6 +1,6 @@
 package com.prog.mixin;
 
-import com.prog.event.EntityTickEvents;
+import com.prog.event.EntityEvents;
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,6 +12,6 @@ public class EntityMixin {
     @Inject(at = @At(value = "HEAD"), method = "tick")
     private void tick(CallbackInfo ci) {
         Entity entity = (Entity) (Object) this;
-        EntityTickEvents.ENTITY_TICK.invoker().tick(entity);
+        EntityEvents.ENTITY_TICK.invoker().tick(entity);
     }
 }

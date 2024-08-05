@@ -2,8 +2,8 @@
   "replace": false,
   "values": [
     "prog:steel_block",
-    "prog:assembly",
+    "prog:incinerator",
     "prog:steel_frame",
-    "prog:incinerator"
+    "prog:assembly"
   ]
 }
