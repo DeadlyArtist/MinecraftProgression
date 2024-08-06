@@ -1,0 +1,9 @@
+{
+  "type": "prog:incinerator",
+  "cookingtime": 600,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "prog:emberite_ore"
+  },
+  "result": "prog:emberite"
+}

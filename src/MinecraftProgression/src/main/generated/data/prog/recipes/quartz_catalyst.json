@@ -1,0 +1,22 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "c": {
+      "item": "prog:compressed_quartz"
+    },
+    "p": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "pattern": [
+    " qcq ",
+    "ccpcc",
+    " qcq "
+  ],
+  "result": {
+    "item": "prog:quartz_catalyst"
+  }
+}

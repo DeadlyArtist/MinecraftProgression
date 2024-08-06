@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:refined_obsidian_module"
+  },
+  "base": {
+    "item": "prog:titan_sword"
+  },
+  "result": {
+    "item": "prog:refined_obsidian_sword"
+  }
+}

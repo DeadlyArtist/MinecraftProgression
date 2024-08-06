@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_boots"
+  },
+  "base": {
+    "item": "prog:titan_boots"
+  },
+  "result": {
+    "item": "prog:primal_netherite_boots"
+  }
+}

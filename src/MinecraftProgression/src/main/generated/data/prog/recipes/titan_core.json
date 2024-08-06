@@ -1,0 +1,19 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "t": {
+      "item": "prog:titan_ingot"
+    }
+  },
+  "pattern": [
+    " t ",
+    "tdt",
+    " t "
+  ],
+  "result": {
+    "item": "prog:titan_core"
+  }
+}

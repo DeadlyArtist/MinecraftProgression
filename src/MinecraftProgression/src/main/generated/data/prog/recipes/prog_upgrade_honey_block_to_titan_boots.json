@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_honey_block": ""
+      }
+    },
+    "item": "prog:titan_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:honey_block"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_honey_block": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 2.0
+            },
+            "target": "prog:fall_damage_divisor"
+          }
+        ],
+        "id": "minecraft:honey_block"
+      }
+    },
+    "item": "prog:titan_boots"
+  }
+}

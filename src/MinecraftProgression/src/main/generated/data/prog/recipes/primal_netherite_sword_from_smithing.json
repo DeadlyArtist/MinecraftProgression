@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_sword"
+  },
+  "base": {
+    "item": "prog:titan_sword"
+  },
+  "result": {
+    "item": "prog:primal_netherite_sword"
+  }
+}

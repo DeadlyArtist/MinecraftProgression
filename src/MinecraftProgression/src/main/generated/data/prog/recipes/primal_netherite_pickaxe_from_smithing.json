@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "base": {
+    "item": "prog:titan_pickaxe"
+  },
+  "result": {
+    "item": "prog:primal_netherite_pickaxe"
+  }
+}

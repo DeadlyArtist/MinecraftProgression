@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_hoe"
+  },
+  "base": {
+    "item": "prog:titan_hoe"
+  },
+  "result": {
+    "item": "prog:primal_netherite_hoe"
+  }
+}

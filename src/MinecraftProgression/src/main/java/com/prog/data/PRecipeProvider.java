@@ -319,8 +319,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
         super(generator);
     }
 
-    public static ShapedRecipeBuilderWrapper createShapedRecipeSpecific(List<String> pattern, List<Input> inputs, ItemConvertible output) {
-        FlexibleShapedRecipeJsonBuilder internalBuilder = FlexibleShapedRecipeJsonBuilder.create(output);
+    public static ShapedRecipeBuilderWrapper createShapedRecipeSpecific(List<String> pattern, List<Input> inputs, ItemConvertible output, int outputCount) {
+        FlexibleShapedRecipeJsonBuilder internalBuilder = FlexibleShapedRecipeJsonBuilder.create(output, outputCount);
         ShapedRecipeBuilderWrapper builder = new ShapedRecipeBuilderWrapper(internalBuilder, getItemPath(output));
 
         pattern.forEach(builder::pattern);
@@ -330,26 +330,42 @@ public class PRecipeProvider extends FabricRecipeProvider {
         return builder;
     }
 
-    public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, List<Input> inputs, ItemConvertible output) {
+    public static ShapedRecipeBuilderWrapper createShapedRecipeSpecific(List<String> pattern, List<Input> inputs, ItemConvertible output) {
+        return createShapedRecipeSpecific(pattern, inputs, output, 1);
+    }
+
+    public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, List<Input> inputs, ItemConvertible output, int outputCount) {
         List<Character> uniqueChars = ShapedRecipeUtils.getUniqueChars(pattern);
         List<Input> inputsMapped = IntStream.range(0, Math.min(uniqueChars.size(), inputs.size()))
                 .mapToObj(i -> new Input(1, uniqueChars.get(i), inputs.get(i).ingredient, inputs.get(i).item, inputs.get(i).tag))
                 .toList();
-        return createShapedRecipeSpecific(pattern, inputsMapped, output);
+        return createShapedRecipeSpecific(pattern, inputsMapped, output, outputCount);
+    }
+
+    public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, List<Input> inputs, ItemConvertible output) {
+        return createShapedRecipe(pattern, inputs, output, 1);
+    }
+
+    public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, Input input, ItemConvertible output, int outputCount) {
+        return createShapedRecipe(pattern, List.of(input), output, outputCount);
     }
 
     public static ShapedRecipeBuilderWrapper createShapedRecipe(List<String> pattern, Input input, ItemConvertible output) {
-        return createShapedRecipe(pattern, List.of(input), output);
+        return createShapedRecipe(pattern, input, output, 1);
     }
 
-    public static ShapelessRecipeBuilderWrapper createShapelessRecipe(List<Input> inputs, ItemConvertible output) {
-        FlexibleShapelessRecipeJsonBuilder internalBuilder = FlexibleShapelessRecipeJsonBuilder.create(output);
+    public static ShapelessRecipeBuilderWrapper createShapelessRecipe(List<Input> inputs, ItemConvertible output, int outputCount) {
+        FlexibleShapelessRecipeJsonBuilder internalBuilder = FlexibleShapelessRecipeJsonBuilder.create(output, outputCount);
         ShapelessRecipeBuilderWrapper builder = new ShapelessRecipeBuilderWrapper(internalBuilder, getItemPath(output));
 
         inputs.forEach(input -> builder.input(input.ingredient, input.size));
         inputs.forEach(input -> builder.criterion(hasInput(input), conditionsFromInput(input)));
 
         return builder;
+    }
+
+    public static ShapelessRecipeBuilderWrapper createShapelessRecipe(List<Input> inputs, ItemConvertible output) {
+        return createShapelessRecipe(inputs, output, 1);
     }
 
     public static CookingRecipeBuilderWrapper createCookingRecipe(CookingRecipeSerializer<?> serializer, Input input, ItemConvertible output, int cookingTime, float experience) {
@@ -436,6 +452,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("###", " I ", " I "), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_PICKAXE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_pickaxe_smithing").offer(exporter);
         createShapedRecipe(List.of("#", "I", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SHOVEL).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_shovel_smithing").offer(exporter);
         createShapedRecipe(List.of("#", "#", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SWORD).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_sword_smithing").offer(exporter);
+        createShapedRecipe(List.of("  sss", " sGs ", "sss  "), List.of(Input.of(Items.NETHERITE_SCRAP), Input.of(Blocks.GOLD_BLOCK)), Items.NETHERITE_INGOT, 8).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_ingot").offer(exporter);
         createShapedRecipe(List.of("###", "psp", "psp"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(ItemTags.PLANKS), Input.of(Items.STONE)), Items.SMITHING_TABLE).setNamespace(IDRef.VANILLA).setPath("smithing_table").offer(exporter);
 
         // Misc
@@ -443,10 +460,15 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("ss ", "sos", " ss"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.OBSIDIAN)), PBlocks.STEEL_FRAME).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500, 2F).offer(exporter);
+        offerReversibleCompactingRecipes(exporter, PItems.EMBERITE, PBlocks.EMBERITE_BLOCK);
+        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(PBlocks.EMBERITE_ORE), PItems.EMBERITE, 600, 1F).offer(exporter);
+        createShapedRecipe(List.of(" qcq ", "ccpcc", " qcq "), List.of(Input.of(Items.QUARTZ), Input.of(PItems.COMPRESSED_QUARTZ), Input.of(Items.PRISMARINE_CRYSTALS)), PBlocks.QUARTZ_CATALYST).requireAssembly().offer(exporter);
 
         // Tier upgrades
         createShapedRecipe(List.of("# #", " # ", "# #"), Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);
         createShapedRecipe(List.of("cr#rc", "c#g#c", "cr#rc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.GOLD_INGOT)), PItems.REFINED_OBSIDIAN_MODULE).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("  cce", " eCe ", "  ecc"), List.of(Input.of(PItems.COMPRESSED_QUARTZ), Input.of(PItems.EMBERITE), Input.of(PBlocks.QUARTZ_CATALYST)), PItems.TITAN_INGOT).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of(" t ", "tdt", " t "), List.of(Input.of(PItems.TITAN_INGOT), Input.of(Items.DIAMOND)), PItems.TITAN_CORE).requireAssembly().offer(exporter);
 
         // Machines
         createShapedRecipe(List.of("frf", "fcf", "rRr"), List.of(Input.of(PBlocks.STEEL_FRAME), Input.of(Items.REDSTONE), Input.of(Items.CRAFTING_TABLE), Input.of(Blocks.REDSTONE_BLOCK)), PBlocks.ASSEMBLY).offer(exporter);
@@ -478,6 +500,45 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.STEEL_SHOVEL), Input.of(Items.DIAMOND_SHOVEL), PItems.ULTIMATE_DIAMOND_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.STEEL_SWORD), Input.of(Items.DIAMOND_SWORD), PItems.ULTIMATE_DIAMOND_SWORD).offer(exporter);
+
+        // Refined obsidian
+        createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_BOOTS), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_CHESTPLATE), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_HELMET), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_LEGGINGS), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_LEGGINGS).offer(exporter);
+
+        createSmithingRecipe(Input.of(PItems.TITAN_AXE), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_HOE), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_PICKAXE), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_SHOVEL), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SHOVEL).offer(exporter);
+
+        createSmithingRecipe(Input.of(PItems.TITAN_SWORD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SWORD).offer(exporter);
+
+        // Titan
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_BOOTS), Input.of(PItems.TITAN_CORE), PItems.TITAN_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_CHESTPLATE), Input.of(PItems.TITAN_CORE), PItems.TITAN_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_HELMET), Input.of(PItems.TITAN_CORE), PItems.TITAN_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_LEGGINGS), Input.of(PItems.TITAN_CORE), PItems.TITAN_LEGGINGS).offer(exporter);
+
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_AXE), Input.of(PItems.TITAN_CORE), PItems.TITAN_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_HOE), Input.of(PItems.TITAN_CORE), PItems.TITAN_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_PICKAXE), Input.of(PItems.TITAN_CORE), PItems.TITAN_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SHOVEL), Input.of(PItems.TITAN_CORE), PItems.TITAN_SHOVEL).offer(exporter);
+
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SWORD), Input.of(PItems.TITAN_CORE), PItems.TITAN_SWORD).offer(exporter);
+
+        // Primal netherite
+        createSmithingRecipe(Input.of(PItems.TITAN_BOOTS), Input.of(Items.NETHERITE_BOOTS), PItems.PRIMAL_NETHERITE_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_CHESTPLATE), Input.of(Items.NETHERITE_CHESTPLATE), PItems.PRIMAL_NETHERITE_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_HELMET), Input.of(Items.NETHERITE_HELMET), PItems.PRIMAL_NETHERITE_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_LEGGINGS), Input.of(Items.NETHERITE_LEGGINGS), PItems.PRIMAL_NETHERITE_LEGGINGS).offer(exporter);
+
+        createSmithingRecipe(Input.of(PItems.TITAN_AXE), Input.of(Items.NETHERITE_AXE), PItems.PRIMAL_NETHERITE_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_HOE), Input.of(Items.NETHERITE_HOE), PItems.PRIMAL_NETHERITE_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_PICKAXE), Input.of(Items.NETHERITE_PICKAXE), PItems.PRIMAL_NETHERITE_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_SHOVEL), Input.of(Items.NETHERITE_SHOVEL), PItems.PRIMAL_NETHERITE_SHOVEL).offer(exporter);
+
+        createSmithingRecipe(Input.of(PItems.TITAN_SWORD), Input.of(Items.NETHERITE_SWORD), PItems.PRIMAL_NETHERITE_SWORD).offer(exporter);
 
         // Upgrades
         List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);

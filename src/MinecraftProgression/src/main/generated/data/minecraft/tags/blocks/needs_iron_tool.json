@@ -1,9 +1,9 @@
 {
   "replace": false,
   "values": [
-    "prog:assembly",
     "prog:steel_frame",
+    "prog:steel_block",
     "prog:incinerator",
-    "prog:steel_block"
+    "prog:assembly"
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_scute": ""
+      }
+    },
+    "item": "prog:titan_leggings"
+  },
+  "ingredient": {
+    "item": "minecraft:scute"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_scute": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:scute"
+      }
+    },
+    "item": "prog:titan_leggings"
+  }
+}

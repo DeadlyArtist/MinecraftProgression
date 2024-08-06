@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:titan_core"
+  },
+  "base": {
+    "item": "prog:refined_obsidian_hoe"
+  },
+  "result": {
+    "item": "prog:titan_hoe"
+  }
+}

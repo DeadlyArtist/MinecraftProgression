@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "base": {
+    "item": "prog:titan_shovel"
+  },
+  "result": {
+    "item": "prog:primal_netherite_shovel"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "base": {
+    "item": "prog:titan_leggings"
+  },
+  "result": {
+    "item": "prog:primal_netherite_leggings"
+  }
+}

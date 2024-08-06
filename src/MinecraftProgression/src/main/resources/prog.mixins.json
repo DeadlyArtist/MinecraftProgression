@@ -1,18 +1,19 @@
 {
-	"required": true,
-	"package": "com.prog.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"RecipeProviderMixin",
-		"EntityMixin",
-		"LivingEntityMixin",
-		"PlayerEntityMixin",
-		"ItemStackMixin",
-		"ItemMixin",
-		"ItemsMixin",
-		"ClientPlayerEntityMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.prog.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ClientPlayerEntityMixin",
+    "ConfiguredFeaturesMixin",
+    "EntityMixin",
+    "ItemMixin",
+    "ItemsMixin",
+    "ItemStackMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "RecipeProviderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "base": {
+    "item": "prog:titan_helmet"
+  },
+  "result": {
+    "item": "prog:primal_netherite_helmet"
+  }
+}

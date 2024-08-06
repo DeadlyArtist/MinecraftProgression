@@ -7,6 +7,9 @@ accessible method net/minecraft/item/HoeItem <init> (Lnet/minecraft/item/ToolMat
 accessible field net/minecraft/item/MiningToolItem attackDamage F
 mutable field net/minecraft/item/MiningToolItem attackDamage F
 
+# Netherite spawn chance increase
+mutable field net/minecraft/world/gen/feature/OreFeatureConfig size I
+
 # ArmorItem
 accessible field net/minecraft/item/ArmorItem attributeModifiers Lcom/google/common/collect/Multimap;
 mutable field net/minecraft/item/ArmorItem attributeModifiers Lcom/google/common/collect/Multimap;

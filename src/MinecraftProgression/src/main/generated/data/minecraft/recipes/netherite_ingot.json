@@ -1,0 +1,20 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "s": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "pattern": [
+    "  sss",
+    " sGs ",
+    "sss  "
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:netherite_ingot"
+  }
+}

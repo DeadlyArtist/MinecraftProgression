@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_slime_ball": ""
+      }
+    },
+    "item": "prog:titan_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:slime_ball"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_slime_ball": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 2.0
+            },
+            "target": "prog:fall_damage_divisor"
+          }
+        ],
+        "id": "minecraft:slime_ball"
+      }
+    },
+    "item": "prog:titan_boots"
+  }
+}

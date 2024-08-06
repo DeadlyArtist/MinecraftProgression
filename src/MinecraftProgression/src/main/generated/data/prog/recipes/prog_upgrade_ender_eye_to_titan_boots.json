@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_ender_eye": ""
+      }
+    },
+    "item": "prog:titan_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:ender_eye"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_ender_eye": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:ender_eye"
+      }
+    },
+    "item": "prog:titan_boots"
+  }
+}

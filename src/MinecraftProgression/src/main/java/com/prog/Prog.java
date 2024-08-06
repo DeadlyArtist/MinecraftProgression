@@ -14,6 +14,7 @@ import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.ItemUtils;
 import com.prog.utils.SlotUtils;
 import com.prog.utils.UpgradeUtils;
+import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
@@ -57,11 +58,29 @@ public class Prog implements ModInitializer {
         PEntityAttributes.init();
         PDefaultAttributes.init();
         GourmetFoods.init();
+        OreGeneration.init();
 
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
         EntityEvents.LIVING_ENTITY_TICK.register(entity -> {
             entity.stepHeight = (float) entity.getAttributeValue(PEntityAttributes.STEP_HEIGHT);
+        });
+
+        EntityEvents.PLAYER_ENTITY_TICK.register(player -> {
+            if (player.isCreative() || player.isSpectator()) return;
+
+            var abilities = player.getAbilities();
+            if (player.getAttributeValue(PEntityAttributes.FLIGHT) == 1) {
+                if (!abilities.allowFlying) {
+                    abilities.allowFlying = true;
+                    player.sendAbilitiesUpdate();
+                }
+            } else {
+                if (abilities.allowFlying) {
+                    abilities.allowFlying = false;
+                    player.sendAbilitiesUpdate();
+                }
+            }
         });
 
         ItemStackEvents.ITEM_STACK_CTOR.register((stack) -> {

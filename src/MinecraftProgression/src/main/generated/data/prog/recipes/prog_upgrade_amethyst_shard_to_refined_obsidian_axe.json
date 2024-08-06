@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_amethyst_shard": ""
+      }
+    },
+    "item": "prog:refined_obsidian_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_amethyst_shard": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:amethyst_shard"
+      }
+    },
+    "item": "prog:refined_obsidian_axe"
+  }
+}

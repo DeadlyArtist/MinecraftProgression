@@ -1,0 +1,32 @@
+{
+  "type": "nbtcrafting:smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_mechanical_boots": ""
+      }
+    },
+    "item": "prog:titan_boots"
+  },
+  "ingredient": {
+    "item": "prog:mechanical_boots"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_mechanical_boots": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "prog:step_height"
+          }
+        ],
+        "id": "prog:mechanical_boots"
+      }
+    },
+    "item": "prog:titan_boots"
+  }
+}

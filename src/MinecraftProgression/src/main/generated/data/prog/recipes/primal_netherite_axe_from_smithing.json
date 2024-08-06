@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_axe"
+  },
+  "base": {
+    "item": "prog:titan_axe"
+  },
+  "result": {
+    "item": "prog:primal_netherite_axe"
+  }
+}

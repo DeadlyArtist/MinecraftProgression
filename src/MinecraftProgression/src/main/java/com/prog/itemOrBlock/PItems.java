@@ -59,7 +59,7 @@ public class PItems {
 
 
     // Ultimate diamond
-    public static final Item REFINED_OBSIDIAN_INGOT = registerItem("REFINED_OBSIDIAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+
 
     // Ultimate diamond tier armor
     public static final Item ULTIMATE_DIAMOND_BOOTS = registerItem("ULTIMATE_DIAMOND_BOOTS", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
@@ -78,6 +78,7 @@ public class PItems {
 
 
     // Refined obsidian
+    public static final Item REFINED_OBSIDIAN_INGOT = registerItem("REFINED_OBSIDIAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
     public static final Item REFINED_OBSIDIAN_MODULE = registerItem("REFINED_OBSIDIAN_MODULE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 
     // Refined obsidian tier armor
@@ -95,24 +96,26 @@ public class PItems {
     // Refined obsidian tier weapons
     public static final Item REFINED_OBSIDIAN_SWORD = registerItem("REFINED_OBSIDIAN_SWORD", new SwordItem(PToolMaterials.REFINED_OBSIDIAN, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
+    // Titan
+    public static final Item EMBERITE = registerItem("EMBERITE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item COMPRESSED_QUARTZ = registerItem("COMPRESSED_QUARTZ", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item TITAN_INGOT = registerItem("TITAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item TITAN_CORE = registerItem("TITAN_CORE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 
-//    // Titan
-//    public static final Item TITAN_INGOT = registerItem("TITAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//
-//    // Titan tier armor
-//    public static final Item TITAN_BOOTS = registerItem("TITAN_BOOTS", new ArmorItem(PArmorMaterial.TITAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//    public static final Item TITAN_CHESTPLATE = registerItem("TITAN_CHESTPLATE", new ArmorItem(PArmorMaterial.TITAN, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//    public static final Item TITAN_HELMET = registerItem("TITAN_HELMET", new ArmorItem(PArmorMaterial.TITAN, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//    public static final Item TITAN_LEGGINGS = registerItem("TITAN_LEGGINGS", new ArmorItem(PArmorMaterial.TITAN, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//
-//    // Titan tier tools
-//    public static final Item TITAN_AXE = registerItem("TITAN_AXE", new AxeItem(PToolMaterial.TITAN, 6.0F, -3.1F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//    public static final Item TITAN_HOE = registerItem("TITAN_HOE", new HoeItem(PToolMaterial.TITAN, -2, -1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//    public static final Item TITAN_PICKAXE = registerItem("TITAN_PICKAXE", new PickaxeItem(PToolMaterial.TITAN, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//    public static final Item TITAN_SHOVEL = registerItem("TITAN_SHOVEL", new ShovelItem(PToolMaterial.TITAN, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
-//
-//    // Titan tier weapons
-//    public static final Item TITAN_SWORD = registerItem("TITAN_SWORD", new SwordItem(PToolMaterial.TITAN, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    // Titan tier armor
+    public static final Item TITAN_BOOTS = registerItem("TITAN_BOOTS", new ArmorItem(PArmorMaterials.TITAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item TITAN_CHESTPLATE = registerItem("TITAN_CHESTPLATE", new ArmorItem(PArmorMaterials.TITAN, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item TITAN_HELMET = registerItem("TITAN_HELMET", new ArmorItem(PArmorMaterials.TITAN, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item TITAN_LEGGINGS = registerItem("TITAN_LEGGINGS", new ArmorItem(PArmorMaterials.TITAN, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+
+    // Titan tier tools
+    public static final Item TITAN_AXE = registerItem("TITAN_AXE", new AxeItem(PToolMaterials.TITAN, 6.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item TITAN_HOE = registerItem("TITAN_HOE", new HoeItem(PToolMaterials.TITAN, -4, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item TITAN_PICKAXE = registerItem("TITAN_PICKAXE", new PickaxeItem(PToolMaterials.TITAN, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item TITAN_SHOVEL = registerItem("TITAN_SHOVEL", new ShovelItem(PToolMaterials.TITAN, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+
+    // Titan tier weapons
+    public static final Item TITAN_SWORD = registerItem("TITAN_SWORD", new SwordItem(PToolMaterials.TITAN, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
 
     // Primal netherite tier armor
@@ -132,6 +135,7 @@ public class PItems {
 
     // Upgrades
     public static final Item MECHANICAL_BOOTS = registerUpgrade("MECHANICAL_BOOTS", new ArmorItem(PArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
+    public static final Item ANGEL_RING = registerUpgrade("ANGEL_RING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.FLIGHT)));
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
