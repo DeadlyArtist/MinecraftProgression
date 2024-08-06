@@ -29,6 +29,9 @@
 		],
 		"cardinal-components-entity": [
 			"com.prog.entity.PComponents"
+		],
+		"dynamiclights": [
+			"com.prog.PLights"
 		]
 	},
 	"mixins": [

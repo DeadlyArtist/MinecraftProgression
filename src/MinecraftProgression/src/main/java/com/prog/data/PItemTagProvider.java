@@ -69,6 +69,7 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.SKELETON_SKULL, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.WITHER_SKELETON_SKULL, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.NETHER_STAR, UEffectMapper.best(2));
+        addToUpgrades(Items.TORCH, UEffectMapper.helmet(UEffect.add(PEntityAttributes.LUMINANCE, 14)));
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));

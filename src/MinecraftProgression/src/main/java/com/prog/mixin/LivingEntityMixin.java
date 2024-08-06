@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -52,5 +53,15 @@ public class LivingEntityMixin {
         if (!item.isFood()) return;
 
         EntityEvents.APPLY_FOOD_EFFECTS.invoker().apply(targetEntity, stack);
+    }
+
+    @Inject(method = "canHaveStatusEffect", at = @At("HEAD"), cancellable = true)
+    private void canHaveStatusEffect(StatusEffectInstance effect, CallbackInfoReturnable<Boolean> info) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        var can = EntityEvents.CAN_HAVE_STATUS_EFFECT.invoker().check(self, effect);
+        if (!can) {
+            info.setReturnValue(false);
+            info.cancel();
+        }
     }
 }

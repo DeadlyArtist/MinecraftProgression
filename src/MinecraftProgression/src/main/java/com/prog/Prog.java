@@ -19,6 +19,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -30,6 +32,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+
+import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
 public class Prog implements ModInitializer {
     public static final String MOD_ID = "prog";
@@ -80,6 +84,16 @@ public class Prog implements ModInitializer {
 
         EntityEvents.APPLY_FOOD_EFFECTS.register((entity, stack) -> {
             PComponents.COMPONENT.get(entity).eat(stack.getItem());
+        });
+
+        EntityEvents.CAN_HAVE_STATUS_EFFECT.register((entity, effectInstance) -> {
+            StatusEffect effect = effectInstance.getEffectType();
+            var immunityAttribute = IMMUNITY_MAP.get(effect);
+            if (immunityAttribute != null && entity.getAttributeValue(immunityAttribute) == 1.0) {
+                return false;
+            }
+
+            return true;
         });
     }
 }

@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -41,6 +43,13 @@ public class EntityEvents {
         }
     });
 
+    public static final Event<ICanHaveStatusEffect> CAN_HAVE_STATUS_EFFECT = EventFactory.createArrayBacked(ICanHaveStatusEffect.class, callbacks -> (entity, stack) -> {
+        for (ICanHaveStatusEffect callback : callbacks) {
+            if (!callback.check(entity, stack)) return false;
+        }
+        return true;
+    });
+
     @FunctionalInterface
     public interface IEntityTick {
         void tick(Entity entity);
@@ -64,5 +73,10 @@ public class EntityEvents {
     @FunctionalInterface
     public interface IApplyFoodEffects {
         void apply(LivingEntity enity, ItemStack stack);
+    }
+
+    @FunctionalInterface
+    public interface ICanHaveStatusEffect {
+        boolean check(LivingEntity enity, StatusEffectInstance effect);
     }
 }

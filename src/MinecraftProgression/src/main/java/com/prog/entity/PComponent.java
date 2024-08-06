@@ -1,13 +1,16 @@
 package com.prog.entity;
 
+import com.prog.Prog;
 import com.prog.itemOrBlock.GourmetFoods;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.ItemUtils;
 import dev.onyxstudios.cca.api.v3.component.Component;
+import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
@@ -19,7 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class PComponent implements Component, ServerTickingComponent {
+public class PComponent implements Component, ServerTickingComponent, AutoSyncedComponent {
     public final LivingEntity entity;
     public Set<String> eatenGourmetFoods = new HashSet<>();
 
@@ -28,11 +31,13 @@ public class PComponent implements Component, ServerTickingComponent {
     }
 
     public boolean eat(Item item) {
-        if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD)) return false;
+        if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD) || hasEaten(item)) return false;
 
         eatenGourmetFoods.add(Registry.ITEM.getId(item).toString());
         var effects = GourmetFoods.data.get(item).effects;
         effects.forEach(effect -> entity.getAttributeInstance(effect.target).addPersistentModifier(effect.modifier));
+
+        PComponents.COMPONENT.sync(entity);
         return true;
     }
 

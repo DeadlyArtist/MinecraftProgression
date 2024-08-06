@@ -37,6 +37,11 @@ repositories {
 	}
 
 	maven {
+		name 'Gegy'
+		url 'https://maven.gegy.dev'
+	}
+
+	maven {
 		name = 'Modrinth'
 		url = 'https://api.modrinth.com/maven'
 		content {
@@ -59,11 +64,13 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Custom mod dependencies
-	modImplementation include("de.siphalor:nbtcrafting-1.19:2+")
-	modImplementation include("maven.modrinth:projectile-damage-attribute:3.2.1+1.19-fabric")
-	modImplementation include("maven.modrinth:AdditionalEntityAttributes:1.7.0+1.19.2")
-	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}")
-	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}")
+	modImplementation include("de.siphalor:nbtcrafting-1.19:${project.nbtcrafting_version}")
+	modImplementation include("dev.lambdaurora:spruceui:${project.spruceui_version}")
+	modImplementation include("maven.modrinth:lambdynamiclights:${project.lamb_dynamic_lights_version}")
+	modImplementation include("maven.modrinth:projectile-damage-attribute:${project.projectile_damage_attribute_version}")
+	modImplementation include("maven.modrinth:AdditionalEntityAttributes:${project.additionalentityattributes_version}")
+	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.caridnal_components_version}")
+	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.caridnal_components_version}")
 }
 
 processResources {
