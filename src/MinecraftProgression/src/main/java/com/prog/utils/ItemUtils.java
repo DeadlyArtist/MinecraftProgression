@@ -2,8 +2,27 @@ package com.prog.utils;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.tag.TagKey;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ItemUtils {
+    public static Item byId(Identifier id) {
+        return Registry.ITEM.get(id);
+    }
+
+    public static Item byId(String id) {
+        return byId(new Identifier(id));
+    }
+
+    public static Identifier getId(Item item) {
+        return Registry.ITEM.getId(item);
+    }
+
+    public static boolean hasTag(Item item, TagKey<Item> tag) {
+        return item.getRegistryEntry().isIn(tag);
+    }
+
     public static boolean isArmor(Item item) {
         return item instanceof ArmorItem;
     }

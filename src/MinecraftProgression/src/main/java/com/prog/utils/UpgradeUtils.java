@@ -6,12 +6,13 @@ import com.prog.text.PTexts;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 
 import java.util.*;
 
@@ -28,18 +29,22 @@ public class UpgradeUtils {
         return getUpgradeNbtName(upgrade) + "_to_" + getItemPath(target);
     }
 
-    public static Map<String, List<UEffect>> extractUpgradeData(NbtCompound nbt) {
+    public static Map<String, List<UEffect>> extractUpgradeData(ItemStack stack) {
         Map<String, List<UEffect>> upgradeData = new HashMap<>();
+        var nbt = stack.getNbt();
+        if (nbt == null) return upgradeData;
 
         // Iterate over the keys of the NbtCompound
         for (String key : nbt.getKeys()) {
             // Assuming the upgrade-related keys start with "prog_upgrade_"
             if (key.startsWith(UPGRADE_NBT_PREFIX)) {
                 // Get the corresponding NbtElement for each key
-                var element = nbt.getList(key, NbtElement.COMPOUND_TYPE);
+                var upgradeNbt = nbt.getCompound(key);
+                var id = upgradeNbt.getString("id");
+                var element = upgradeNbt.getList("effects", NbtElement.COMPOUND_TYPE);
                 if (element != null && !element.isEmpty()) {
-                    List<UEffect> effects = element.stream().map(e -> UEffect.fromNbt(((NbtCompound) e))).toList();
-                    upgradeData.put(key, effects);
+                    List<UEffect> effects = element.stream().map(e -> UEffect.fromUpgradeNbt("upgrade___" + id + "___" + ItemUtils.getId(stack.getItem()), ((NbtCompound) e))).toList();
+                    upgradeData.put(id, effects);
                 }
             }
         }
@@ -51,12 +56,13 @@ public class UpgradeUtils {
         return Registry.ITEM.get(new Identifier(nbt.asString()));
     }
 
-    public static void addUpgradeTooltip(List<Text> tooltip, Map<String, NbtElement> upgrades) {
+    public static void addUpgradeTooltip(List<Text> tooltip, ItemStack stack) {
+        var upgrades = extractUpgradeData(stack);
         if (upgrades.isEmpty()) return;
 
-        tooltip.add(Text.of("\n" + PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()));
+        tooltip.add(Text.literal("\n" + PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()).formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
         if (Screen.hasShiftDown()) {
-            tooltip.add(Text.of("    " + String.join(", ", upgrades.values().stream().map(nbt -> UpgradeUtils.getItemFromUpgradeNbt(nbt).getName().getString()).toList())));
+            tooltip.add(Text.literal("    " + String.join(", ", upgrades.keySet().stream().map((id) -> ItemUtils.byId(id).getName().getString()).toList())).formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
         }
     }
 }

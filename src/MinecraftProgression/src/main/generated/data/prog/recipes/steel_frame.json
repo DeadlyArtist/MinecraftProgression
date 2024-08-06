@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "o": {
+      "item": "minecraft:obsidian"
+    },
+    "s": {
+      "item": "prog:steel_ingot"
+    }
+  },
+  "pattern": [
+    "ss ",
+    "sos",
+    " ss"
+  ],
+  "result": {
+    "item": "prog:steel_frame"
+  }
+}

@@ -41,18 +41,6 @@ public class EntityEvents {
         }
     });
 
-    public static final Event<IReadCustomDataFromNbt> READ_CUSTOM_DATA_FROM_NBT = EventFactory.createArrayBacked(IReadCustomDataFromNbt.class, callbacks -> (entity, nbt) -> {
-        for (IReadCustomDataFromNbt callback : callbacks) {
-            callback.read(entity, nbt);
-        }
-    });
-
-    public static final Event<IWriteCustomDataToNbt> WRITE_CUSTOM_DATA_TO_NBT = EventFactory.createArrayBacked(IWriteCustomDataToNbt.class, callbacks -> (entity, nbt) -> {
-        for (IWriteCustomDataToNbt callback : callbacks) {
-            callback.write(entity, nbt);
-        }
-    });
-
     @FunctionalInterface
     public interface IEntityTick {
         void tick(Entity entity);
@@ -76,15 +64,5 @@ public class EntityEvents {
     @FunctionalInterface
     public interface IApplyFoodEffects {
         void apply(LivingEntity enity, ItemStack stack);
-    }
-
-    @FunctionalInterface
-    public interface IReadCustomDataFromNbt {
-        void read(LivingEntity entity, NbtCompound nbt);
-    }
-
-    @FunctionalInterface
-    public interface IWriteCustomDataToNbt {
-        void write(LivingEntity entity, NbtCompound nbt);
     }
 }

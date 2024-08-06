@@ -1,0 +1,25 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "b": {
+      "item": "minecraft:blaze_rod"
+    },
+    "f": {
+      "item": "prog:steel_frame"
+    },
+    "n": {
+      "item": "minecraft:netherrack"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "obfbo",
+    "on no",
+    "ofbfo"
+  ],
+  "result": {
+    "item": "prog:incinerator"
+  }
+}

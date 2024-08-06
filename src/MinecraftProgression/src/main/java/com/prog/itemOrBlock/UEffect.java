@@ -9,6 +9,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.UUID;
+
 public class UEffect {
     public final EntityAttribute target;
     public final EntityAttributeModifier modifier;
@@ -47,11 +49,10 @@ public class UEffect {
         return of(target, EntityAttributeModifierUtils.increment(name));
     }
 
-    public static UEffect fromNbt(NbtCompound nbt) {
+    public static UEffect fromUpgradeNbt(String name, NbtCompound nbt) {
         var targetId = nbt.getString("target");
         var target = Registry.ATTRIBUTE.get(new Identifier(targetId));
         var modifierNbt = nbt.getCompound("modifier");
-        var name = modifierNbt.getString("name");
         var value = modifierNbt.getDouble("value");
         var operation = EntityAttributeModifier.Operation.fromId(nbt.getInt("operation"));
         var effect = UEffect.of(target, EntityAttributeModifierUtils.of(name, value, operation));
@@ -62,7 +63,7 @@ public class UEffect {
         var json = new JsonObject();
         json.add("target", new JsonPrimitive(Registry.ATTRIBUTE.getId(target).toString()));
         var modifierJson = new JsonObject();
-        if (modifier.getName() != null) modifierJson.add("name", new JsonPrimitive(modifier.getName()));
+        if (modifier.getName() != "") modifierJson.add("name", new JsonPrimitive(modifier.getName()));
         modifierJson.add("value", new JsonPrimitive(modifier.getValue()));
         modifierJson.add("operation", new JsonPrimitive(modifier.getOperation().getId()));
         json.add("modifier", modifierJson);

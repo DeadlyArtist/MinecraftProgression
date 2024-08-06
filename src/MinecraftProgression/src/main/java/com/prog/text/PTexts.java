@@ -33,6 +33,8 @@ public class PTexts {
 
 
     public static final TextWrapper UPGRADEABLE_UPGRADE_TOOLTIP = registerText("UPGRADEABLE_UPGRADE_TOOLTIP", "Upgrades");
+    public static final TextWrapper GOURMET_NOT_EATEN_TOOLTIP = registerText("GOURMET_NOT_EATEN_TOOLTIP", "Must... eat...");
+    public static final TextWrapper GOURMET_HAS_EATEN_TOOLTIP = registerText("GOURMET_HAS_EATEN_TOOLTIP", "Already tasted");
     public static final TextWrapper ASSEMBLY_UI_TITLE = registerText("ASSEMBLY_UI_TITLE", "Assembly");
     public static final TextWrapper COSMIC_CONSTRUCTOR_UI_TITLE = registerText("COSMIC_CONSTRUCTOR_UI_TITLE", "Cosmic Constructor");
     public static final TextWrapper INCINERATOR_UI_TITLE = registerText("INCINERATOR_UI_TITLE", "Incinerator");

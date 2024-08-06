@@ -2,7 +2,6 @@ package com.prog.itemOrBlock;
 
 import com.prog.Prog;
 import com.prog.entity.attribute.PEntityAttributes;
-import com.prog.itemOrBlock.custom.*;
 import com.prog.itemOrBlock.tiers.PArmorMaterials;
 import com.prog.itemOrBlock.tiers.PToolMaterials;
 import com.prog.utils.StringUtils;
@@ -11,8 +10,6 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -41,63 +38,62 @@ public class PItems {
 
     public static final Map<Item, ItemData> data = new HashMap<>();
 
-
     // Steel
     public static final Item STEEL_INGOT = registerItem("STEEL_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
     public static final Item STEEL_BINDING = registerItem("STEEL_BINDING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 
     // Steel tier armor
-    public static final Item STEEL_BOOTS = registerItem("STEEL_BOOTS", new UpgradeableArmorItem(PArmorMaterials.STEEL, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item STEEL_CHESTPLATE = registerItem("STEEL_CHESTPLATE", new UpgradeableArmorItem(PArmorMaterials.STEEL, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item STEEL_HELMET = registerItem("STEEL_HELMET", new UpgradeableArmorItem(PArmorMaterials.STEEL, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item STEEL_LEGGINGS = registerItem("STEEL_LEGGINGS", new UpgradeableArmorItem(PArmorMaterials.STEEL, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item STEEL_BOOTS = registerItem("STEEL_BOOTS", new ArmorItem(PArmorMaterials.STEEL, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item STEEL_CHESTPLATE = registerItem("STEEL_CHESTPLATE", new ArmorItem(PArmorMaterials.STEEL, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item STEEL_HELMET = registerItem("STEEL_HELMET", new ArmorItem(PArmorMaterials.STEEL, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item STEEL_LEGGINGS = registerItem("STEEL_LEGGINGS", new ArmorItem(PArmorMaterials.STEEL, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Steel tier tools
-    public static final Item STEEL_AXE = registerItem("STEEL_AXE", new UpgradeableAxeItem(PToolMaterials.STEEL, 5.0F, -3.1F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item STEEL_HOE = registerItem("STEEL_HOE", new UpgradeableHoeItem(PToolMaterials.STEEL, -2, -1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item STEEL_PICKAXE = registerItem("STEEL_PICKAXE", new UpgradeablePickaxeItem(PToolMaterials.STEEL, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item STEEL_SHOVEL = registerItem("STEEL_SHOVEL", new UpgradeableShovelItem(PToolMaterials.STEEL, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item STEEL_AXE = registerItem("STEEL_AXE", new AxeItem(PToolMaterials.STEEL, 5.0F, -3.1F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item STEEL_HOE = registerItem("STEEL_HOE", new HoeItem(PToolMaterials.STEEL, -2, -1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item STEEL_PICKAXE = registerItem("STEEL_PICKAXE", new PickaxeItem(PToolMaterials.STEEL, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item STEEL_SHOVEL = registerItem("STEEL_SHOVEL", new ShovelItem(PToolMaterials.STEEL, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Steel tier weapons
-    public static final Item STEEL_SWORD = registerItem("STEEL_SWORD", new UpgradeableSwordItem(PToolMaterials.STEEL, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item STEEL_SWORD = registerItem("STEEL_SWORD", new SwordItem(PToolMaterials.STEEL, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
 
     // Ultimate diamond
     public static final Item REFINED_OBSIDIAN_INGOT = registerItem("REFINED_OBSIDIAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 
     // Ultimate diamond tier armor
-    public static final Item ULTIMATE_DIAMOND_BOOTS = registerItem("ULTIMATE_DIAMOND_BOOTS", new UpgradeableArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item ULTIMATE_DIAMOND_CHESTPLATE = registerItem("ULTIMATE_DIAMOND_CHESTPLATE", new UpgradeableArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item ULTIMATE_DIAMOND_HELMET = registerItem("ULTIMATE_DIAMOND_HELMET", new UpgradeableArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item ULTIMATE_DIAMOND_LEGGINGS = registerItem("ULTIMATE_DIAMOND_LEGGINGS", new UpgradeableArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item ULTIMATE_DIAMOND_BOOTS = registerItem("ULTIMATE_DIAMOND_BOOTS", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item ULTIMATE_DIAMOND_CHESTPLATE = registerItem("ULTIMATE_DIAMOND_CHESTPLATE", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item ULTIMATE_DIAMOND_HELMET = registerItem("ULTIMATE_DIAMOND_HELMET", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item ULTIMATE_DIAMOND_LEGGINGS = registerItem("ULTIMATE_DIAMOND_LEGGINGS", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Ultimate diamond tier tools
-    public static final Item ULTIMATE_DIAMOND_AXE = registerItem("ULTIMATE_DIAMOND_AXE", new UpgradeableAxeItem(PToolMaterials.ULTIMATE_DIAMOND, 5.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item ULTIMATE_DIAMOND_HOE = registerItem("ULTIMATE_DIAMOND_HOE", new UpgradeableHoeItem(PToolMaterials.ULTIMATE_DIAMOND, -3, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item ULTIMATE_DIAMOND_PICKAXE = registerItem("ULTIMATE_DIAMOND_PICKAXE", new UpgradeablePickaxeItem(PToolMaterials.ULTIMATE_DIAMOND, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item ULTIMATE_DIAMOND_SHOVEL = registerItem("ULTIMATE_DIAMOND_SHOVEL", new UpgradeableShovelItem(PToolMaterials.ULTIMATE_DIAMOND, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item ULTIMATE_DIAMOND_AXE = registerItem("ULTIMATE_DIAMOND_AXE", new AxeItem(PToolMaterials.ULTIMATE_DIAMOND, 5.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item ULTIMATE_DIAMOND_HOE = registerItem("ULTIMATE_DIAMOND_HOE", new HoeItem(PToolMaterials.ULTIMATE_DIAMOND, -3, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item ULTIMATE_DIAMOND_PICKAXE = registerItem("ULTIMATE_DIAMOND_PICKAXE", new PickaxeItem(PToolMaterials.ULTIMATE_DIAMOND, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item ULTIMATE_DIAMOND_SHOVEL = registerItem("ULTIMATE_DIAMOND_SHOVEL", new ShovelItem(PToolMaterials.ULTIMATE_DIAMOND, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Ultimate diamond tier weapons
-    public static final Item ULTIMATE_DIAMOND_SWORD = registerItem("ULTIMATE_DIAMOND_SWORD", new UpgradeableSwordItem(PToolMaterials.ULTIMATE_DIAMOND, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item ULTIMATE_DIAMOND_SWORD = registerItem("ULTIMATE_DIAMOND_SWORD", new SwordItem(PToolMaterials.ULTIMATE_DIAMOND, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
 
     // Refined obsidian
     public static final Item REFINED_OBSIDIAN_MODULE = registerItem("REFINED_OBSIDIAN_MODULE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 
     // Refined obsidian tier armor
-    public static final Item REFINED_OBSIDIAN_BOOTS = registerItem("REFINED_OBSIDIAN_BOOTS", new UpgradeableArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item REFINED_OBSIDIAN_CHESTPLATE = registerItem("REFINED_OBSIDIAN_CHESTPLATE", new UpgradeableArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item REFINED_OBSIDIAN_HELMET = registerItem("REFINED_OBSIDIAN_HELMET", new UpgradeableArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item REFINED_OBSIDIAN_LEGGINGS = registerItem("REFINED_OBSIDIAN_LEGGINGS", new UpgradeableArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item REFINED_OBSIDIAN_BOOTS = registerItem("REFINED_OBSIDIAN_BOOTS", new ArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item REFINED_OBSIDIAN_CHESTPLATE = registerItem("REFINED_OBSIDIAN_CHESTPLATE", new ArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item REFINED_OBSIDIAN_HELMET = registerItem("REFINED_OBSIDIAN_HELMET", new ArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item REFINED_OBSIDIAN_LEGGINGS = registerItem("REFINED_OBSIDIAN_LEGGINGS", new ArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Refined obsidian tier tools
-    public static final Item REFINED_OBSIDIAN_AXE = registerItem("REFINED_OBSIDIAN_AXE", new UpgradeableAxeItem(PToolMaterials.REFINED_OBSIDIAN, 6.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item REFINED_OBSIDIAN_HOE = registerItem("REFINED_OBSIDIAN_HOE", new UpgradeableHoeItem(PToolMaterials.REFINED_OBSIDIAN, -5, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item REFINED_OBSIDIAN_PICKAXE = registerItem("REFINED_OBSIDIAN_PICKAXE", new UpgradeablePickaxeItem(PToolMaterials.REFINED_OBSIDIAN, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item REFINED_OBSIDIAN_SHOVEL = registerItem("REFINED_OBSIDIAN_SHOVEL", new UpgradeableShovelItem(PToolMaterials.REFINED_OBSIDIAN, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item REFINED_OBSIDIAN_AXE = registerItem("REFINED_OBSIDIAN_AXE", new AxeItem(PToolMaterials.REFINED_OBSIDIAN, 6.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item REFINED_OBSIDIAN_HOE = registerItem("REFINED_OBSIDIAN_HOE", new HoeItem(PToolMaterials.REFINED_OBSIDIAN, -4, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item REFINED_OBSIDIAN_PICKAXE = registerItem("REFINED_OBSIDIAN_PICKAXE", new PickaxeItem(PToolMaterials.REFINED_OBSIDIAN, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item REFINED_OBSIDIAN_SHOVEL = registerItem("REFINED_OBSIDIAN_SHOVEL", new ShovelItem(PToolMaterials.REFINED_OBSIDIAN, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Refined obsidian tier weapons
-    public static final Item REFINED_OBSIDIAN_SWORD = registerItem("REFINED_OBSIDIAN_SWORD", new UpgradeableSwordItem(PToolMaterials.REFINED_OBSIDIAN, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item REFINED_OBSIDIAN_SWORD = registerItem("REFINED_OBSIDIAN_SWORD", new SwordItem(PToolMaterials.REFINED_OBSIDIAN, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
 
 //    // Titan
@@ -120,19 +116,19 @@ public class PItems {
 
 
     // Primal netherite tier armor
-    public static final Item PRIMAL_NETHERITE_BOOTS = registerItem("PRIMAL_NETHERITE_BOOTS", new UpgradeableArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item PRIMAL_NETHERITE_CHESTPLATE = registerItem("PRIMAL_NETHERITE_CHESTPLATE", new UpgradeableArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item PRIMAL_NETHERITE_HELMET = registerItem("PRIMAL_NETHERITE_HELMET", new UpgradeableArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item PRIMAL_NETHERITE_LEGGINGS = registerItem("PRIMAL_NETHERITE_LEGGINGS", new UpgradeableArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item PRIMAL_NETHERITE_BOOTS = registerItem("PRIMAL_NETHERITE_BOOTS", new ArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item PRIMAL_NETHERITE_CHESTPLATE = registerItem("PRIMAL_NETHERITE_CHESTPLATE", new ArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item PRIMAL_NETHERITE_HELMET = registerItem("PRIMAL_NETHERITE_HELMET", new ArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item PRIMAL_NETHERITE_LEGGINGS = registerItem("PRIMAL_NETHERITE_LEGGINGS", new ArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Primal netherite tier tools
-    public static final Item PRIMAL_NETHERITE_AXE = registerItem("PRIMAL_NETHERITE_AXE", new UpgradeableAxeItem(PToolMaterials.PRIMAL_NETHERITE, 7.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item PRIMAL_NETHERITE_HOE = registerItem("PRIMAL_NETHERITE_HOE", new UpgradeableHoeItem(PToolMaterials.PRIMAL_NETHERITE, -10, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item PRIMAL_NETHERITE_PICKAXE = registerItem("PRIMAL_NETHERITE_PICKAXE", new UpgradeablePickaxeItem(PToolMaterials.PRIMAL_NETHERITE, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
-    public static final Item PRIMAL_NETHERITE_SHOVEL = registerItem("PRIMAL_NETHERITE_SHOVEL", new UpgradeableShovelItem(PToolMaterials.PRIMAL_NETHERITE, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item PRIMAL_NETHERITE_AXE = registerItem("PRIMAL_NETHERITE_AXE", new AxeItem(PToolMaterials.PRIMAL_NETHERITE, 7.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item PRIMAL_NETHERITE_HOE = registerItem("PRIMAL_NETHERITE_HOE", new HoeItem(PToolMaterials.PRIMAL_NETHERITE, -6, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item PRIMAL_NETHERITE_PICKAXE = registerItem("PRIMAL_NETHERITE_PICKAXE", new PickaxeItem(PToolMaterials.PRIMAL_NETHERITE, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
+    public static final Item PRIMAL_NETHERITE_SHOVEL = registerItem("PRIMAL_NETHERITE_SHOVEL", new ShovelItem(PToolMaterials.PRIMAL_NETHERITE, 1.5F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Primal netherite tier weapons
-    public static final Item PRIMAL_NETHERITE_SWORD = registerItem("PRIMAL_NETHERITE_SWORD", new UpgradeableSwordItem(PToolMaterials.PRIMAL_NETHERITE, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADEABLE));
+    public static final Item PRIMAL_NETHERITE_SWORD = registerItem("PRIMAL_NETHERITE_SWORD", new SwordItem(PToolMaterials.PRIMAL_NETHERITE, 3, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE));
 
     // Upgrades
     public static final Item MECHANICAL_BOOTS = registerUpgrade("MECHANICAL_BOOTS", new ArmorItem(PArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));

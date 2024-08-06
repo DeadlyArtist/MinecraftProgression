@@ -70,18 +70,9 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.WITHER_SKELETON_SKULL, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.NETHER_STAR, UEffectMapper.best(2));
 
-        // Vanilla gourmet food overrides
-        addToGourmetFood(Items.GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
-        addToGourmetFood(Items.ENCHANTED_GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
-        addToGourmetFood(Items.CHORUS_FRUIT, UEffect.increment(XEntityAttributes.JUMP_HEIGHT));
-        addToGourmetFood(Items.POISONOUS_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
-        addToGourmetFood(Items.GOLDEN_CARROT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-        addToGourmetFood(Items.GLISTERING_MELON_SLICE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-        addToGourmetFood(Items.ROTTEN_FLESH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-        addToGourmetFood(Items.SPIDER_EYE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));
+        GourmetFoods.data.forEach((item, data) -> addToTag(PItemTags.GOURMET_FOOD, item));
 
         // Add all tags
         tags.forEach((tag, items) -> {

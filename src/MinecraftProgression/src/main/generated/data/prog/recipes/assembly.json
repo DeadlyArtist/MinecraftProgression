@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "c": {
+      "item": "minecraft:crafting_table"
+    },
+    "f": {
+      "item": "prog:steel_frame"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "frf",
+    "fcf",
+    "rRr"
+  ],
+  "result": {
+    "item": "prog:assembly"
+  }
+}

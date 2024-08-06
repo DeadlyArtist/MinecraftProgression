@@ -1,10 +1,15 @@
 package com.prog.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.prog.Prog;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
+import com.prog.utils.ItemUtils;
+import com.prog.utils.SlotUtils;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -13,6 +18,7 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -27,7 +33,6 @@ public class LivingEntityMixin {
 
     @Inject(method = "createLivingAttributes", at = @At("RETURN"))
     private static void createLivingAttributes(CallbackInfoReturnable<DefaultAttributeContainer.Builder> info) {
-        // Customize the attributes
         EntityEvents.CREATE_LIVING_ATTRIBUTES.invoker().create(info.getReturnValue());
     }
 
@@ -47,17 +52,5 @@ public class LivingEntityMixin {
         if (!item.isFood()) return;
 
         EntityEvents.APPLY_FOOD_EFFECTS.invoker().apply(targetEntity, stack);
-    }
-
-    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
-    private void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo info) {
-        LivingEntity self = (LivingEntity) (Object) this;
-        EntityEvents.WRITE_CUSTOM_DATA_TO_NBT.invoker().write(self, nbt);
-    }
-
-    @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
-    private void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
-        LivingEntity self = (LivingEntity) (Object) this;
-        EntityEvents.READ_CUSTOM_DATA_FROM_NBT.invoker().read(self, nbt);
     }
 }

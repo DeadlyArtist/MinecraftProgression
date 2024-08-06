@@ -51,6 +51,8 @@
   "itemGroup.prog.upgrades": "Upgrades",
   "text.prog.assembly_ui_title": "Assembly",
   "text.prog.cosmic_constructor_ui_title": "Cosmic Constructor",
+  "text.prog.gourmet_has_eaten_tooltip": "Already tasted",
+  "text.prog.gourmet_not_eaten_tooltip": "Must... eat...",
   "text.prog.incinerator_ui_title": "Incinerator",
   "text.prog.upgradeable_upgrade_tooltip": "Upgrades"
 }

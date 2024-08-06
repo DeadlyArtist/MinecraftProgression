@@ -1,5 +1,5 @@
-// 1.19.2	2024-08-05T22:41:18.7724792	Tags for minecraft:block
-dccea9cc8d5d28a534aaa219e84675071961a471 data\minecraft\tags\blocks\mineable\pickaxe.json
+// 1.19.2	2024-08-06T09:07:29.3463711	Tags for minecraft:block
+152ac67e03d728cc798bf5f903aca1945f1e3980 data\minecraft\tags\blocks\mineable\pickaxe.json
 75fa2796e98dbaa08a6518ad3632c261966f455c data\fabric\tags\blocks\needs_tool_level_5.json
-25f5c0dccb5a59913982595a87df41f3ec5627eb data\minecraft\tags\blocks\needs_iron_tool.json
+bfed2364f4c891bfd83b8f986943852b84031c1f data\minecraft\tags\blocks\needs_iron_tool.json
 1749513bde48828b68c508bcad8c1a282bd26328 data\fabric\tags\blocks\needs_tool_level_6.json

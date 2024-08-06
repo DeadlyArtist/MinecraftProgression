@@ -12,19 +12,20 @@ import com.prog.data.custom.FlexibleShapelessRecipeJsonBuilder;
 import com.prog.data.custom.NbtSmithingRecipeJsonBuilder;
 import com.prog.itemOrBlock.*;
 import com.prog.recipe.PRecipeSerializers;
+import com.prog.utils.ItemUtils;
 import com.prog.utils.UpgradeUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ConditionJsonProvider;
 import net.fabricmc.fabric.impl.datagen.FabricDataGenHelper;
 import net.minecraft.advancement.criterion.CriterionConditions;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.DataWriter;
 import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
@@ -32,8 +33,6 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntryList;
-import net.minecraft.util.registry.RegistryKey;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -440,26 +439,18 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("###", "psp", "psp"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(ItemTags.PLANKS), Input.of(Items.STONE)), Items.SMITHING_TABLE).setNamespace(IDRef.VANILLA).setPath("smithing_table").offer(exporter);
 
         // Misc
-        createShapedRecipe(List.of("# #", " # ", "# #"),Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);
         createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
-        createShapedRecipe(List.of("cr#rc", "c#g#c", "cr#rc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.GOLD_INGOT)), PItems.REFINED_OBSIDIAN_MODULE).requireAssembly().offer(exporter);
-        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500,2F).offer(exporter);
+        createShapedRecipe(List.of("ss ", "sos", " ss"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.OBSIDIAN)), PBlocks.STEEL_FRAME).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
+        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500, 2F).offer(exporter);
 
-        // Armor
-//        createShapedRecipe(List.of("# #", "# #"), PItems.STEEL_INGOT, PItems.STEEL_BOOTS).offer(exporter);
-//        createShapedRecipe(List.of("# #", "###", "###"), PItems.STEEL_INGOT, PItems.STEEL_CHESTPLATE).offer(exporter);
-//        createShapedRecipe(List.of("###", "# #"), PItems.STEEL_INGOT, PItems.STEEL_HELMET).offer(exporter);
-//        createShapedRecipe(List.of("###", "# #", "# #"), PItems.STEEL_INGOT, PItems.STEEL_LEGGINGS).offer(exporter);
+        // Tier upgrades
+        createShapedRecipe(List.of("# #", " # ", "# #"), Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);
+        createShapedRecipe(List.of("cr#rc", "c#g#c", "cr#rc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.GOLD_INGOT)), PItems.REFINED_OBSIDIAN_MODULE).requireAssembly().offer(exporter);
 
-        // Tools
-//        createShapedRecipe(List.of("##", "#I", " I"), List.of(PItems.STEEL_INGOT, Items.STICK), PItems.STEEL_AXE).offer(exporter);
-//        createShapedRecipe(List.of("##", " I", " I"), List.of(PItems.STEEL_INGOT, Items.STICK), PItems.STEEL_HOE).offer(exporter);
-//        createShapedRecipe(List.of("###", " I ", " I "), List.of(PItems.STEEL_INGOT, Items.STICK), PItems.STEEL_PICKAXE).offer(exporter);
-//        createShapedRecipe(List.of("#", "I", "I"), List.of(PItems.STEEL_INGOT, Items.STICK), PItems.STEEL_SHOVEL).offer(exporter);
-
-        // Weapons
-//        createShapedRecipe(List.of("#", "#", "I"), List.of(PItems.STEEL_INGOT, Items.STICK), PItems.STEEL_SWORD).offer(exporter);
+        // Machines
+        createShapedRecipe(List.of("frf", "fcf", "rRr"), List.of(Input.of(PBlocks.STEEL_FRAME), Input.of(Items.REDSTONE), Input.of(Items.CRAFTING_TABLE), Input.of(Blocks.REDSTONE_BLOCK)), PBlocks.ASSEMBLY).offer(exporter);
+        createShapedRecipe(List.of("obfbo", "on no", "ofbfo"), List.of(Input.of(Blocks.OBSIDIAN), Input.of(Items.BLAZE_ROD), Input.of(PBlocks.STEEL_FRAME), Input.of(Blocks.NETHERRACK), Input.of(Items.LAVA_BUCKET)), PBlocks.INCINERATOR).requireAssembly().offer(exporter);
 
         // Tier Upgrades
         // Steel
@@ -489,7 +480,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.STEEL_SWORD), Input.of(Items.DIAMOND_SWORD), PItems.ULTIMATE_DIAMOND_SWORD).offer(exporter);
 
         // Upgrades
-        List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADEABLE);
+        List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
         List<Upgrade> upgrades = Upgrades.all;
         upgradeTargets.forEach(target -> {
             upgrades.forEach(upgrade -> {
@@ -498,9 +489,12 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
                 String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(upgrade.item);
                 String recipePath = UpgradeUtils.getRecipePath(upgrade.item, target);
+                var json = new JsonObject();
+                json.add("id", new JsonPrimitive(ItemUtils.getId(upgrade.item).toString()));
                 var effectsJson = new JsonArray();
                 effects.forEach(effect -> effectsJson.add(effect.toJson()));
-                createSmithingRecipe(Input.of(target), Input.of(upgrade.item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, effectsJson).setPath(recipePath).offer(exporter);
+                json.add("effects", effectsJson);
+                createSmithingRecipe(Input.of(target), Input.of(upgrade.item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, json).setPath(recipePath).offer(exporter);
             });
         });
     }
