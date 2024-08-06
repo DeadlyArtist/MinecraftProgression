@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_shovel": {
+    "has_ultimate_diamond_shovel": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_shovel"
+              "prog:ultimate_diamond_shovel"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_shovel",
+      "has_ultimate_diamond_shovel",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_hoe": {
+    "has_ultimate_diamond_hoe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_hoe"
+              "prog:ultimate_diamond_hoe"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_hoe",
+      "has_ultimate_diamond_hoe",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_prismarine_crystals": {
+    "has_emberite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:prismarine_crystals"
+              "prog:emberite"
             ]
           }
         ]
@@ -48,7 +48,7 @@
     [
       "has_quartz",
       "has_compressed_quartz",
-      "has_prismarine_crystals",
+      "has_emberite",
       "has_the_recipe"
     ]
   ],

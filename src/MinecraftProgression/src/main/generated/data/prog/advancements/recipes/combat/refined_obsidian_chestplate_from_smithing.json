@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_chestplate": {
+    "has_ultimate_diamond_chestplate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_chestplate"
+              "prog:ultimate_diamond_chestplate"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_chestplate",
+      "has_ultimate_diamond_chestplate",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

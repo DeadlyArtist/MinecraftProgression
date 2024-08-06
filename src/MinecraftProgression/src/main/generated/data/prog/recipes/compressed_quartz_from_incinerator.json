@@ -1,0 +1,9 @@
+{
+  "type": "prog:incinerator",
+  "cookingtime": 300,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "minecraft:quartz"
+  },
+  "result": "prog:compressed_quartz"
+}

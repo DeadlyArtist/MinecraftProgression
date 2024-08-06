@@ -41,7 +41,7 @@ public enum PArmorMaterials implements ArmorMaterial {
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return 0;
+        return 1000000;
     }
 
     @Override

@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_pickaxe": {
+    "has_ultimate_diamond_pickaxe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_pickaxe"
+              "prog:ultimate_diamond_pickaxe"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_pickaxe",
+      "has_ultimate_diamond_pickaxe",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

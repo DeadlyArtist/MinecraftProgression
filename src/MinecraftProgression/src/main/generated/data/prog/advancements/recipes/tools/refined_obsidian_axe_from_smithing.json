@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_axe": {
+    "has_ultimate_diamond_axe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_axe"
+              "prog:ultimate_diamond_axe"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_axe",
+      "has_ultimate_diamond_axe",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

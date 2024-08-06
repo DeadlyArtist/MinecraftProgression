@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ConfiguredFeatures.class)
 public class ConfiguredFeaturesMixin {
-    @Inject(method = "register*", at = @At("HEAD"))
+    @Inject(method = "register(Ljava/lang/String;Lnet/minecraft/world/gen/feature/Feature;Lnet/minecraft/world/gen/feature/FeatureConfig;)Lnet/minecraft/util/registry/RegistryEntry;", at = @At("HEAD"))
     private static <FC extends FeatureConfig, F extends Feature<FC>> void register(String id, F feature, FC config, CallbackInfoReturnable<RegistryEntry<ConfiguredFeature<FC, ?>>> cir) {
         if (config instanceof OreFeatureConfig) {
             if ("ore_ancient_debris_large".equals(id) || "ore_ancient_debris_small".equals(id)) {

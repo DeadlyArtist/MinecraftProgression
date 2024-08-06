@@ -36,6 +36,7 @@ public class GourmetFoods {
         register(Items.GLISTERING_MELON_SLICE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.ROTTEN_FLESH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.SPIDER_EYE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
     }
 
     public static void register(Item item, List<UEffect> effects) {

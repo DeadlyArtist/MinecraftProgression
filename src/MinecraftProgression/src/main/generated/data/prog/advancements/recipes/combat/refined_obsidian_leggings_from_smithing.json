@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_leggings": {
+    "has_ultimate_diamond_leggings": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_leggings"
+              "prog:ultimate_diamond_leggings"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_leggings",
+      "has_ultimate_diamond_leggings",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

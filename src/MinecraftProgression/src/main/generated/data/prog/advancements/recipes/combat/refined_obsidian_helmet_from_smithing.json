@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_helmet": {
+    "has_ultimate_diamond_helmet": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_helmet"
+              "prog:ultimate_diamond_helmet"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_helmet",
+      "has_ultimate_diamond_helmet",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

@@ -10,6 +10,7 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -148,6 +149,8 @@ public class PItems {
         id = id.toLowerCase();
         String name = StringUtils.toNormalCase(id);
         Item registeredItem = Registry.register(Registry.ITEM, new Identifier(Prog.MOD_ID, id), item);
+        tags = new ArrayList<>(tags == null ? List.of() : tags);
+        if (item instanceof PickaxeItem) tags.add(ItemTags.CLUSTER_MAX_HARVESTABLES);
         data.put(registeredItem, new ItemData(name, ms -> modelSupplier.accept(ms, registeredItem), tags));
         return registeredItem;
     }

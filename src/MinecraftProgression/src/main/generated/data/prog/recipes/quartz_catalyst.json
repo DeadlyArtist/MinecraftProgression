@@ -4,8 +4,8 @@
     "c": {
       "item": "prog:compressed_quartz"
     },
-    "p": {
-      "item": "minecraft:prismarine_crystals"
+    "e": {
+      "item": "prog:emberite"
     },
     "q": {
       "item": "minecraft:quartz"
@@ -13,7 +13,7 @@
   },
   "pattern": [
     " qcq ",
-    "ccpcc",
+    "ccecc",
     " qcq "
   ],
   "result": {

@@ -19,12 +19,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_titan_sword": {
+    "has_ultimate_diamond_sword": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_sword"
+              "prog:ultimate_diamond_sword"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_titan_sword",
+      "has_ultimate_diamond_sword",
       "has_refined_obsidian_module",
       "has_the_recipe"
     ]

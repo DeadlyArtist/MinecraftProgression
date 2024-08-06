@@ -1,4 +1,5 @@
-// 1.19.2	2024-08-06T15:48:23.9262503	Tags for minecraft:item
-437e68063709a536e079cc2a667c07ef3a018fc5 data\prog\tags\items\gourmet_food.json
-a19f2fa1c91afabc3efb16602054090bea30ca36 data\prog\tags\items\upgrade.json
-de816b6798d9d831b1927efe7d09eca7b0686272 data\prog\tags\items\upgradable.json
+// 1.19.2	2024-08-06T19:51:41.8326309	Tags for minecraft:item
+772e90e76e34d08a46790263311dcf3a482d5957 data\minecraft\tags\items\cluster_max_harvestables.json
+e6d2b79757dab3686d6197f8e7f086279f6c73f4 data\prog\tags\items\gourmet_food.json
+6659c7bb2914a14076fcf44136a71f420ecba6d2 data\prog\tags\items\upgrade.json
+b8a4565a4d8df6708326dd9d9da8f594cb4b3c0c data\prog\tags\items\upgradable.json
