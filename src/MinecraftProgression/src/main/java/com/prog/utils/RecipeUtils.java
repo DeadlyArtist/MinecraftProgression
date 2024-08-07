@@ -1,16 +1,18 @@
 package com.prog.utils;
 
 import com.mojang.datafixers.util.Pair;
+import com.prog.itemOrBlock.data.FlexibleCookingData;
+import com.prog.recipe.FlexibleCookingRecipe;
+import com.prog.recipe.FlexibleShapedRecipe;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeManager;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class RecipeUtils {

@@ -24,7 +24,7 @@ public class PEntityAttributes {
     public static final Map<EntityAttribute, EntityAttributeData> data = new HashMap<>();
 
     public static final EntityAttribute STEP_HEIGHT = registerClampedEntityAttribute("STEP_HEIGHT", 0.6, 0.0, 1000.0);
-    public static final EntityAttribute FALL_DAMAGE_DIVISOR = registerClampedEntityAttribute("FALL_DAMAGE_DIVISOR", 0.0, 0.0, 1000.0); // 0 for immunity
+    public static final EntityAttribute FALL_DAMAGE_DIVISOR = registerClampedEntityAttribute("FALL_DAMAGE_DIVISOR", 1.0, 1.0, 16.0); // 0 for immunity
     public static final EntityAttribute LUMINANCE = registerClampedEntityAttribute("LUMINANCE", 0.0, 0.0, 15.0); // 0 for immunity
     public static final EntityAttribute FLIGHT = registerClampedEntityAttribute("FLIGHT", 0.0, 0.0, 1.0); // 0 for immunity
 

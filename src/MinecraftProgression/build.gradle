@@ -42,6 +42,10 @@ repositories {
 	}
 
 	maven {
+		url "https://maven.shedaniel.me/"
+	}
+
+	maven {
 		name = 'Modrinth'
 		url = 'https://api.modrinth.com/maven'
 		content {
@@ -69,8 +73,15 @@ dependencies {
 	modImplementation include("maven.modrinth:lambdynamiclights:${project.lamb_dynamic_lights_version}")
 	modImplementation include("maven.modrinth:projectile-damage-attribute:${project.projectile_damage_attribute_version}")
 	modImplementation include("maven.modrinth:AdditionalEntityAttributes:${project.additionalentityattributes_version}")
+
+	// Cardinal components
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.caridnal_components_version}")
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.caridnal_components_version}")
+
+	// REI
+	modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 }
 
 processResources {

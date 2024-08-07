@@ -32,6 +32,9 @@
 		],
 		"dynamiclights": [
 			"com.prog.PLights"
+		],
+		"rei_client": [
+			"com.prog.compat.rei.client.PREIClientPlugin"
 		]
 	},
 	"mixins": [

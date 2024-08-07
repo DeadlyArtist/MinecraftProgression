@@ -3,6 +3,7 @@ package com.prog.screen;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
 import com.prog.utils.InventoryUtils;
 import com.prog.utils.ScreenUtils;
+import com.prog.utils.SlotUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -56,7 +57,7 @@ public class FlexibleCraftingScreenHandler extends AbstractRecipeScreenHandler<C
         this.input = new CraftingInventory(this, width, height);
         this.context = context;
         this.player = playerInventory.player;
-        int slotSize = 18;
+        int slotSize = SlotUtils.SIZE;
         int halfSlotSize = 9;
         this.addSlot(new CraftingResultSlot(playerInventory.player, this.input, this.result, 0, 57 + width * halfSlotSize + 42, 17 + height * halfSlotSize - halfSlotSize));
 

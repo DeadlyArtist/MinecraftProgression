@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.prog.Prog;
 import com.prog.screen.FlexibleCraftingScreenHandler;
 import com.prog.utils.ScreenUtils;
+import com.prog.utils.SlotUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -25,19 +26,9 @@ public class FlexibleCraftingScreen extends HandledScreen<FlexibleCraftingScreen
     public FlexibleCraftingScreen(FlexibleCraftingScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         texture = ScreenUtils.getScreenBackgroundTexture(handler);
-        this.backgroundHeight = 112 + handler.height * 18;
+        this.backgroundHeight = 112 + handler.height * SlotUtils.SIZE;
         this.playerInventoryTitleY = this.backgroundHeight - 94;
-    }
-
-    @Override
-    protected void init() {
-        super.init();
         this.titleX = 25;
-    }
-
-    @Override
-    public void handledScreenTick() {
-        super.handledScreenTick();
     }
 
     @Override
@@ -64,10 +55,5 @@ public class FlexibleCraftingScreen extends HandledScreen<FlexibleCraftingScreen
                 || mouseX >= (double) (left + this.backgroundWidth)
                 || mouseY >= (double) (top + this.backgroundHeight);
         return bl;
-    }
-
-    @Override
-    public void removed() {
-        super.removed();
     }
 }

@@ -2,6 +2,7 @@ package com.prog.screen;
 
 import com.prog.screen.slot.FlexibleFurnaceFuelSlot;
 import com.prog.screen.slot.FlexibleFurnaceOutputSlot;
+import com.prog.utils.ScreenUtils;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -63,15 +64,7 @@ public class FlexibleAbstractFurnaceScreenHandler extends AbstractRecipeScreenHa
         this.addSlot(new FlexibleFurnaceFuelSlot(this, inventory, 1, 56, 53));
         this.addSlot(new FlexibleFurnaceOutputSlot(playerInventory.player, inventory, 2, 116, 35));
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 9; j++) {
-                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
-            }
-        }
-
-        for (int i = 0; i < 9; i++) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
-        }
+        ScreenUtils.addPlayerInventory(this::addSlot, playerInventory, 8, 84);
 
         this.addProperties(propertyDelegate);
     }

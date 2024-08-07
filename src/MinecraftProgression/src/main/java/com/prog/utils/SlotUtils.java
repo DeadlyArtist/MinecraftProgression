@@ -5,6 +5,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 
 public class SlotUtils {
+    public static final int SIZE = 18;
+    public static final int HALF_SIZE = SIZE / 2;
+
     public static boolean isArmorSlot(EquipmentSlot slot) {
         return slot.getType() == EquipmentSlot.Type.ARMOR;
     }

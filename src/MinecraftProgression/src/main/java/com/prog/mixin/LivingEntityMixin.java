@@ -44,7 +44,7 @@ public class LivingEntityMixin {
     private int computeFallDamage(int originalReturnValue, float fallDistance, float damageMultiplier) {
         LivingEntity self = (LivingEntity) (Object) this;
         double divisor = self.getAttributeValue(PEntityAttributes.FALL_DAMAGE_DIVISOR);
-        return divisor == 0 ? 0 : MathHelper.ceil(originalReturnValue / divisor);
+        return divisor == 16 ? 0 : MathHelper.ceil(originalReturnValue / divisor);
     }
 
     @Inject(method = "applyFoodEffects", at = @At("HEAD"))
