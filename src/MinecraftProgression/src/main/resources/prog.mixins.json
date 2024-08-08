@@ -15,7 +15,13 @@
     "SmithinScreenHandlerMixin",
     "ClientRecipeBookMixin"
   ],
+  "client": [
+    "ClientPlayerEntityMixin",
+    "ClientRecipeBookMixin",
+    "compat.rei.DefaultClientPluginMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "plugin": "com.prog.mixin.PMixinPlugin"
 }

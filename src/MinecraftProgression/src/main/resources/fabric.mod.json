@@ -42,14 +42,15 @@
 	],
 	"accessWidener": "prog.accesswidener",
 	"depends": {
-		"fabricloader": ">=0.16.0",
+		"fabricloader": ">=0.15.0",
 		"minecraft": "~1.19.2",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
 	"custom": {
 		"cardinal-components": [
-			"prog:component"
+			"prog:living_entity",
+			"prog:player"
 		]
 	}
 }

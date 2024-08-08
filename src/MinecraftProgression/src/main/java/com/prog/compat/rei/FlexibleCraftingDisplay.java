@@ -1,6 +1,8 @@
 package com.prog.compat.rei;
 
+import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
+import com.prog.recipe.FlexibleShapedRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.SimpleGridMenuDisplay;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
@@ -12,6 +14,7 @@ import me.shedaniel.rei.api.common.util.EntryIngredients;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.ShapedRecipe;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,23 +23,25 @@ import java.util.Optional;
 
 public class FlexibleCraftingDisplay extends BasicDisplay implements SimpleGridMenuDisplay {
     public final FlexibleCraftingData data;
-    public final int recipeWidth;
     public final Recipe<?> recipe;
+    public final int recipeWidth;
 
-    public FlexibleCraftingDisplay(FlexibleCraftingData data, int recipeWidth, Recipe<?> recipe) {
-        this(data, recipeWidth, EntryIngredients.ofIngredients(recipe.getIngredients()), Collections.singletonList(EntryIngredients.of(recipe.getOutput())),
+    public FlexibleCraftingDisplay(FlexibleCraftingData data, Recipe<?> recipe) {
+        this(data, EntryIngredients.ofIngredients(recipe.getIngredients()), Collections.singletonList(EntryIngredients.of(recipe.getOutput())),
                 recipe);
     }
 
-    public FlexibleCraftingDisplay(FlexibleCraftingData data, int recipeWidth, List<EntryIngredient> input, List<EntryIngredient> output, NbtCompound tag) {
-        this(data, recipeWidth, input, output, RecipeManagerContext.getInstance().byId(tag, "location"));
+    public FlexibleCraftingDisplay(FlexibleCraftingData data, List<EntryIngredient> input, List<EntryIngredient> output, NbtCompound tag) {
+        this(data, input, output, RecipeManagerContext.getInstance().byId(tag, "location"));
     }
 
-    public FlexibleCraftingDisplay(FlexibleCraftingData data, int recipeWidth, List<EntryIngredient> input, List<EntryIngredient> output, Recipe<?> recipe) {
+    public FlexibleCraftingDisplay(FlexibleCraftingData data, List<EntryIngredient> input, List<EntryIngredient> output, Recipe<?> recipe) {
         super(input, output, Optional.ofNullable(recipe).map(Recipe::getId));
         this.data = data;
-        this.recipeWidth = recipeWidth;
         this.recipe = recipe;
+        if (recipe instanceof FlexibleShapedRecipe) recipeWidth = ((FlexibleShapedRecipe) recipe).getWidth();
+        else if (recipe instanceof ShapedRecipe) recipeWidth = ((ShapedRecipe) recipe).getWidth();
+        else recipeWidth = data.width;
     }
 
     @Override

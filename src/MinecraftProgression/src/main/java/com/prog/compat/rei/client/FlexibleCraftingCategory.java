@@ -66,10 +66,10 @@ public class FlexibleCraftingCategory implements DisplayCategory<FlexibleCraftin
         var x0 = startPoint.x;
         var y0 = startPoint.y;
 
-
-        // Input
         List<Widget> widgets = Lists.newArrayList();
         widgets.add(Widgets.createRecipeBase(bounds));
+
+        // Input
         List<InputIngredient<EntryStack<?>>> input = CollectionUtils.mapIndexed(display.getInputEntries(), InputIngredient::of);
         List<Slot> slots = Lists.newArrayList();
         for (int heightIndex = 0; heightIndex < height; heightIndex++) {

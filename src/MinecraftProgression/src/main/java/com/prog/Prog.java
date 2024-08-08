@@ -10,29 +10,17 @@ import com.prog.itemOrBlock.*;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
-import com.prog.utils.EntityAttributeModifierUtils;
-import com.prog.utils.ItemUtils;
 import com.prog.utils.SlotUtils;
 import com.prog.utils.UpgradeUtils;
 import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 
 import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
@@ -67,20 +55,7 @@ public class Prog implements ModInitializer {
         });
 
         EntityEvents.PLAYER_ENTITY_TICK.register(player -> {
-            if (player.isCreative() || player.isSpectator()) return;
-
-            var abilities = player.getAbilities();
-            if (player.getAttributeValue(PEntityAttributes.FLIGHT) == 1) {
-                if (!abilities.allowFlying) {
-                    abilities.allowFlying = true;
-                    player.sendAbilitiesUpdate();
-                }
-            } else {
-                if (abilities.allowFlying) {
-                    abilities.allowFlying = false;
-                    player.sendAbilitiesUpdate();
-                }
-            }
+            PComponents.PLAYER.get(player).updateFlight();
         });
 
         ItemStackEvents.ITEM_STACK_CTOR.register((stack) -> {
@@ -102,7 +77,7 @@ public class Prog implements ModInitializer {
         });
 
         EntityEvents.APPLY_FOOD_EFFECTS.register((entity, stack) -> {
-            PComponents.COMPONENT.get(entity).eat(stack.getItem());
+            PComponents.LIVING_ENTITY.get(entity).eat(stack.getItem());
         });
 
         EntityEvents.CAN_HAVE_STATUS_EFFECT.register((entity, effectInstance) -> {

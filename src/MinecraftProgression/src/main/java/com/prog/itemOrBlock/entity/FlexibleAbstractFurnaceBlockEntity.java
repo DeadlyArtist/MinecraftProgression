@@ -490,11 +490,8 @@ public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContain
 
     public List<Recipe<?>> getRecipesUsedAndDropExperience(ServerWorld world, Vec3d pos) {
         List<Recipe<?>> list = Lists.<Recipe<?>>newArrayList();
-        Prog.LOGGER.info("ALL");
         for (Object2IntMap.Entry<Identifier> entry : this.recipesUsed.object2IntEntrySet()) {
-            Prog.LOGGER.info("ENTRY");
             world.getRecipeManager().get((Identifier) entry.getKey()).ifPresent(recipe -> {
-                Prog.LOGGER.info("ADD");
                 list.add(recipe);
                 dropExperience(world, pos, entry.getIntValue(), ((AbstractCookingRecipe) recipe).getExperience());
             });
@@ -509,7 +506,7 @@ public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContain
         if (f != 0.0F && Math.random() < (double) f) {
             i++;
         }
-        Prog.LOGGER.info("EXP");
+
         ExperienceOrbEntity.spawn(world, pos, i);
     }
 

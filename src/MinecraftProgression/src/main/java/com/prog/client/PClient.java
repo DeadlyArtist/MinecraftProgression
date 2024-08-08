@@ -1,17 +1,14 @@
 package com.prog.client;
 
-import com.prog.Prog;
 import com.prog.client.gui.screen.ingame.PHandledScreens;
 import com.prog.entity.PComponents;
 import com.prog.event.ItemEvents;
 import com.prog.itemOrBlock.GourmetFoods;
 import com.prog.text.PTexts;
-import com.prog.utils.ItemUtils;
 import com.prog.utils.UpgradeUtils;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Formatting;
 
@@ -26,7 +23,7 @@ public class PClient implements ClientModInitializer {
             var player = MinecraftClient.getInstance().player;
             var item = stack.getItem();
             if (GourmetFoods.data.containsKey(item)) {
-                var component = PComponents.COMPONENT.get(player);
+                var component = PComponents.LIVING_ENTITY.get(player);
                 if (component.hasEaten(stack.getItem())) {
                     lines.add(PTexts.GOURMET_HAS_EATEN_TOOLTIP.get().copy().formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
                 } else {

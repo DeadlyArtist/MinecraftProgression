@@ -1,5 +1,7 @@
 package com.prog.mixin;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.recipebook.ClientRecipeBook;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
@@ -7,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Slice;
 
+@Environment(EnvType.CLIENT)
 @Mixin(ClientRecipeBook.class)
 public class ClientRecipeBookMixin {
     @Redirect(

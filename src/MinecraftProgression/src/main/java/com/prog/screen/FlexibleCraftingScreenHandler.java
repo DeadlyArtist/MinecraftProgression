@@ -1,6 +1,8 @@
 package com.prog.screen;
 
+import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
+import com.prog.screen.slot.FlexibleCraftingResultSlot;
 import com.prog.utils.InventoryUtils;
 import com.prog.utils.ScreenUtils;
 import com.prog.utils.SlotUtils;
@@ -27,6 +29,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class FlexibleCraftingScreenHandler extends AbstractRecipeScreenHandler<CraftingInventory> {
@@ -58,8 +61,8 @@ public class FlexibleCraftingScreenHandler extends AbstractRecipeScreenHandler<C
         this.context = context;
         this.player = playerInventory.player;
         int slotSize = SlotUtils.SIZE;
-        int halfSlotSize = 9;
-        this.addSlot(new CraftingResultSlot(playerInventory.player, this.input, this.result, 0, 57 + width * halfSlotSize + 42, 17 + height * halfSlotSize - halfSlotSize));
+        int halfSlotSize = SlotUtils.HALF_SIZE;
+        this.addSlot(new FlexibleCraftingResultSlot(recipeTypes, playerInventory.player, this.input, this.result, 0, 57 + width * halfSlotSize + 42, 17 + height * halfSlotSize - halfSlotSize));
 
         for (int heightIndex = 0; heightIndex < height; heightIndex++) {
             for (int widthIndex = 0; widthIndex < width; widthIndex++) {
@@ -93,6 +96,7 @@ public class FlexibleCraftingScreenHandler extends AbstractRecipeScreenHandler<C
                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, craftingRecipe)) {
                    itemStack = craftingRecipe.craft(craftingInventory);
                }
+               break;
            }
        }
 

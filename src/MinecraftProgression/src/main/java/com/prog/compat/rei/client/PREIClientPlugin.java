@@ -78,6 +78,11 @@ public class PREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerCategories(CategoryRegistry registry) {
+        // We register extern instead, by injecting after:
+        //    registry.addWorkstations(WAXING, EntryStacks.of(Items.HONEYCOMB));
+    }
+
+    public static void registerCategoriesExtern(CategoryRegistry registry) {
         registry.add(new NbtSmithingCategory());
         registry.addWorkstations(PREICategories.NBT_SMITHING, EntryStacks.of(Blocks.SMITHING_TABLE));
 
@@ -90,12 +95,12 @@ public class PREIClientPlugin implements REIClientPlugin {
     public void registerDisplays(DisplayRegistry registry) {
         registry.registerRecipeFiller(NbtSmithingRecipe.class, PRecipeTypes.NBT_SMITHING, recipe -> new NbtSmithingDisplay(recipe));
 
-        registry.registerRecipeFiller(CraftingRecipe.class, RecipeType.CRAFTING, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.ASSEMBLY, 3, recipe));
-        registry.registerRecipeFiller(FlexibleCraftingRecipe.class, PRecipeTypes.ASSEMBLY, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.ASSEMBLY, FlexibleCraftingData.ASSEMBLY.width, recipe));
+        registry.registerRecipeFiller(CraftingRecipe.class, RecipeType.CRAFTING, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.ASSEMBLY, recipe));
+        registry.registerRecipeFiller(FlexibleCraftingRecipe.class, PRecipeTypes.ASSEMBLY, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.ASSEMBLY, recipe));
 
-        registry.registerRecipeFiller(CraftingRecipe.class, RecipeType.CRAFTING, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.COSMIC_CONSTRUCTOR, 3, recipe));
-        registry.registerRecipeFiller(FlexibleCraftingRecipe.class, PRecipeTypes.ASSEMBLY, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.COSMIC_CONSTRUCTOR, FlexibleCraftingData.ASSEMBLY.width, recipe));
-        registry.registerRecipeFiller(FlexibleCraftingRecipe.class, PRecipeTypes.COSMIC_CONSTRUCTOR, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.COSMIC_CONSTRUCTOR, FlexibleCraftingData.COSMIC_CONSTRUCTOR.width, recipe));
+        registry.registerRecipeFiller(CraftingRecipe.class, RecipeType.CRAFTING, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.COSMIC_CONSTRUCTOR, recipe));
+        registry.registerRecipeFiller(FlexibleCraftingRecipe.class, PRecipeTypes.ASSEMBLY, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.COSMIC_CONSTRUCTOR, recipe));
+        registry.registerRecipeFiller(FlexibleCraftingRecipe.class, PRecipeTypes.COSMIC_CONSTRUCTOR, recipe -> new FlexibleCraftingDisplay(FlexibleCraftingData.COSMIC_CONSTRUCTOR, recipe));
 
         registry.registerRecipeFiller(BlastingRecipe.class, RecipeType.BLASTING, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.INCINERATOR, recipe));
         registry.registerRecipeFiller(FlexibleCookingRecipe.class, PRecipeTypes.INCINERATOR, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.INCINERATOR, recipe));
@@ -103,8 +108,8 @@ public class PREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerScreens(ScreenRegistry registry) {
-        registry.registerContainerClickArea(new Rectangle(88, 32, 28, 23), FlexibleCraftingScreen.class, PREICategories.ASSEMBLY);
-        registry.registerContainerClickArea(new Rectangle(88, 32, 28, 23), FlexibleCraftingScreen.class, PREICategories.COSMIC_CONSTRUCTOR);
+        registry.registerContainerClickArea(new Rectangle(88 + 18, 32, 28, 23), FlexibleCraftingScreen.class, PREICategories.ASSEMBLY);
+        registry.registerContainerClickArea(new Rectangle(88 + 18, 32 + 18, 28, 23), FlexibleCraftingScreen.class, PREICategories.COSMIC_CONSTRUCTOR);
         registry.registerContainerClickArea(new Rectangle(78, 32, 28, 23), FlexibleCookingScreen.class, PREICategories.INCINERATOR);
     }
 

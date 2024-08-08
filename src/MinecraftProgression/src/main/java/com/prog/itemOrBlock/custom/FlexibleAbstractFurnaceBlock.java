@@ -74,14 +74,10 @@ public abstract class FlexibleAbstractFurnaceBlock extends BlockWithEntity {
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        Prog.LOGGER.info("STAA");
         if (!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            Prog.LOGGER.info("STATE");
             if (blockEntity instanceof FlexibleAbstractFurnaceBlockEntity) {
-                Prog.LOGGER.info("YES");
                 if (world instanceof ServerWorld) {
-                    Prog.LOGGER.info("WORLD");
                     ItemScatterer.spawn(world, pos, (FlexibleAbstractFurnaceBlockEntity) blockEntity);
                     ((FlexibleAbstractFurnaceBlockEntity) blockEntity).getRecipesUsedAndDropExperience((ServerWorld) world, Vec3d.ofCenter(pos));
                 }
