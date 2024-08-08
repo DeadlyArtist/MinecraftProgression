@@ -2,6 +2,9 @@ package com.prog.data.custom;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.prog.Prog;
+import com.prog.recipe.PRecipeSerializers;
+import com.prog.recipe.PRecipeTypes;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.CriterionMerger;
@@ -115,7 +118,7 @@ public class NbtSmithingRecipeJsonBuilder extends SmithingRecipeJsonBuilder {
         @Override
         public JsonObject toJson() {
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("type", "nbtcrafting:smithing");
+            jsonObject.addProperty("type", new Identifier(Prog.MOD_ID, Registry.RECIPE_SERIALIZER.getId(PRecipeSerializers.NBT_SMITHING).getPath()).toString());
             this.serialize(jsonObject);
             return jsonObject;
         }

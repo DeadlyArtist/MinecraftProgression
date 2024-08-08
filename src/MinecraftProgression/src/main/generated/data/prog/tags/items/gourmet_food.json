@@ -2,13 +2,13 @@
   "replace": false,
   "values": [
     "minecraft:poisonous_potato",
-    "minecraft:rotten_flesh",
-    "minecraft:enchanted_golden_apple",
-    "minecraft:spider_eye",
-    "minecraft:glistering_melon_slice",
     "minecraft:chorus_fruit",
+    "minecraft:spider_eye",
     "minecraft:golden_carrot",
+    "minecraft:glistering_melon_slice",
+    "minecraft:milk_bucket",
     "minecraft:golden_apple",
-    "minecraft:milk_bucket"
+    "minecraft:rotten_flesh",
+    "minecraft:enchanted_golden_apple"
   ]
 }

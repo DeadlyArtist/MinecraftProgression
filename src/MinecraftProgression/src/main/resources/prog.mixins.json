@@ -11,7 +11,9 @@
     "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "RecipeProviderMixin"
+    "RecipeProviderMixin",
+    "SmithinScreenHandlerMixin",
+    "ClientRecipeBookMixin"
   ],
   "injectors": {
     "defaultRequire": 1

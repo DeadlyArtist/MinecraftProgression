@@ -25,7 +25,7 @@ public enum PToolMaterials implements ToolMaterial {
     }
 
     public int getDurability() {
-        return 1000000;
+        return 1;
     }
 
     public float getMiningSpeedMultiplier() {

@@ -79,6 +79,8 @@ dependencies {
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.caridnal_components_version}")
 
 	// REI
+	modImplementation "dev.architectury:architectury-fabric:6.2.43"
+	// Manually override architectury, remove once REI's dependency is fixed
 	modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"

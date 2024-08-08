@@ -1,5 +1,5 @@
 {
-  "type": "nbtcrafting:smithing",
+  "type": "prog:nbt_smithing",
   "base": {
     "data": {
       "deny": {
