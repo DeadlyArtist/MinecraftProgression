@@ -458,6 +458,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         // Misc
         createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
         createShapedRecipe(List.of("sc ", "coc", " cs"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.COPPER_INGOT), Input.of(Items.OBSIDIAN)), PBlocks.MACHINE_FRAME).offer(exporter);
+        createShapedRecipe(List.of("crc", "rgr", "crc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(Items.GOLD_INGOT)), PItems.MACHINE_CIRCUIT).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500, 2F).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.EMBERITE, PBlocks.EMBERITE_BLOCK);
@@ -472,7 +473,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of(" t ", "tdt", " t "), List.of(Input.of(PItems.TITAN_INGOT), Input.of(Items.DIAMOND)), PItems.TITAN_CORE).requireAssembly().offer(exporter);
 
         // Machines
-        createShapedRecipe(List.of("frf", "fcf", "rRr"), List.of(Input.of(PBlocks.MACHINE_FRAME), Input.of(Items.REDSTONE), Input.of(Items.CRAFTING_TABLE), Input.of(Blocks.REDSTONE_BLOCK)), PBlocks.ASSEMBLY).offer(exporter);
+        createShapedRecipe(List.of("frf", "CcC", "rRr"), List.of(Input.of(PBlocks.MACHINE_FRAME), Input.of(Items.REDSTONE), Input.of(PItems.MACHINE_CIRCUIT), Input.of(Items.CRAFTING_TABLE), Input.of(Blocks.REDSTONE_BLOCK)), PBlocks.ASSEMBLY).offer(exporter);
         createShapedRecipe(List.of("obfbo", "on no", "ofbfo"), List.of(Input.of(Blocks.OBSIDIAN), Input.of(Items.BLAZE_ROD), Input.of(PBlocks.MACHINE_FRAME), Input.of(Blocks.NETHERRACK), Input.of(Items.LAVA_BUCKET)), PBlocks.INCINERATOR).requireAssembly().offer(exporter);
 
         // Tier Upgrades

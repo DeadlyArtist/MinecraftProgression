@@ -53,6 +53,7 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         // Vanilla upgrade overrides
         addToUpgrades(Items.PRISMARINE_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.AMETHYST_SHARD, UEffectMapper.damage());
+        addToUpgrades(Items.ECHO_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.MAGMA_CREAM, UEffectMapper.best());
         addToUpgrades(Items.HONEY_BLOCK, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
         addToUpgrades(Items.PHANTOM_MEMBRANE, UEffectMapper.best());

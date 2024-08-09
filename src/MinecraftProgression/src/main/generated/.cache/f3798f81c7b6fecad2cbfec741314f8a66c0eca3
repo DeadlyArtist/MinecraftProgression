@@ -1,4 +1,4 @@
-// 1.19.2	2024-08-09T04:26:17.9443967	Models
+// 1.19.2	2024-08-09T06:19:00.7869375	Models
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
 8ad18a21e476171f69020b246d1b99264d1810ce assets\prog\models\item\primal_netherite_leggings.json
@@ -73,6 +73,7 @@ c4e76de059bd917484756b9d925fc7542d1a83f8 assets\prog\models\item\primal_netherit
 e867ed510f11d54922b45cc7435d4670ca17a530 assets\prog\models\item\steel_binding.json
 11945599f052d9a30bcda74114f9c7e1b16ac321 assets\prog\blockstates\incinerator.json
 dc87f36528ddd16875fddd36229410b5a880b80b assets\prog\models\block\emberite_ore.json
+4a4b741249599bac77d9d11b8d10f191676cfd22 assets\prog\models\item\machine_circuit.json
 b0049a46a24cc5c620ae9e7a61003dd838928c72 assets\prog\models\item\refined_obsidian_helmet.json
 cb9c2d07e4f99533b6a87e414dce55a4c9604cb7 assets\prog\blockstates\assembly.json
 57134f3e63f95c2d00d22eba8751c02e23d8091b assets\prog\models\item\titan_chestplate.json

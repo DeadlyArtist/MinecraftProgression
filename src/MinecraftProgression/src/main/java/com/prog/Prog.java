@@ -4,12 +4,14 @@ import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PDefaultAttributes;
 import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.*;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
+import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.SlotUtils;
 import com.prog.utils.UpgradeUtils;
 import com.prog.world.OreGeneration;
@@ -69,6 +71,11 @@ public class Prog implements ModInitializer {
 
             var upgrades = UpgradeUtils.extractUpgradeData(stack);
             upgrades.forEach((name, effects) -> effects.forEach(effect -> attributeModifiers.put(effect.target, effect.modifier)));
+
+
+            if (stack.isIn(PItemTags.TITAN_OR_HIGHER)) {
+                attributeModifiers.put(XEntityAttributes.ATTACK_RANGE, EntityAttributeModifierUtils.increment("default_attack_range_increase_1"));
+            }
 
 //            Example
 //            if (stack.isOf(Items.DIAMOND_HELMET) && slot.getEntitySlotId() == HEAD_SLOT_ID) {

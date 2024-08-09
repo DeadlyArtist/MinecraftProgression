@@ -3,11 +3,11 @@
   "values": [
     "prog:cosmic_constructor",
     "prog:quartz_catalyst",
-    "prog:steel_block",
-    "prog:assembly",
+    "prog:machine_frame",
     "prog:emberite_block",
-    "prog:incinerator",
+    "prog:assembly",
     "prog:emberite_ore",
-    "prog:machine_frame"
+    "prog:incinerator",
+    "prog:steel_block"
   ]
 }

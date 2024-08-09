@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class PComponents implements EntityComponentInitializer {
     // retrieving a type for my component or for a required dependency's
+    // DONT FORGET TO ADD TO fabric.mod.json
     public static final ComponentKey<LivingEntityComponent> LIVING_ENTITY = register("LIVING_ENTITY", LivingEntityComponent.class);
     public static final ComponentKey<PlayerComponent> PLAYER = register("PLAYER", PlayerComponent.class);
 

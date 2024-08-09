@@ -52,6 +52,12 @@ repositories {
 			includeGroup 'maven.modrinth'
 		}
 	}
+	maven {
+		url "https://maven.jamieswhiteshirt.com/libs-release"
+		content {
+			includeGroup "com.jamieswhiteshirt"
+		}
+	}
 }
 
 fabricApi {
@@ -73,6 +79,7 @@ dependencies {
 	modImplementation include("maven.modrinth:lambdynamiclights:${project.lamb_dynamic_lights_version}")
 	modImplementation include("maven.modrinth:projectile-damage-attribute:${project.projectile_damage_attribute_version}")
 	modImplementation include("maven.modrinth:AdditionalEntityAttributes:${project.additionalentityattributes_version}")
+	modImplementation include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}")
 
 	// Cardinal components
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.caridnal_components_version}")

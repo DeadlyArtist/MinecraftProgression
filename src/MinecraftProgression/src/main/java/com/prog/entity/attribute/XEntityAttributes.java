@@ -1,5 +1,6 @@
 package com.prog.entity.attribute;
 
+import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import de.dafuqs.additionalentityattributes.AdditionalEntityAttributes;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.projectile_damage.api.EntityAttributes_ProjectileDamage;
@@ -7,6 +8,10 @@ import net.projectile_damage.api.EntityAttributes_ProjectileDamage;
 public class XEntityAttributes {
     // Projectile damage mod
     public static final EntityAttribute PROJECTILE_DAMAGE = EntityAttributes_ProjectileDamage.GENERIC_PROJECTILE_DAMAGE;
+
+    // Reach entity attributes mod
+    public static final EntityAttribute REACH = ReachEntityAttributes.REACH;
+    public static final EntityAttribute ATTACK_RANGE = ReachEntityAttributes.ATTACK_RANGE; // Capped by reach
 
     // Additional entity attributes mod
     public static final EntityAttribute CRITICAL_BONUS_DAMAGE = AdditionalEntityAttributes.CRITICAL_BONUS_DAMAGE;
