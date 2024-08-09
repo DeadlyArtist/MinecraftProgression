@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_echo_shard": ""
+      }
+    },
+    "item": "prog:refined_obsidian_sword"
+  },
+  "ingredient": {
+    "item": "minecraft:echo_shard"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_echo_shard": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:echo_shard"
+      }
+    },
+    "item": "prog:refined_obsidian_sword"
+  }
+}
