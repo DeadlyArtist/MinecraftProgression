@@ -1,7 +1,9 @@
-// 1.19.2	2024-08-08T07:38:47.4600265	Models
+// 1.19.2	2024-08-09T04:26:17.9443967	Models
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
 8ad18a21e476171f69020b246d1b99264d1810ce assets\prog\models\item\primal_netherite_leggings.json
+dce8bb5d70eeb29ef6bb33d5922de25e1e70bec4 assets\prog\blockstates\machine_frame.json
+b7f042214499435aa1cea7fb8e1c24e9dea1ddbf assets\prog\models\item\machine_frame.json
 01974bd580989e317e740d5ab4a57f960b69d94b assets\prog\models\item\steel_sword.json
 5309034601fdca6a147764094ec19dafd63883d3 assets\prog\models\item\titan_shovel.json
 c4946fbd6d9d8501189a5e49b13d343ba6901ba5 assets\prog\models\item\refined_obsidian_boots.json
@@ -24,6 +26,7 @@ f5b031acc559e4d3423a6cbbbdc407115647d8dc assets\prog\models\block\assembly.json
 011a26a83a9014086c232991ffec95554266313b assets\prog\models\item\primal_netherite_hoe.json
 52c1a6ba0526e5bf9e8eab0bca5f0df4856da9c2 assets\prog\models\item\primal_netherite_axe.json
 5ee23dcd61faca935d3b2cd3d82e52f23820d510 assets\prog\models\item\ultimate_diamond_axe.json
+d147af30d729b64e7b938a8420dce62c54a85909 assets\prog\models\block\machine_frame.json
 0bf4a653af92dd4e4b89977a065fd200b59e6268 assets\prog\models\item\refined_obsidian_shovel.json
 c003634e004203429a96cf1f5998b1f9a1f6924b assets\prog\blockstates\cosmic_constructor.json
 145d5a70a05f392d28637bee448726ac07dc3e5d assets\prog\models\block\quartz_catalyst.json
@@ -32,12 +35,10 @@ c003634e004203429a96cf1f5998b1f9a1f6924b assets\prog\blockstates\cosmic_construc
 889d725cefccc5168d021fbb0186da4bec370c0a assets\prog\models\item\steel_hoe.json
 b0c49151a38311b4789ff55e2ffc514c61f453b3 assets\prog\models\block\incinerator_on.json
 f409f33c85fbde8c446b0efe30a1ce530d14b1a1 assets\prog\models\item\compressed_quartz.json
-53d0494af9a18a4ef4826552c20194e99818a52a assets\prog\models\block\steel_frame.json
 6cf02dfc9efdef3b88bb1431ff877562d953c608 assets\prog\models\item\emberite_ore.json
 6ee10549516129c1fe8b313e8877f1dfb3b08710 assets\prog\models\item\steel_leggings.json
 4110316dc2f12421835e62877f0633f459081d3c assets\prog\models\item\ultimate_diamond_boots.json
 c8eefefac87f3885bde8c2f45b7fde0a5b0fe150 assets\prog\blockstates\steel_block.json
-fabd7e80678235ef142e778c3a515083fda50caf assets\prog\models\item\steel_frame.json
 94e302be05bc9245e4cbd115066062c5b40afc4c assets\prog\models\item\primal_netherite_boots.json
 afb0f08c9a49a373cf7a775037f882811a795995 assets\prog\models\block\cosmic_constructor.json
 4d35a8bbf25d90fbf33f4043b3abe011e3699a7c assets\prog\models\item\angel_ring.json
@@ -69,7 +70,6 @@ b7a8b5fcddca9dc40235f3a7d88622195e945961 assets\prog\models\item\ultimate_diamon
 c6f691f8e81423f8d52d80dd5596fd25bee2706a assets\prog\models\item\titan_leggings.json
 6b3b758db5d4679a05a22a737204dc5b59f9f36d assets\prog\models\item\refined_obsidian_sword.json
 c4e76de059bd917484756b9d925fc7542d1a83f8 assets\prog\models\item\primal_netherite_shovel.json
-458ab25da05a9781a7f95fa7b13073a2438ed09d assets\prog\blockstates\steel_frame.json
 e867ed510f11d54922b45cc7435d4670ca17a530 assets\prog\models\item\steel_binding.json
 11945599f052d9a30bcda74114f9c7e1b16ac321 assets\prog\blockstates\incinerator.json
 dc87f36528ddd16875fddd36229410b5a880b80b assets\prog\models\block\emberite_ore.json

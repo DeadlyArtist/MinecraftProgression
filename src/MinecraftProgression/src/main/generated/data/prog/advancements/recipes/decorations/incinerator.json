@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_machine_frame": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:machine_frame"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_netherrack": {
       "conditions": {
         "items": [
@@ -37,18 +49,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_steel_frame": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "prog:steel_frame"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "minecraft:incinerator"
@@ -60,7 +60,7 @@
     [
       "has_obsidian",
       "has_blaze_rod",
-      "has_steel_frame",
+      "has_machine_frame",
       "has_netherrack",
       "has_the_recipe"
     ]

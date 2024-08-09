@@ -1,6 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
     "o": {
       "item": "minecraft:obsidian"
     },
@@ -9,11 +12,11 @@
     }
   },
   "pattern": [
-    "ss ",
-    "sos",
-    " ss"
+    "sc ",
+    "coc",
+    " cs"
   ],
   "result": {
-    "item": "prog:steel_frame"
+    "item": "prog:machine_frame"
   }
 }

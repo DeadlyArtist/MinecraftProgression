@@ -1,23 +1,18 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
-import com.prog.data.PBlockTagProvider;
 import com.prog.data.PLootTableProvider;
 import com.prog.itemOrBlock.custom.FlexibleCookingBlock;
 import com.prog.itemOrBlock.custom.FlexibleCraftingBlock;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
-import com.prog.recipe.PRecipeTypes;
-import com.prog.text.PTexts;
 import com.prog.utils.StringUtils;
-import com.prog.utils.TextureMapUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.TextureMap;
 import net.minecraft.data.client.TexturedModel;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -62,7 +57,7 @@ public class PBlocks {
 
     // Materials
     public static final Block STEEL_BLOCK = registerBlock("STEEL_BLOCK", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
-    public static final Block STEEL_FRAME = registerBlock("STEEL_FRAME", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
+    public static final Block MACHINE_FRAME = registerBlock("MACHINE_FRAME", new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_IRON_TOOL));
     public static final Block QUARTZ_CATALYST = registerBlock("QUARTZ_CATALYST", new Block(FabricBlockSettings.of(Material.AMETHYST).strength(3.0F, 3.0F).requiresTool()), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, BlockTags.NEEDS_DIAMOND_TOOL));
     public static final Block EMBERITE_BLOCK = registerBlock("EMBERITE_BLOCK", new Block(FabricBlockSettings.of(Material.FIRE).strength(5.0F, 6.0F).requiresTool().luminance(5)), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self), List.of(BlockTags.PICKAXE_MINEABLE, PBlockTags.NEEDS_REFINED_OBSIDIAN_TOOL));
     public static final Block EMBERITE_ORE = registerBlock("EMBERITE_ORE", new Block(FabricBlockSettings.of(Material.FIRE).strength(5.0F, 6.0F).requiresTool().luminance(5)), ItemGroup.BUILDING_BLOCKS, (modelSupplier, self) -> modelSupplier.registerCubeAllModelTexturePool(self), (lootProvider, self) -> lootProvider.addDrop(self, PItems.EMBERITE), List.of(BlockTags.PICKAXE_MINEABLE, PBlockTags.NEEDS_REFINED_OBSIDIAN_TOOL));

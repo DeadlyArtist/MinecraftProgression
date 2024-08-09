@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "prog:block/steel_frame"
+    "all": "prog:block/machine_frame"
   }
 }

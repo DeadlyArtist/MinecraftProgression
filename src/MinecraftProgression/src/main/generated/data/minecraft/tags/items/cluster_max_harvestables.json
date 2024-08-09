@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "prog:titan_pickaxe",
-    "prog:primal_netherite_pickaxe",
     "prog:ultimate_diamond_pickaxe",
+    "prog:steel_pickaxe",
+    "prog:titan_pickaxe",
     "prog:refined_obsidian_pickaxe",
-    "prog:steel_pickaxe"
+    "prog:primal_netherite_pickaxe"
   ]
 }
