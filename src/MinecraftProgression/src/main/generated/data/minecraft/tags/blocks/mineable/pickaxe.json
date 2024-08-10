@@ -2,12 +2,12 @@
   "replace": false,
   "values": [
     "prog:cosmic_constructor",
-    "prog:quartz_catalyst",
-    "prog:machine_frame",
-    "prog:emberite_block",
     "prog:assembly",
-    "prog:emberite_ore",
     "prog:incinerator",
-    "prog:steel_block"
+    "prog:quartz_catalyst",
+    "prog:emberite_ore",
+    "prog:machine_frame",
+    "prog:steel_block",
+    "prog:emberite_block"
   ]
 }

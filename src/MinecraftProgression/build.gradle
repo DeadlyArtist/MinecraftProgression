@@ -53,6 +53,12 @@ repositories {
 		}
 	}
 	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	maven {
 		url "https://maven.jamieswhiteshirt.com/libs-release"
 		content {
 			includeGroup "com.jamieswhiteshirt"
@@ -91,6 +97,13 @@ dependencies {
 	modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
+
+	// Mmmm dummy
+	modRuntimeOnly include("curse.maven:moonlight-499980:5567103")
+	modRuntimeOnly include("curse.maven:mmmmmmm-225738:4410141")
+
+	// Disable custom worlds advice
+	modRuntimeOnly include("curse.maven:mmmmmmm-401978:3827588")
 }
 
 processResources {

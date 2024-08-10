@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_golden_leggings": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_leggings"
+  },
+  "ingredient": {
+    "item": "minecraft:golden_leggings"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_golden_leggings": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 0.25
+            },
+            "target": "prog:piglin_loved"
+          }
+        ],
+        "id": "minecraft:golden_leggings"
+      }
+    },
+    "item": "prog:ultimate_diamond_leggings"
+  }
+}

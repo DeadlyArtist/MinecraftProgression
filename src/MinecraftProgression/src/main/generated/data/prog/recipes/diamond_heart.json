@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "e": {
+      "item": "minecraft:emerald"
+    },
+    "s": {
+      "item": "prog:steel_ingot"
+    }
+  },
+  "pattern": [
+    "sd ",
+    "ded",
+    " ds"
+  ],
+  "result": {
+    "item": "prog:diamond_heart"
+  }
+}

@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
@@ -38,6 +39,16 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         Upgrades.register(item, effects);
     }
 
+    public static void addToUpgrades(Item item, List<Function<Item, List<UEffect>>> effects) {
+        addToTag(PItemTags.UPGRADE, item);
+        Function<Item, List<UEffect>> func = target ->
+                effects.stream()
+                        .map(f -> f.apply(target))
+                        .flatMap(List::stream)
+                        .collect(Collectors.toList());
+        Upgrades.register(item, func);
+    }
+
     public static void addToGourmetFood(Item item, List<UEffect> effects) {
         addToTag(PItemTags.GOURMET_FOOD, item);
         GourmetFoods.register(item, effects);
@@ -51,6 +62,7 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void generateTags() {
         // Vanilla upgrade overrides
+        addToUpgrades(Items.END_CRYSTAL, UEffectMapper.damage());
         addToUpgrades(Items.PRISMARINE_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.AMETHYST_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.ECHO_SHARD, UEffectMapper.damage());
@@ -63,6 +75,7 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.MUSIC_DISC_PIGSTEP, UEffectMapper.best());
         addToUpgrades(Items.SCUTE, UEffectMapper.best());
         addToUpgrades(Items.SLIME_BALL, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
+        addToUpgrades(Items.ENDER_PEARL, UEffectMapper.best());
         addToUpgrades(Items.ENDER_EYE, UEffectMapper.best());
         addToUpgrades(Items.TOTEM_OF_UNDYING, UEffectMapper.protection());
         addToUpgrades(Items.GOAT_HORN, UEffectMapper.chestplate(UEffect.add(XEntityAttributes.LUNG_CAPACITY, 5)));
@@ -72,6 +85,25 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.WITHER_SKELETON_SKULL, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.NETHER_STAR, UEffectMapper.best(2));
         addToUpgrades(Items.TORCH, UEffectMapper.helmet(UEffect.add(PEntityAttributes.LUMINANCE, 14)));
+        addToUpgrades(Items.GOLDEN_BOOTS, UEffectMapper.boots(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25)));
+        addToUpgrades(Items.GOLDEN_CHESTPLATE, UEffectMapper.chestplate(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25)));
+        addToUpgrades(Items.GOLDEN_HELMET, UEffectMapper.helmet(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25)));
+        addToUpgrades(Items.GOLDEN_LEGGINGS, UEffectMapper.leggings(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25))); // All 4 gold armor items required for piglin loved to take effect
+        addToUpgrades(Items.GOLDEN_AXE, UEffectMapper.axe(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
+        addToUpgrades(Items.GOLDEN_HOE, UEffectMapper.hoe(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
+        addToUpgrades(Items.GOLDEN_PICKAXE, UEffectMapper.pickaxe(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
+        addToUpgrades(Items.GOLDEN_SHOVEL, UEffectMapper.shovel(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
+        addToUpgrades(Items.GOLDEN_SWORD, UEffectMapper.sword(UEffect.add(EntityAttributes.GENERIC_ATTACK_SPEED, 0.1)));
+        addToUpgrades(Items.CHAINMAIL_BOOTS, UEffectMapper.boots(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.CHAINMAIL_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.CHAINMAIL_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.CHAINMAIL_LEGGINGS, UEffectMapper.leggings(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        addToUpgrades(Items.GHAST_TEAR, UEffectMapper.helmet(UEffect.add(XEntityAttributes.LAVA_VISIBILITY, 100)));
+        addToUpgrades(Items.NAUTILUS_SHELL, UEffectMapper.protection());
+        addToUpgrades(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        addToUpgrades(Items.FIREWORK_ROCKET, UEffectMapper.crossbow(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
+        addToUpgrades(Items.FIRE_CHARGE, UEffectMapper.damage());
+        addToUpgrades(Items.GLOW_BERRIES, UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK)));
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));

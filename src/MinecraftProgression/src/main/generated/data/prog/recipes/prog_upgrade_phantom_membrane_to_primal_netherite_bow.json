@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_phantom_membrane": ""
+      }
+    },
+    "item": "prog:primal_netherite_bow"
+  },
+  "ingredient": {
+    "item": "minecraft:phantom_membrane"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_phantom_membrane": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "projectile_damage:generic"
+          }
+        ],
+        "id": "minecraft:phantom_membrane"
+      }
+    },
+    "item": "prog:primal_netherite_bow"
+  }
+}

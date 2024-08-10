@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/titan_bow",
+    "textures": {
+        "layer0": "prog:item/titan_bow_pulling_2"
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:diamond_heart"
+  },
+  "base": {
+    "item": "prog:steel_bow"
+  },
+  "result": {
+    "item": "prog:ultimate_diamond_bow"
+  }
+}

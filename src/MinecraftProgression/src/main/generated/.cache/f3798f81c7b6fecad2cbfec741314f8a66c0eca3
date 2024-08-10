@@ -1,4 +1,4 @@
-// 1.19.2	2024-08-09T06:19:00.7869375	Models
+// 1.19.2	2024-08-10T21:56:58.0594122	Models
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
 8ad18a21e476171f69020b246d1b99264d1810ce assets\prog\models\item\primal_netherite_leggings.json
@@ -11,6 +11,7 @@ c4946fbd6d9d8501189a5e49b13d343ba6901ba5 assets\prog\models\item\refined_obsidia
 15e3bcfc7363838f7436cdb7a3938c16fdec6c40 assets\prog\models\item\titan_boots.json
 772f8444c16c24e4d1bfbeca1ac6b386217a19b3 assets\prog\models\item\steel_pickaxe.json
 7802258049b4c6f96bbfaa705c56f5e8c365292c assets\prog\models\item\steel_chestplate.json
+bd88b6b84caa286c3e0a627063d93d05d78841a7 assets\prog\models\item\diamond_heart.json
 fa6105fae161c8c554e7975096a76d724324244d assets\prog\models\item\ultimate_diamond_helmet.json
 50350386c12895e6d9aa2b25fe48784ca9a5f160 assets\prog\models\item\titan_core.json
 eff237307038dae3c406c617518b043f59c2d1b5 assets\prog\models\item\refined_obsidian_pickaxe.json

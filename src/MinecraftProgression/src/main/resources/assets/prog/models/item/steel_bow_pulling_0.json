@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/steel_bow",
+    "textures": {
+        "layer0": "prog:item/steel_bow_pulling_0"
+    }
+}

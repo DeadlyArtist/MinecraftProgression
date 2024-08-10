@@ -3,19 +3,24 @@
   "package": "com.prog.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BowItemMixin",
     "ConfiguredFeaturesMixin",
     "EntityMixin",
     "ItemMixin",
     "ItemsMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
+    "PiglingBrainMixin",
     "PlayerEntityMixin",
     "RecipeProviderMixin",
-    "SmithinScreenHandlerMixin"
+    "SmithinScreenHandlerMixin",
+    "compat.projectile_damage.TooltipHelperMixin"
   ],
   "client": [
+    "AbstractClientPlayerEntityMixin",
     "ClientPlayerEntityMixin",
     "ClientRecipeBookMixin",
+    "HeldItemRendererMixin",
     "compat.rei.DefaultClientPluginMixin"
   ],
   "injectors": {

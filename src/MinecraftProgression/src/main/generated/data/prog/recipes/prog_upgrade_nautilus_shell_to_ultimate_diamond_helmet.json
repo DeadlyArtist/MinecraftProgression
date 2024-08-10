@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_nautilus_shell": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:nautilus_shell"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_nautilus_shell": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          }
+        ],
+        "id": "minecraft:nautilus_shell"
+      }
+    },
+    "item": "prog:ultimate_diamond_helmet"
+  }
+}

@@ -8,19 +8,27 @@ import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.*;
+import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
 import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.SlotUtils;
+import com.prog.utils.TridentUtils;
 import com.prog.utils.UpgradeUtils;
 import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.TridentItem;
 import net.minecraft.nbt.NbtByte;
+import net.projectile_damage.internal.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,13 +76,22 @@ public class Prog implements ModInitializer {
 
         ModifyItemAttributeModifiersCallback.EVENT.register((stack, slot, attributeModifiers) -> {
             if (!SlotUtils.isEquipped(stack, slot)) return;
+            var item = stack.getItem();
 
             var upgrades = UpgradeUtils.extractUpgradeData(stack);
             upgrades.forEach((name, effects) -> effects.forEach(effect -> attributeModifiers.put(effect.target, effect.modifier)));
 
 
-            if (stack.isIn(PItemTags.TITAN_OR_HIGHER)) {
+            if (item instanceof SwordItem && stack.isIn(PItemTags.TITAN_OR_HIGHER)) {
                 attributeModifiers.put(XEntityAttributes.ATTACK_RANGE, EntityAttributeModifierUtils.increment("default_attack_range_increase_1"));
+            }
+
+            if (item instanceof TridentItem) {
+                double damage = TridentUtils.BASE_RANGED_DAMAGE;
+                if (item instanceof TieredTridentItem tieredTridentItem)
+                    damage += tieredTridentItem.material.getDamageBonus() + (double) EnchantmentHelper.getAttackDamage(stack, EntityGroup.DEFAULT);
+                if (item instanceof TieredTridentItem tieredTridentItem) damage += tieredTridentItem.material.getDamageBonus();
+                attributeModifiers.put(XEntityAttributes.PROJECTILE_DAMAGE, new EntityAttributeModifier(Constants.GENERIC_PROJECTILE_MODIFIER_ID, "Projectile modifier", damage, EntityAttributeModifier.Operation.ADDITION));
             }
 
 //            Example

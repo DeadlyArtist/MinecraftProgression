@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_ender_pearl": ""
+      }
+    },
+    "item": "prog:steel_pickaxe"
+  },
+  "ingredient": {
+    "item": "minecraft:ender_pearl"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_ender_pearl": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:ender_pearl"
+      }
+    },
+    "item": "prog:steel_pickaxe"
+  }
+}

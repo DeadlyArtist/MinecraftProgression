@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/primal_netherite_bow",
+    "textures": {
+        "layer0": "prog:item/primal_netherite_bow_pulling_0"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/refined_obsidian_bow",
+    "textures": {
+        "layer0": "prog:item/refined_obsidian_bow_pulling_0"
+    }
+}

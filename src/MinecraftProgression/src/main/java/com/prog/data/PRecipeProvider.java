@@ -459,6 +459,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
         createShapedRecipe(List.of("sc ", "coc", " cs"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.COPPER_INGOT), Input.of(Items.OBSIDIAN)), PBlocks.MACHINE_FRAME).offer(exporter);
         createShapedRecipe(List.of("crc", "rgr", "crc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(Items.GOLD_INGOT)), PItems.MACHINE_CIRCUIT).offer(exporter);
+        createShapedRecipe(List.of("sd ", "ded", " ds"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.DIAMOND), Input.of(Items.EMERALD)), PItems.DIAMOND_HEART).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500, 2F).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.EMBERITE, PBlocks.EMBERITE_BLOCK);
@@ -488,6 +489,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(Items.IRON_PICKAXE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_PICKAXE).offer(exporter);
         createSmithingRecipe(Input.of(Items.IRON_SHOVEL), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SHOVEL).offer(exporter);
 
+        createSmithingRecipe(Input.of(Items.BOW), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOW).offer(exporter);
         createSmithingRecipe(Input.of(Items.IRON_SWORD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SWORD).offer(exporter);
 
         // Ultimate diamond
@@ -501,6 +503,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.STEEL_PICKAXE), Input.of(Items.DIAMOND_PICKAXE), PItems.ULTIMATE_DIAMOND_PICKAXE).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_SHOVEL), Input.of(Items.DIAMOND_SHOVEL), PItems.ULTIMATE_DIAMOND_SHOVEL).offer(exporter);
 
+        createSmithingRecipe(Input.of(PItems.STEEL_BOW), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_SWORD), Input.of(Items.DIAMOND_SWORD), PItems.ULTIMATE_DIAMOND_SWORD).offer(exporter);
 
         // Refined obsidian
@@ -514,6 +517,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_PICKAXE), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_PICKAXE).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SHOVEL), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SHOVEL).offer(exporter);
 
+        createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_BOW), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SWORD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SWORD).offer(exporter);
 
         // Titan
@@ -527,6 +531,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_PICKAXE), Input.of(PItems.TITAN_CORE), PItems.TITAN_PICKAXE).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SHOVEL), Input.of(PItems.TITAN_CORE), PItems.TITAN_SHOVEL).offer(exporter);
 
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_BOW), Input.of(PItems.TITAN_CORE), PItems.TITAN_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SWORD), Input.of(PItems.TITAN_CORE), PItems.TITAN_SWORD).offer(exporter);
 
         // Primal netherite
@@ -540,6 +545,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.TITAN_PICKAXE), Input.of(Items.NETHERITE_PICKAXE), PItems.PRIMAL_NETHERITE_PICKAXE).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SHOVEL), Input.of(Items.NETHERITE_SHOVEL), PItems.PRIMAL_NETHERITE_SHOVEL).offer(exporter);
 
+        createSmithingRecipe(Input.of(PItems.TITAN_BOW), Input.of(Items.NETHERITE_INGOT), PItems.PRIMAL_NETHERITE_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SWORD), Input.of(Items.NETHERITE_SWORD), PItems.PRIMAL_NETHERITE_SWORD).offer(exporter);
 
         // Upgrades

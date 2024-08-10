@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:refined_obsidian_module"
+  },
+  "base": {
+    "item": "prog:ultimate_diamond_bow"
+  },
+  "result": {
+    "item": "prog:refined_obsidian_bow"
+  }
+}

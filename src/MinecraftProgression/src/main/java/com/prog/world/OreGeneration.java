@@ -39,7 +39,7 @@ public class OreGeneration {
                 Arrays.asList(
                         CountPlacementModifier.of(count),
                         SquarePlacementModifier.of(),
-                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))));
+                        HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(128))));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
                 new Identifier(Prog.MOD_ID, id), configured);
         Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Prog.MOD_ID, id),

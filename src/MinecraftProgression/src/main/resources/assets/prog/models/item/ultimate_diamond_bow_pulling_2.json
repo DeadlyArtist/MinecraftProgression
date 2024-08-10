@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/ultimate_diamond_bow",
+    "textures": {
+        "layer0": "prog:item/ultimate_diamond_bow_pulling_2"
+    }
+}
