@@ -10,6 +10,7 @@ public class PRecipeTypes {
     public static RecipeType<FlexibleCraftingRecipe> ASSEMBLY = register("ASSEMBLY");
     public static RecipeType<FlexibleCraftingRecipe> COSMIC_CONSTRUCTOR = register("COSMIC_CONSTRUCTOR");
     public static RecipeType<FlexibleCookingRecipe> INCINERATOR = register("INCINERATOR");
+    public static RecipeType<FlexibleCookingRecipe> COSMIC_INCUBATOR = register("COSMIC_INCUBATOR");
 
     public static final RecipeType<NbtSmithingRecipe> NBT_SMITHING = register("NBT_SMITHING");
 

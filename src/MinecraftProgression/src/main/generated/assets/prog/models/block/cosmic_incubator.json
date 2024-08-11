@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "prog:block/cosmic_incubator_front",
+    "side": "prog:block/cosmic_incubator_side",
+    "top": "prog:block/cosmic_incubator_top"
+  }
+}

@@ -145,6 +145,27 @@ public class PItems {
     public static final Item PRIMAL_NETHERITE_SHOVEL = registerItem("PRIMAL_NETHERITE_SHOVEL", new ShovelItem(PToolMaterials.PRIMAL_NETHERITE, 15F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE));
 
 
+    // VERUM
+    public static final Item VERUM_INGOT = registerItem("VERUM_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item RAW_VERUM = registerItem("RAW_VERUM", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+
+    // Verum tier armor
+    public static final Item VERUM_HELMET = registerItem("VERUM_HELMET", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+    public static final Item VERUM_CHESTPLATE = registerItem("VERUM_CHESTPLATE", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.TITAN));
+    public static final Item VERUM_LEGGINGS = registerItem("VERUM_LEGGINGS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+    public static final Item VERUM_BOOTS = registerItem("VERUM_BOOTS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+
+    // Verum tier weapons
+    public static final Item VERUM_BOW = registerItem("VERUM_BOW", new TieredBowItem(BowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }, List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+    public static final Item VERUM_SWORD = registerItem("VERUM_SWORD", new SwordItem(PToolMaterials.VERUM, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+
+    // Verum tier tools
+    public static final Item VERUM_AXE = registerItem("VERUM_AXE", new AxeItem(PToolMaterials.VERUM, 64.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+    public static final Item VERUM_HOE = registerItem("VERUM_HOE", new HoeItem(PToolMaterials.VERUM, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+    public static final Item VERUM_PICKAXE = registerItem("VERUM_PICKAXE", new PickaxeItem(PToolMaterials.VERUM, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+    public static final Item VERUM_SHOVEL = registerItem("VERUM_SHOVEL", new ShovelItem(PToolMaterials.VERUM, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
+
     // Upgrades
     public static final Item MECHANICAL_BOOTS = registerUpgrade("MECHANICAL_BOOTS", new ArmorItem(SpecialArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
     public static final Item ANGEL_RING = registerUpgrade("ANGEL_RING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.FLIGHT)));

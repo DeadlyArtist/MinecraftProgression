@@ -2,6 +2,7 @@ package com.prog.itemOrBlock.entity;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.mojang.datafixers.types.Func;
 import com.prog.Prog;
 import com.prog.itemOrBlock.custom.FlexibleAbstractFurnaceBlock;
 import com.prog.utils.RecipeUtils;
@@ -44,6 +45,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContainerBlockEntity implements SidedInventory, RecipeUnlocker, RecipeInputProvider {
     protected static final int INPUT_SLOT_INDEX = 0;
@@ -58,6 +61,7 @@ public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContain
     public static final int COOK_TIME_TOTAL_PROPERTY_INDEX = 3;
     public static final int PROPERTY_COUNT = 4;
     public final float cookingTimeDivisor;
+    public final Supplier<Map<Item, Integer>> fuelMap;
     protected DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     int burnTime;
     int fuelTime;
@@ -111,81 +115,18 @@ public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContain
     private final RecipeManager.MatchGetter<Inventory, ? extends AbstractCookingRecipe> matchGetter;
 
     protected FlexibleAbstractFurnaceBlockEntity(
-            BlockEntityType<?> blockEntityType, BlockPos pos, BlockState state, float cookingTimeDivisor, List<RecipeType<? extends AbstractCookingRecipe>> recipeTypes
+            BlockEntityType<?> blockEntityType, BlockPos pos, BlockState state, float cookingTimeDivisor, Supplier<Map<Item, Integer>> fuelMap, List<RecipeType<? extends AbstractCookingRecipe>> recipeTypes
     ) {
         super(blockEntityType, pos, state);
         this.cookingTimeDivisor = cookingTimeDivisor;
+        this.fuelMap = fuelMap;
         this.matchGetter = RecipeUtils.createCachedMatchGetter(recipeTypes);
     }
 
-    public static Map<Item, Integer> createFuelTimeMap() {
-        Map<Item, Integer> map = Maps.<Item, Integer>newLinkedHashMap();
-        addFuel(map, Items.LAVA_BUCKET, 20000);
-        addFuel(map, Blocks.COAL_BLOCK, 16000);
-        addFuel(map, Items.BLAZE_ROD, 2400);
-        addFuel(map, Items.COAL, 1600);
-        addFuel(map, Items.CHARCOAL, 1600);
-        addFuel(map, ItemTags.LOGS, 300);
-        addFuel(map, ItemTags.PLANKS, 300);
-        addFuel(map, ItemTags.WOODEN_STAIRS, 300);
-        addFuel(map, ItemTags.WOODEN_SLABS, 150);
-        addFuel(map, ItemTags.WOODEN_TRAPDOORS, 300);
-        addFuel(map, ItemTags.WOODEN_PRESSURE_PLATES, 300);
-        addFuel(map, Blocks.OAK_FENCE, 300);
-        addFuel(map, Blocks.BIRCH_FENCE, 300);
-        addFuel(map, Blocks.SPRUCE_FENCE, 300);
-        addFuel(map, Blocks.JUNGLE_FENCE, 300);
-        addFuel(map, Blocks.DARK_OAK_FENCE, 300);
-        addFuel(map, Blocks.ACACIA_FENCE, 300);
-        addFuel(map, Blocks.MANGROVE_FENCE, 300);
-        addFuel(map, Blocks.OAK_FENCE_GATE, 300);
-        addFuel(map, Blocks.BIRCH_FENCE_GATE, 300);
-        addFuel(map, Blocks.SPRUCE_FENCE_GATE, 300);
-        addFuel(map, Blocks.JUNGLE_FENCE_GATE, 300);
-        addFuel(map, Blocks.DARK_OAK_FENCE_GATE, 300);
-        addFuel(map, Blocks.ACACIA_FENCE_GATE, 300);
-        addFuel(map, Blocks.MANGROVE_FENCE_GATE, 300);
-        addFuel(map, Blocks.NOTE_BLOCK, 300);
-        addFuel(map, Blocks.BOOKSHELF, 300);
-        addFuel(map, Blocks.LECTERN, 300);
-        addFuel(map, Blocks.JUKEBOX, 300);
-        addFuel(map, Blocks.CHEST, 300);
-        addFuel(map, Blocks.TRAPPED_CHEST, 300);
-        addFuel(map, Blocks.CRAFTING_TABLE, 300);
-        addFuel(map, Blocks.DAYLIGHT_DETECTOR, 300);
-        addFuel(map, ItemTags.BANNERS, 300);
-        addFuel(map, Items.BOW, 300);
-        addFuel(map, Items.FISHING_ROD, 300);
-        addFuel(map, Blocks.LADDER, 300);
-        addFuel(map, ItemTags.SIGNS, 200);
-        addFuel(map, Items.WOODEN_SHOVEL, 200);
-        addFuel(map, Items.WOODEN_SWORD, 200);
-        addFuel(map, Items.WOODEN_HOE, 200);
-        addFuel(map, Items.WOODEN_AXE, 200);
-        addFuel(map, Items.WOODEN_PICKAXE, 200);
-        addFuel(map, ItemTags.WOODEN_DOORS, 200);
-        addFuel(map, ItemTags.BOATS, 1200);
-        addFuel(map, ItemTags.WOOL, 100);
-        addFuel(map, ItemTags.WOODEN_BUTTONS, 100);
-        addFuel(map, Items.STICK, 100);
-        addFuel(map, ItemTags.SAPLINGS, 100);
-        addFuel(map, Items.BOWL, 100);
-        addFuel(map, ItemTags.WOOL_CARPETS, 67);
-        addFuel(map, Blocks.DRIED_KELP_BLOCK, 4001);
-        addFuel(map, Items.CROSSBOW, 300);
-        addFuel(map, Blocks.BAMBOO, 50);
-        addFuel(map, Blocks.DEAD_BUSH, 100);
-        addFuel(map, Blocks.SCAFFOLDING, 50);
-        addFuel(map, Blocks.LOOM, 300);
-        addFuel(map, Blocks.BARREL, 300);
-        addFuel(map, Blocks.CARTOGRAPHY_TABLE, 300);
-        addFuel(map, Blocks.FLETCHING_TABLE, 300);
-        addFuel(map, Blocks.SMITHING_TABLE, 300);
-        addFuel(map, Blocks.COMPOSTER, 300);
-        addFuel(map, Blocks.AZALEA, 100);
-        addFuel(map, Blocks.FLOWERING_AZALEA, 100);
-        addFuel(map, Blocks.MANGROVE_ROOTS, 300);
-        return map;
+    public record Fuel(ItemConvertible item, int fuelTime){
+        public static Fuel of(ItemConvertible item, int fuelTime) {
+            return new Fuel(item, fuelTime);
+        }
     }
 
     /**
@@ -362,7 +303,7 @@ public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContain
             return 0;
         } else {
             Item item = fuel.getItem();
-            return (Integer) createFuelTimeMap().getOrDefault(item, 0);
+            return (Integer) fuelMap.get().getOrDefault(item, 0);
         }
     }
 
@@ -370,8 +311,8 @@ public abstract class FlexibleAbstractFurnaceBlockEntity extends LockableContain
         return (Integer) furnace.matchGetter.getFirstMatch(furnace, world).map(AbstractCookingRecipe::getCookTime).orElse(200);
     }
 
-    public static boolean canUseAsFuel(ItemStack stack) {
-        return createFuelTimeMap().containsKey(stack.getItem());
+    public boolean canUseAsFuel(ItemStack stack) {
+        return fuelMap.get().containsKey(stack.getItem());
     }
 
     @Override

@@ -31,6 +31,7 @@ public class TooltipHelperMixin {
         List<Text> offHandAttributes = new ArrayList();
 
         int mainHandLine;
+        int lastModifierIndex = -1;
         for (mainHandLine = 0; mainHandLine < tooltip.size(); ++mainHandLine) {
             Text line = (Text) tooltip.get(mainHandLine);
             if (line instanceof MutableText) {
@@ -38,6 +39,7 @@ public class TooltipHelperMixin {
                     TextContent content = sibling.getContent();
                     if (content instanceof TranslatableTextContent translatableText) {
                         if (translatableText.getKey().startsWith("attribute.modifier")) {
+                            lastModifierIndex = mainHandLine;
                             if (heldInHandLines.size() == 1) mainHandAttributes.add(line);
                             else if (heldInHandLines.size() == 2) offHandAttributes.add(line);
                             break;
@@ -53,6 +55,7 @@ public class TooltipHelperMixin {
                 }
 
                 if (translatableText.getKey().startsWith("attribute.modifier")) {
+                    lastModifierIndex = mainHandLine;
                     if (heldInHandLines.size() == 1) mainHandAttributes.add(line);
                     else if (heldInHandLines.size() == 2) offHandAttributes.add(line);
                 }
@@ -65,20 +68,13 @@ public class TooltipHelperMixin {
             tooltip.remove(mainHandLine);
             tooltip.add(mainHandLine, Text.translatable("item.modifiers.both_hands").formatted(Formatting.GRAY));
             tooltip.remove(offHandLine);
-            Iterator var9 = offHandAttributes.iterator();
+            int potentialEmptyIndex = offHandLine - 1;
+            if (tooltip.get(potentialEmptyIndex).getString().trim().isEmpty()) tooltip.remove(potentialEmptyIndex);
 
-            Text offhandAttribute;
-            while (var9.hasNext()) {
-                offhandAttribute = (Text) var9.next();
+            for (Text offhandAttribute : offHandAttributes) {
                 if (mainHandAttributes.contains(offhandAttribute)) {
                     tooltip.remove(tooltip.lastIndexOf(offhandAttribute));
                 }
-            }
-
-            int lastIndex = tooltip.size() - 1;
-            offhandAttribute = (Text) tooltip.get(lastIndex);
-            if (offhandAttribute.getString().isEmpty()) {
-                tooltip.remove(lastIndex);
             }
         }
         ci.cancel();

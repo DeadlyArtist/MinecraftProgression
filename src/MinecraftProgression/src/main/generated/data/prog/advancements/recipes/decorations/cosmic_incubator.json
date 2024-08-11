@@ -1,0 +1,164 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amethyst_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:amethyst_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_crying_obsidian": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:crying_obsidian"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_diamond_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:diamond_heart"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_dragon_egg": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dragon_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ender_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:ender_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_incinerator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:incinerator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_machine_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:machine_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_machine_frame": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:machine_frame"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_netherite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:netherite_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_refined_obsidian_module": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_module"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:cosmic_incubator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titan_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_core"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_crying_obsidian",
+      "has_amethyst_shard",
+      "has_refined_obsidian_module",
+      "has_diamond_heart",
+      "has_ender_eye",
+      "has_titan_core",
+      "has_machine_circuit",
+      "has_machine_frame",
+      "has_netherite_ingot",
+      "has_incinerator",
+      "has_dragon_egg",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:cosmic_incubator"
+    ]
+  }
+}

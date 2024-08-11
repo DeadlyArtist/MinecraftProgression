@@ -1,0 +1,9 @@
+{
+  "type": "prog:cosmic_incubator",
+  "cookingtime": 7500,
+  "experience": 5.0,
+  "ingredient": {
+    "item": "prog:raw_verum"
+  },
+  "result": "prog:verum_ingot"
+}

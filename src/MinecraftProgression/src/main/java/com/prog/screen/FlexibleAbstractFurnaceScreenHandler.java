@@ -1,5 +1,7 @@
 package com.prog.screen;
 
+import com.mojang.datafixers.types.Func;
+import com.prog.itemOrBlock.entity.FlexibleAbstractFurnaceBlockEntity;
 import com.prog.screen.slot.FlexibleFurnaceFuelSlot;
 import com.prog.screen.slot.FlexibleFurnaceOutputSlot;
 import com.prog.utils.ScreenUtils;
@@ -8,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeBookCategory;
@@ -20,6 +23,9 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class FlexibleAbstractFurnaceScreenHandler extends AbstractRecipeScreenHandler<Inventory> {
     public static final int field_30738 = 0;
@@ -34,17 +40,19 @@ public class FlexibleAbstractFurnaceScreenHandler extends AbstractRecipeScreenHa
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
     protected final World world;
+    public final Supplier<Map<Item, Integer>> fuelMap;
     private final List<RecipeType<? extends AbstractCookingRecipe>> recipeTypes;
     private final RecipeBookCategory category;
 
     protected FlexibleAbstractFurnaceScreenHandler(
-            ScreenHandlerType<?> type, List<RecipeType<? extends AbstractCookingRecipe>> recipeTypes, RecipeBookCategory category, int syncId, PlayerInventory playerInventory
+            ScreenHandlerType<?> type, Supplier<Map<Item, Integer>> fuelMap, List<RecipeType<? extends AbstractCookingRecipe>> recipeTypes, RecipeBookCategory category, int syncId, PlayerInventory playerInventory
     ) {
-        this(type, recipeTypes, category, syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
+        this(type, fuelMap, recipeTypes, category, syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
     }
 
     protected FlexibleAbstractFurnaceScreenHandler(
             ScreenHandlerType<?> type,
+            Supplier<Map<Item, Integer>> fuelMap,
             List<RecipeType<? extends AbstractCookingRecipe>> recipeTypes,
             RecipeBookCategory category,
             int syncId,
@@ -53,6 +61,7 @@ public class FlexibleAbstractFurnaceScreenHandler extends AbstractRecipeScreenHa
             PropertyDelegate propertyDelegate
     ) {
         super(type, syncId);
+        this.fuelMap = fuelMap;
         this.recipeTypes = recipeTypes;
         this.category = category;
         checkSize(inventory, 3);
@@ -166,7 +175,7 @@ public class FlexibleAbstractFurnaceScreenHandler extends AbstractRecipeScreenHa
     }
 
     public boolean isFuel(ItemStack itemStack) {
-        return AbstractFurnaceBlockEntity.canUseAsFuel(itemStack);
+        return fuelMap.get().containsKey(itemStack.getItem());
     }
 
     public int getCookProgress() {

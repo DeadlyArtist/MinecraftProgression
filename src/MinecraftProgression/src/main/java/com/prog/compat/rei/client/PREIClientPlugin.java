@@ -89,6 +89,7 @@ public class PREIClientPlugin implements REIClientPlugin {
         registerCategory(registry, FlexibleCraftingData.ASSEMBLY);
         registerCategory(registry, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
         registerCategory(registry, FlexibleCookingData.INCINERATOR);
+        registerCategory(registry, FlexibleCookingData.COSMIC_INCUBATOR);
     }
 
     @Override
@@ -104,6 +105,10 @@ public class PREIClientPlugin implements REIClientPlugin {
 
         registry.registerRecipeFiller(BlastingRecipe.class, RecipeType.BLASTING, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.INCINERATOR, recipe));
         registry.registerRecipeFiller(FlexibleCookingRecipe.class, PRecipeTypes.INCINERATOR, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.INCINERATOR, recipe));
+
+        registry.registerRecipeFiller(BlastingRecipe.class, RecipeType.BLASTING, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.COSMIC_INCUBATOR, recipe));
+        registry.registerRecipeFiller(FlexibleCookingRecipe.class, PRecipeTypes.INCINERATOR, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.COSMIC_INCUBATOR, recipe));
+        registry.registerRecipeFiller(FlexibleCookingRecipe.class, PRecipeTypes.COSMIC_INCUBATOR, recipe -> new FlexibleCookingDisplay(FlexibleCookingData.COSMIC_INCUBATOR, recipe));
     }
 
     @Override
@@ -111,6 +116,7 @@ public class PREIClientPlugin implements REIClientPlugin {
         registry.registerContainerClickArea(new Rectangle(88 + 18, 32, 28, 23), FlexibleCraftingScreen.class, PREICategories.ASSEMBLY);
         registry.registerContainerClickArea(new Rectangle(88 + 18, 32 + 18, 28, 23), FlexibleCraftingScreen.class, PREICategories.COSMIC_CONSTRUCTOR);
         registry.registerContainerClickArea(new Rectangle(78, 32, 28, 23), FlexibleCookingScreen.class, PREICategories.INCINERATOR);
+        registry.registerContainerClickArea(new Rectangle(78, 32, 28, 23), FlexibleCookingScreen.class, PREICategories.COSMIC_INCUBATOR);
     }
 
     @Override
@@ -120,7 +126,9 @@ public class PREIClientPlugin implements REIClientPlugin {
         registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.ASSEMBLY, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.ASSEMBLY.height * FlexibleCraftingData.ASSEMBLY.width)));
         registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.COSMIC_CONSTRUCTOR, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.COSMIC_CONSTRUCTOR.height * FlexibleCraftingData.COSMIC_CONSTRUCTOR.width)));
 
+        registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, BuiltinPlugin.BLASTING, new SimpleTransferHandler.IntRange(0, 1)));
         registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, PREICategories.INCINERATOR, new SimpleTransferHandler.IntRange(0, 1)));
+        registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, PREICategories.COSMIC_INCUBATOR, new SimpleTransferHandler.IntRange(0, 1)));
     }
 
     public static void registerCategory(CategoryRegistry registry, FlexibleCraftingData data) {

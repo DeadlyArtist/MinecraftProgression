@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "prog:verum_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "prog:verum_ingot"
+  }
+}

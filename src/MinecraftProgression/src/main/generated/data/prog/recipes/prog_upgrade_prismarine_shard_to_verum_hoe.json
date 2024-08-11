@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_prismarine_shard": ""
+      }
+    },
+    "item": "prog:verum_hoe"
+  },
+  "ingredient": {
+    "item": "minecraft:prismarine_shard"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_prismarine_shard": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:prismarine_shard"
+      }
+    },
+    "item": "prog:verum_hoe"
+  }
+}

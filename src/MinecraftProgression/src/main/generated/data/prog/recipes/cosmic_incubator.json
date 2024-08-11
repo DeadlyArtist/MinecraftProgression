@@ -1,0 +1,48 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "C": {
+      "item": "prog:machine_circuit"
+    },
+    "D": {
+      "item": "minecraft:dragon_egg"
+    },
+    "I": {
+      "item": "prog:incinerator"
+    },
+    "M": {
+      "item": "prog:machine_frame"
+    },
+    "R": {
+      "item": "prog:refined_obsidian_module"
+    },
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "d": {
+      "item": "prog:diamond_heart"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "t": {
+      "item": "prog:titan_core"
+    }
+  },
+  "pattern": [
+    "caRac",
+    "deted",
+    "aCMCa",
+    "cnInc",
+    "nnDnn"
+  ],
+  "result": {
+    "item": "prog:cosmic_incubator"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_wither_rose": ""
+      }
+    },
+    "item": "prog:verum_pickaxe"
+  },
+  "ingredient": {
+    "item": "minecraft:wither_rose"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_wither_rose": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:wither_rose"
+      }
+    },
+    "item": "prog:verum_pickaxe"
+  }
+}

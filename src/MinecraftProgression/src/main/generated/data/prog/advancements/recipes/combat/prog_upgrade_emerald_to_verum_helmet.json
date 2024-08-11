@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_emerald": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:emerald"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:prog_upgrade_emerald_to_verum_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_verum_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:verum_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_verum_helmet",
+      "has_emerald",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:prog_upgrade_emerald_to_verum_helmet"
+    ]
+  }
+}

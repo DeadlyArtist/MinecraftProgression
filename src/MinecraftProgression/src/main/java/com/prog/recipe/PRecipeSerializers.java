@@ -19,6 +19,7 @@ public class PRecipeSerializers {
 
     // Smelting
     public static CookingRecipeSerializer<?> INCINERATOR = register("INCINERATOR", FlexibleCookingRecipe.createSerializer(FlexibleCookingData.INCINERATOR));
+    public static CookingRecipeSerializer<?> COSMIC_INCUBATOR = register("COSMIC_INCUBATOR", FlexibleCookingRecipe.createSerializer(FlexibleCookingData.COSMIC_INCUBATOR));
 
     public static <S extends RecipeSerializer<T>, T extends Recipe<?>> S register(String id, S serializer) {
         return Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Prog.MOD_ID, id.toLowerCase()), serializer);

@@ -13,6 +13,7 @@ public class PREICategories {
     public static CategoryIdentifier<? extends FlexibleCraftingDisplay> ASSEMBLY = register(FlexibleCraftingData.ASSEMBLY);
     public static CategoryIdentifier<? extends FlexibleCraftingDisplay> COSMIC_CONSTRUCTOR = register(FlexibleCraftingData.COSMIC_CONSTRUCTOR);
     public static CategoryIdentifier<? extends FlexibleCookingDisplay> INCINERATOR = register(FlexibleCookingData.INCINERATOR);
+    public static CategoryIdentifier<? extends FlexibleCookingDisplay> COSMIC_INCUBATOR = register(FlexibleCookingData.COSMIC_INCUBATOR);
 
     public static CategoryIdentifier<? extends NbtSmithingDisplay> NBT_SMITHING = CategoryIdentifier.of(Registry.RECIPE_TYPE.getId(PRecipeTypes.NBT_SMITHING));
 

@@ -1,8 +1,11 @@
-// 1.19.2	2024-08-10T21:56:58.075384	Block Loot Tables
+// 1.19.2	2024-08-11T01:11:39.5973808	Block Loot Tables
 49c48299af0a159f273e53a43e1743f146815a57 data\prog\loot_tables\blocks\emberite_block.json
+c7d26791132737f6ef7843b07be5e5623741bc4c data\prog\loot_tables\blocks\cosmic_incubator.json
 42e0a29f151e86955624d4b646ffd2643a68821a data\prog\loot_tables\blocks\machine_frame.json
 ad807c0a19440e5bd099b350713cee0124097497 data\prog\loot_tables\blocks\incinerator.json
+483c1e1e5d3e2bfee41df7d6859f030b038ee00e data\prog\loot_tables\blocks\verum_ore.json
 51b9d441977f3f07d8215e48c66763b131515a84 data\prog\loot_tables\blocks\steel_block.json
+c8c8571e8b931063e5ba8419d55436981535af35 data\prog\loot_tables\blocks\verum_block.json
 1bc4c3ecaec77023a31c6e6d281ffae34a097cb9 data\prog\loot_tables\blocks\emberite_ore.json
 75f1bb8b416acca2ff1c8b1caddcbf81ca012560 data\prog\loot_tables\blocks\quartz_catalyst.json
 1a3d0e25b46bbd03029b94d756c157bb0d888ddb data\prog\loot_tables\blocks\assembly.json

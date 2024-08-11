@@ -5,7 +5,8 @@ public enum FishingRodMaterials implements FishingRodMaterial {
     ULTIMATE_DIAMOND(2, 2),
     REFINED_OBSIDIAN(3, 2),
     TITAN(5, 3),
-    PRIMAL_NETHERITE(8, 3);
+    PRIMAL_NETHERITE(8, 3),
+    VERUM(10, 4);
 
     public final double luckIncrease;
     public final double lureIncrease;

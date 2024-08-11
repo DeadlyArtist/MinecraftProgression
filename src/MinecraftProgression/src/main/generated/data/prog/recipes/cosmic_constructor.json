@@ -1,0 +1,31 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "A": {
+      "item": "prog:assembly"
+    },
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "gaaag",
+    "nnenn",
+    "gcAcg"
+  ],
+  "result": {
+    "item": "prog:cosmic_constructor"
+  }
+}

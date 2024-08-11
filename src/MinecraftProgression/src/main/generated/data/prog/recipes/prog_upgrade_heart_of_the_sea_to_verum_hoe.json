@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_heart_of_the_sea": ""
+      }
+    },
+    "item": "prog:verum_hoe"
+  },
+  "ingredient": {
+    "item": "minecraft:heart_of_the_sea"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_heart_of_the_sea": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.attack_damage"
+          }
+        ],
+        "id": "minecraft:heart_of_the_sea"
+      }
+    },
+    "item": "prog:verum_hoe"
+  }
+}

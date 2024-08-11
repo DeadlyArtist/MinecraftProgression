@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 public class FlexibleCookingBlockEntity extends FlexibleAbstractFurnaceBlockEntity {
     private final FlexibleCookingData data;
     public FlexibleCookingBlockEntity(FlexibleCookingData data, BlockPos pos, BlockState state) {
-        super(data.blockEntityType.get(), pos, state, data.cookingTimeDivisor, data.supportedRecipeTypes);
+        super(data.blockEntityType.get(), pos, state, data.cookingTimeDivisor, data.fuelMap, data.supportedRecipeTypes);
         this.data = data;
     }
 

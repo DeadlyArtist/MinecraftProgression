@@ -41,6 +41,7 @@ public class PTexts {
     public static final TextWrapper ASSEMBLY_UI_TITLE = registerText("ASSEMBLY_UI_TITLE", "Assembly");
     public static final TextWrapper COSMIC_CONSTRUCTOR_UI_TITLE = registerText("COSMIC_CONSTRUCTOR_UI_TITLE", "Cosmic Constructor");
     public static final TextWrapper INCINERATOR_UI_TITLE = registerText("INCINERATOR_UI_TITLE", "Incinerator");
+    public static final TextWrapper COSMIC_INCUBATOR_UI_TITLE = registerText("COSMIC_INCUBATOR_UI_TITLE", "Cosmic Incubator");
 
 
     public static TextWrapper registerText(String id, String text) {

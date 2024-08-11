@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/verum_bow",
+    "textures": {
+        "layer0": "prog:item/verum_bow_pulling_1"
+    }
+}
