@@ -135,6 +135,11 @@ public class PRecipeProvider extends FabricRecipeProvider {
             this.path = path;
         }
 
+        public ShapedRecipeBuilderWrapper require(RecipeSerializer<?> recipeSerializer) {
+            internalBuilder.setSerializer(recipeSerializer);
+            return this;
+        }
+
         public ShapedRecipeBuilderWrapper requireAssembly() {
             internalBuilder.requireAssembly();
             return this;
@@ -185,6 +190,11 @@ public class PRecipeProvider extends FabricRecipeProvider {
         public ShapelessRecipeBuilderWrapper(FlexibleShapelessRecipeJsonBuilder internalBuilder, String path) {
             this.internalBuilder = internalBuilder;
             this.path = path;
+        }
+
+        public ShapelessRecipeBuilderWrapper require(RecipeSerializer<?> recipeSerializer) {
+            internalBuilder.setSerializer(recipeSerializer);
+            return this;
         }
 
         public ShapelessRecipeBuilderWrapper requireAssembly() {
@@ -354,6 +364,21 @@ public class PRecipeProvider extends FabricRecipeProvider {
         return createShapedRecipe(pattern, input, output, 1);
     }
 
+    public static void offerReversibleCompactingRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible item, ItemConvertible compacted, RecipeSerializer<?> serializer) {
+        var compact = createShapedRecipe(List.of("###", "###", "###"), Input.of(item), compacted);
+        var uncompact = createShapelessRecipe(Input.of(compacted), item);
+        if (serializer != null) {
+            compact.require(serializer);
+            uncompact.require(serializer);
+        }
+        compact.offer(exporter);
+        uncompact.offer(exporter);
+    }
+
+    public static void offerReversibleCompactingRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible item, ItemConvertible compacted) {
+        offerReversibleCompactingRecipes(exporter, item, compacted, null);
+    }
+
     public static ShapelessRecipeBuilderWrapper createShapelessRecipe(List<Input> inputs, ItemConvertible output, int outputCount) {
         FlexibleShapelessRecipeJsonBuilder internalBuilder = FlexibleShapelessRecipeJsonBuilder.create(output, outputCount);
         ShapelessRecipeBuilderWrapper builder = new ShapelessRecipeBuilderWrapper(internalBuilder, getItemPath(output));
@@ -366,6 +391,10 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
     public static ShapelessRecipeBuilderWrapper createShapelessRecipe(List<Input> inputs, ItemConvertible output) {
         return createShapelessRecipe(inputs, output, 1);
+    }
+
+    public static ShapelessRecipeBuilderWrapper createShapelessRecipe(Input input, ItemConvertible output) {
+        return createShapelessRecipe(List.of(input), output, 1);
     }
 
     public static CookingRecipeBuilderWrapper createCookingRecipe(CookingRecipeSerializer<?> serializer, Input input, ItemConvertible output, int cookingTime, float experience) {
@@ -466,10 +495,16 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(PBlocks.EMBERITE_ORE), PItems.EMBERITE, 600, 1F).offer(exporter);
         createShapedRecipe(List.of(" qcq ", "ccecc", " qcq "), List.of(Input.of(Items.QUARTZ), Input.of(PItems.COMPRESSED_QUARTZ), Input.of(PItems.EMBERITE)), PBlocks.QUARTZ_CATALYST).requireAssembly().offer(exporter);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.QUARTZ), PItems.COMPRESSED_QUARTZ, 300, 2F).offer(exporter);
-        offerReversibleCompactingRecipes(exporter, PItems.VERUM_INGOT, PBlocks.VERUM_BLOCK);
+        offerReversibleCompactingRecipes(exporter, PItems.VERUM_INGOT, PBlocks.VERUM_BLOCK, PRecipeSerializers.COSMIC_CONSTRUCTOR_SHAPED);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PBlocks.VERUM_ORE), PItems.RAW_VERUM, 7500, 1F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PItems.RAW_VERUM), PItems.VERUM_INGOT, 7500, 5F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(Items.OBSIDIAN), Items.CRYING_OBSIDIAN, 50000, 5F).offer(exporter);
+        createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(Items.AMETHYST_BLOCK), Items.BUDDING_AMETHYST, 50000, 5F).offer(exporter);
+        createShapedRecipe(List.of("GGG", "GAG", "GGG"), List.of(Input.of(Items.GOLD_BLOCK), Input.of(Items.APPLE)), Items.ENCHANTED_GOLDEN_APPLE).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("nnn", "nAn", "nnn"), List.of(Input.of(Items.NETHER_STAR), Input.of(Items.APPLE)), Items.ENCHANTED_GOLDEN_APPLE).requireAssembly().offer(exporter);
+        offerReversibleCompactingRecipes(exporter, Items.NETHER_STAR, PBlocks.NETHER_STAR_BLOCK, PRecipeSerializers.COSMIC_CONSTRUCTOR_SHAPED);
+        createShapedRecipe(List.of("NNN", "NAN", "NNN"), List.of(Input.of(PBlocks.NETHER_STAR_BLOCK), Input.of(Items.APPLE)), Items.ENCHANTED_GOLDEN_APPLE).requireCosmicConstructor().offer(exporter);
+
 
         // Tier upgrades
         createShapedRecipe(List.of("# #", " # ", "# #"), Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);

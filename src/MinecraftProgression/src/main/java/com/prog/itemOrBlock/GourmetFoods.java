@@ -30,7 +30,7 @@ public class GourmetFoods {
         // Vanilla gourmet food overrides
         register(Items.GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
         register(Items.ENCHANTED_GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
-        register(Items.CHORUS_FRUIT, UEffect.add(XEntityAttributes.JUMP_HEIGHT, 0.25F));
+        register(Items.CHORUS_FRUIT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 3));
         register(Items.POISONOUS_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
         register(Items.GOLDEN_CARROT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.GLISTERING_MELON_SLICE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
@@ -38,6 +38,7 @@ public class GourmetFoods {
         register(Items.SPIDER_EYE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.PUFFERFISH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_CHICKEN, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
     }
 
     public static void register(Item item, List<UEffect> effects) {

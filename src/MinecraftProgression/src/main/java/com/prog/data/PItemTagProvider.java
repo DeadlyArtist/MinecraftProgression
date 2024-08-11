@@ -67,6 +67,7 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.AMETHYST_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.ECHO_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.MAGMA_CREAM, UEffectMapper.best());
+        addToUpgrades(Items.GHAST_TEAR, UEffectMapper.best());
         addToUpgrades(Items.HONEY_BLOCK, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
         addToUpgrades(Items.PHANTOM_MEMBRANE, UEffectMapper.best());
         addToUpgrades(Items.WITHER_ROSE, UEffectMapper.best());
@@ -101,9 +102,10 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.GHAST_TEAR, UEffectMapper.helmet(UEffect.add(XEntityAttributes.LAVA_VISIBILITY, 100)));
         addToUpgrades(Items.NAUTILUS_SHELL, UEffectMapper.protection());
         addToUpgrades(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
-        addToUpgrades(Items.FIREWORK_ROCKET, UEffectMapper.crossbow(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
+        addToUpgrades(Items.FIREWORK_ROCKET, List.of(UEffectMapper.crossbow(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(List.of(UEffect.increment(EntityAttributes.GENERIC_MOVEMENT_SPEED), UEffect.increment(EntityAttributes.GENERIC_FLYING_SPEED)))));
         addToUpgrades(Items.FIRE_CHARGE, UEffectMapper.damage());
         addToUpgrades(Items.GLOW_BERRIES, UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK)));
+        addToUpgrades(Items.DRAGON_BREATH, UEffectMapper.best());
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));
