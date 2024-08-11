@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "prog:cosmic_constructor_shaped",
   "key": {
     "#": {
       "item": "prog:verum_ingot"

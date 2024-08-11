@@ -1,0 +1,9 @@
+{
+  "type": "prog:cosmic_incubator",
+  "cookingtime": 50000,
+  "experience": 5.0,
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": "minecraft:crying_obsidian"
+}

@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "prog:cosmic_constructor_shapeless",
   "ingredients": [
     {
       "item": "prog:verum_block"

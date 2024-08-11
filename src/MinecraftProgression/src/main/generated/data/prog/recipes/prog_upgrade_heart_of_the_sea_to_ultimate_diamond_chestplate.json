@@ -19,9 +19,16 @@
           {
             "modifier": {
               "operation": 0,
-              "value": 1.0
+              "value": 2.0
             },
             "target": "minecraft:generic.armor"
+          },
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 50.0
+            },
+            "target": "additionalentityattributes:player.water_visibility"
           }
         ],
         "id": "minecraft:heart_of_the_sea"

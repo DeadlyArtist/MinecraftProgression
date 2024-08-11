@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "prog:titan_chestplate",
-    "prog:titan_shovel",
-    "prog:titan_helmet",
+    "prog:titan_leggings",
     "prog:titan_sword",
     "prog:titan_axe",
-    "prog:verum_chestplate",
-    "prog:titan_pickaxe",
+    "prog:titan_chestplate",
     "prog:titan_boots",
+    "prog:titan_shovel",
+    "prog:verum_chestplate",
+    "prog:titan_helmet",
     "prog:titan_hoe",
-    "prog:titan_bow",
-    "prog:titan_leggings"
+    "prog:titan_pickaxe",
+    "prog:titan_bow"
   ]
 }

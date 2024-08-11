@@ -15,10 +15,7 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -43,7 +40,7 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToTag(PItemTags.UPGRADE, item);
         Function<Item, List<UEffect>> func = target ->
                 effects.stream()
-                        .map(f -> f.apply(target))
+                        .map(f -> Optional.ofNullable(f.apply(target)).orElse(Collections.emptyList()))
                         .flatMap(List::stream)
                         .collect(Collectors.toList());
         Upgrades.register(item, func);
@@ -67,12 +64,13 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.AMETHYST_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.ECHO_SHARD, UEffectMapper.damage());
         addToUpgrades(Items.MAGMA_CREAM, UEffectMapper.best());
-        addToUpgrades(Items.GHAST_TEAR, UEffectMapper.best());
+        addToUpgrades(Items.GHAST_TEAR, List.of(UEffectMapper.best(), UEffectMapper.helmet(UEffect.add(XEntityAttributes.LAVA_VISIBILITY, 100))));
         addToUpgrades(Items.HONEY_BLOCK, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
         addToUpgrades(Items.PHANTOM_MEMBRANE, UEffectMapper.best());
         addToUpgrades(Items.WITHER_ROSE, UEffectMapper.best());
-        addToUpgrades(Items.HEART_OF_THE_SEA, UEffectMapper.best());
+        addToUpgrades(Items.HEART_OF_THE_SEA, List.of(UEffectMapper.best(2), UEffectMapper.chestplate(UEffect.add(XEntityAttributes.WATER_VISIBILITY, 50))));
         addToUpgrades(Items.EMERALD, UEffectMapper.best());
+        addToUpgrades(Items.LAPIS_LAZULI, UEffectMapper.best());
         addToUpgrades(Items.MUSIC_DISC_PIGSTEP, UEffectMapper.best());
         addToUpgrades(Items.SCUTE, UEffectMapper.best());
         addToUpgrades(Items.SLIME_BALL, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 2)));
@@ -99,13 +97,18 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.CHAINMAIL_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.CHAINMAIL_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.CHAINMAIL_LEGGINGS, UEffectMapper.leggings(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
-        addToUpgrades(Items.GHAST_TEAR, UEffectMapper.helmet(UEffect.add(XEntityAttributes.LAVA_VISIBILITY, 100)));
         addToUpgrades(Items.NAUTILUS_SHELL, UEffectMapper.protection());
         addToUpgrades(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
-        addToUpgrades(Items.FIREWORK_ROCKET, List.of(UEffectMapper.crossbow(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(List.of(UEffect.increment(EntityAttributes.GENERIC_MOVEMENT_SPEED), UEffect.increment(EntityAttributes.GENERIC_FLYING_SPEED)))));
+        addToUpgrades(Items.FIREWORK_ROCKET, List.of(UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(UEffect.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.05)), UEffectMapper.chestplate(UEffect.add(EntityAttributes.GENERIC_FLYING_SPEED, 0.05))));
         addToUpgrades(Items.FIRE_CHARGE, UEffectMapper.damage());
         addToUpgrades(Items.GLOW_BERRIES, UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK)));
         addToUpgrades(Items.DRAGON_BREATH, UEffectMapper.best());
+        addToUpgrades(Items.DISC_FRAGMENT_5, UEffectMapper.damage());
+        addToUpgrades(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
+        addToUpgrades(Items.FEATHER, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 0.5)));
+        addToUpgrades(Items.FERMENTED_SPIDER_EYE, UEffectMapper.helmet(UEffect.add(XEntityAttributes.WATER_VISIBILITY, 20)));
+        addToUpgrades(Items.CONDUIT, UEffectMapper.damage(2));
+        addToUpgrades(Items.SHULKER_SHELL, UEffectMapper.protection());
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));

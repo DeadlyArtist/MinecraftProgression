@@ -1,0 +1,19 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "N": {
+      "item": "prog:nether_star_block"
+    }
+  },
+  "pattern": [
+    "NNN",
+    "NAN",
+    "NNN"
+  ],
+  "result": {
+    "item": "prog:enchanted_star_apple"
+  }
+}

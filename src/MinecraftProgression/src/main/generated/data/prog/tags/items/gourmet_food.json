@@ -1,15 +1,31 @@
 {
   "replace": false,
   "values": [
-    "minecraft:chorus_fruit",
-    "minecraft:spider_eye",
-    "minecraft:pufferfish",
-    "minecraft:golden_apple",
-    "minecraft:poisonous_potato",
-    "minecraft:milk_bucket",
     "minecraft:enchanted_golden_apple",
+    "prog:star_apple",
+    "minecraft:chorus_fruit",
+    "minecraft:pufferfish",
+    "minecraft:cooked_mutton",
     "minecraft:rotten_flesh",
+    "minecraft:spider_eye",
     "minecraft:golden_carrot",
-    "minecraft:glistering_melon_slice"
+    "minecraft:poisonous_potato",
+    "minecraft:suspicious_stew",
+    "minecraft:cookie",
+    "minecraft:cooked_chicken",
+    "minecraft:beetroot_soup",
+    "minecraft:glistering_melon_slice",
+    "minecraft:milk_bucket",
+    "minecraft:cooked_salmon",
+    "minecraft:honey_bottle",
+    "minecraft:golden_apple",
+    "minecraft:mushroom_stew",
+    "minecraft:cooked_rabbit",
+    "minecraft:potion",
+    "minecraft:cooked_beef",
+    "minecraft:cooked_cod",
+    "minecraft:rabbit_stew",
+    "prog:enchanted_star_apple",
+    "minecraft:cooked_porkchop"
   ]
 }

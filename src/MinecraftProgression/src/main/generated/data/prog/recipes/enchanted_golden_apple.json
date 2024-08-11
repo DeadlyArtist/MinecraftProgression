@@ -1,0 +1,19 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GAG",
+    "GGG"
+  ],
+  "result": {
+    "item": "minecraft:enchanted_golden_apple"
+  }
+}

@@ -13,6 +13,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
@@ -39,6 +40,9 @@ public class PItems {
 
     // Misc
     public static final Item MACHINE_CIRCUIT = registerItem("MACHINE_CIRCUIT", new Item(new FabricItemSettings().group(ItemGroup.REDSTONE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item TELEPORTATION_CORE = registerItem("TELEPORTATION_CORE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item STAR_APPLE = registerItem("STAR_APPLE", new Item(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item ENCHANTED_STAR_APPLE = registerItem("ENCHANTED_STAR_APPLE", new EnchantedGoldenAppleItem(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.ENCHANTED_STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, PItems.STAR_APPLE, Models.GENERATED));
 
     // Steel
     public static final Item STEEL_INGOT = registerItem("STEEL_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));

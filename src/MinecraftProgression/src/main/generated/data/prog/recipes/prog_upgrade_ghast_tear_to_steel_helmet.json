@@ -19,6 +19,13 @@
           {
             "modifier": {
               "operation": 0,
+              "value": 1.0
+            },
+            "target": "minecraft:generic.armor"
+          },
+          {
+            "modifier": {
+              "operation": 0,
               "value": 100.0
             },
             "target": "additionalentityattributes:player.lava_visibility"

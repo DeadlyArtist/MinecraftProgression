@@ -1,0 +1,19 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "n": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "nnn",
+    "nAn",
+    "nnn"
+  ],
+  "result": {
+    "item": "prog:star_apple"
+  }
+}

@@ -39,6 +39,21 @@ public class GourmetFoods {
         register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.PUFFERFISH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKED_CHICKEN, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_BEEF, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_COD, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_MUTTON, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_RABBIT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_PORKCHOP, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKED_SALMON, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.BEETROOT_SOUP, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.MUSHROOM_STEW, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.SUSPICIOUS_STEW, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.RABBIT_STEW, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.HONEY_BOTTLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.POTION, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.COOKIE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
+        register(PItems.ENCHANTED_STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
     }
 
     public static void register(Item item, List<UEffect> effects) {

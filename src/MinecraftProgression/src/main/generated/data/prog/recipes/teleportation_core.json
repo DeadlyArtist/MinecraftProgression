@@ -1,0 +1,22 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "C": {
+      "item": "prog:machine_circuit"
+    },
+    "c": {
+      "item": "prog:compressed_quartz"
+    },
+    "e": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    " c ",
+    "eCe",
+    " c "
+  ],
+  "result": {
+    "item": "prog:teleportation_core"
+  }
+}

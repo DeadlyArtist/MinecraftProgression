@@ -1,0 +1,32 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "prog_upgrade_teleportation_core": ""
+      }
+    },
+    "item": "prog:steel_bow"
+  },
+  "ingredient": {
+    "item": "prog:teleportation_core"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "prog_upgrade_teleportation_core": {
+        "effects": [
+          {
+            "modifier": {
+              "operation": 0,
+              "value": 1.0
+            },
+            "target": "prog:projectile_speed"
+          }
+        ],
+        "id": "prog:teleportation_core"
+      }
+    },
+    "item": "prog:steel_bow"
+  }
+}
