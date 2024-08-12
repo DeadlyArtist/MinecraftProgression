@@ -29,7 +29,7 @@ import java.util.function.Predicate;
 public class OreGeneration {
 
     static {
-        register(PBlocks.EMBERITE_ORE, BiomeSelectors.foundInTheNether(), OreConfiguredFeatures.NETHERRACK, 5, Arrays.asList(CountPlacementModifier.of(10), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(10))));
+        register(PBlocks.EMBERITE_ORE, BiomeSelectors.foundInTheNether(), OreConfiguredFeatures.NETHERRACK, 5, Arrays.asList(CountPlacementModifier.of(10), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(128))));
         register(PBlocks.VERUM_ORE, BiomeSelectors.foundInTheEnd(), new BlockMatchRuleTest(Blocks.END_STONE), 3, Arrays.asList(CountPlacementModifier.of(2), SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(10), YOffset.fixed(20))));
     }
 

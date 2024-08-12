@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_obsidian": {
+    "has_refined_obsidian_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:obsidian"
+              "prog:refined_obsidian_ingot"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_obsidian",
+      "has_refined_obsidian_ingot",
       "has_the_recipe"
     ]
   ],

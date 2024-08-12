@@ -88,10 +88,10 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         addToUpgrades(Items.GOLDEN_CHESTPLATE, UEffectMapper.chestplate(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25)));
         addToUpgrades(Items.GOLDEN_HELMET, UEffectMapper.helmet(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25)));
         addToUpgrades(Items.GOLDEN_LEGGINGS, UEffectMapper.leggings(UEffect.add(PEntityAttributes.PIGLIN_LOVED, 0.25))); // All 4 gold armor items required for piglin loved to take effect
-        addToUpgrades(Items.GOLDEN_AXE, UEffectMapper.axe(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
-        addToUpgrades(Items.GOLDEN_HOE, UEffectMapper.hoe(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
-        addToUpgrades(Items.GOLDEN_PICKAXE, UEffectMapper.pickaxe(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
-        addToUpgrades(Items.GOLDEN_SHOVEL, UEffectMapper.shovel(UEffect.add(XEntityAttributes.DIG_SPEED, 0.1)));
+        addToUpgrades(Items.GOLDEN_AXE, UEffectMapper.axe(UEffect.increment(XEntityAttributes.DIG_SPEED)));
+        addToUpgrades(Items.GOLDEN_HOE, UEffectMapper.hoe(UEffect.increment(XEntityAttributes.DIG_SPEED)));
+        addToUpgrades(Items.GOLDEN_PICKAXE, UEffectMapper.pickaxe(UEffect.increment(XEntityAttributes.DIG_SPEED)));
+        addToUpgrades(Items.GOLDEN_SHOVEL, UEffectMapper.shovel(UEffect.increment(XEntityAttributes.DIG_SPEED)));
         addToUpgrades(Items.GOLDEN_SWORD, UEffectMapper.sword(UEffect.add(EntityAttributes.GENERIC_ATTACK_SPEED, 0.1)));
         addToUpgrades(Items.CHAINMAIL_BOOTS, UEffectMapper.boots(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         addToUpgrades(Items.CHAINMAIL_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));

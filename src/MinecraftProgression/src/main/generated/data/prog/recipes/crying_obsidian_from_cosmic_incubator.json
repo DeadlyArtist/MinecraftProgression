@@ -3,7 +3,7 @@
   "cookingtime": 50000,
   "experience": 5.0,
   "ingredient": {
-    "item": "minecraft:obsidian"
+    "item": "prog:refined_obsidian_ingot"
   },
   "result": "minecraft:crying_obsidian"
 }

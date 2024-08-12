@@ -503,7 +503,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, PItems.VERUM_INGOT, PBlocks.VERUM_BLOCK, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PBlocks.VERUM_ORE), PItems.RAW_VERUM, 7500, 1F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PItems.RAW_VERUM), PItems.VERUM_INGOT, 7500, 5F).offer(exporter);
-        createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(Items.OBSIDIAN), Items.CRYING_OBSIDIAN, 50000, 5F).offer(exporter);
+        createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PItems.REFINED_OBSIDIAN_INGOT), Items.CRYING_OBSIDIAN, 50000, 5F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(Items.AMETHYST_BLOCK), Items.BUDDING_AMETHYST, 50000, 5F).offer(exporter);
         createShapedRecipe(List.of("GGG", "GAG", "GGG"), List.of(Input.of(Items.GOLD_BLOCK), Input.of(Items.APPLE)), Items.ENCHANTED_GOLDEN_APPLE).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("nnn", "nAn", "nnn"), List.of(Input.of(Items.NETHER_STAR), Input.of(Items.APPLE)), PItems.STAR_APPLE).requireAssembly().offer(exporter);

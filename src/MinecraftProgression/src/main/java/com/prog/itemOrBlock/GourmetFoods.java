@@ -52,6 +52,9 @@ public class GourmetFoods {
         register(Items.HONEY_BOTTLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.POTION, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKIE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.BAKED_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.BREAD, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
         register(PItems.ENCHANTED_STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
     }

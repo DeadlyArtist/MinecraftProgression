@@ -20,6 +20,7 @@ import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -71,11 +72,15 @@ public class Prog implements ModInitializer {
         ItemStackEvents.ITEM_STACK_CTOR.register((stack) -> {
             if (stack.isIn(PItemTags.UPGRADABLE)) {
                 stack.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
+                if (stack.getDamage() > 0) {
+                    stack.setDamage(0);
+                }
             }
         });
 
         ModifyItemAttributeModifiersCallback.EVENT.register((stack, slot, attributeModifiers) -> {
             if (!SlotUtils.isEquipped(stack, slot)) return;
+
             var item = stack.getItem();
 
             var upgrades = UpgradeUtils.extractUpgradeData(stack);

@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = PlayerEntity.class, priority = 2000)
 public abstract class PlayerEntityMixin extends LivingEntity {
@@ -36,5 +37,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             returnValue = true; // If player is in the air and has Air Affinity, treat as on ground
         }
         return returnValue;
+    }
+
+    @Inject(at = @At("HEAD"), method = "getNextLevelExperience", cancellable = true)
+    private void getNextLevelExperience(CallbackInfoReturnable<Integer> info) {
+        info.setReturnValue(30);
+        info.cancel();
     }
 }

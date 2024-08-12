@@ -5,12 +5,16 @@ import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.prog.event.ItemStackEvents;
+import com.prog.itemOrBlock.PItemTags;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtByte;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import net.minecraft.world.World;
 import net.projectile_damage.internal.Constants;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -41,6 +45,28 @@ public class ItemStackMixin {
         if (modifier.getId().equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID)) {
             bl.set(true);
             //d.set(d.get());
+        }
+    }
+
+    @Inject(method = "onCraft", at = @At("HEAD"))
+    private void onCraft(World world, PlayerEntity player, int amount, CallbackInfo ci) {
+        var stack = (ItemStack) (Object) this;
+        if (stack.isIn(PItemTags.UPGRADABLE)) {
+            stack.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
+            if (stack.getDamage() > 0) {
+                stack.setDamage(0);
+            }
+        }
+    }
+
+    @Inject(method = "setNbt", at = @At("TAIL"))
+    private void setNbt(NbtCompound nbt, CallbackInfo ci) {
+        var stack = (ItemStack) (Object) this;
+        if (stack.isIn(PItemTags.UPGRADABLE)) {
+            stack.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
+            if (stack.getDamage() > 0) {
+                stack.setDamage(0);
+            }
         }
     }
 }
