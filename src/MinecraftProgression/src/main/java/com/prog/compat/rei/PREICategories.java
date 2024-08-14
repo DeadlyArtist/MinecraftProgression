@@ -1,9 +1,7 @@
 package com.prog.compat.rei;
 
-import com.prog.compat.rei.client.NbtSmithingDisplay;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
-import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.utils.ScreenUtils;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;

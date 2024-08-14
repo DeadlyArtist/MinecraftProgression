@@ -1,13 +1,10 @@
-package com.prog.compat.rei.client;
+package com.prog.compat.rei;
 
-import com.prog.Prog;
-import com.prog.compat.rei.PREICategories;
 import com.prog.recipe.NbtSmithingRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
-import me.shedaniel.rei.plugin.common.BuiltinPlugin;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;

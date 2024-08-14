@@ -1,10 +1,10 @@
 package com.prog.compat.rei.client;
 
-import com.prog.Prog;
 import com.prog.client.gui.screen.ingame.FlexibleCookingScreen;
 import com.prog.client.gui.screen.ingame.FlexibleCraftingScreen;
 import com.prog.compat.rei.FlexibleCookingDisplay;
 import com.prog.compat.rei.FlexibleCraftingDisplay;
+import com.prog.compat.rei.NbtSmithingDisplay;
 import com.prog.compat.rei.PREICategories;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
@@ -14,7 +14,6 @@ import com.prog.recipe.PRecipeTypes;
 import com.prog.recipe.NbtSmithingRecipe;
 import com.prog.screen.FlexibleCookingScreenHandler;
 import com.prog.screen.FlexibleCraftingScreenHandler;
-import de.siphalor.nbtcrafting.api.ServerRecipe;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
