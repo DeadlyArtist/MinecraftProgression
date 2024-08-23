@@ -77,11 +77,6 @@ public class PREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerCategories(CategoryRegistry registry) {
-        // We register extern instead, by injecting after:
-        //    registry.addWorkstations(WAXING, EntryStacks.of(Items.HONEYCOMB));
-    }
-
-    public static void registerCategoriesExtern(CategoryRegistry registry) {
         registry.add(new NbtSmithingCategory());
         registry.addWorkstations(PREICategories.NBT_SMITHING, EntryStacks.of(Blocks.SMITHING_TABLE));
 
@@ -138,5 +133,10 @@ public class PREIClientPlugin implements REIClientPlugin {
     public static void registerCategory(CategoryRegistry registry, FlexibleCookingData data) {
         registry.add(new FlexibleCookingCategory(data));
         registry.addWorkstations(data.categoryIdentifier.get(), EntryStacks.of(data.block.get()));
+    }
+
+    @Override
+    public double getPriority() {
+        return -10;
     }
 }

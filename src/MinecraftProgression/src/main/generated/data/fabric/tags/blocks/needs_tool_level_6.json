@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "prog:cosmic_constructor",
     "prog:verum_ore",
-    "prog:cosmic_incubator"
+    "prog:cosmic_incubator",
+    "prog:cosmic_constructor"
   ]
 }

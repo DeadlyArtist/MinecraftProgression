@@ -14,8 +14,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class FlexibleShapelessRecipe implements FlexibleCraftingRecipe {
-    final RecipeType<?> recipeType;
-    final RecipeSerializer<?> recipeSerializer;
+    final FlexibleCraftingData data;
     final int width;
     final int height;
     private final Identifier id;
@@ -23,9 +22,8 @@ public class FlexibleShapelessRecipe implements FlexibleCraftingRecipe {
     final ItemStack output;
     final DefaultedList<Ingredient> input;
 
-    public FlexibleShapelessRecipe(RecipeType<?> recipeType, Identifier id, String group, int width, int height, ItemStack output, DefaultedList<Ingredient> input) {
-        this.recipeType = recipeType;
-        this.recipeSerializer = new FlexibleShapelessRecipe.Serializer(recipeType, width, height);
+    public FlexibleShapelessRecipe(FlexibleCraftingData data, Identifier id, String group, int width, int height, ItemStack output, DefaultedList<Ingredient> input) {
+        this.data = data;
         this.id = id;
         this.group = group;
         this.width = width;
@@ -37,12 +35,12 @@ public class FlexibleShapelessRecipe implements FlexibleCraftingRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return recipeSerializer;
+        return data.shapelessSerializer.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return recipeType;
+        return data.recipeType;
     }
 
     @Override
@@ -90,18 +88,10 @@ public class FlexibleShapelessRecipe implements FlexibleCraftingRecipe {
     }
 
     public static class Serializer implements RecipeSerializer<FlexibleShapelessRecipe> {
-        public final RecipeType<?> recipeType;
-        public final int width;
-        public final int height;
-
-        public Serializer(RecipeType<?> recipeType, int width, int height) {
-            this.recipeType = recipeType;
-            this.width = width;
-            this.height = height;
-        }
+        public final FlexibleCraftingData data;
 
         public Serializer(FlexibleCraftingData data) {
-            this(data.recipeType, data.width, data.height);
+            this.data = data;
         }
 
         public FlexibleShapelessRecipe read(Identifier identifier, JsonObject jsonObject) {
@@ -109,11 +99,11 @@ public class FlexibleShapelessRecipe implements FlexibleCraftingRecipe {
             DefaultedList<Ingredient> defaultedList = getIngredients(JsonHelper.getArray(jsonObject, "ingredients"));
             if (defaultedList.isEmpty()) {
                 throw new JsonParseException("No ingredients for shapeless recipe");
-            } else if (defaultedList.size() > height * width) {
+            } else if (defaultedList.size() > data.height * data.width) {
                 throw new JsonParseException("Too many ingredients for shapeless recipe");
             } else {
                 ItemStack itemStack = ShapedRecipe.outputFromJson(JsonHelper.getObject(jsonObject, "result"));
-                return new FlexibleShapelessRecipe(recipeType, identifier, string, width, height, itemStack, defaultedList);
+                return new FlexibleShapelessRecipe(data, identifier, string, data.width, data.height, itemStack, defaultedList);
             }
         }
 
@@ -140,7 +130,7 @@ public class FlexibleShapelessRecipe implements FlexibleCraftingRecipe {
             }
 
             ItemStack itemStack = packetByteBuf.readItemStack();
-            return new FlexibleShapelessRecipe(recipeType, identifier, string, width, height, itemStack, defaultedList);
+            return new FlexibleShapelessRecipe(data, identifier, string, data.width, data.height, itemStack, defaultedList);
         }
 
         public void write(PacketByteBuf packetByteBuf, FlexibleShapelessRecipe shapelessRecipe) {

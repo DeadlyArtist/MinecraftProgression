@@ -20,8 +20,7 @@
     "AbstractClientPlayerEntityMixin",
     "ClientPlayerEntityMixin",
     "ClientRecipeBookMixin",
-    "HeldItemRendererMixin",
-    "compat.rei.DefaultClientPluginMixin"
+    "HeldItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
