@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___dragon_breath": ""
+      }
+    },
+    "item": "prog:steel_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:dragon_breath"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___dragon_breath": {
+        "id": "minecraft:dragon_breath"
+      }
+    },
+    "item": "prog:steel_helmet"
+  }
+}

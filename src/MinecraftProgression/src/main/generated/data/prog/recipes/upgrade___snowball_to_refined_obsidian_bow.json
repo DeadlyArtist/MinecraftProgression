@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___snowball": ""
+      }
+    },
+    "item": "prog:refined_obsidian_bow"
+  },
+  "ingredient": {
+    "item": "minecraft:snowball"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___snowball": {
+        "id": "minecraft:snowball"
+      }
+    },
+    "item": "prog:refined_obsidian_bow"
+  }
+}

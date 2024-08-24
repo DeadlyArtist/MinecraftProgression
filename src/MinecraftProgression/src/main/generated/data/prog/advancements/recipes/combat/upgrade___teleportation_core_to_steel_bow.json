@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_steel_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_bow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teleportation_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:teleportation_core"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___teleportation_core_to_steel_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_bow",
+      "has_teleportation_core",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___teleportation_core_to_steel_bow"
+    ]
+  }
+}

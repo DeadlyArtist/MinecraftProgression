@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___chainmail_helmet": ""
+      }
+    },
+    "item": "prog:titan_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:chainmail_helmet"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___chainmail_helmet": {
+        "id": "minecraft:chainmail_helmet"
+      }
+    },
+    "item": "prog:titan_helmet"
+  }
+}

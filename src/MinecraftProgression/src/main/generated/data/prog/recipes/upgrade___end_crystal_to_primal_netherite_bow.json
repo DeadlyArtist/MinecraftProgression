@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___end_crystal": ""
+      }
+    },
+    "item": "prog:primal_netherite_bow"
+  },
+  "ingredient": {
+    "item": "minecraft:end_crystal"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___end_crystal": {
+        "id": "minecraft:end_crystal"
+      }
+    },
+    "item": "prog:primal_netherite_bow"
+  }
+}

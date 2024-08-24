@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___fermented_spider_eye": ""
+      }
+    },
+    "item": "prog:primal_netherite_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:fermented_spider_eye"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___fermented_spider_eye": {
+        "id": "minecraft:fermented_spider_eye"
+      }
+    },
+    "item": "prog:primal_netherite_helmet"
+  }
+}

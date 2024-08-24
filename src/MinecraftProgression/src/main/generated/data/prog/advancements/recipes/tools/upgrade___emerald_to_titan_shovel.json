@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_emerald": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:emerald"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___emerald_to_titan_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titan_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_titan_shovel",
+      "has_emerald",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___emerald_to_titan_shovel"
+    ]
+  }
+}

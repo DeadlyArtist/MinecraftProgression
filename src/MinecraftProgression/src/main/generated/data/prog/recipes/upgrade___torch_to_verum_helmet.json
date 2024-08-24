@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___torch": ""
+      }
+    },
+    "item": "prog:verum_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:torch"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___torch": {
+        "id": "minecraft:torch"
+      }
+    },
+    "item": "prog:verum_helmet"
+  }
+}

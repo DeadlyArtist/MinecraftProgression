@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___ghast_tear": ""
+      }
+    },
+    "item": "prog:primal_netherite_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:ghast_tear"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___ghast_tear": {
+        "id": "minecraft:ghast_tear"
+      }
+    },
+    "item": "prog:primal_netherite_axe"
+  }
+}

@@ -1,7 +1,6 @@
 package com.prog.data;
 
 import com.google.common.collect.Sets;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
@@ -598,20 +597,17 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         // Upgrades
         List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
-        List<Upgrade> upgrades = Upgrades.all;
+        var upgrades = Upgrades.data;
         upgradeTargets.forEach(target -> {
-            upgrades.forEach(upgrade -> {
+            upgrades.forEach((item, upgrade) -> {
                 var effects = upgrade.effects.apply(target);
                 if (effects == null || effects.isEmpty()) return;
 
-                String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(upgrade.item);
-                String recipePath = UpgradeUtils.getRecipePath(upgrade.item, target);
+                String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(item);
+                String recipePath = UpgradeUtils.getRecipePath(item, target);
                 var json = new JsonObject();
-                json.add("id", new JsonPrimitive(ItemUtils.getId(upgrade.item).toString()));
-                var effectsJson = new JsonArray();
-                effects.forEach(effect -> effectsJson.add(effect.toJson()));
-                json.add("effects", effectsJson);
-                createSmithingRecipe(Input.of(target), Input.of(upgrade.item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, json).setPath(recipePath).offer(exporter);
+                json.add("id", new JsonPrimitive(ItemUtils.getId(item).toString()));
+                createSmithingRecipe(Input.of(target), Input.of(item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, json).setPath(recipePath).offer(exporter);
             });
         });
     }

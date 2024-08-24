@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magma_cream": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:magma_cream"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___magma_cream_to_verum_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_verum_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:verum_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_verum_leggings",
+      "has_magma_cream",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___magma_cream_to_verum_leggings"
+    ]
+  }
+}

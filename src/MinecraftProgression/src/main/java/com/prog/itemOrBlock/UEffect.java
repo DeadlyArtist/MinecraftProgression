@@ -49,6 +49,10 @@ public class UEffect {
         return of(target, EntityAttributeModifierUtils.increment(name));
     }
 
+    public UEffect copyWithName(String name) {
+        return of(target, EntityAttributeModifierUtils.of(name, modifier.getValue(), modifier.getOperation()));
+    }
+
     public static UEffect fromUpgradeNbt(String name, NbtCompound nbt) {
         var targetId = nbt.getString("target");
         var target = Registry.ATTRIBUTE.get(new Identifier(targetId));

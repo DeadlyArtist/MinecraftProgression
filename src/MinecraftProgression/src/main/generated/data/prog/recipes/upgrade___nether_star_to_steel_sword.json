@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___nether_star": ""
+      }
+    },
+    "item": "prog:steel_sword"
+  },
+  "ingredient": {
+    "item": "minecraft:nether_star"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___nether_star": {
+        "id": "minecraft:nether_star"
+      }
+    },
+    "item": "prog:steel_sword"
+  }
+}

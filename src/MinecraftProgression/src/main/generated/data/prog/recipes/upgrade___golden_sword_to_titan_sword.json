@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___golden_sword": ""
+      }
+    },
+    "item": "prog:titan_sword"
+  },
+  "ingredient": {
+    "item": "minecraft:golden_sword"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___golden_sword": {
+        "id": "minecraft:golden_sword"
+      }
+    },
+    "item": "prog:titan_sword"
+  }
+}

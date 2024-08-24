@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___creeper_head": ""
+      }
+    },
+    "item": "prog:primal_netherite_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:creeper_head"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___creeper_head": {
+        "id": "minecraft:creeper_head"
+      }
+    },
+    "item": "prog:primal_netherite_helmet"
+  }
+}

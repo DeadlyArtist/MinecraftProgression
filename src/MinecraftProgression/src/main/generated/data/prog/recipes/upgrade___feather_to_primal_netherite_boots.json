@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___feather": ""
+      }
+    },
+    "item": "prog:primal_netherite_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:feather"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___feather": {
+        "id": "minecraft:feather"
+      }
+    },
+    "item": "prog:primal_netherite_boots"
+  }
+}

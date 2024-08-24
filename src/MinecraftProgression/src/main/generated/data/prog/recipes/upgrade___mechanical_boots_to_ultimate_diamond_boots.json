@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___mechanical_boots": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_boots"
+  },
+  "ingredient": {
+    "item": "prog:mechanical_boots"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___mechanical_boots": {
+        "id": "prog:mechanical_boots"
+      }
+    },
+    "item": "prog:ultimate_diamond_boots"
+  }
+}

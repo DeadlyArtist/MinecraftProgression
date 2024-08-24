@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_steel_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___totem_of_undying_to_steel_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_totem_of_undying": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:totem_of_undying"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_chestplate",
+      "has_totem_of_undying",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___totem_of_undying_to_steel_chestplate"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___heart_of_the_sea": ""
+      }
+    },
+    "item": "prog:steel_bow"
+  },
+  "ingredient": {
+    "item": "minecraft:heart_of_the_sea"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___heart_of_the_sea": {
+        "id": "minecraft:heart_of_the_sea"
+      }
+    },
+    "item": "prog:steel_bow"
+  }
+}

@@ -117,8 +117,8 @@ public class PREIClientPlugin implements REIClientPlugin {
     public void registerTransferHandlers(TransferHandlerRegistry registry) {
         registry.register(createCraftingCompat(FlexibleCraftingScreenHandler.class, BuiltinPlugin.CRAFTING, 3));
 
-        registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.ASSEMBLY, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.ASSEMBLY.height * FlexibleCraftingData.ASSEMBLY.width)));
-        registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.COSMIC_CONSTRUCTOR, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.COSMIC_CONSTRUCTOR.height * FlexibleCraftingData.COSMIC_CONSTRUCTOR.width)));
+        registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.ASSEMBLY, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.ASSEMBLY.height * FlexibleCraftingData.ASSEMBLY.width + 1)));
+        registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.COSMIC_CONSTRUCTOR, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.COSMIC_CONSTRUCTOR.height * FlexibleCraftingData.COSMIC_CONSTRUCTOR.width + 1)));
 
         registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, BuiltinPlugin.BLASTING, new SimpleTransferHandler.IntRange(0, 1)));
         registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, PREICategories.INCINERATOR, new SimpleTransferHandler.IntRange(0, 1)));

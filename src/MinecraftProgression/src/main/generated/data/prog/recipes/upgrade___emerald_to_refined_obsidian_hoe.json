@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___emerald": ""
+      }
+    },
+    "item": "prog:refined_obsidian_hoe"
+  },
+  "ingredient": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___emerald": {
+        "id": "minecraft:emerald"
+      }
+    },
+    "item": "prog:refined_obsidian_hoe"
+  }
+}

@@ -21,6 +21,10 @@ public class EntityAttributeModifierUtils {
         return of(value, operation, false);
     }
 
+    public static EntityAttributeModifier copyWithName(String name, EntityAttributeModifier modifier) {
+        return of(name, modifier.getValue(), modifier.getOperation());
+    }
+
     public static EntityAttributeModifier add(double value) {
         return of(value, EntityAttributeModifier.Operation.ADDITION);
     }

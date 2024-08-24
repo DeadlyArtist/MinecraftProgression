@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___golden_helmet": ""
+      }
+    },
+    "item": "prog:verum_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:golden_helmet"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___golden_helmet": {
+        "id": "minecraft:golden_helmet"
+      }
+    },
+    "item": "prog:verum_helmet"
+  }
+}

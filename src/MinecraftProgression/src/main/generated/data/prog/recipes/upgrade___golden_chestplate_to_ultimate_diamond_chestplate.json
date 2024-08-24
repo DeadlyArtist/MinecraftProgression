@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___golden_chestplate": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:golden_chestplate"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___golden_chestplate": {
+        "id": "minecraft:golden_chestplate"
+      }
+    },
+    "item": "prog:ultimate_diamond_chestplate"
+  }
+}

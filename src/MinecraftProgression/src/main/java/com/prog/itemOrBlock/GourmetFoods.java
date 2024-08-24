@@ -27,7 +27,7 @@ public class GourmetFoods {
     public static final Map<Item, GourmetFoodData> data = new HashMap<>();
 
     static {
-        // Vanilla gourmet food overrides
+        // Vanilla overrides
         register(Items.GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
         register(Items.ENCHANTED_GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
         register(Items.CHORUS_FRUIT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 3));
@@ -55,6 +55,8 @@ public class GourmetFoods {
         register(Items.BAKED_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.BREAD, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+
+        // Custom
         register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
         register(PItems.ENCHANTED_STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
     }

@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "prog:verum_boots",
-    "prog:verum_bow",
     "prog:verum_pickaxe",
-    "prog:verum_sword",
-    "prog:verum_axe",
-    "prog:verum_shovel",
-    "prog:verum_helmet",
     "prog:verum_hoe",
-    "prog:verum_leggings"
+    "prog:verum_shovel",
+    "prog:verum_axe",
+    "prog:verum_sword",
+    "prog:verum_leggings",
+    "prog:verum_bow",
+    "prog:verum_helmet",
+    "prog:verum_boots"
   ]
 }

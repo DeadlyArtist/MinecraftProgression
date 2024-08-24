@@ -2,6 +2,7 @@ package com.prog.entity;
 
 import com.prog.itemOrBlock.GourmetFoods;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.utils.GourmetUtils;
 import com.prog.utils.ItemUtils;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
@@ -16,6 +17,7 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class LivingEntityComponent implements Component, ServerTickingComponent, AutoSyncedComponent {
     public final LivingEntity entity;
@@ -25,12 +27,36 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
         this.entity = entity;
     }
 
+    public void updateGourmetFoodEffect(Item item) {
+        // Remove existing effects
+        var attributes = entity.getAttributes();
+        for (var attributeInstance : attributes.custom.values()) {
+            attributeInstance.getModifiers().forEach(mod -> {
+                if (mod.getName().startsWith(GourmetUtils.getGourmetModifierNamePrefix(item))) attributeInstance.removeModifier(mod);
+            });
+        }
+
+        // Add effects
+        if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD)) return;
+        var effects = GourmetFoods.data.get(item).effects;
+        for (int index = 0; index < effects.size(); index++) {
+            var effect = effects.get(index);
+            var attributeInstance = attributes.getCustomInstance(effect.target);
+            var name = GourmetUtils.getGourmetModifierName(item, index);
+            var modifier = effect.copyWithName(name).modifier;
+            attributeInstance.addPersistentModifier(modifier);
+        }
+    }
+
+    public void updateAllGourmetFoodEffects() {
+        eatenGourmetFoods.forEach(foodId -> updateGourmetFoodEffect(ItemUtils.byId(foodId)));
+    }
+
     public boolean eat(Item item) {
         if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD) || hasEaten(item)) return false;
 
         eatenGourmetFoods.add(Registry.ITEM.getId(item).toString());
-        var effects = GourmetFoods.data.get(item).effects;
-        effects.forEach(effect -> entity.getAttributeInstance(effect.target).addPersistentModifier(effect.modifier));
+        updateGourmetFoodEffect(item);
 
         PComponents.LIVING_ENTITY.sync(entity);
         return true;
@@ -52,6 +78,7 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
     @Override
     public void readFromNbt(NbtCompound nbt) {
         eatenGourmetFoods = new HashSet<>(nbt.getList("eaten_gourmet_foods", NbtElement.STRING_TYPE).stream().map(e -> ((NbtString) e).asString()).toList());
+        updateAllGourmetFoodEffects();
     }
 
     @Override

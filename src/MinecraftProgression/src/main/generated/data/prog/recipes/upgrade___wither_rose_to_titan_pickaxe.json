@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___wither_rose": ""
+      }
+    },
+    "item": "prog:titan_pickaxe"
+  },
+  "ingredient": {
+    "item": "minecraft:wither_rose"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___wither_rose": {
+        "id": "minecraft:wither_rose"
+      }
+    },
+    "item": "prog:titan_pickaxe"
+  }
+}

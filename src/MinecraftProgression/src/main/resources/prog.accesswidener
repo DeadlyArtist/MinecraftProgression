@@ -35,6 +35,9 @@ accessible field net/minecraft/item/ItemStack CAN_DESTROY_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack CAN_PLACE_ON_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
 
+# AttributeContainer
+accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;
+
 # RecipeManager
 accessible field net/minecraft/recipe/RecipeManager recipes Ljava/util/Map;
 accessible field net/minecraft/recipe/RecipeManager recipesById Ljava/util/Map;

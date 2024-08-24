@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___firework_rocket": ""
+      }
+    },
+    "item": "prog:primal_netherite_bow"
+  },
+  "ingredient": {
+    "item": "minecraft:firework_rocket"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___firework_rocket": {
+        "id": "minecraft:firework_rocket"
+      }
+    },
+    "item": "prog:primal_netherite_bow"
+  }
+}

@@ -171,8 +171,8 @@ public class PItems {
     public static final Item VERUM_SHOVEL = registerItem("VERUM_SHOVEL", new ShovelItem(PToolMaterials.VERUM, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), List.of(PItemTags.UPGRADABLE, PItemTags.VERUM));
 
     // Upgrades
-    public static final Item MECHANICAL_BOOTS = registerUpgrade("MECHANICAL_BOOTS", new ArmorItem(SpecialArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
-    public static final Item ANGEL_RING = registerUpgrade("ANGEL_RING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED), UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.FLIGHT)));
+    public static final Item MECHANICAL_BOOTS = registerItem("MECHANICAL_BOOTS", new ArmorItem(SpecialArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
+    public static final Item ANGEL_RING = registerItem("ANGEL_RING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED));
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
@@ -213,17 +213,16 @@ public class PItems {
         return registerItem(id, item, modelSupplier, List.of());
     }
 
-    private static Item registerUpgrade(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier, List<TagKey<Item>> tags, Function<Item, List<UEffect>> effects) {
-        tags = new ArrayList<>(tags);
-        tags.add(PItemTags.UPGRADE);
-        Item registeredItem = registerItem(id, item, modelSupplier, tags);
-        Upgrades.register(registeredItem, effects);
-        return registeredItem;
-    }
-
-    private static Item registerUpgrade(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier, Function<Item, List<UEffect>> effects) {
-        return registerUpgrade(id, item, modelSupplier, List.of(), effects);
-    }
+    // Removed cause easier to tweak if all upgrades are in one place.
+//    private static Item registerUpgrade(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier, List<TagKey<Item>> tags, Function<Item, List<UEffect>> effects) {
+//        Item registeredItem = registerItem(id, item, modelSupplier, tags);
+//        Upgrades.register(registeredItem, effects);
+//        return registeredItem;
+//    }
+//
+//    private static Item registerUpgrade(String id, Item item, BiConsumer<ItemModelGenerator, Item> modelSupplier, Function<Item, List<UEffect>> effects) {
+//        return registerUpgrade(id, item, modelSupplier, List.of(), effects);
+//    }
 
     public static void init(){
         Prog.LOGGER.info("Registering Items for: " + Prog.MOD_ID);

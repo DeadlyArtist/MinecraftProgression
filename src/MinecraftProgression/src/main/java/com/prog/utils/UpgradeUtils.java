@@ -2,6 +2,7 @@ package com.prog.utils;
 
 import com.prog.Prog;
 import com.prog.itemOrBlock.UEffect;
+import com.prog.itemOrBlock.Upgrades;
 import com.prog.text.PTexts;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
@@ -19,7 +20,7 @@ import java.util.*;
 import static net.minecraft.data.server.RecipeProvider.getItemPath;
 
 public class UpgradeUtils {
-    public static final String UPGRADE_NBT_PREFIX = "prog_upgrade_";
+    public static final String UPGRADE_NBT_PREFIX = "upgrade___";
 
     public static String getUpgradeNbtName(ItemConvertible upgrade){
         return UPGRADE_NBT_PREFIX + getItemPath(upgrade);
@@ -29,22 +30,35 @@ public class UpgradeUtils {
         return getUpgradeNbtName(upgrade) + "_to_" + getItemPath(target);
     }
 
+    public static String getUpgradeModifierNamePrefix(String upgradeId, String upgradableId) {
+        return UPGRADE_NBT_PREFIX + upgradeId + "___" + upgradableId + "___";
+    }
+
+    public static String getUpgradeModifierName(String upgradeId, String upgradableId, int effectIndex) {
+        return getUpgradeModifierNamePrefix(upgradeId, upgradableId) + effectIndex;
+    }
+
     public static Map<String, List<UEffect>> extractUpgradeData(ItemStack stack) {
         Map<String, List<UEffect>> upgradeData = new HashMap<>();
         var nbt = stack.getNbt();
         if (nbt == null) return upgradeData;
 
-        // Iterate over the keys of the NbtCompound
+        var upgradableItem = stack.getItem();
+        var upgradableId = ItemUtils.getId(upgradableItem).toString();
         for (String key : nbt.getKeys()) {
-            // Assuming the upgrade-related keys start with "prog_upgrade_"
             if (key.startsWith(UPGRADE_NBT_PREFIX)) {
-                // Get the corresponding NbtElement for each key
                 var upgradeNbt = nbt.getCompound(key);
-                var id = upgradeNbt.getString("id");
-                var element = upgradeNbt.getList("effects", NbtElement.COMPOUND_TYPE);
-                if (element != null && !element.isEmpty()) {
-                    List<UEffect> effects = element.stream().map(e -> UEffect.fromUpgradeNbt("upgrade___" + id + "___" + ItemUtils.getId(stack.getItem()), ((NbtCompound) e))).toList();
-                    upgradeData.put(id, effects);
+                var upgradeId = upgradeNbt.getString("id");
+                var upgrade = Upgrades.data.get(ItemUtils.byId(upgradeId));
+                if (upgrade != null) {
+                    var templateEffects = upgrade.effects.apply(upgradableItem);
+                    if (templateEffects != null && !templateEffects.isEmpty()) {
+                        var effects = new ArrayList<UEffect>();
+                        for (int index = 0; index < templateEffects.size(); index++) {
+                            effects.add(templateEffects.get(index).copyWithName(UpgradeUtils.getUpgradeModifierName(upgradeId, upgradableId, index)));
+                        }
+                        upgradeData.put(upgradeId, effects);
+                    }
                 }
             }
         }

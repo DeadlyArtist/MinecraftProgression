@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___lapis_lazuli": ""
+      }
+    },
+    "item": "prog:verum_sword"
+  },
+  "ingredient": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___lapis_lazuli": {
+        "id": "minecraft:lapis_lazuli"
+      }
+    },
+    "item": "prog:verum_sword"
+  }
+}

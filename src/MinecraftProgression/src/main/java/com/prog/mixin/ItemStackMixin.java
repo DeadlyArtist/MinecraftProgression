@@ -6,7 +6,9 @@ import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.utils.UpgradeUtils;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemConvertible;
@@ -66,6 +68,26 @@ public class ItemStackMixin {
             stack.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
             if (stack.getDamage() > 0) {
                 stack.setDamage(0);
+            }
+        }
+    }
+
+    @Inject(method = "inventoryTick", at = @At("HEAD"))
+    private void inventoryTick(World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
+        var stack = (ItemStack) (Object) this;
+        if (stack.isIn(PItemTags.UPGRADABLE)) {
+            if (stack.hasNbt()) {
+                var nbt = stack.getNbt();
+                var keys = nbt.getKeys();
+                keys.forEach(key -> {
+                    var oldPrefix = "prog_upgrade_";
+                    if (key.startsWith(oldPrefix)) {
+                        var value = nbt.getCompound(key);
+                        nbt.remove(key);
+                        value.remove("effects");
+                        nbt.put(key.replaceFirst(oldPrefix, UpgradeUtils.UPGRADE_NBT_PREFIX), value);
+                    }
+                });
             }
         }
     }

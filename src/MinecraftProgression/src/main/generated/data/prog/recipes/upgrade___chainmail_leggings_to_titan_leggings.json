@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___chainmail_leggings": ""
+      }
+    },
+    "item": "prog:titan_leggings"
+  },
+  "ingredient": {
+    "item": "minecraft:chainmail_leggings"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___chainmail_leggings": {
+        "id": "minecraft:chainmail_leggings"
+      }
+    },
+    "item": "prog:titan_leggings"
+  }
+}

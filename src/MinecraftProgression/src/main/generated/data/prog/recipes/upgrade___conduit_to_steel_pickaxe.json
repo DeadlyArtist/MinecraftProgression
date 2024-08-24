@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___conduit": ""
+      }
+    },
+    "item": "prog:steel_pickaxe"
+  },
+  "ingredient": {
+    "item": "minecraft:conduit"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___conduit": {
+        "id": "minecraft:conduit"
+      }
+    },
+    "item": "prog:steel_pickaxe"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_phantom_membrane": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:phantom_membrane"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___phantom_membrane_to_verum_pickaxe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_verum_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:verum_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_verum_pickaxe",
+      "has_phantom_membrane",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___phantom_membrane_to_verum_pickaxe"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___golden_axe": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_axe"
+  },
+  "ingredient": {
+    "item": "minecraft:golden_axe"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___golden_axe": {
+        "id": "minecraft:golden_axe"
+      }
+    },
+    "item": "prog:ultimate_diamond_axe"
+  }
+}

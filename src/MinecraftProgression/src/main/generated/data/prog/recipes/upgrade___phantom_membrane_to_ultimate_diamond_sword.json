@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___phantom_membrane": ""
+      }
+    },
+    "item": "prog:ultimate_diamond_sword"
+  },
+  "ingredient": {
+    "item": "minecraft:phantom_membrane"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___phantom_membrane": {
+        "id": "minecraft:phantom_membrane"
+      }
+    },
+    "item": "prog:ultimate_diamond_sword"
+  }
+}
