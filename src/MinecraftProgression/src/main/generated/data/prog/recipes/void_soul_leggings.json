@@ -1,0 +1,30 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "s": {
+      "item": "minecraft:shulker_shell"
+    },
+    "v": {
+      "item": "prog:verum_ingot"
+    }
+  },
+  "pattern": [
+    "aeaea",
+    "csvsc",
+    "vaaav",
+    "va av",
+    "ca ac"
+  ],
+  "result": {
+    "item": "prog:void_soul_leggings"
+  }
+}

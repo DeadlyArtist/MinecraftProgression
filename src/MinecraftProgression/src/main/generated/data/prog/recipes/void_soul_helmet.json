@@ -1,0 +1,29 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "d": {
+      "item": "minecraft:dragon_head"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "v": {
+      "item": "prog:verum_ingot"
+    }
+  },
+  "pattern": [
+    "avava",
+    "cavac",
+    "cvdvc",
+    "ce ec"
+  ],
+  "result": {
+    "item": "prog:void_soul_helmet"
+  }
+}

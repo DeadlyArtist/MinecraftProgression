@@ -1,0 +1,30 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "v": {
+      "item": "prog:verum_ingot"
+    }
+  },
+  "pattern": [
+    "av va",
+    "cavac",
+    "ceEec",
+    "cavac",
+    "avcva"
+  ],
+  "result": {
+    "item": "prog:void_soul_chestplate"
+  }
+}

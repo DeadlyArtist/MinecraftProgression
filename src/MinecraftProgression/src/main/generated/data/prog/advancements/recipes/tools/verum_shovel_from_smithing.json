@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_primal_netherite_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:verum_shovel_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_void_soul_tool": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:void_soul_tool"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_primal_netherite_shovel",
+      "has_void_soul_tool",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:verum_shovel_from_smithing"
+    ]
+  }
+}
