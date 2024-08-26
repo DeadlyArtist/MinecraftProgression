@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___turtle_helmet": ""
+      }
+    },
+    "item": "prog:verum_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:turtle_helmet"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___turtle_helmet": {
+        "id": "minecraft:turtle_helmet"
+      }
+    },
+    "item": "prog:verum_helmet"
+  }
+}

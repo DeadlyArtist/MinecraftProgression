@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___leather_helmet": ""
+      }
+    },
+    "item": "prog:refined_obsidian_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:leather_helmet"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___leather_helmet": {
+        "id": "minecraft:leather_helmet"
+      }
+    },
+    "item": "prog:refined_obsidian_helmet"
+  }
+}

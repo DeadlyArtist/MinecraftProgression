@@ -30,6 +30,7 @@ public class Upgrades {
         register(Items.LAPIS_LAZULI, UEffectMapper.best());
         register(Items.MUSIC_DISC_PIGSTEP, UEffectMapper.best());
         register(Items.SCUTE, UEffectMapper.best());
+        register(Items.TURTLE_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.SLIME_BALL, UEffectMapper.boots(UEffect.add(PEntityAttributes.FALL_DAMAGE_DIVISOR, 0.5)));
         register(Items.ENDER_PEARL, UEffectMapper.best());
         register(Items.ENDER_EYE, UEffectMapper.best());
@@ -54,6 +55,10 @@ public class Upgrades {
         register(Items.CHAINMAIL_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.CHAINMAIL_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.CHAINMAIL_LEGGINGS, UEffectMapper.leggings(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        register(Items.LEATHER_BOOTS, UEffectMapper.boots(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        register(Items.LEATHER_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        register(Items.LEATHER_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        register(Items.LEATHER_LEGGINGS, UEffectMapper.leggings(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.NAUTILUS_SHELL, UEffectMapper.protection());
         register(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         register(Items.FIREWORK_ROCKET, List.of(UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(UEffect.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.05)), UEffectMapper.chestplate(UEffect.add(EntityAttributes.GENERIC_FLYING_SPEED, 0.05))));

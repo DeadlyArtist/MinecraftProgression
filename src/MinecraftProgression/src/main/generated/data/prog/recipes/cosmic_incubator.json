@@ -7,8 +7,11 @@
     "D": {
       "item": "minecraft:dragon_egg"
     },
-    "I": {
+    "E": {
       "item": "prog:incinerator"
+    },
+    "I": {
+      "item": "minecraft:end_stone"
     },
     "M": {
       "item": "prog:machine_frame"
@@ -28,9 +31,6 @@
     "e": {
       "item": "minecraft:ender_eye"
     },
-    "n": {
-      "item": "minecraft:netherite_ingot"
-    },
     "t": {
       "item": "prog:titan_core"
     }
@@ -39,8 +39,8 @@
     "caRac",
     "deted",
     "aCMCa",
-    "cnInc",
-    "nnDnn"
+    "cRIRc",
+    "EEDEE"
   ],
   "result": {
     "item": "prog:cosmic_incubator"

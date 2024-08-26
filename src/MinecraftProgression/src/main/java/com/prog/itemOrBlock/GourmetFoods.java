@@ -36,7 +36,7 @@ public class GourmetFoods {
         register(Items.GLISTERING_MELON_SLICE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.ROTTEN_FLESH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.SPIDER_EYE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-        register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        //register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1)); doesn'T work :(
         register(Items.PUFFERFISH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKED_CHICKEN, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKED_BEEF, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));

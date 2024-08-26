@@ -63,7 +63,7 @@ public class UpgradeUtils {
             }
         }
 
-        return upgradeData;
+        return new TreeMap<>(upgradeData);
     }
 
     public static Item getItemFromUpgradeNbt(NbtElement nbt) {

@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "prog:primal_netherite_leggings",
-    "prog:primal_netherite_hoe",
-    "prog:primal_netherite_boots",
-    "prog:primal_netherite_pickaxe",
+    "prog:primal_netherite_bow",
     "prog:primal_netherite_sword",
     "prog:primal_netherite_shovel",
+    "prog:primal_netherite_hoe",
+    "prog:primal_netherite_leggings",
+    "prog:primal_netherite_boots",
+    "prog:primal_netherite_pickaxe",
     "prog:primal_netherite_chestplate",
     "prog:primal_netherite_axe",
-    "prog:primal_netherite_bow",
     "prog:primal_netherite_helmet"
   ]
 }

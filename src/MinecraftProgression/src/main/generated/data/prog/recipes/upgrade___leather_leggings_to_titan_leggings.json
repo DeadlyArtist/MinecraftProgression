@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___leather_leggings": ""
+      }
+    },
+    "item": "prog:titan_leggings"
+  },
+  "ingredient": {
+    "item": "minecraft:leather_leggings"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___leather_leggings": {
+        "id": "minecraft:leather_leggings"
+      }
+    },
+    "item": "prog:titan_leggings"
+  }
+}

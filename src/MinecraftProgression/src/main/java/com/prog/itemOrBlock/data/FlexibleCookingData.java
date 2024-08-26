@@ -14,6 +14,7 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.impl.content.registry.FuelRegistryImpl;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -31,7 +32,7 @@ import java.util.stream.Collectors;
 
 public enum FlexibleCookingData {
     INCINERATOR(() -> PBlocks.INCINERATOR, () -> PBlockEntityTypes.INCINERATOR, () -> PRecipeSerializers.INCINERATOR, PRecipeTypes.INCINERATOR, List.of(RecipeType.BLASTING), 200, 5, defaultFuel(), PTexts.INCINERATOR_UI_TITLE.get(), () -> PScreenHandlerTypes.INCINERATOR, () -> PREICategories.INCINERATOR),
-    COSMIC_INCUBATOR(() -> PBlocks.COSMIC_INCUBATOR, () -> PBlockEntityTypes.COSMIC_INCUBATOR, () -> PRecipeSerializers.COSMIC_INCUBATOR, PRecipeTypes.COSMIC_INCUBATOR, List.of(RecipeType.BLASTING, PRecipeTypes.INCINERATOR), 200,25, defaultFuelPlus(List.of(FlexibleAbstractFurnaceBlockEntity.Fuel.of(Items.DRAGON_EGG, 1000000))), PTexts.COSMIC_INCUBATOR_UI_TITLE.get(), () -> PScreenHandlerTypes.COSMIC_INCUBATOR, () -> PREICategories.COSMIC_INCUBATOR);
+    COSMIC_INCUBATOR(() -> PBlocks.COSMIC_INCUBATOR, () -> PBlockEntityTypes.COSMIC_INCUBATOR, () -> PRecipeSerializers.COSMIC_INCUBATOR, PRecipeTypes.COSMIC_INCUBATOR, List.of(RecipeType.BLASTING, PRecipeTypes.INCINERATOR), 200,25, defaultFuelPlus(() -> List.of(FlexibleAbstractFurnaceBlockEntity.Fuel.of(Blocks.DRAGON_EGG, 1000000))), PTexts.COSMIC_INCUBATOR_UI_TITLE.get(), () -> PScreenHandlerTypes.COSMIC_INCUBATOR, () -> PREICategories.COSMIC_INCUBATOR);
 
     public final Supplier<Block> block;
     public final Supplier<BlockEntityType<FlexibleCookingBlockEntity>> blockEntityType;
@@ -67,14 +68,13 @@ public enum FlexibleCookingData {
     }
 
     public static Supplier<Map<Item, Integer>> defaultFuel() {
-        return defaultFuelPlus(List.of());
+        return defaultFuelPlus(() -> List.of());
     }
 
-    public static Supplier<Map<Item, Integer>> defaultFuelPlus(List<FlexibleAbstractFurnaceBlockEntity.Fuel> additionalFuels) {
-        var map = additionalFuels.stream().collect(Collectors.toMap(FlexibleAbstractFurnaceBlockEntity.Fuel::item, FlexibleAbstractFurnaceBlockEntity.Fuel::fuelTime));
+    public static Supplier<Map<Item, Integer>> defaultFuelPlus(Supplier<List<FlexibleAbstractFurnaceBlockEntity.Fuel>> additionalFuels) {
         return () -> {
             Map<Item, Integer> mergedMap = new HashMap<>(((FuelRegistryImpl) FuelRegistry.INSTANCE).getFuelTimes());
-            map.forEach((key, value) -> mergedMap.merge(key.asItem(), value, Integer::sum));
+            additionalFuels.get().stream().collect(Collectors.toMap(FlexibleAbstractFurnaceBlockEntity.Fuel::item, FlexibleAbstractFurnaceBlockEntity.Fuel::fuelTime)).forEach((key, value) -> mergedMap.merge(key.asItem(), value, Integer::sum));
             return mergedMap;
         };
     }

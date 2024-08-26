@@ -8,6 +8,9 @@ import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -30,9 +33,13 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
     public void updateGourmetFoodEffect(Item item) {
         // Remove existing effects
         var attributes = entity.getAttributes();
+        Set<String> existingEffects = new HashSet<>();
         for (var attributeInstance : attributes.custom.values()) {
             attributeInstance.getModifiers().forEach(mod -> {
-                if (mod.getName().startsWith(GourmetUtils.getGourmetModifierNamePrefix(item))) attributeInstance.removeModifier(mod);
+                if (mod.getName().startsWith(GourmetUtils.getGourmetModifierNamePrefix(item))) {
+                    attributeInstance.removeModifier(mod);
+                    existingEffects.add(mod.getName());
+                }
             });
         }
 
@@ -45,6 +52,9 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
             var name = GourmetUtils.getGourmetModifierName(item, index);
             var modifier = effect.copyWithName(name).modifier;
             attributeInstance.addPersistentModifier(modifier);
+            if (effect.target == EntityAttributes.GENERIC_MAX_HEALTH && effect.modifier.getOperation() == EntityAttributeModifier.Operation.ADDITION && !existingEffects.contains(name)) {
+                entity.heal((float) effect.modifier.getValue());
+            }
         }
     }
 

@@ -23,8 +23,10 @@ import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.TridentItem;
@@ -89,6 +91,10 @@ public class Prog implements ModInitializer {
 
             if (item instanceof SwordItem && stack.isIn(PItemTags.TITAN_OR_HIGHER)) {
                 attributeModifiers.put(XEntityAttributes.ATTACK_RANGE, EntityAttributeModifierUtils.increment("default_attack_range_increase_1"));
+            }
+
+            if (item instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && stack.isIn(PItemTags.VERUM_OR_HIGHER)) {
+                attributeModifiers.put(PEntityAttributes.FLIGHT, EntityAttributeModifierUtils.increment("default_flight"));
             }
 
             if (item instanceof TridentItem) {

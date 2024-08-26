@@ -11,6 +11,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
@@ -44,9 +45,9 @@ public class ItemStackMixin {
             )
     )
     private void redirectGetId(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local EntityAttributeModifier modifier, @Local LocalDoubleRef d, @Local LocalBooleanRef bl) {
-        if (modifier.getId().equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID)) {
+        var modifierId = modifier.getId();
+        if (modifierId.equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID) || Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
             bl.set(true);
-            //d.set(d.get());
         }
     }
 

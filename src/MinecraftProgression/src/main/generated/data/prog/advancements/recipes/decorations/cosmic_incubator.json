@@ -49,6 +49,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_end_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:end_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ender_eye": {
       "conditions": {
         "items": [
@@ -97,18 +109,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_netherite_ingot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:netherite_ingot"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_refined_obsidian_module": {
       "conditions": {
         "items": [
@@ -150,7 +150,7 @@
       "has_titan_core",
       "has_machine_circuit",
       "has_machine_frame",
-      "has_netherite_ingot",
+      "has_end_stone",
       "has_incinerator",
       "has_dragon_egg",
       "has_the_recipe"
