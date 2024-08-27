@@ -5,17 +5,20 @@
   "mixins": [
     "BowItemMixin",
     "ConfiguredFeaturesMixin",
+    "EnchantmentHelperMixin",
     "EnderDragonFightMixin",
     "EntityMixin",
     "ItemMixin",
     "ItemsMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
+    "MobEntityMixin",
     "PiglingBrainMixin",
     "PlacedFeaturesMixin",
     "PlayerEntityMixin",
     "RecipeProviderMixin",
     "SmithinScreenHandlerMixin",
+    "TridentEntityMixin",
     "compat.projectile_damage.TooltipHelperMixin"
   ],
   "client": [

@@ -3,12 +3,16 @@ package com.prog.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.UpgradeUtils;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
@@ -23,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -45,10 +50,27 @@ public class ItemStackMixin {
             )
     )
     private void redirectGetId(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local EntityAttributeModifier modifier, @Local LocalDoubleRef d, @Local LocalBooleanRef bl) {
+        ItemStack self = (ItemStack) (Object) this;
         var modifierId = modifier.getId();
-        if (modifierId.equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID) || Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
+        if (modifierId.equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID)) {
+            d.set(d.get() * EnchantmentUtils.getCommonDamageMultiplier(EnchantmentHelper.getLevel(Enchantments.POWER, self)));
+            bl.set(true);
+        } else if (Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
             bl.set(true);
         }
+    }
+
+    @Redirect(
+            method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F",
+                    ordinal = 0
+            )
+    )
+    private float redirectGetAttributeBaseValue(ItemStack stack, EntityGroup group, @Local(ordinal = 0) LocalDoubleRef d) {
+        ItemStack self = (ItemStack) (Object) this;
+        return (float) (EnchantmentUtils.getAttackDamage(EntityGroup.DEFAULT, self, d.get()) - d.get());
     }
 
     @Inject(method = "onCraft", at = @At("HEAD"))

@@ -38,6 +38,11 @@ accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
 # AttributeContainer
 accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;
 
+# Enchentment Helper
+accessible method net/minecraft/enchantment/EnchantmentHelper forEachEnchantment (Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;Lnet/minecraft/item/ItemStack;)V
+accessible method net/minecraft/enchantment/EnchantmentHelper forEachEnchantment (Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;Ljava/lang/Iterable;)V
+accessible class net/minecraft/enchantment/EnchantmentHelper$Consumer
+
 # RecipeManager
 accessible field net/minecraft/recipe/RecipeManager recipes Ljava/util/Map;
 accessible field net/minecraft/recipe/RecipeManager recipesById Ljava/util/Map;
