@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_honeycomb": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:honeycomb"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___honeycomb_to_titan_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_titan_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_titan_leggings",
+      "has_honeycomb",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___honeycomb_to_titan_leggings"
+    ]
+  }
+}

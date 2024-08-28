@@ -1,5 +1,6 @@
 package com.prog.itemOrBlock;
 
+import com.prog.entity.PStatusEffects;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
@@ -11,7 +12,8 @@ public class PFoodComponents {
             .saturationModifier(1.2F)
             .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1000, 1), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 6000, 0), 1.0F)
-            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 6000, 3), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 6000, 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(PStatusEffects.WITHER_IMMUNITY, 6000, 0), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 12), 1.0F)
             .alwaysEdible()
             .build();
@@ -19,6 +21,8 @@ public class PFoodComponents {
             .hunger(6)
             .saturationModifier(2F)
             .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 500, 2), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 3000, 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(PStatusEffects.WITHER_IMMUNITY, 3000, 0), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 8), 1.0F)
             .alwaysEdible()
             .build();

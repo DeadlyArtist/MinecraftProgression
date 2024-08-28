@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "H": {
+      "item": "minecraft:heart_of_the_sea"
+    },
+    "b": {
+      "item": "minecraft:brain_coral"
+    },
+    "f": {
+      "item": "minecraft:fire_coral"
+    },
+    "h": {
+      "item": "minecraft:horn_coral"
+    },
+    "n": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "s": {
+      "item": "minecraft:sponge"
+    },
+    "t": {
+      "item": "minecraft:tube_coral"
+    },
+    "u": {
+      "item": "minecraft:bubble_coral"
+    }
+  },
+  "pattern": [
+    "nsn",
+    "bHu",
+    "thf"
+  ],
+  "result": {
+    "item": "prog:oceans_grace"
+  }
+}

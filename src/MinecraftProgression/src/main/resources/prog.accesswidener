@@ -43,6 +43,9 @@ accessible method net/minecraft/enchantment/EnchantmentHelper forEachEnchantment
 accessible method net/minecraft/enchantment/EnchantmentHelper forEachEnchantment (Lnet/minecraft/enchantment/EnchantmentHelper$Consumer;Ljava/lang/Iterable;)V
 accessible class net/minecraft/enchantment/EnchantmentHelper$Consumer
 
+# StatusEffect
+accessible method net/minecraft/entity/effect/StatusEffect <init> (Lnet/minecraft/entity/effect/StatusEffectCategory;I)V
+
 # RecipeManager
 accessible field net/minecraft/recipe/RecipeManager recipes Ljava/util/Map;
 accessible field net/minecraft/recipe/RecipeManager recipesById Ljava/util/Map;

@@ -148,10 +148,10 @@
       "has_diamond_heart",
       "has_ender_eye",
       "has_titan_core",
-      "has_machine_circuit",
       "has_machine_frame",
-      "has_end_stone",
+      "has_machine_circuit",
       "has_incinerator",
+      "has_end_stone",
       "has_dragon_egg",
       "has_the_recipe"
     ]

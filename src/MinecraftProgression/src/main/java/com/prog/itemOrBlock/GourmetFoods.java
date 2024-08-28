@@ -28,15 +28,15 @@ public class GourmetFoods {
 
     static {
         // Vanilla overrides
-        register(Items.GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
-        register(Items.ENCHANTED_GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
+        register(Items.GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 4));
+        register(Items.ENCHANTED_GOLDEN_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
         register(Items.CHORUS_FRUIT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 3));
         register(Items.POISONOUS_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
         register(Items.GOLDEN_CARROT, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.GLISTERING_MELON_SLICE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.ROTTEN_FLESH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.SPIDER_EYE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-        //register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1)); doesn'T work :(
+        //register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1)); // Doesn't work :(
         register(Items.PUFFERFISH, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKED_CHICKEN, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKED_BEEF, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
@@ -55,10 +55,12 @@ public class GourmetFoods {
         register(Items.BAKED_POTATO, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.BREAD, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.PUMPKIN_PIE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.CAKE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
 
         // Custom
-        register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 5));
-        register(PItems.ENCHANTED_STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
+        register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
+        register(PItems.ENCHANTED_STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 20));
     }
 
     public static void register(Item item, List<UEffect> effects) {

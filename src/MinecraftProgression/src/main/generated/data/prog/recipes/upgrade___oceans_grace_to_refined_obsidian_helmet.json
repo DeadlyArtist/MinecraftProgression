@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___oceans_grace": ""
+      }
+    },
+    "item": "prog:refined_obsidian_helmet"
+  },
+  "ingredient": {
+    "item": "prog:oceans_grace"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___oceans_grace": {
+        "id": "prog:oceans_grace"
+      }
+    },
+    "item": "prog:refined_obsidian_helmet"
+  }
+}

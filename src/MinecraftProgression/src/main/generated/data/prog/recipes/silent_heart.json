@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "e": {
+      "item": "minecraft:echo_shard"
+    },
+    "l": {
+      "item": "prog:living_soul_fragment"
+    }
+  },
+  "pattern": [
+    "ele",
+    "lcl",
+    " l "
+  ],
+  "result": {
+    "item": "prog:silent_heart"
+  }
+}

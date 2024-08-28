@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BowItemMixin",
+    "CakeBlockMixin",
     "ConfiguredFeaturesMixin",
     "EnchantmentHelperMixin",
     "EnderDragonFightMixin",
@@ -13,6 +14,7 @@
     "ItemStackMixin",
     "LivingEntityMixin",
     "MobEntityMixin",
+    "PhantomSpawnerMixin",
     "PiglingBrainMixin",
     "PlacedFeaturesMixin",
     "PlayerEntityMixin",

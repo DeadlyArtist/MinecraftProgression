@@ -492,7 +492,6 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
         createShapedRecipe(List.of("sc ", "coc", " cs"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.COPPER_INGOT), Input.of(Items.OBSIDIAN)), PBlocks.MACHINE_FRAME).offer(exporter);
         createShapedRecipe(List.of("crc", "rgr", "crc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(Items.GOLD_INGOT)), PItems.MACHINE_CIRCUIT).offer(exporter);
-        createShapedRecipe(List.of("sd ", "ded", " ds"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.DIAMOND), Input.of(Items.EMERALD)), PItems.DIAMOND_HEART).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.STEEL_INGOT, PBlocks.STEEL_BLOCK);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.OBSIDIAN), PItems.REFINED_OBSIDIAN_INGOT, 1500, 2F).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.EMBERITE, PBlocks.EMBERITE_BLOCK);
@@ -511,10 +510,16 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("NNN", "NAN", "NNN"), List.of(Input.of(PBlocks.NETHER_STAR_BLOCK), Input.of(Items.APPLE)), PItems.ENCHANTED_STAR_APPLE).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of(" c ", "eCe", " c "), List.of(Input.of(PItems.COMPRESSED_QUARTZ), Input.of(Items.ENDER_PEARL), Input.of(PItems.MACHINE_CIRCUIT)), PItems.TELEPORTATION_CORE).requireAssembly().offer(exporter);
         createCookingRecipe(RecipeSerializer.SMOKING, Input.of(Items.ROTTEN_FLESH), Items.LEATHER, 1000, 5F).offer(exporter);
+        createShapedRecipe(List.of("A c", "Ic ", "AIA"), List.of(Input.of(Items.ANVIL), Input.of(Items.CHAIN), Input.of(Items.IRON_BLOCK)), PItems.ANCHOR).offer(exporter);
+        createShapedRecipe(List.of("sps", "pwp", "sps"), List.of(Input.of(Items.STICK), Input.of(Items.PHANTOM_MEMBRANE), Input.of(Items.COBWEB)), PItems.DREAM_CATCHER).offer(exporter);
+        createShapedRecipe(List.of("ele", "lcl", " l "), List.of(Input.of(Items.ECHO_SHARD), Input.of(PItems.LIVING_SOUL_FRAGMENT), Input.of(Items.SCULK_CATALYST)), PItems.SILENT_HEART).offer(exporter);
+        createShapedRecipe(List.of("nsn", "bHu", "thf"), List.of(Input.of(Items.NAUTILUS_SHELL), Input.of(Items.SPONGE), Input.of(Items.BRAIN_CORAL), Input.of(Items.HEART_OF_THE_SEA), Input.of(Items.BUBBLE_CORAL), Input.of(Items.TUBE_CORAL), Input.of(Items.HORN_CORAL), Input.of(Items.FIRE_CORAL)), PItems.OCEANS_GRACE).offer(exporter);
 
 
         // Tier upgrades
         createShapedRecipe(List.of("# #", " # ", "# #"), Input.of(PItems.STEEL_INGOT), PItems.STEEL_BINDING).offer(exporter);
+        createShapedRecipe(List.of("sd ", "ded", " ds"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(Items.DIAMOND), Input.of(Items.EMERALD)), PItems.DIAMOND_HEART).offer(exporter);
+        createShapedRecipe(List.of("gn ", "ndn", " ng"), List.of(Input.of(Items.GOLD_INGOT), Input.of(Items.NETHERITE_INGOT), Input.of(Items.DIAMOND)), PItems.NETHERITE_HEART).offer(exporter);
         createShapedRecipe(List.of("cr#rc", "c#g#c", "cr#rc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.GOLD_INGOT)), PItems.REFINED_OBSIDIAN_MODULE).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("  cce", " eCe ", "ecc  "), List.of(Input.of(PItems.COMPRESSED_QUARTZ), Input.of(PItems.EMBERITE), Input.of(PBlocks.QUARTZ_CATALYST)), PItems.TITAN_INGOT).requireAssembly().offer(exporter);
         createShapedRecipe(List.of(" t ", "tdt", " t "), List.of(Input.of(PItems.TITAN_INGOT), Input.of(Items.DIAMOND)), PItems.TITAN_CORE).requireAssembly().offer(exporter);
@@ -526,9 +531,9 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         // Machines
         createShapedRecipe(List.of("frf", "CcC", "rRr"), List.of(Input.of(PBlocks.MACHINE_FRAME), Input.of(Items.REDSTONE), Input.of(PItems.MACHINE_CIRCUIT), Input.of(Items.CRAFTING_TABLE), Input.of(Blocks.REDSTONE_BLOCK)), PBlocks.ASSEMBLY).offer(exporter);
-        createShapedRecipe(List.of("obfbo", "on no", "ofbfo"), List.of(Input.of(Blocks.OBSIDIAN), Input.of(Items.BLAZE_ROD), Input.of(PBlocks.MACHINE_FRAME), Input.of(Blocks.NETHERRACK), Input.of(Items.LAVA_BUCKET)), PBlocks.INCINERATOR).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("obBbo", "on no", "ofbfo"), List.of(Input.of(Blocks.OBSIDIAN), Input.of(Items.BLAZE_ROD), Input.of(Items.BLAST_FURNACE), Input.of(PBlocks.MACHINE_FRAME), Input.of(Blocks.NETHERRACK)), PBlocks.INCINERATOR).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("gaaag", "nnenn", "gcAcg"), List.of(Input.of(Items.GOLD_INGOT), Input.of(Items.AMETHYST_SHARD), Input.of(Items.NETHERITE_INGOT), Input.of(Items.ENDER_EYE), Input.of(Blocks.CRYING_OBSIDIAN), Input.of(PBlocks.ASSEMBLY)), PBlocks.COSMIC_CONSTRUCTOR).requireAssembly().offer(exporter);
-        createShapedRecipe(List.of("caRac", "deted", "aCMCa", "cRIRc", "EEDEE"), List.of(Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(PItems.DIAMOND_HEART), Input.of(Items.ENDER_EYE), Input.of(PItems.TITAN_CORE), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PBlocks.MACHINE_FRAME), Input.of(Items.END_STONE), Input.of(PBlocks.INCINERATOR), Input.of(Blocks.DRAGON_EGG)), PBlocks.COSMIC_INCUBATOR).requireCosmicConstructor().offer(exporter);
+        createShapedRecipe(List.of("caRac", "deted", "RM MR", "cCICc", "EEDEE"), List.of(Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(PItems.DIAMOND_HEART), Input.of(Items.ENDER_EYE), Input.of(PItems.TITAN_CORE), Input.of(PBlocks.MACHINE_FRAME), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PBlocks.INCINERATOR), Input.of(Items.END_STONE), Input.of(Blocks.DRAGON_EGG)), PBlocks.COSMIC_INCUBATOR).requireCosmicConstructor().offer(exporter);
 
         // Tier Upgrades
         // Steel
@@ -598,7 +603,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.TITAN_PICKAXE), Input.of(Items.NETHERITE_PICKAXE), PItems.PRIMAL_NETHERITE_PICKAXE).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SHOVEL), Input.of(Items.NETHERITE_SHOVEL), PItems.PRIMAL_NETHERITE_SHOVEL).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.TITAN_BOW), Input.of(Items.NETHERITE_INGOT), PItems.PRIMAL_NETHERITE_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_BOW), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SWORD), Input.of(Items.NETHERITE_SWORD), PItems.PRIMAL_NETHERITE_SWORD).offer(exporter);
 
 

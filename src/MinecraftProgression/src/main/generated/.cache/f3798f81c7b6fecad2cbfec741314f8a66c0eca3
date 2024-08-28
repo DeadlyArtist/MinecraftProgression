@@ -1,4 +1,4 @@
-// 1.19.2	2024-08-27T01:36:09.8528615	Models
+// 1.19.2	2024-08-28T05:23:08.3172199	Models
 c93cd1f505f0a7286f671c54ccbbb698a6f8a1f1 assets\prog\models\block\nether_star_block.json
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
@@ -33,6 +33,7 @@ a210f8546801c134c6cef25d8c934833d8cf029d assets\prog\models\item\verum_boots.jso
 bfc7d4e2fef33da38cea86ae928fdc30e80d032c assets\prog\models\item\void_soul_boots.json
 9776f0d8808670fc4e00a468fe67f1f0a25d0eff assets\prog\models\item\verum_axe.json
 11aa6174afbfcf23cffd5097fb7a097e07ce2226 assets\prog\models\block\emberite_block.json
+c06eb512949c4fa7d988bb871f09d9c154d4e4cb assets\prog\models\item\netherite_heart.json
 8db7f1e91b4574f65f6845069deb772a8ec0deea assets\prog\models\block\verum_ore.json
 af8d2472c7de402c2178dfb8e02f5877e6cd021c assets\prog\models\item\refined_obsidian_ingot.json
 ab966780db18497c6f2f6ecf92c05fa581ce68ae assets\prog\models\block\cosmic_incubator_on.json
@@ -68,6 +69,7 @@ b7f042214499435aa1cea7fb8e1c24e9dea1ddbf assets\prog\models\item\machine_frame.j
 eff237307038dae3c406c617518b043f59c2d1b5 assets\prog\models\item\refined_obsidian_pickaxe.json
 e10edc0be549d6021ac843bbcaab4e194d46cdad assets\prog\models\item\quartz_catalyst.json
 cba9485d1c47998b1020e5726fafd4c6191b3e0f assets\prog\models\item\steel_shovel.json
+5eb68571cc3cbbf37d198095ad5f11f259843153 assets\prog\models\item\dream_catcher.json
 6dab36409c69caf0f516377174c53415d30f5a1a assets\prog\blockstates\cosmic_incubator.json
 aec24027a8e9198ffc8ab54d595d7639e357db6c assets\prog\models\item\verum_hoe.json
 69b316ab19be37c26005a3db099a442fe8a1cc99 assets\prog\models\item\primal_netherite_chestplate.json
@@ -79,10 +81,12 @@ b846c6e3536a40208ca5ad4ed9b9b88ae2d38051 assets\prog\models\item\verum_ore.json
 5ee23dcd61faca935d3b2cd3d82e52f23820d510 assets\prog\models\item\ultimate_diamond_axe.json
 0bf4a653af92dd4e4b89977a065fd200b59e6268 assets\prog\models\item\refined_obsidian_shovel.json
 c003634e004203429a96cf1f5998b1f9a1f6924b assets\prog\blockstates\cosmic_constructor.json
+c6659627b12ca0473afcbb8a7bbda7dbcac2b6a8 assets\prog\models\item\silent_heart.json
 018486fbb4f76045cd5b0278b77744f716b99db8 assets\prog\models\item\verum_shovel.json
 0d1c6b9d702a0379d37704be78c18e9a9b05050d assets\prog\models\item\ultimate_diamond_pickaxe.json
 b0c49151a38311b4789ff55e2ffc514c61f453b3 assets\prog\models\block\incinerator_on.json
 f409f33c85fbde8c446b0efe30a1ce530d14b1a1 assets\prog\models\item\compressed_quartz.json
+5aeaec20ba5836f6c2a0a54ee39cbfbffe971c56 assets\prog\models\item\living_soul_fragment.json
 6ee10549516129c1fe8b313e8877f1dfb3b08710 assets\prog\models\item\steel_leggings.json
 4110316dc2f12421835e62877f0633f459081d3c assets\prog\models\item\ultimate_diamond_boots.json
 c8eefefac87f3885bde8c2f45b7fde0a5b0fe150 assets\prog\blockstates\steel_block.json
@@ -98,6 +102,7 @@ d4f401fb2ca93a2b705cada1ced013106a5a4373 assets\prog\models\item\refined_obsidia
 9d8cb6187695346ce1448ce222a1c1f9f62e1c4c assets\prog\models\block\steel_block.json
 3988de28deddf76c5fbc635c51895c12ba7e78b1 assets\prog\models\item\assembly.json
 d34c92ed7328fd327ef2940dfd1886ec906c69ac assets\prog\models\item\mechanical_boots.json
+d0255ca49d5858bfe20ab0e0ca831653b197805d assets\prog\models\item\oceans_grace.json
 2971341346917592fa54d0c7af73114a5c82546d assets\prog\models\item\primal_netherite_helmet.json
 91e936ebb175faaba7470345d80473a913500ddc assets\prog\models\item\refined_obsidian_leggings.json
 a41c5c17625ef1f91ed3ca1b181cf2a1e9adb17a assets\prog\models\item\emberite.json
@@ -112,4 +117,5 @@ e867ed510f11d54922b45cc7435d4670ca17a530 assets\prog\models\item\steel_binding.j
 dc87f36528ddd16875fddd36229410b5a880b80b assets\prog\models\block\emberite_ore.json
 57134f3e63f95c2d00d22eba8751c02e23d8091b assets\prog\models\item\titan_chestplate.json
 c220c6d22adb950ceb3fa77228f9be19dec3cd03 assets\prog\models\item\primal_netherite_pickaxe.json
+f44e0b934ca19d18c520964972fe2886d35f20d3 assets\prog\models\item\anchor.json
 0ffb687ad8d8491bdf08cc3278cad25dfac3891a assets\prog\models\item\refined_obsidian_hoe.json

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "p": {
+      "item": "minecraft:phantom_membrane"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "item": "minecraft:cobweb"
+    }
+  },
+  "pattern": [
+    "sps",
+    "pwp",
+    "sps"
+  ],
+  "result": {
+    "item": "prog:dream_catcher"
+  }
+}

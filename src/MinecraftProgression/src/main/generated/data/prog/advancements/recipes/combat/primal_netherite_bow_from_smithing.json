@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_ingot": {
+    "has_netherite_heart": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:netherite_ingot"
+              "prog:netherite_heart"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_titan_bow",
-      "has_netherite_ingot",
+      "has_netherite_heart",
       "has_the_recipe"
     ]
   ],

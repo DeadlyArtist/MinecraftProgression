@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___living_soul_fragment": ""
+      }
+    },
+    "item": "prog:titan_chestplate"
+  },
+  "ingredient": {
+    "item": "prog:living_soul_fragment"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___living_soul_fragment": {
+        "id": "prog:living_soul_fragment"
+      }
+    },
+    "item": "prog:titan_chestplate"
+  }
+}

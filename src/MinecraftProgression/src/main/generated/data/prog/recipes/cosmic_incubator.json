@@ -8,10 +8,10 @@
       "item": "minecraft:dragon_egg"
     },
     "E": {
-      "item": "prog:incinerator"
+      "item": "minecraft:end_stone"
     },
     "I": {
-      "item": "minecraft:end_stone"
+      "item": "prog:incinerator"
     },
     "M": {
       "item": "prog:machine_frame"
@@ -38,8 +38,8 @@
   "pattern": [
     "caRac",
     "deted",
-    "aCMCa",
-    "cRIRc",
+    "RM MR",
+    "cCICc",
     "EEDEE"
   ],
   "result": {

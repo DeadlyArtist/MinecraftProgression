@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___silent_heart": ""
+      }
+    },
+    "item": "prog:refined_obsidian_chestplate"
+  },
+  "ingredient": {
+    "item": "prog:silent_heart"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___silent_heart": {
+        "id": "prog:silent_heart"
+      }
+    },
+    "item": "prog:refined_obsidian_chestplate"
+  }
+}

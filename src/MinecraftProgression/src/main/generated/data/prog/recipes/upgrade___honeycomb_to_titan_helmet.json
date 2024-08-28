@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___honeycomb": ""
+      }
+    },
+    "item": "prog:titan_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:honeycomb"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___honeycomb": {
+        "id": "minecraft:honeycomb"
+      }
+    },
+    "item": "prog:titan_helmet"
+  }
+}

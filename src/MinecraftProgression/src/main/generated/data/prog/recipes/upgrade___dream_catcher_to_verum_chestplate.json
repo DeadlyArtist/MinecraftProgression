@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___dream_catcher": ""
+      }
+    },
+    "item": "prog:verum_chestplate"
+  },
+  "ingredient": {
+    "item": "prog:dream_catcher"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___dream_catcher": {
+        "id": "prog:dream_catcher"
+      }
+    },
+    "item": "prog:verum_chestplate"
+  }
+}

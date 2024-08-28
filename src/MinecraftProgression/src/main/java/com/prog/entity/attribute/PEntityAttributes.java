@@ -44,6 +44,7 @@ public class PEntityAttributes {
     public static final EntityAttribute UNLUCK_IMMUNITY = registerClampedEntityAttribute("UNLUCK_IMMUNITY", 0.0, 0.0, 1.0);
     public static final EntityAttribute BAD_OMEN_IMMUNITY = registerClampedEntityAttribute("BAD_OMEN_IMMUNITY", 0.0, 0.0, 1.0);
     public static final EntityAttribute GLOWING_IMMUNITY = registerClampedEntityAttribute("GLOWING_IMMUNITY", 0.0, 0.0, 1.0);
+    public static final EntityAttribute INSOMNIA_IMMUNITY = registerClampedEntityAttribute("INSOMNIA_IMMUNITY", 0.0, 0.0, 1.0);
 
     public static final Map<StatusEffect, EntityAttribute> IMMUNITY_MAP = new HashMap<>();
 

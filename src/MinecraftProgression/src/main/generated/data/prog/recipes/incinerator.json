@@ -1,21 +1,24 @@
 {
   "type": "prog:assembly_shaped",
   "key": {
+    "B": {
+      "item": "minecraft:blast_furnace"
+    },
     "b": {
       "item": "minecraft:blaze_rod"
     },
     "f": {
-      "item": "prog:machine_frame"
+      "item": "minecraft:netherrack"
     },
     "n": {
-      "item": "minecraft:netherrack"
+      "item": "prog:machine_frame"
     },
     "o": {
       "item": "minecraft:obsidian"
     }
   },
   "pattern": [
-    "obfbo",
+    "obBbo",
     "on no",
     "ofbfo"
   ],

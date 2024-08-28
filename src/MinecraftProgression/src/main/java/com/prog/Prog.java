@@ -2,6 +2,7 @@ package com.prog;
 
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
+import com.prog.entity.PStatusEffects;
 import com.prog.entity.attribute.PDefaultAttributes;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
@@ -20,9 +21,11 @@ import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
@@ -30,6 +33,8 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.TridentItem;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
 import net.projectile_damage.internal.Constants;
 import org.slf4j.Logger;
@@ -58,6 +63,7 @@ public class Prog implements ModInitializer {
         PBlockEntityTypes.init();
         PEntityAttributes.init();
         PDefaultAttributes.init();
+        PStatusEffects.init();
         GourmetFoods.init();
         OreGeneration.init();
 
@@ -123,6 +129,15 @@ public class Prog implements ModInitializer {
             }
 
             return true;
+        });
+
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+            if (source.isBuiltin() && EntityType.WARDEN.getLootTableId().equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .with(ItemEntry.builder(PItems.LIVING_SOUL_FRAGMENT));
+
+                tableBuilder.pool(poolBuilder);
+            }
         });
     }
 }
