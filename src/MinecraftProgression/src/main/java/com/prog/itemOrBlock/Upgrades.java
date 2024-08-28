@@ -72,7 +72,6 @@ public class Upgrades {
         register(Items.SHULKER_SHELL, UEffectMapper.protection());
         register(Items.HONEYCOMB, UEffectMapper.protection());
         register(Items.RABBIT_FOOT, UEffectMapper.boots(UEffect.increment(XEntityAttributes.BONUS_RARE_LOOT_ROLLS)));
-        register(Items.SPONGE, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.MINING_FATIGUE_IMMUNITY)));
 
         // Custom
         register(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
