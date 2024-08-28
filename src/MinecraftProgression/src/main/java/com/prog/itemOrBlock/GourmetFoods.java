@@ -57,6 +57,7 @@ public class GourmetFoods {
         register(Items.APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.PUMPKIN_PIE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.CAKE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.MILK_BUCKET, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
 
         // Custom
         register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));

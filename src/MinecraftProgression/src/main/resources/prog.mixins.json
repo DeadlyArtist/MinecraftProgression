@@ -13,6 +13,7 @@
     "ItemsMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
+    "MilkBucketItemMixin",
     "MobEntityMixin",
     "PhantomSpawnerMixin",
     "PiglingBrainMixin",
