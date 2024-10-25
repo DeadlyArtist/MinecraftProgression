@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___rabbit_foot": ""
+      }
+    },
+    "item": "prog:end_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:rabbit_foot"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___rabbit_foot": {
+        "id": "minecraft:rabbit_foot"
+      }
+    },
+    "item": "prog:end_boots"
+  }
+}

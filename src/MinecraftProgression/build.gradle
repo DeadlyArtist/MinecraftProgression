@@ -100,10 +100,10 @@ dependencies {
 
 	// Mmmm dummy
 	modRuntimeOnly include("curse.maven:moonlight-499980:5567103")
-	modRuntimeOnly include("curse.maven:mmmmmmm-225738:4410141")
+	modRuntimeOnly include("curse.maven:mmmm-225738:4410141")
 
 	// Disable custom worlds advice
-	modRuntimeOnly include("curse.maven:mmmmmmm-401978:3827588")
+	modRuntimeOnly include("curse.maven:disable-custom-worlds-advice-401978:3827588")
 }
 
 processResources {

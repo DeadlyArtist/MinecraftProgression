@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___shulker_shell": ""
+      }
+    },
+    "item": "prog:end_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:shulker_shell"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___shulker_shell": {
+        "id": "minecraft:shulker_shell"
+      }
+    },
+    "item": "prog:end_boots"
+  }
+}

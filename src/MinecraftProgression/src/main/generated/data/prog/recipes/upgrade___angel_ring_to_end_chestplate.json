@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___angel_ring": ""
+      }
+    },
+    "item": "prog:end_chestplate"
+  },
+  "ingredient": {
+    "item": "prog:angel_ring"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___angel_ring": {
+        "id": "prog:angel_ring"
+      }
+    },
+    "item": "prog:end_chestplate"
+  }
+}

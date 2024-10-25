@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___magma_cream": ""
+      }
+    },
+    "item": "prog:end_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:magma_cream"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___magma_cream": {
+        "id": "minecraft:magma_cream"
+      }
+    },
+    "item": "prog:end_chestplate"
+  }
+}

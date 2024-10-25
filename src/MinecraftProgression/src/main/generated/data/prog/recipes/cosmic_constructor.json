@@ -4,6 +4,9 @@
     "A": {
       "item": "prog:assembly"
     },
+    "E": {
+      "item": "minecraft:end_stone"
+    },
     "a": {
       "item": "minecraft:amethyst_shard"
     },
@@ -16,13 +19,13 @@
     "g": {
       "item": "minecraft:gold_ingot"
     },
-    "n": {
-      "item": "minecraft:netherite_ingot"
+    "q": {
+      "item": "prog:quartz_catalyst"
     }
   },
   "pattern": [
     "gaaag",
-    "nnenn",
+    "EqeqE",
     "gcAcg"
   ],
   "result": {

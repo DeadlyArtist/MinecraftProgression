@@ -28,6 +28,7 @@ public class PEntityAttributes {
     public static final EntityAttribute LUMINANCE = registerClampedEntityAttribute("LUMINANCE", 0.0, 0.0, 15.0); // 0 for immunity
     public static final EntityAttribute FLIGHT = registerClampedEntityAttribute("FLIGHT", 0.0, 0.0, 20.0);
     public static final EntityAttribute PIGLIN_LOVED = registerClampedEntityAttribute("PIGLIN_LOVED", 0.0, 0.0, 1.0);
+    public static final EntityAttribute ENDERMAN_DISGUISE = registerClampedEntityAttribute("ENDERMAN_DISGUISE", 0.0, 0.0, 1.0);
     public static final EntityAttribute PROJECTILE_SPEED = registerClampedEntityAttribute("PROJECTILE_SPEED", 4.0, 0.0, 1000.0);
 
     // Status effect immunities

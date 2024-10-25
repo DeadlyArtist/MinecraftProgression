@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_end_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_bow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_teleportation_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:teleportation_core"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___teleportation_core_to_end_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_end_bow",
+      "has_teleportation_core",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___teleportation_core_to_end_bow"
+    ]
+  }
+}

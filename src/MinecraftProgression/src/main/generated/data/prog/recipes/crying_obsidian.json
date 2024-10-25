@@ -1,0 +1,19 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    " a ",
+    "aoa",
+    " a "
+  ],
+  "result": {
+    "item": "minecraft:crying_obsidian"
+  }
+}

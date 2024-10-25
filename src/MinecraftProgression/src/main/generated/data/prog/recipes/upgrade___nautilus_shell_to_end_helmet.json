@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___nautilus_shell": ""
+      }
+    },
+    "item": "prog:end_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:nautilus_shell"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___nautilus_shell": {
+        "id": "minecraft:nautilus_shell"
+      }
+    },
+    "item": "prog:end_helmet"
+  }
+}

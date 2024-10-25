@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___amethyst_shard": ""
+      }
+    },
+    "item": "prog:end_hoe"
+  },
+  "ingredient": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___amethyst_shard": {
+        "id": "minecraft:amethyst_shard"
+      }
+    },
+    "item": "prog:end_hoe"
+  }
+}

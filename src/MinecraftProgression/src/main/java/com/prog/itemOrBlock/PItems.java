@@ -1,12 +1,10 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
-import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.itemOrBlock.custom.TieredBowItem;
 import com.prog.itemOrBlock.tiers.*;
 import com.prog.utils.StringUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.entity.EquipmentSlot;
@@ -21,7 +19,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class PItems {
     public static class ItemData {
@@ -110,7 +107,7 @@ public class PItems {
 
     // Refined obsidian tier tools
     public static final Item REFINED_OBSIDIAN_AXE = register("REFINED_OBSIDIAN_AXE", new AxeItem(PToolMaterials.REFINED_OBSIDIAN, 12.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
-    public static final Item REFINED_OBSIDIAN_HOE = register("REFINED_OBSIDIAN_HOE", new HoeItem(PToolMaterials.REFINED_OBSIDIAN, -3, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
+    public static final Item REFINED_OBSIDIAN_HOE = register("REFINED_OBSIDIAN_HOE", new HoeItem(PToolMaterials.REFINED_OBSIDIAN, -2, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
     public static final Item REFINED_OBSIDIAN_PICKAXE = register("REFINED_OBSIDIAN_PICKAXE", new PickaxeItem(PToolMaterials.REFINED_OBSIDIAN, 8, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
     public static final Item REFINED_OBSIDIAN_SHOVEL = register("REFINED_OBSIDIAN_SHOVEL", new ShovelItem(PToolMaterials.REFINED_OBSIDIAN, 6F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
 
@@ -133,7 +130,7 @@ public class PItems {
 
     // Titan tier tools
     public static final Item TITAN_AXE = register("TITAN_AXE", new AxeItem(PToolMaterials.TITAN, 22.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
-    public static final Item TITAN_HOE = register("TITAN_HOE", new HoeItem(PToolMaterials.TITAN, -2, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
+    public static final Item TITAN_HOE = register("TITAN_HOE", new HoeItem(PToolMaterials.TITAN, -3, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
     public static final Item TITAN_PICKAXE = register("TITAN_PICKAXE", new PickaxeItem(PToolMaterials.TITAN, 12, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
     public static final Item TITAN_SHOVEL = register("TITAN_SHOVEL", new ShovelItem(PToolMaterials.TITAN, 10F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
 
@@ -152,7 +149,7 @@ public class PItems {
 
     // Primal netherite tier tools
     public static final Item PRIMAL_NETHERITE_AXE = register("PRIMAL_NETHERITE_AXE", new AxeItem(PToolMaterials.PRIMAL_NETHERITE, 39F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
-    public static final Item PRIMAL_NETHERITE_HOE = register("PRIMAL_NETHERITE_HOE", new HoeItem(PToolMaterials.PRIMAL_NETHERITE, 5, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
+    public static final Item PRIMAL_NETHERITE_HOE = register("PRIMAL_NETHERITE_HOE", new HoeItem(PToolMaterials.PRIMAL_NETHERITE, 6, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_PICKAXE = register("PRIMAL_NETHERITE_PICKAXE", new PickaxeItem(PToolMaterials.PRIMAL_NETHERITE, 20, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_SHOVEL = register("PRIMAL_NETHERITE_SHOVEL", new ShovelItem(PToolMaterials.PRIMAL_NETHERITE, 15F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
 
@@ -167,20 +164,20 @@ public class PItems {
     public static final Item VOID_SOUL_TOOL = register("VOID_SOUL_TOOL", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Void Soul (Tool)").finished();
 
     // Verum tier armor
-    public static final Item VERUM_HELMET = register("VERUM_HELMET", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_CHESTPLATE = register("VERUM_CHESTPLATE", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_LEGGINGS = register("VERUM_LEGGINGS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_BOOTS = register("VERUM_BOOTS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_HELMET = register("END_HELMET", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_CHESTPLATE = register("END_CHESTPLATE", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_LEGGINGS = register("END_LEGGINGS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_BOOTS = register("END_BOOTS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
 
     // Verum tier weapons
-    public static final Item VERUM_BOW = register("VERUM_BOW", new TieredBowItem(BowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_SWORD = register("VERUM_SWORD", new SwordItem(PToolMaterials.VERUM, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_BOW = register("END_BOW", new TieredBowItem(BowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_SWORD = register("END_SWORD", new SwordItem(PToolMaterials.VERUM, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
 
     // Verum tier tools
-    public static final Item VERUM_AXE = register("VERUM_AXE", new AxeItem(PToolMaterials.VERUM, 64.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_HOE = register("VERUM_HOE", new HoeItem(PToolMaterials.VERUM, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_PICKAXE = register("VERUM_PICKAXE", new PickaxeItem(PToolMaterials.VERUM, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item VERUM_SHOVEL = register("VERUM_SHOVEL", new ShovelItem(PToolMaterials.VERUM, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_AXE = register("END_AXE", new AxeItem(PToolMaterials.VERUM, 64.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_HOE = register("END_HOE", new HoeItem(PToolMaterials.VERUM, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_PICKAXE = register("END_PICKAXE", new PickaxeItem(PToolMaterials.VERUM, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_SHOVEL = register("END_SHOVEL", new ShovelItem(PToolMaterials.VERUM, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {

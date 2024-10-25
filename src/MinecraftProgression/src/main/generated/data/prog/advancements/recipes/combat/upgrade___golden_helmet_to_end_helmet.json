@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_end_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_golden_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:golden_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:upgrade___golden_helmet_to_end_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_end_helmet",
+      "has_golden_helmet",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:upgrade___golden_helmet_to_end_helmet"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/end_bow",
+    "textures": {
+        "layer0": "prog:item/end_bow_pulling_1"
+    }
+}

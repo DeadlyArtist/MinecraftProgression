@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "prog:verum_hoe",
-    "prog:verum_bow",
-    "prog:verum_axe",
-    "prog:verum_pickaxe",
-    "prog:verum_leggings",
-    "prog:verum_sword",
-    "prog:verum_shovel",
-    "prog:verum_boots",
-    "prog:verum_chestplate",
-    "prog:verum_helmet"
+    "prog:end_axe",
+    "prog:end_leggings",
+    "prog:end_sword",
+    "prog:end_chestplate",
+    "prog:end_boots",
+    "prog:end_helmet",
+    "prog:end_bow",
+    "prog:end_pickaxe",
+    "prog:end_hoe",
+    "prog:end_shovel"
   ]
 }

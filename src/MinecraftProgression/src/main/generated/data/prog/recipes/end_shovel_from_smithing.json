@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:void_soul_tool"
+  },
+  "base": {
+    "item": "prog:primal_netherite_shovel"
+  },
+  "result": {
+    "item": "prog:end_shovel"
+  }
+}

@@ -502,8 +502,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, PItems.VERUM_INGOT, PBlocks.VERUM_BLOCK, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PBlocks.VERUM_ORE), PItems.RAW_VERUM, 7500, 1F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PItems.RAW_VERUM), PItems.VERUM_INGOT, 7500, 5F).offer(exporter);
-        createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PItems.REFINED_OBSIDIAN_INGOT), Items.CRYING_OBSIDIAN, 50000, 5F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(Items.AMETHYST_BLOCK), Items.BUDDING_AMETHYST, 50000, 5F).offer(exporter);
+        createShapedRecipe(List.of(" a ", "aoa", " a "), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(Items.OBSIDIAN)), Items.CRYING_OBSIDIAN).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of("GGG", "GAG", "GGG"), List.of(Input.of(Items.GOLD_BLOCK), Input.of(Items.APPLE)), Items.ENCHANTED_GOLDEN_APPLE).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("nnn", "nAn", "nnn"), List.of(Input.of(Items.NETHER_STAR), Input.of(Items.APPLE)), PItems.STAR_APPLE).requireAssembly().offer(exporter);
         offerReversibleCompactingRecipes(exporter, Items.NETHER_STAR, PBlocks.NETHER_STAR_BLOCK, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
@@ -532,8 +532,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
         // Machines
         createShapedRecipe(List.of("frf", "CcC", "rRr"), List.of(Input.of(PBlocks.MACHINE_FRAME), Input.of(Items.REDSTONE), Input.of(PItems.MACHINE_CIRCUIT), Input.of(Items.CRAFTING_TABLE), Input.of(Blocks.REDSTONE_BLOCK)), PBlocks.ASSEMBLY).offer(exporter);
         createShapedRecipe(List.of("obBbo", "on no", "ofbfo"), List.of(Input.of(Blocks.OBSIDIAN), Input.of(Items.BLAZE_ROD), Input.of(Items.BLAST_FURNACE), Input.of(PBlocks.MACHINE_FRAME), Input.of(Blocks.NETHERRACK)), PBlocks.INCINERATOR).requireAssembly().offer(exporter);
-        createShapedRecipe(List.of("gaaag", "nnenn", "gcAcg"), List.of(Input.of(Items.GOLD_INGOT), Input.of(Items.AMETHYST_SHARD), Input.of(Items.NETHERITE_INGOT), Input.of(Items.ENDER_EYE), Input.of(Blocks.CRYING_OBSIDIAN), Input.of(PBlocks.ASSEMBLY)), PBlocks.COSMIC_CONSTRUCTOR).requireAssembly().offer(exporter);
-        createShapedRecipe(List.of("caRac", "deted", "RM MR", "cCICc", "EEDEE"), List.of(Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(PItems.DIAMOND_HEART), Input.of(Items.ENDER_EYE), Input.of(PItems.TITAN_CORE), Input.of(PBlocks.MACHINE_FRAME), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PBlocks.INCINERATOR), Input.of(Items.END_STONE), Input.of(Blocks.DRAGON_EGG)), PBlocks.COSMIC_INCUBATOR).requireCosmicConstructor().offer(exporter);
+        createShapedRecipe(List.of("gaaag", "EqeqE", "gcAcg"), List.of(Input.of(Items.GOLD_INGOT), Input.of(Items.AMETHYST_SHARD), Input.of(Items.END_STONE), Input.of(PBlocks.QUARTZ_CATALYST), Input.of(Items.ENDER_EYE), Input.of(Blocks.CRYING_OBSIDIAN), Input.of(PBlocks.ASSEMBLY)), PBlocks.COSMIC_CONSTRUCTOR).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("caRac", "deqed", "RM MR", "cCICc", "EEDEE"), List.of(Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(PItems.DIAMOND_HEART), Input.of(Items.ENDER_EYE), Input.of(PBlocks.QUARTZ_CATALYST), Input.of(PBlocks.MACHINE_FRAME), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PBlocks.INCINERATOR), Input.of(Items.END_STONE), Input.of(Blocks.DRAGON_EGG)), PBlocks.COSMIC_INCUBATOR).requireCosmicConstructor().offer(exporter);
 
         // Tier Upgrades
         // Steel
@@ -608,18 +608,18 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
 
         // Verum
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOOTS), Input.of(PItems.VOID_SOUL_BOOTS), PItems.VERUM_BOOTS).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CHESTPLATE), Input.of(PItems.VOID_SOUL_CHESTPLATE), PItems.VERUM_CHESTPLATE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HELMET), Input.of(PItems.VOID_SOUL_HELMET), PItems.VERUM_HELMET).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_LEGGINGS), Input.of(PItems.VOID_SOUL_LEGGINGS), PItems.VERUM_LEGGINGS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOOTS), Input.of(PItems.VOID_SOUL_BOOTS), PItems.END_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CHESTPLATE), Input.of(PItems.VOID_SOUL_CHESTPLATE), PItems.END_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HELMET), Input.of(PItems.VOID_SOUL_HELMET), PItems.END_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_LEGGINGS), Input.of(PItems.VOID_SOUL_LEGGINGS), PItems.END_LEGGINGS).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_AXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.VERUM_AXE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HOE), Input.of(PItems.VOID_SOUL_TOOL), PItems.VERUM_HOE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_PICKAXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.VERUM_PICKAXE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHOVEL), Input.of(PItems.VOID_SOUL_TOOL), PItems.VERUM_SHOVEL).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_AXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HOE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_PICKAXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHOVEL), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHOVEL).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.VERUM_BOW).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.VERUM_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SWORD).offer(exporter);
 
         // Upgrades
         List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);

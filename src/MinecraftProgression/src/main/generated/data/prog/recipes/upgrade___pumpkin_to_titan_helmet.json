@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___pumpkin": ""
+      }
+    },
+    "item": "prog:titan_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:pumpkin"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___pumpkin": {
+        "id": "minecraft:pumpkin"
+      }
+    },
+    "item": "prog:titan_helmet"
+  }
+}

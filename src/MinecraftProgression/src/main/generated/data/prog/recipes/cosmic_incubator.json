@@ -31,13 +31,13 @@
     "e": {
       "item": "minecraft:ender_eye"
     },
-    "t": {
-      "item": "prog:titan_core"
+    "q": {
+      "item": "prog:quartz_catalyst"
     }
   },
   "pattern": [
     "caRac",
-    "deted",
+    "deqed",
     "RM MR",
     "cCICc",
     "EEDEE"

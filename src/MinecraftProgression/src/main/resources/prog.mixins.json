@@ -8,6 +8,7 @@
     "ConfiguredFeaturesMixin",
     "EnchantmentHelperMixin",
     "EnderDragonFightMixin",
+    "EndermanEntityMixin",
     "EntityMixin",
     "ItemMixin",
     "ItemsMixin",

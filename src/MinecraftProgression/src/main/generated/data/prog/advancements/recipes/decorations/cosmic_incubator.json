@@ -109,6 +109,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_quartz_catalyst": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:quartz_catalyst"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_refined_obsidian_module": {
       "conditions": {
         "items": [
@@ -126,18 +138,6 @@
         "recipe": "minecraft:cosmic_incubator"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_titan_core": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "prog:titan_core"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -147,7 +147,7 @@
       "has_refined_obsidian_module",
       "has_diamond_heart",
       "has_ender_eye",
-      "has_titan_core",
+      "has_quartz_catalyst",
       "has_machine_frame",
       "has_machine_circuit",
       "has_incinerator",

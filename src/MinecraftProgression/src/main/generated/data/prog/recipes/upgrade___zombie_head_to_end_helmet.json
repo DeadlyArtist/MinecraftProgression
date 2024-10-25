@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___zombie_head": ""
+      }
+    },
+    "item": "prog:end_helmet"
+  },
+  "ingredient": {
+    "item": "minecraft:zombie_head"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___zombie_head": {
+        "id": "minecraft:zombie_head"
+      }
+    },
+    "item": "prog:end_helmet"
+  }
+}

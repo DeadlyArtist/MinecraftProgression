@@ -1,9 +1,0 @@
-{
-  "type": "prog:cosmic_incubator",
-  "cookingtime": 50000,
-  "experience": 5.0,
-  "ingredient": {
-    "item": "prog:refined_obsidian_ingot"
-  },
-  "result": "minecraft:crying_obsidian"
-}
