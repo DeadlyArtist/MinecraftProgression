@@ -1,21 +1,27 @@
 package com.prog.mixin;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.UpgradeUtils;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
@@ -25,6 +31,7 @@ import net.minecraft.world.World;
 import net.projectile_damage.internal.Constants;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -111,6 +118,100 @@ public class ItemStackMixin {
                         nbt.put(key.replaceFirst(oldPrefix, UpgradeUtils.UPGRADE_NBT_PREFIX), value);
                     }
                 });
+            }
+        }
+    }
+
+    @Inject(method = "getTooltip",
+            at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/item/ItemStack;getAttributeModifiers(Lnet/minecraft/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;", shift = At.Shift.AFTER)
+    )
+    private void modifyAttributeModifiers(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local EquipmentSlot equipmentSlot, @Local Multimap<EntityAttribute, EntityAttributeModifier> multimap) {
+        // Create a new multimap after processing the original one
+        Multimap<EntityAttribute, EntityAttributeModifier> modifiedMultimap = processAndCombineModifiers(multimap);
+
+        // Clear and replace the original multimap with the modified one
+        multimap.clear();
+        multimap.putAll(modifiedMultimap);
+    }
+
+    /**
+     * Combines modifiers with Operation.ADD and excludes those with specific IDs (i.e., ATTACK_DAMAGE and ATTACK_SPEED).
+     *
+     * @param originalMultimap the original multimap which will be modified
+     * @return a new multimap containing the combined modifiers
+     */
+    @Unique
+    private Multimap<EntityAttribute, EntityAttributeModifier> processAndCombineModifiers(Multimap<EntityAttribute, EntityAttributeModifier> originalMultimap) {
+        Multimap<EntityAttribute, EntityAttributeModifier> finalMultimap = LinkedHashMultimap.create();
+
+        // Separate the special modifiers and the eligible modifiers
+        List<Map.Entry<EntityAttribute, EntityAttributeModifier>> specialModifiers = new ArrayList<>();
+        Multimap<EntityAttribute, EntityAttributeModifier> combiningEligible = LinkedHashMultimap.create();
+
+        // Iterate over the original entries to separate special vs. combinable modifiers
+        for (Map.Entry<EntityAttribute, EntityAttributeModifier> entry : originalMultimap.entries()) {
+            EntityAttribute attribute = entry.getKey();
+            EntityAttributeModifier modifier = entry.getValue();
+
+            // Identify special modifiers that should not be combined
+            UUID modifierId = modifier.getId();
+            if (modifierId.equals(Item.ATTACK_DAMAGE_MODIFIER_ID) ||
+                    modifierId.equals(Item.ATTACK_SPEED_MODIFIER_ID) ||
+                    modifierId.equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID) ||
+                    Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
+
+                // Special modifiers will be added to the beginning later, store the entry (attribute + modifier)
+                specialModifiers.add(entry);
+
+            } else {
+                // Eligible for combination
+                combiningEligible.put(attribute, modifier);
+            }
+        }
+
+        // First, add the special modifiers in the expected order
+        specialModifiers.forEach(entry -> finalMultimap.put(entry.getKey(), entry.getValue()));
+
+        // Then, combine the eligible modifiers and add them to the map
+        combineModifiers(combiningEligible, finalMultimap);
+
+        return finalMultimap;
+    }
+
+    /**
+     * Combines all eligible modifiers for ADD operation and ensures that they are added properly
+     * without mixing with the special ones.
+     *
+     * @param eligibleMultimap The multimap containing modifiers that are eligible for combination.
+     * @param finalMultimap    The final map where accumulated/resultant modifiers should be placed.
+     */
+    @Unique
+    private void combineModifiers(Multimap<EntityAttribute, EntityAttributeModifier> eligibleMultimap, Multimap<EntityAttribute, EntityAttributeModifier> finalMultimap) {
+
+        for (EntityAttribute attribute : eligibleMultimap.keySet()) {
+            Collection<EntityAttributeModifier> modifiers = eligibleMultimap.get(attribute);
+
+            // Combine only if there's more than one modifier for this attribute
+            if (!modifiers.isEmpty()) {
+                double combinedValue = 0.0;
+
+                // Combine the modifiers
+                for (EntityAttributeModifier modifier : modifiers) {
+                    combinedValue += modifier.getValue();
+                }
+
+                // Add the combined value as a new modifier
+                // Picking the first one's ID to use for consistency in naming (can adjust as needed)
+                EntityAttributeModifier firstModifier = modifiers.iterator().next();
+                EntityAttributeModifier combinedModifier = new EntityAttributeModifier(
+                        firstModifier.getId(),
+                        firstModifier.getName() + "_combined",
+                        combinedValue,
+                        EntityAttributeModifier.Operation.ADDITION
+                );
+
+                // Add to the final multimap
+                finalMultimap.put(attribute, combinedModifier);
             }
         }
     }

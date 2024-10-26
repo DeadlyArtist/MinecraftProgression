@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_pumpkin": {
+    "has_carved_pumpkin": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:pumpkin"
+              "minecraft:carved_pumpkin"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "prog:upgrade___pumpkin_to_ultimate_diamond_helmet"
+        "recipe": "prog:upgrade___carved_pumpkin_to_ultimate_diamond_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -35,13 +35,13 @@
   "requirements": [
     [
       "has_ultimate_diamond_helmet",
-      "has_pumpkin",
+      "has_carved_pumpkin",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "prog:upgrade___pumpkin_to_ultimate_diamond_helmet"
+      "prog:upgrade___carved_pumpkin_to_ultimate_diamond_helmet"
     ]
   }
 }

@@ -3,19 +3,19 @@
   "base": {
     "data": {
       "deny": {
-        "upgrade___pumpkin": ""
+        "upgrade___carved_pumpkin": ""
       }
     },
     "item": "prog:ultimate_diamond_helmet"
   },
   "ingredient": {
-    "item": "minecraft:pumpkin"
+    "item": "minecraft:carved_pumpkin"
   },
   "result": {
     "data": {
       "$": "$base",
-      "upgrade___pumpkin": {
-        "id": "minecraft:pumpkin"
+      "upgrade___carved_pumpkin": {
+        "id": "minecraft:carved_pumpkin"
       }
     },
     "item": "prog:ultimate_diamond_helmet"

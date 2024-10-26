@@ -1,12 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_pumpkin": {
+    "has_carved_pumpkin": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:pumpkin"
+              "minecraft:carved_pumpkin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_refined_obsidian_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_helmet"
             ]
           }
         ]
@@ -15,33 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "prog:upgrade___pumpkin_to_titan_helmet"
+        "recipe": "prog:upgrade___carved_pumpkin_to_refined_obsidian_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_titan_helmet": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "prog:titan_helmet"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_titan_helmet",
-      "has_pumpkin",
+      "has_refined_obsidian_helmet",
+      "has_carved_pumpkin",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "prog:upgrade___pumpkin_to_titan_helmet"
+      "prog:upgrade___carved_pumpkin_to_refined_obsidian_helmet"
     ]
   }
 }
