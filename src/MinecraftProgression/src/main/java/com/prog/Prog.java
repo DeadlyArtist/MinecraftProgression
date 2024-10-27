@@ -2,6 +2,7 @@ package com.prog;
 
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
+import com.prog.entity.PEntityLootTables;
 import com.prog.entity.PStatusEffects;
 import com.prog.entity.attribute.PDefaultAttributes;
 import com.prog.entity.attribute.PEntityAttributes;
@@ -66,6 +67,7 @@ public class Prog implements ModInitializer {
         PStatusEffects.init();
         GourmetFoods.init();
         OreGeneration.init();
+        PEntityLootTables.init();
 
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));

@@ -43,6 +43,24 @@ public class PTexts {
     public static final TextWrapper INCINERATOR_UI_TITLE = registerText("INCINERATOR_UI_TITLE", "Incinerator");
     public static final TextWrapper COSMIC_INCUBATOR_UI_TITLE = registerText("COSMIC_INCUBATOR_UI_TITLE", "Cosmic Incubator");
 
+    // Ranks
+    public static final TextWrapper GENERAL_RANK = registerText("GENERAL_RANK", "General");
+    public static final TextWrapper COMMANDER_RANK = registerText("COMMANDER_RANK", "Commander");
+    public static final TextWrapper WARLORD_RANK = registerText("WARLORD_RANK", "Warlord");
+    public static final TextWrapper OVERLORD_RANK = registerText("OVERLORD_RANK", "Overlord");
+    public static final TextWrapper GOD_RANK = registerText("GOD_RANK", "God");
+    public static final TextWrapper GLITCH_RANK = registerText("GLITCH_RANK", "???");
+
+    public static Map<Integer, TextWrapper> nameByRank = new HashMap<>();
+    static {
+        nameByRank.put(1, GENERAL_RANK);
+        nameByRank.put(2, COMMANDER_RANK);
+        nameByRank.put(3, WARLORD_RANK);
+        nameByRank.put(4, OVERLORD_RANK);
+        nameByRank.put(5, GOD_RANK);
+        nameByRank.put(6, GLITCH_RANK);
+    }
+
 
     public static TextWrapper registerText(String id, String text) {
         TextWrapper wrapper = new TextWrapper("text." + Prog.MOD_ID + "." + id.toLowerCase());

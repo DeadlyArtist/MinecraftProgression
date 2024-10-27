@@ -2,18 +2,29 @@ package com.prog.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.prog.Prog;
+import com.prog.entity.PComponents;
+import com.prog.entity.PEntityLootTables;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.utils.ItemUtils;
+import com.prog.utils.LOGGER;
 import com.prog.utils.SlotUtils;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootManager;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -63,5 +74,20 @@ public class LivingEntityMixin {
             info.setReturnValue(false);
             info.cancel();
         }
+    }
+
+    @Inject(at = @At("TAIL"), method = "dropLoot")
+    private void dropBonusLoot(DamageSource source, boolean causedByPlayer, CallbackInfo info) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        if (!causedByPlayer || !(self instanceof MobEntity entity)) return;
+        var squad = PComponents.SQUAD.get(entity);
+        if (squad.normal()) return;
+        MinecraftServer server = self.world.getServer();
+        if (server == null) return;
+
+        LootManager lootManager = server.getLootManager();
+        LootTable lootTable = lootManager.getTable(PEntityLootTables.RANK_1);
+        LootContext.Builder builder = entity.getLootContextBuilder(causedByPlayer, source);
+        lootTable.generateLoot(builder.build(LootContextTypes.ENTITY), self::dropStack);
     }
 }

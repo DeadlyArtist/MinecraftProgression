@@ -37,6 +37,10 @@ accessible field net/minecraft/item/ItemStack CAN_DESTROY_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack CAN_PLACE_ON_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
 
+# MobEntity
+accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
+accessible method net/minecraft/entity/mob/MobEntity getLootContextBuilder (ZLnet/minecraft/entity/damage/DamageSource;)Lnet/minecraft/loot/context/LootContext$Builder;
+
 # AttributeContainer
 accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;
 

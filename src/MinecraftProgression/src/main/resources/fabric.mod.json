@@ -49,6 +49,7 @@
 	},
 	"custom": {
 		"cardinal-components": [
+			"prog:squad",
 			"prog:living_entity",
 			"prog:player"
 		]
