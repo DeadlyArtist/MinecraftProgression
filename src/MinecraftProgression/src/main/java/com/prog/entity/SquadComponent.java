@@ -4,16 +4,25 @@ import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.itemOrBlock.tiers.PTierData;
 import com.prog.text.PTexts;
 import com.prog.utils.EntityAttributeModifierUtils;
+import com.prog.utils.LOGGER;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import net.minecraft.entity.mob.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.SpawnHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +35,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
     public final static String squadProjectileDamageModifierName = "squad_projectile_damage";
 
     public final MobEntity entity;
+    public MobEntity leader = null;
 
     public boolean didInit = false;
     public int rank = 0;
@@ -34,20 +44,30 @@ public class SquadComponent implements Component, ServerTickingComponent {
         this.entity = entity;
     }
 
+    public void makeFollower(MobEntity leader) {
+        this.leader = leader;
+        didInit = true;
+    }
+
     public void tryInit() {
         if (didInit) return;
         didInit = true;
 
-        if (!(entity instanceof HostileEntity)) return;
+        if (!(entity instanceof HostileEntity) || // Ender dragon is not hostile entity
+                entity instanceof WitherEntity ||
+                entity instanceof ElderGuardianEntity ||
+                entity instanceof WardenEntity
+        ) return;
         if (entity.hasCustomName()) return;
 
         setRandomRank();
         setTitle();
         increaseAttributes();
+        spawnFollowers();
     }
 
     public void setRandomRank() {
-        var player = entity.world.getClosestPlayer(entity, 100);
+        var player = entity.world.getClosestPlayer(entity, 1000);
 
         // https://deadlyartist.github.io/aidevsuite/#local/live_calculator?mode=run
         //var level = 8
@@ -79,7 +99,14 @@ public class SquadComponent implements Component, ServerTickingComponent {
     public void setTitle() {
         if (entity.hasCustomName() || normal()) return;
 
-        entity.setCustomName(PTexts.nameByRank.get(Math.min(6, rank)).get());
+        Text name;
+        var namedRanks = PTexts.nameByRank.size();
+        if (rank > namedRanks) {
+            name = Text.of("?".repeat(rank - namedRanks + 2));
+        } else {
+            name = PTexts.nameByRank.get(rank).get();
+        }
+        entity.setCustomName(name);
     }
 
     public void increaseAttributes() {
@@ -90,15 +117,25 @@ public class SquadComponent implements Component, ServerTickingComponent {
         increaseProjectileDamage();
     }
 
+    public double getHealthMultiplier() {
+        Random random = new Random();
+        double baseModifier = Math.pow(2, rank);
+        double modifiedValue = randomOffset(baseModifier, 0.2);
+        return modifiedValue;
+    }
+
+    public double getDamageMultiplier() {
+        Random random = new Random();
+        double baseModifier = Math.pow(2, rank + 2);
+        double modifiedValue = randomOffset(baseModifier, 0.2);
+        return modifiedValue;
+    }
+
     public void increaseHealth() {
         EntityAttributeInstance entityAttributeInstance = entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
         if (entityAttributeInstance == null) return;
 
-        Random random = new Random();
-        double baseModifier = Math.pow(2, rank);
-        double modifiedValue = randomOffset(baseModifier, 0.2);
-
-        var modifier = EntityAttributeModifierUtils.of(squadHealthModifierName, modifiedValue, EntityAttributeModifier.Operation.MULTIPLY_BASE);
+        var modifier = EntityAttributeModifierUtils.of(squadHealthModifierName, getHealthMultiplier(), EntityAttributeModifier.Operation.MULTIPLY_BASE);
         if (!entityAttributeInstance.hasModifier(modifier)) entityAttributeInstance.addPersistentModifier(modifier);
         entity.setHealth((float) entity.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH));
     }
@@ -107,11 +144,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
         EntityAttributeInstance entityAttributeInstance = entity.getAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE);
         if (entityAttributeInstance == null) return;
 
-        Random random = new Random();
-        double baseModifier = Math.pow(2, rank);
-        double modifiedValue = randomOffset(baseModifier, 0.2);
-
-        var modifier = EntityAttributeModifierUtils.of(squadDamageModifierName, modifiedValue, EntityAttributeModifier.Operation.MULTIPLY_BASE);
+        var modifier = EntityAttributeModifierUtils.of(squadDamageModifierName, getDamageMultiplier(), EntityAttributeModifier.Operation.MULTIPLY_BASE);
         if (!entityAttributeInstance.hasModifier(modifier)) entityAttributeInstance.addPersistentModifier(modifier);
     }
 
@@ -119,12 +152,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
         EntityAttributeInstance entityAttributeInstance = entity.getAttributeInstance(XEntityAttributes.PROJECTILE_DAMAGE);
         if (entityAttributeInstance == null) return;
 
-        Random random = new Random();
-        double baseModifier = Math.pow(2, rank);
-        double modifiedValue = randomOffset(baseModifier, 0.2);
-
-        var modifier = EntityAttributeModifierUtils.of(squadProjectileDamageModifierName, modifiedValue, EntityAttributeModifier.Operation.MULTIPLY_BASE);
-        assert entityAttributeInstance != null;
+        var modifier = EntityAttributeModifierUtils.of(squadProjectileDamageModifierName, getDamageMultiplier(), EntityAttributeModifier.Operation.MULTIPLY_BASE);
         if (!entityAttributeInstance.hasModifier(modifier)) entityAttributeInstance.addPersistentModifier(modifier);
     }
 
@@ -172,6 +200,53 @@ public class SquadComponent implements Component, ServerTickingComponent {
         // Generate a random factor between (1 - maxOffset) and (1 + maxOffset)
         double randomFactor = 1 - maxOffset + (2 * maxOffset * random.nextDouble());
         return baseValue * randomFactor;
+    }
+
+    public void spawnFollowers() {
+        var amount = MathHelper.nextInt(entity.random, 2, 5);
+        for (var i = 0; i < amount; i++) {
+            spawnFollower();
+        }
+    }
+
+    public void spawnFollower() {
+        if (!(entity.world instanceof ServerWorld serverWorld)) {
+            return;
+        }
+
+        double i = MathHelper.floor(entity.getX());
+        double j = MathHelper.floor(entity.getY());
+        double k = MathHelper.floor(entity.getZ());
+        // Get the current entity's type
+        EntityType<? extends MobEntity> entityType = (EntityType<? extends MobEntity>) entity.getType();
+
+        // Now we are going to try to create a new entity of the same type (similar to the original entity).
+        // Use the `EntityType.create` method to create an entity with the same type in the same world.
+        MobEntity follower = (MobEntity) entityType.create(entity.world);
+        if (follower == null) return;
+        PComponents.SQUAD.get(follower).makeFollower(entity);
+
+        var minDistance = 1;
+        var maxDistance = 5;
+        for (int l = 0; l < 50; l++) {
+            double m = i + MathHelper.nextDouble(entity.random, minDistance, maxDistance) * MathHelper.nextInt(entity.random, -1, 1);
+            double n = j + MathHelper.nextDouble(entity.random, minDistance, maxDistance) * MathHelper.nextInt(entity.random, -1, 1);
+            double o = k + MathHelper.nextDouble(entity.random, minDistance, maxDistance) * MathHelper.nextInt(entity.random, -1, 1);
+            BlockPos blockPos = new BlockPos(m, n, o);
+            SpawnRestriction.Location location = SpawnRestriction.getLocation(entityType);
+            if (SpawnHelper.canSpawn(location, entity.world, blockPos, entityType)) {
+                follower.setPosition((double) m, (double) n, (double) o);
+                if (entity.world.isPlayerInRange((double) m, (double) n, (double) o, 7.0)) break;
+
+                if (entity.world.doesNotIntersectEntities(follower)
+                        && entity.world.isSpaceEmpty(follower)
+                        && !entity.world.containsFluid(follower.getBoundingBox())) {
+                    follower.initialize(serverWorld, entity.world.getLocalDifficulty(follower.getBlockPos()), SpawnReason.REINFORCEMENT, null, null);
+                    serverWorld.spawnEntityAndPassengers(follower);
+                    break;
+                }
+            }
+        }
     }
 
     @Override

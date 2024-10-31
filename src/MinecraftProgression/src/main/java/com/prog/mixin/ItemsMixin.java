@@ -17,6 +17,9 @@ public class ItemsMixin {
         if ("glistering_melon_slice".equals(id.getPath())) {
             item.group = ItemGroup.FOOD;
             item.foodComponent = PFoodComponents.GLISTERING_MELON_SLICE;
+        } else if ("nether_wart".equals(id.getPath())) {
+            item.group = ItemGroup.FOOD;
+            item.foodComponent = PFoodComponents.NETHER_WART;
         }
     }
 }

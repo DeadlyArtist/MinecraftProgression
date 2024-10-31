@@ -49,7 +49,6 @@ public class PTexts {
     public static final TextWrapper WARLORD_RANK = registerText("WARLORD_RANK", "Warlord");
     public static final TextWrapper OVERLORD_RANK = registerText("OVERLORD_RANK", "Overlord");
     public static final TextWrapper GOD_RANK = registerText("GOD_RANK", "God");
-    public static final TextWrapper GLITCH_RANK = registerText("GLITCH_RANK", "???");
 
     public static Map<Integer, TextWrapper> nameByRank = new HashMap<>();
     static {
@@ -58,7 +57,6 @@ public class PTexts {
         nameByRank.put(3, WARLORD_RANK);
         nameByRank.put(4, OVERLORD_RANK);
         nameByRank.put(5, GOD_RANK);
-        nameByRank.put(6, GLITCH_RANK);
     }
 
 

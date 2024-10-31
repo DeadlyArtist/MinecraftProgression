@@ -92,18 +92,59 @@ dependencies {
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.caridnal_components_version}")
 
 	// REI
-	modImplementation "dev.architectury:architectury-fabric:6.2.43"
 	// Manually override architectury, remove once REI's dependency is fixed
+	modImplementation "dev.architectury:architectury-fabric:6.2.43"
 	modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 
-	// Mmmm dummy
-	modRuntimeOnly include("curse.maven:moonlight-499980:5567103")
-	modRuntimeOnly include("curse.maven:mmmm-225738:4410141")
+//	// Attributefix
+//	modImplementation files("libs/AttributeFix-Fabric-1.19.2-17.2.8.jar")
+//
+//	// Armor & Damage Scaling
+//	modImplementation files("libs/armordamagescale-fabric-1.19.2-2.8.jar")
+//	modImplementation files("libs/cupboard-fabric-1.19.2-2.6.jar")
 
-	// Disable custom worlds advice
-	modRuntimeOnly include("curse.maven:disable-custom-worlds-advice-401978:3827588")
+//	// Mmmm dummy
+//	modRuntimeOnly include("curse.maven:moonlight-499980:5567103")
+//	modRuntimeOnly include("curse.maven:mmmm-225738:4410141")
+//
+//	// Disable custom worlds advice
+//	modRuntimeOnly include("curse.maven:disable-custom-worlds-advice-401978:3827588")
+//
+//	// Attributefix
+//	modRuntimeOnly include("curse.maven:attributefix-280510:5126455")
+//
+//	// Armor & Damage Scaling
+//	modRuntimeOnly include("curse.maven:armordamagescaling-824936:4669620")
+//	modRuntimeOnly include("curse.maven:cupboard-326652:5170316")
+//
+//	// AppleSkin
+//	modRuntimeOnly include("curse.maven:appleskin-248787:4953883")
+//
+//	// Controlling
+//	modRuntimeOnly include("curse.maven:controlling-250398:4050342")
+//
+//	// Great Scrollable Tooltips
+//	modRuntimeOnly include("curse.maven:scrollabletooltips-982671:5354999")
+//
+//	// Jade
+//	modRuntimeOnly include("curse.maven:jade-324717:4328558")
+//
+//	// Overflowing Bars
+//	modRuntimeOnly include("curse.maven:overflowingbars-852662:4515131")
+//	modRuntimeOnly include("curse.maven:puzzleslib-495476:4600774")
+//	modRuntimeOnly include("curse.maven:forgeconfigapiport-547434:4401535")
+//	modRuntimeOnly include("dev.onyxstudios.cardinal-components-api:cardinal-components-block:${project.caridnal_components_version}")
+//	modRuntimeOnly include("dev.onyxstudios.cardinal-components-api:cardinal-components-chunk:${project.caridnal_components_version}")
+//	modRuntimeOnly include("dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.caridnal_components_version}")
+//
+//	// Tooltip Fix
+//	modRuntimeOnly include("curse.maven:tooltipfix-411557:4087782")
+//
+//	// FTB Essentials
+//	modRuntimeOnly include("curse.maven:ftbessentials-410811:5120108")
+//	modRuntimeOnly include("curse.maven:ftblibrary-438495:4661833")
 }
 
 processResources {
