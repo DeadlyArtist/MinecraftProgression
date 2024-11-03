@@ -40,13 +40,14 @@ public class PItems {
     public static final Item TELEPORTATION_CORE = register("TELEPORTATION_CORE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item STAR_APPLE = register("STAR_APPLE", new Item(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item ENCHANTED_STAR_APPLE = register("ENCHANTED_STAR_APPLE", new EnchantedGoldenAppleItem(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.ENCHANTED_STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, PItems.STAR_APPLE, Models.GENERATED)).finished();
+    public static final Item COSMIC_SOUP = register("COSMIC_SOUP", new StewItem(new FabricItemSettings().group(ItemGroup.FOOD).maxCount(1).rarity(Rarity.EPIC).food(PFoodComponents.COSMIC_SOUP)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
 
 
     // Upgrades
     public static final Item MECHANICAL_BOOTS = register("MECHANICAL_BOOTS", new ArmorItem(SpecialArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item ANGEL_RING = register("ANGEL_RING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item LIVING_SOUL_FRAGMENT = register("LIVING_SOUL_FRAGMENT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
-    public static final Item SILENT_HEART = register("SILENT_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item SILENT_HEART = register("SILENT_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.RARE).food(PFoodComponents.SILENT_HEART)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item ANCHOR = register("ANCHOR", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item DREAM_CATCHER = register("DREAM_CATCHER", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item OCEANS_GRACE = register("OCEANS_GRACE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Ocean's Grace").finished();

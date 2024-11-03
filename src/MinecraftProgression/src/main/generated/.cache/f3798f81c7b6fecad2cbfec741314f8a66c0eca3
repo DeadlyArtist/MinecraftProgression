@@ -1,4 +1,4 @@
-// 1.19.2	2024-10-31T23:16:37.289485	Models
+// 1.19.2	2024-11-03T14:54:23.8245678	Models
 c93cd1f505f0a7286f671c54ccbbb698a6f8a1f1 assets\prog\models\block\nether_star_block.json
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
@@ -40,6 +40,7 @@ ab966780db18497c6f2f6ecf92c05fa581ce68ae assets\prog\models\block\cosmic_incubat
 398c52162db30f11ef7f92374c3a3cc0039e7e9b assets\prog\models\item\ultimate_diamond_leggings.json
 63b21f4aed7c7d72a8fb710c5c56a627d7977d4d assets\prog\models\item\titan_helmet.json
 a03f0cacb78b98040185262fca9ef26368a69c11 assets\prog\models\item\steel_block.json
+4abd01f58ff60d7a4ebc9a94944f2829c775356b assets\prog\models\item\cosmic_soup.json
 860d75db09781bbdd9e8303e8acb7fcaa9d3d796 assets\prog\models\item\titan_pickaxe.json
 af8dd98cf8dd25b51a51aa630047a4d401d2dbfb assets\prog\models\item\steel_ingot.json
 551b5545a992dce38dcdd1daaec7d376858ada0d assets\prog\models\item\end_pickaxe.json

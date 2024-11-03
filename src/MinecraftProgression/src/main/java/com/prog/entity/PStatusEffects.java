@@ -28,7 +28,7 @@ public class PStatusEffects {
 
     public static final Map<StatusEffect, StatusEffectData> data = new HashMap<>();
 
-    public static final StatusEffect WITHER_IMMUNITY = register("WITHER_IMMUNITY", new StatusEffect(StatusEffectCategory.HARMFUL, 4738376).addAttributeModifier(PEntityAttributes.WITHER_IMMUNITY, UUIDUtils.of("WITHER_IMMUNITY").toString(), 1.0, EntityAttributeModifier.Operation.ADDITION));
+    public static final StatusEffect WITHER_IMMUNITY = register("WITHER_IMMUNITY", new StatusEffect(StatusEffectCategory.BENEFICIAL, 4738376).addAttributeModifier(PEntityAttributes.WITHER_IMMUNITY, UUIDUtils.of("WITHER_IMMUNITY").toString(), 1.0, EntityAttributeModifier.Operation.ADDITION));
 
 
     private static StatusEffect register(String id, StatusEffect entry) {

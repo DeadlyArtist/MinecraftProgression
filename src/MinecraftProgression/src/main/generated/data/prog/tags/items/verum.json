@@ -3,13 +3,13 @@
   "values": [
     "prog:end_helmet",
     "prog:end_sword",
-    "prog:end_chestplate",
     "prog:end_boots",
-    "prog:end_hoe",
-    "prog:end_axe",
-    "prog:end_shovel",
     "prog:end_pickaxe",
+    "prog:end_hoe",
+    "prog:end_shovel",
     "prog:end_leggings",
-    "prog:end_bow"
+    "prog:end_bow",
+    "prog:end_chestplate",
+    "prog:end_axe"
   ]
 }

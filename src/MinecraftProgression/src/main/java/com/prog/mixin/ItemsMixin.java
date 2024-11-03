@@ -20,6 +20,12 @@ public class ItemsMixin {
         } else if ("nether_wart".equals(id.getPath())) {
             item.group = ItemGroup.FOOD;
             item.foodComponent = PFoodComponents.NETHER_WART;
+        } else if ("turtle_egg".equals(id.getPath())) {
+            item.group = ItemGroup.FOOD;
+            item.foodComponent = PFoodComponents.TURTLE_EGG;
+        } else if ("slime_ball".equals(id.getPath())) {
+            item.group = ItemGroup.FOOD;
+            item.foodComponent = PFoodComponents.SLIME_BALL;
         }
     }
 }
