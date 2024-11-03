@@ -4,7 +4,6 @@ import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.itemOrBlock.tiers.PTierData;
 import com.prog.text.PTexts;
 import com.prog.utils.EntityAttributeModifierUtils;
-import com.prog.utils.LOGGER;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.minecraft.entity.EntityType;
@@ -14,9 +13,7 @@ import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.WitherEntity;
-import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.mob.*;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -24,9 +21,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.SpawnHelper;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 public class SquadComponent implements Component, ServerTickingComponent {
@@ -46,7 +40,6 @@ public class SquadComponent implements Component, ServerTickingComponent {
 
     public void makeFollower(MobEntity leader) {
         this.leader = leader;
-        didInit = true;
     }
 
     public void tryInit() {
@@ -61,12 +54,17 @@ public class SquadComponent implements Component, ServerTickingComponent {
         if (entity.hasCustomName()) return;
 
         setRandomRank();
+        if (normal()) return;
+
         setTitle();
         increaseAttributes();
         spawnFollowers();
     }
 
     public void setRandomRank() {
+        if (MathHelper.nextInt(entity.random, 0, 9) != 9) return; // 90% chance to be normal, 10% chance to be ranked
+        rank = 1;
+
         var player = entity.world.getClosestPlayer(entity, 1000);
 
         // https://deadlyartist.github.io/aidevsuite/#local/live_calculator?mode=run
@@ -89,11 +87,17 @@ public class SquadComponent implements Component, ServerTickingComponent {
         var prob = 0.1;
         prob = 1 - Math.pow(1 - prob, power);
 
-        rank = randomIncrement(prob);
+        rank = randomIncrementRank(prob);
+
+        if (isFollower()) rank = Math.min(rank, PComponents.SQUAD.get(leader).rank - 1);
     }
 
     public boolean normal() {
         return rank == 0;
+    }
+
+    public boolean isFollower() {
+        return leader != null;
     }
 
     public void setTitle() {
@@ -181,8 +185,8 @@ public class SquadComponent implements Component, ServerTickingComponent {
     /**
      * Overloaded version with default parameters (starting value 0, max value Integer.MAX_VALUE).
      */
-    public static int randomIncrement(double prob) {
-        return randomIncrement(0, Integer.MAX_VALUE, prob);
+    public int randomIncrementRank(double prob) {
+        return randomIncrement(rank, Integer.MAX_VALUE, prob);
     }
 
     /**
@@ -203,16 +207,18 @@ public class SquadComponent implements Component, ServerTickingComponent {
     }
 
     public void spawnFollowers() {
-        var amount = MathHelper.nextInt(entity.random, 2, 5);
+        if (normal() || isFollower() || !(entity.world instanceof ServerWorld serverWorld)) return;
+
+        var min = rank;
+        var max = rank * 3;
+        var amount = MathHelper.nextInt(entity.random, min, max);
         for (var i = 0; i < amount; i++) {
             spawnFollower();
         }
     }
 
     public void spawnFollower() {
-        if (!(entity.world instanceof ServerWorld serverWorld)) {
-            return;
-        }
+        if (!(entity.world instanceof ServerWorld serverWorld)) return;
 
         double i = MathHelper.floor(entity.getX());
         double j = MathHelper.floor(entity.getY());
@@ -220,7 +226,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
         // Get the current entity's type
         EntityType<? extends MobEntity> entityType = (EntityType<? extends MobEntity>) entity.getType();
 
-        // Now we are going to try to create a new entity of the same type (similar to the original entity).
+        // Now we are going to try to create a new entity of the same type as the original.
         // Use the `EntityType.create` method to create an entity with the same type in the same world.
         MobEntity follower = (MobEntity) entityType.create(entity.world);
         if (follower == null) return;
