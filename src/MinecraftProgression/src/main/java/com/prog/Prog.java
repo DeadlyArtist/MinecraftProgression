@@ -100,6 +100,7 @@ public class Prog implements ModInitializer {
 
         EntityEvents.PLAYER_ENTITY_TICK.register(player -> {
             PComponents.PLAYER.get(player).updateFlight();
+            JetpackUtils.tickJetpack(player);
         });
 
         ItemStackEvents.ITEM_STACK_CTOR.register((stack) -> {

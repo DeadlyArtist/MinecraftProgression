@@ -2,7 +2,9 @@ package com.prog.mixin;
 
 import com.google.common.collect.ImmutableSet;
 import com.prog.event.TagEvents;
+import com.prog.utils.FabricUtils;
 import net.minecraft.item.Item;
+import net.minecraft.resource.ResourceManager;
 import net.minecraft.tag.TagGroupLoader;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.RegistryKey;
@@ -19,13 +21,9 @@ import java.util.Map;
 @Mixin(TagGroupLoader.class)
 public abstract class TagGroupLoaderMixin<T> {
 
-    // Inject into the method that builds and finalizes the tag group
-    @Inject(method = "buildGroup", at = @At("RETURN"))
-    private void onTagsLoaded(Map<Identifier, List<TagGroupLoader.TrackedEntry>> tags,
-                              CallbackInfoReturnable<Map<Identifier, Collection<T>>> info) {
-
-        // Iterate over the resolved tags
-        Map<Identifier, Collection<T>> resolvedTags = info.getReturnValue();
+    @Inject(method = "load", at = @At("RETURN"))
+    private void customTags(ResourceManager manager, CallbackInfoReturnable<Map<Identifier, Collection<T>>> cir) {
+        Map<Identifier, Collection<T>> resolvedTags = cir.getReturnValue();
         for (Map.Entry<Identifier, Collection<T>> entry : resolvedTags.entrySet()) {
             Identifier tagId = entry.getKey();
             Collection<T> mutableTagEntries = new ArrayList<>(entry.getValue());

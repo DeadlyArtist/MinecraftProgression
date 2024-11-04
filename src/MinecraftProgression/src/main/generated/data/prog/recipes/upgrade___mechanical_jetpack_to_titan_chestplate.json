@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___mechanical_jetpack": ""
+      }
+    },
+    "item": "prog:titan_chestplate"
+  },
+  "ingredient": {
+    "item": "iron-jetpacks:mechanical_jetpack"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___mechanical_jetpack": {
+        "id": "iron-jetpacks:mechanical_jetpack"
+      }
+    },
+    "item": "prog:titan_chestplate"
+  }
+}

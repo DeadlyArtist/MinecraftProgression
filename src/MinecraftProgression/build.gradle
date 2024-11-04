@@ -86,10 +86,17 @@ dependencies {
 	modImplementation include("maven.modrinth:projectile-damage-attribute:${project.projectile_damage_attribute_version}")
 	modImplementation include("maven.modrinth:AdditionalEntityAttributes:${project.additionalentityattributes_version}")
 	modImplementation include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}")
+	modImplementation include("curse.maven:attributefix-280510:5126455")
+	modImplementation include("curse.maven:maxenchantx-664443:4745524")
 
 	// Cardinal components
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.caridnal_components_version}")
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.caridnal_components_version}")
+
+	// Armor & Damage Scaling
+	modImplementation include("curse.maven:armordamagescaling-824936:4669620")
+	modImplementation include("curse.maven:cupboard-326652:5170316")
+	implementation include('com.ezylang:EvalEx:3.0.1')
 
 	// REI
 	// Manually override architectury, remove once REI's dependency is fixed
@@ -100,6 +107,11 @@ dependencies {
 
 	// Frog Legs
 	modCompileOnly("maven.modrinth:equ26Hrh:8Hj9pLxI")
+
+	// Iron Jetpacks
+	modImplementation("curse.maven:ironjetpacks-386892:4104580")
+	modImplementation("curse.maven:autoconfig-373261:3668220")
+	modImplementation include("teamreborn:energy:2.3.0")
 
 //	Doesn't work because remapping causes name conflicts.
 //	// Supplementaries

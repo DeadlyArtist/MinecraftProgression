@@ -29,6 +29,7 @@ accessible field net/minecraft/item/Item group Lnet/minecraft/item/ItemGroup;
 mutable field net/minecraft/item/Item group Lnet/minecraft/item/ItemGroup;
 accessible field net/minecraft/item/Item ATTACK_DAMAGE_MODIFIER_ID Ljava/util/UUID;
 accessible field net/minecraft/item/Item ATTACK_SPEED_MODIFIER_ID Ljava/util/UUID;
+accessible method net/minecraft/item/Item isIn (Lnet/minecraft/item/ItemGroup;)Z
 
 # ItemStack
 accessible field net/minecraft/item/ItemStack UNBREAKABLE_KEY Ljava/lang/String;

@@ -27,13 +27,27 @@
     "SmithinScreenHandlerMixin",
     "TagGroupLoaderMixin",
     "TridentEntityMixin",
+    "compat.armordamagescaling.CommonConfigurationMixin",
+    "compat.ironjetpacks.JetpackDynamicRecipeManagerMixin",
+    "compat.ironjetpacks.JetpackItemMixin",
+    "compat.ironjetpacks.ModItemsMixin",
+    "compat.ironjetpacks.ModJetpacksMixin",
+    "compat.ironjetpacks.ToggleEngineMessageMixin",
+    "compat.ironjetpacks.ToggleHoverMessageMixin",
     "compat.projectile_damage.TooltipHelperMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",
     "ClientPlayerEntityMixin",
     "ClientRecipeBookMixin",
-    "HeldItemRendererMixin"
+    "HeldItemRendererMixin",
+    "compat.ironjetpacks.ColorHandlerAccessor",
+    "compat.ironjetpacks.ColorHandlerMixin",
+    "compat.ironjetpacks.HudHandlerMixin",
+    "compat.ironjetpacks.JetpackClientHandlerMixin",
+    "compat.ironjetpacks.KeyBindingsHandlerAccessor",
+    "compat.ironjetpacks.KeyBindingsHandlerMixin",
+    "compat.ironjetpacks.ModelHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

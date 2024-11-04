@@ -519,6 +519,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("ele", "lcl", " l "), List.of(Input.of(Items.ECHO_SHARD), Input.of(PItems.LIVING_SOUL_FRAGMENT), Input.of(Items.SCULK_CATALYST)), PItems.SILENT_HEART).offer(exporter);
         createShapedRecipe(List.of("nsn", "bHu", "thf"), List.of(Input.of(Items.NAUTILUS_SHELL), Input.of(Items.SPONGE), Input.of(Items.BRAIN_CORAL), Input.of(Items.HEART_OF_THE_SEA), Input.of(Items.BUBBLE_CORAL), Input.of(Items.TUBE_CORAL), Input.of(Items.HORN_CORAL), Input.of(Items.FIRE_CORAL)), PItems.OCEANS_GRACE).offer(exporter);
         createShapelessRecipe(List.of(Input.of(Items.BOWL), Input.of(Items.DRAGON_EGG), Input.of(Items.CHORUS_FLOWER), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(Items.SHULKER_SHELL)), PItems.COSMIC_SOUP).requireCosmicConstructor().offer(exporter);
+        createShapedRecipe(List.of(" fcf ", " mcm ", "oeoeo"), List.of(Input.of(PBlocks.MACHINE_FRAME), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(Items.OBSIDIAN), Input.of(PItems.EMBERITE)), PJetpacks.MECHANICAL.item.get()).requireAssembly().offer(exporter);
 
 
         // Tier upgrades

@@ -78,6 +78,7 @@ public class Upgrades {
         // Custom
         register(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
         register(PItems.MECHANICAL_BOOTS, UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
+        register(PJetpacks.MECHANICAL.item.get(), UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.JETPACK)));
         register(PItems.ANGEL_RING, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.FLIGHT)));
         register(PItems.ANCHOR, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.LEVITATION_IMMUNITY)));
         register(PItems.DREAM_CATCHER, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.INSOMNIA_IMMUNITY)));

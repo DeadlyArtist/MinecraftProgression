@@ -1,0 +1,28 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "c": {
+      "item": "prog:machine_circuit"
+    },
+    "e": {
+      "item": "prog:emberite"
+    },
+    "f": {
+      "item": "prog:machine_frame"
+    },
+    "m": {
+      "item": "prog:refined_obsidian_module"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    " fcf ",
+    " mcm ",
+    "oeoeo"
+  ],
+  "result": {
+    "item": "iron-jetpacks:mechanical_jetpack"
+  }
+}

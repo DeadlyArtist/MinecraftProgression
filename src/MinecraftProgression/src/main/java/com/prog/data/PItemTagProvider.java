@@ -25,6 +25,9 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void generateTags() {
+        // Custom
+        addToTag(PItemTags.UPGRADE, PJetpacks.MECHANICAL.item.get());
+
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));
         Upgrades.data.forEach((item, upgrade) -> addToTag(PItemTags.UPGRADE, item));
