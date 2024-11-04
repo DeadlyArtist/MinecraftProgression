@@ -1,12 +1,10 @@
 package com.prog.enchantment;
 
 import com.prog.Prog;
-import com.prog.itemOrBlock.PItemGroups;
+import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -37,6 +35,6 @@ public class PEnchantments {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Enchantments for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Enchantments for: " + Prog.MOD_ID);
     }
 }

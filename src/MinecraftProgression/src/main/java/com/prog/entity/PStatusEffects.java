@@ -2,15 +2,12 @@ package com.prog.entity;
 
 import com.prog.Prog;
 import com.prog.entity.attribute.PEntityAttributes;
-import com.prog.itemOrBlock.PItemGroups;
+import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
 import com.prog.utils.UUIDUtils;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.DamageModifierStatusEffect;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -38,6 +35,6 @@ public class PStatusEffects {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Status Effects for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Status Effects for: " + Prog.MOD_ID);
     }
 }

@@ -21,8 +21,11 @@
     "PiglingBrainMixin",
     "PlacedFeaturesMixin",
     "PlayerEntityMixin",
+    "RecipeManagerMixin",
     "RecipeProviderMixin",
+    "ServerPlayerEntityMixin",
     "SmithinScreenHandlerMixin",
+    "TagGroupLoaderMixin",
     "TridentEntityMixin",
     "compat.projectile_damage.TooltipHelperMixin"
   ],

@@ -1,6 +1,7 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
+import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -36,6 +37,6 @@ public class PItemGroups {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Item Groups for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Item Groups for: " + Prog.MOD_ID);
     }
 }

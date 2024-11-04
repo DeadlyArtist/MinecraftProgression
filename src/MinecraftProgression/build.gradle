@@ -98,6 +98,14 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 
+	// Frog Legs
+	modCompileOnly("maven.modrinth:equ26Hrh:8Hj9pLxI")
+
+//	Doesn't work because remapping causes name conflicts.
+//	// Supplementaries
+//	modCompileOnly("curse.maven:moonlight-499980:5567103")
+//	modCompileOnly("curse.maven:supplementaries-412082:5226669")
+
 //	// Attributefix
 //	modImplementation files("libs/AttributeFix-Fabric-1.19.2-17.2.8.jar")
 //

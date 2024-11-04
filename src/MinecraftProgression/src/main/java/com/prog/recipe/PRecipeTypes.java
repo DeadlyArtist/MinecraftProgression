@@ -1,6 +1,7 @@
 package com.prog.recipe;
 
 import com.prog.Prog;
+import com.prog.utils.LOGGER;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
@@ -25,6 +26,6 @@ public class PRecipeTypes {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Recipe Types for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Recipe Types for: " + Prog.MOD_ID);
     }
 }

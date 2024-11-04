@@ -22,10 +22,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CakeBlock.class)
 public class CakeBlockMixin {
-    @Inject(method = "tryEat", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/util/Identifier;)V"))
-    private static void onEatCake(WorldAccess world, net.minecraft.util.math.BlockPos pos, BlockState state, PlayerEntity player, CallbackInfoReturnable<ActionResult> cir) {
-        if (world.isClient()) return;
-
-        PComponents.LIVING_ENTITY.get(player).eat(Items.CAKE);
-    }
+    // Now moved to ServerPlayerEntity stats check.
+//    @Inject(method = "tryEat", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerEntity;incrementStat(Lnet/minecraft/util/Identifier;)V"))
+//    private static void onEatCake(WorldAccess world, net.minecraft.util.math.BlockPos pos, BlockState state, PlayerEntity player, CallbackInfoReturnable<ActionResult> cir) {
+//        if (world.isClient()) return;
+//
+//        PComponents.LIVING_ENTITY.get(player).eat(Items.CAKE);
+//    }
 }

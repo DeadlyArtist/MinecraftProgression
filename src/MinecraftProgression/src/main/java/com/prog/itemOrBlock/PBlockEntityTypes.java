@@ -1,17 +1,13 @@
 package com.prog.itemOrBlock;
 
-import com.mojang.datafixers.types.Type;
 import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.entity.FlexibleCookingBlockEntity;
+import com.prog.utils.LOGGER;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.FurnaceBlockEntity;
-import net.minecraft.datafixer.TypeReferences;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Util;
 import net.minecraft.util.registry.Registry;
 
 public class PBlockEntityTypes {
@@ -24,6 +20,6 @@ public class PBlockEntityTypes {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Block Entity Types for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Block Entity Types for: " + Prog.MOD_ID);
     }
 }

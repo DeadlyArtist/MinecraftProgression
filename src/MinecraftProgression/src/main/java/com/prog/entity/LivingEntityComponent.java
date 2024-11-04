@@ -4,6 +4,7 @@ import com.prog.itemOrBlock.GourmetFoods;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.utils.GourmetUtils;
 import com.prog.utils.ItemUtils;
+import com.prog.utils.LOGGER;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
@@ -45,7 +46,9 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
 
         // Add effects
         if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD)) return;
-        var effects = GourmetFoods.data.get(item).effects;
+        var gourmetFoodData = GourmetFoods.data.get(item);
+        if (gourmetFoodData == null) return;
+        var effects = gourmetFoodData.effects;
         for (int index = 0; index < effects.size(); index++) {
             var effect = effects.get(index);
             var attributeInstance = attributes.getCustomInstance(effect.target);
@@ -63,7 +66,9 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
     }
 
     public boolean eat(Item item) {
+        LOGGER.info("EAT");
         if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD) || hasEaten(item)) return false;
+        LOGGER.info("TAG");
 
         eatenGourmetFoods.add(Registry.ITEM.getId(item).toString());
         updateGourmetFoodEffect(item);

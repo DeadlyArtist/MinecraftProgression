@@ -1,6 +1,7 @@
 package com.prog.entity.attribute;
 
 import com.prog.Prog;
+import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -77,6 +78,6 @@ public class PEntityAttributes {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Entity Attributes for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Entity Attributes for: " + Prog.MOD_ID);
     }
 }

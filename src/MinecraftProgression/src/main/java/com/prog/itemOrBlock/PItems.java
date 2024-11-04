@@ -3,6 +3,7 @@ package com.prog.itemOrBlock;
 import com.prog.Prog;
 import com.prog.itemOrBlock.custom.TieredBowItem;
 import com.prog.itemOrBlock.tiers.*;
+import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.data.client.ItemModelGenerator;
@@ -261,6 +262,6 @@ public class PItems {
 //    }
 
     public static void init(){
-        Prog.LOGGER.info("Registering Items for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Items for: " + Prog.MOD_ID);
     }
 }

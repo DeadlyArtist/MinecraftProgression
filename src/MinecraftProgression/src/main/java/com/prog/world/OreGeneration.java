@@ -2,6 +2,7 @@ package com.prog.world;
 
 import com.prog.Prog;
 import com.prog.itemOrBlock.PBlocks;
+import com.prog.utils.LOGGER;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -19,7 +20,6 @@ import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -52,6 +52,6 @@ public class OreGeneration {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Ore Generation for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Ore Generation for: " + Prog.MOD_ID);
     }
 }

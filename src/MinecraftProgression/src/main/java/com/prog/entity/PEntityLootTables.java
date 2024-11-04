@@ -1,6 +1,7 @@
 package com.prog.entity;
 
 import com.prog.Prog;
+import com.prog.utils.LOGGER;
 import net.minecraft.util.Identifier;
 
 public class PEntityLootTables {
@@ -12,6 +13,6 @@ public class PEntityLootTables {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Entity Loot Tables for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Entity Loot Tables for: " + Prog.MOD_ID);
     }
 }

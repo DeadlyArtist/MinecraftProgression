@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
+    "prog:emberite_ore",
     "prog:nether_star_block",
-    "prog:emberite_block",
-    "prog:emberite_ore"
+    "prog:emberite_block"
   ]
 }

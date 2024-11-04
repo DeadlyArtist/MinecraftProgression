@@ -1,8 +1,8 @@
 package com.prog.mixin;
 
 import com.google.common.collect.ImmutableMap;
-import com.prog.IDRef;
-import net.fabricmc.loader.api.FabricLoader;
+import com.prog.XIDs;
+import com.prog.utils.XCompat;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -16,7 +16,8 @@ public class PMixinPlugin implements IMixinConfigPlugin {
     private static final Supplier<Boolean> TRUE = () -> true;
 
     private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
-            "com.prog.mixin.compat.rei.DefaultClientPluginMixin", () -> FabricLoader.getInstance().isModLoaded(IDRef.REI)
+            "com.prog.mixin.compat.rei.DefaultClientPluginMixin", () -> XCompat.isModLoaded(XIDs.REI),
+            "com.prog.mixin.compat.supplementaries.DirectionalCakeBlockMixin", () -> XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)
     );
 
     @Override

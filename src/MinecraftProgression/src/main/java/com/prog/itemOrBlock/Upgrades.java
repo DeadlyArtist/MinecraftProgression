@@ -3,6 +3,7 @@ package com.prog.itemOrBlock;
 import com.prog.Prog;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
+import com.prog.utils.LOGGER;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -101,6 +102,6 @@ public class Upgrades {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Upgrades for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Upgrades for: " + Prog.MOD_ID);
     }
 }

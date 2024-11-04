@@ -2,25 +2,20 @@ package com.prog.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import com.prog.Prog;
+import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.prog.enchantment.PEnchantments;
 import com.prog.event.EntityEvents;
 import com.prog.utils.EnchantmentUtils;
-import net.minecraft.enchantment.DamageEnchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
-import org.apache.commons.lang3.mutable.MutableFloat;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -55,15 +50,17 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         info.cancel();
     }
 
-    @Redirect(
+    @Inject(
             method = "attack(Lnet/minecraft/entity/Entity;)V",
             at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/player/PlayerEntity;getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D"
+                    value = "INVOKE_ASSIGN",
+                    target = "Lnet/minecraft/entity/player/PlayerEntity;getAttackCooldownProgress(F)F",
+                    shift = At.Shift.BEFORE
             )
     )
-    private double redirectGetAttackDamage(PlayerEntity playerEntity, EntityAttribute attribute, @Local LocalRef<Entity> target) {
-        var group = target instanceof LivingEntity livingEntity ? ((LivingEntity) target).getGroup() : EntityGroup.DEFAULT;
-        return EnchantmentUtils.getAttackDamage(group, this.getMainHandStack(), playerEntity.getAttributeValue(attribute));
+    private void redirectGetAttackDamage(Entity target, CallbackInfo ci, @Local(ordinal = 0) float f, @Local(ordinal = 1) LocalFloatRef g) {
+        PlayerEntity self = (PlayerEntity) (Object) this;
+        var group = target instanceof LivingEntity livingEntity ? livingEntity.getGroup() : EntityGroup.DEFAULT;
+        g.set((float) EnchantmentUtils.getAttackDamageIncrease(group, this.getMainHandStack(), f));
     }
 }

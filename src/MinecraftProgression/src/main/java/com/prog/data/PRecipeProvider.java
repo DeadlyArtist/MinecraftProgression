@@ -4,7 +4,7 @@ import com.google.common.collect.Sets;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import com.prog.IDRef;
+import com.prog.XIDs;
 import com.prog.Prog;
 import com.prog.data.custom.FlexibleShapedRecipeJsonBuilder;
 import com.prog.data.custom.FlexibleShapelessRecipeJsonBuilder;
@@ -319,8 +319,12 @@ public class PRecipeProvider extends FabricRecipeProvider {
             return this;
         }
 
+        public Identifier getId() {
+            return new Identifier(namespace, path);
+        }
+
         public void offer(Consumer<RecipeJsonProvider> exporter) {
-            internalBuilder.offerTo(exporter, new Identifier(namespace, path));
+            internalBuilder.offerTo(exporter, getId());
         }
     }
 
@@ -476,17 +480,17 @@ public class PRecipeProvider extends FabricRecipeProvider {
     @Override
     public void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
         // Vanilla Overrides
-        createShapedRecipe(List.of("# #", "# #"),Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_BOOTS).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_boots_smithing").offer(exporter);
-        createShapedRecipe(List.of("# #", "###", "###"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_CHESTPLATE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_chestplate_smithing").offer(exporter);
-        createShapedRecipe(List.of("###", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_HELMET).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_helmet_smithing").offer(exporter);
-        createShapedRecipe(List.of("###", "# #", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_LEGGINGS).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_leggings_smithing").offer(exporter);
-        createShapedRecipe(List.of("##", "#I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_AXE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_axe_smithing").offer(exporter);
-        createShapedRecipe(List.of("##", " I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_HOE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_hoe_smithing").offer(exporter);
-        createShapedRecipe(List.of("###", " I ", " I "), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_PICKAXE).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_pickaxe_smithing").offer(exporter);
-        createShapedRecipe(List.of("#", "I", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SHOVEL).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_shovel_smithing").offer(exporter);
-        createShapedRecipe(List.of("#", "#", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SWORD).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_sword_smithing").offer(exporter);
-        createShapedRecipe(List.of("  sss", " sGs ", "sss  "), List.of(Input.of(Items.NETHERITE_SCRAP), Input.of(Blocks.GOLD_BLOCK)), Items.NETHERITE_INGOT, 2).requireAssembly().setNamespace(IDRef.VANILLA).setPath("netherite_ingot").offer(exporter);
-        createShapedRecipe(List.of("###", "psp", "psp"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(ItemTags.PLANKS), Input.of(Items.STONE)), Items.SMITHING_TABLE).setNamespace(IDRef.VANILLA).setPath("smithing_table").offer(exporter);
+        createShapedRecipe(List.of("# #", "# #"),Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_BOOTS).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_boots_smithing").offer(exporter);
+        createShapedRecipe(List.of("# #", "###", "###"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_CHESTPLATE).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_chestplate_smithing").offer(exporter);
+        createShapedRecipe(List.of("###", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_HELMET).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_helmet_smithing").offer(exporter);
+        createShapedRecipe(List.of("###", "# #", "# #"), Input.of(Items.NETHERITE_INGOT), Items.NETHERITE_LEGGINGS).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_leggings_smithing").offer(exporter);
+        createShapedRecipe(List.of("##", "#I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_AXE).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_axe_smithing").offer(exporter);
+        createShapedRecipe(List.of("##", " I", " I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_HOE).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_hoe_smithing").offer(exporter);
+        createShapedRecipe(List.of("###", " I ", " I "), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_PICKAXE).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_pickaxe_smithing").offer(exporter);
+        createShapedRecipe(List.of("#", "I", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SHOVEL).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_shovel_smithing").offer(exporter);
+        createShapedRecipe(List.of("#", "#", "I"), List.of(Input.of(Items.NETHERITE_INGOT), Input.of(Items.STICK)), Items.NETHERITE_SWORD).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_sword_smithing").offer(exporter);
+        createShapedRecipe(List.of("  sss", " sGs ", "sss  "), List.of(Input.of(Items.NETHERITE_SCRAP), Input.of(Blocks.GOLD_BLOCK)), Items.NETHERITE_INGOT, 2).requireAssembly().setNamespace(XIDs.VANILLA).setPath("netherite_ingot").offer(exporter);
+        createShapedRecipe(List.of("###", "psp", "psp"), List.of(Input.of(PItems.STEEL_INGOT), Input.of(ItemTags.PLANKS), Input.of(Items.STONE)), Items.SMITHING_TABLE).setNamespace(XIDs.VANILLA).setPath("smithing_table").offer(exporter);
 
         // Misc
         createCookingRecipe(RecipeSerializer.BLASTING, Input.of(Items.IRON_INGOT), PItems.STEEL_INGOT, 300, 0.45F).offer(exporter);
@@ -625,17 +629,25 @@ public class PRecipeProvider extends FabricRecipeProvider {
         // Upgrades
         List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
         var upgrades = Upgrades.data;
-        upgradeTargets.forEach(target -> {
-            upgrades.forEach((item, upgrade) -> {
-                var effects = upgrade.effects.apply(target);
-                if (effects == null || effects.isEmpty()) return;
-
-                String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(item);
-                String recipePath = UpgradeUtils.getRecipePath(item, target);
-                var json = new JsonObject();
-                json.add("id", new JsonPrimitive(ItemUtils.getId(item).toString()));
-                createSmithingRecipe(Input.of(target), Input.of(item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, json).setPath(recipePath).offer(exporter);
-            });
+        upgrades.forEach((item, upgrade) -> {
+            getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(exporter));
         });
+    }
+
+    public static List<SmithingRecipeBuilderWrapper> getUpgradeRecipes(Upgrade upgrade) {
+        var item = upgrade.item;
+        List<SmithingRecipeBuilderWrapper> recipes = new ArrayList<>();
+        List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
+        upgradeTargets.forEach(target -> {
+            var effects = upgrade.effects.apply(target);
+            if (effects == null || effects.isEmpty()) return;
+
+            String upgradeNbtName = UpgradeUtils.getUpgradeNbtName(item);
+            String recipePath = UpgradeUtils.getRecipePath(item, target);
+            var json = new JsonObject();
+            json.add("id", new JsonPrimitive(ItemUtils.getId(item).toString()));
+            recipes.add(createSmithingRecipe(Input.of(target), Input.of(item), target).addBaseNbt(upgradeNbtName, new JsonPrimitive(""), false).addResultNbt(upgradeNbtName, json).setPath(recipePath));
+        });
+        return recipes;
     }
 }

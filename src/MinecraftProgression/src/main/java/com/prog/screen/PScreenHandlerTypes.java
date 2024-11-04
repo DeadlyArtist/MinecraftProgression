@@ -3,15 +3,11 @@ package com.prog.screen;
 import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
-import com.prog.recipe.PRecipeTypes;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.screen.CraftingScreenHandler;
+import com.prog.utils.LOGGER;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import java.util.List;
 
 public class PScreenHandlerTypes {
     public static final ScreenHandlerType<FlexibleCraftingScreenHandler> ASSEMBLY = register("ASSEMBLY", FlexibleCraftingScreenHandler.factory(FlexibleCraftingData.ASSEMBLY));
@@ -24,6 +20,6 @@ public class PScreenHandlerTypes {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Screen Handler Types for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Screen Handler Types for: " + Prog.MOD_ID);
     }
 }

@@ -1,7 +1,9 @@
 package com.prog;
 
-public class IDRef {
+public class XIDs {
     public static final String VANILLA = "minecraft";
     public static final String FABRIC = "fabric";
     public static final String REI = "roughlyenoughitems";
+    public static final String SUPPLEMENTARIES = "supplementaries";
+    public static final String FROG_LEGS = "froglegs";
 }

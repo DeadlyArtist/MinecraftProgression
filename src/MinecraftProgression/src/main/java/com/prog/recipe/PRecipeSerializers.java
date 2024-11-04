@@ -3,7 +3,7 @@ package com.prog.recipe;
 import com.prog.Prog;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
-import de.siphalor.nbtcrafting.api.RecipeTypeHelper;
+import com.prog.utils.LOGGER;
 import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -32,6 +32,6 @@ public class PRecipeSerializers {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Recipe Serializers for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Recipe Serializers for: " + Prog.MOD_ID);
     }
 }

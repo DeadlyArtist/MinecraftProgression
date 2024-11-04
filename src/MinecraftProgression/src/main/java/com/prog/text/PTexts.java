@@ -1,10 +1,8 @@
 package com.prog.text;
 
 import com.prog.Prog;
-import com.prog.itemOrBlock.PItemGroups;
-import net.minecraft.item.ItemGroup;
+import com.prog.utils.LOGGER;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableTextContent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,6 +65,6 @@ public class PTexts {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Translatable Texts for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Translatable Texts for: " + Prog.MOD_ID);
     }
 }

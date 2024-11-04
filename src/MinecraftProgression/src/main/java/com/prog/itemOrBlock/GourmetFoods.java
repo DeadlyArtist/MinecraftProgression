@@ -1,15 +1,17 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
-import com.prog.entity.attribute.XEntityAttributes;
+import com.prog.XIDs;
+import com.prog.utils.LOGGER;
+import com.prog.utils.XCompat;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.purejosh.froglegs.init.FroglegsModItems;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public class GourmetFoods {
     public static class GourmetFoodData {
@@ -63,6 +65,11 @@ public class GourmetFoods {
         register(Items.DRIED_KELP, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.SLIME_BALL, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
 
+        // Compat
+        if (XCompat.isModLoaded(XIDs.FROG_LEGS)) {
+            register(FroglegsModItems.COOKED_FROG_LEG, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        }
+
         // Custom
         register(PItems.STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 10));
         register(PItems.ENCHANTED_STAR_APPLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 20));
@@ -79,6 +86,6 @@ public class GourmetFoods {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Gourmet Food for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Gourmet Food for: " + Prog.MOD_ID);
     }
 }

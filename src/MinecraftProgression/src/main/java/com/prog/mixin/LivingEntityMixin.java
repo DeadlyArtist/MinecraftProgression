@@ -6,6 +6,7 @@ import com.prog.entity.PComponents;
 import com.prog.entity.PEntityLootTables;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
+import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.ItemUtils;
 import com.prog.utils.LOGGER;
 import com.prog.utils.SlotUtils;
@@ -17,6 +18,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootManager;
@@ -85,9 +87,12 @@ public class LivingEntityMixin {
         MinecraftServer server = self.world.getServer();
         if (server == null) return;
 
-        LootManager lootManager = server.getLootManager();
-        LootTable lootTable = lootManager.getTable(PEntityLootTables.RANK_1);
-        LootContext.Builder builder = entity.getLootContextBuilder(causedByPlayer, source);
-        lootTable.generateLoot(builder.build(LootContextTypes.ENTITY), self::dropStack);
+        var maxEnchantmentLevel = 5;
+        var amount = Math.max(1, squad.rank + 1 - maxEnchantmentLevel);
+        var enchantmentLevel = Math.min(maxEnchantmentLevel, squad.rank);
+        for (var i = 0; i < amount; i++) {
+            var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(self.random, enchantmentLevel));
+            self.dropStack(stack);
+        }
     }
 }

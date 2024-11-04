@@ -1,5 +1,6 @@
 package com.prog;
 
+import com.prog.data.PRecipeProvider;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
 import com.prog.entity.PEntityLootTables;
@@ -9,43 +10,46 @@ import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.event.ItemStackEvents;
+import com.prog.event.RecipeEvents;
+import com.prog.event.TagEvents;
 import com.prog.itemOrBlock.*;
 import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
-import com.prog.utils.EntityAttributeModifierUtils;
-import com.prog.utils.SlotUtils;
-import com.prog.utils.TridentUtils;
-import com.prog.utils.UpgradeUtils;
+import com.prog.utils.*;
 import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.TridentItem;
+import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.projectile_damage.internal.Constants;
+import net.purejosh.froglegs.init.FroglegsModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Supplier;
 
 import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
 public class Prog implements ModInitializer {
     public static final String MOD_ID = "prog";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger __LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override
     public void onInitialize() {
@@ -71,6 +75,25 @@ public class Prog implements ModInitializer {
 
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
+        TagEvents.TAG_LOADED.register((tagId, entries) -> {
+            if (XCompat.isModLoaded(XIDs.FROG_LEGS)) {
+                if (tagId.equals(PItemTags.GOURMET_FOOD.id())) {
+                    @SuppressWarnings("unchecked")
+                    Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
+                    itemEntries.add(FroglegsModItems.COOKED_FROG_LEG.getRegistryEntry());
+                }
+            }
+        });
+
+        RecipeEvents.RECIPES_LOADED.register(map -> {
+            // Minecraft modding really does not seem to be made for compat.
+//            if (XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)) {
+//                Supplier<?> wrapper = ModRegistry.BOMB_BLUE_ITEM;
+//                var upgrade = Upgrades.register((Item)(Object)wrapper.get(), UEffectMapper.damage());
+//                PRecipeProvider.getUpgradeRecipes(upgrade).forEach(builder -> builder.offer(provider -> map.put(builder.getId(), provider.toJson())));
+//            }
+        });
+
         EntityEvents.LIVING_ENTITY_TICK.register(entity -> {
             entity.stepHeight = (float) entity.getAttributeValue(PEntityAttributes.STEP_HEIGHT);
         });
@@ -107,9 +130,10 @@ public class Prog implements ModInitializer {
 
             if (item instanceof TridentItem) {
                 double damage = TridentUtils.BASE_RANGED_DAMAGE;
-                if (item instanceof TieredTridentItem tieredTridentItem)
-                    damage += tieredTridentItem.material.getDamageBonus() + (double) EnchantmentHelper.getAttackDamage(stack, EntityGroup.DEFAULT);
-                if (item instanceof TieredTridentItem tieredTridentItem) damage += tieredTridentItem.material.getDamageBonus();
+                if (item instanceof TieredTridentItem tieredTridentItem) {
+                    damage += tieredTridentItem.material.getDamageBonus();
+                    damage += (double) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, stack, damage);
+                }
                 attributeModifiers.put(XEntityAttributes.PROJECTILE_DAMAGE, new EntityAttributeModifier(Constants.GENERIC_PROJECTILE_MODIFIER_ID, "Projectile modifier", damage, EntityAttributeModifier.Operation.ADDITION));
             }
 

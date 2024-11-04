@@ -1,12 +1,10 @@
 package com.prog.mixin;
 
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.utils.EnchantmentUtils;
@@ -77,7 +75,7 @@ public class ItemStackMixin {
     )
     private float redirectGetAttributeBaseValue(ItemStack stack, EntityGroup group, @Local(ordinal = 0) LocalDoubleRef d) {
         ItemStack self = (ItemStack) (Object) this;
-        return (float) (EnchantmentUtils.getAttackDamage(EntityGroup.DEFAULT, self, d.get()) - d.get());
+        return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get());
     }
 
     @Inject(method = "onCraft", at = @At("HEAD"))

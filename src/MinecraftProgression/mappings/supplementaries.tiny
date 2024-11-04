@@ -1,0 +1,5 @@
+v1   official  intermediary  named
+METHOD net/mehvahdjukaar/supplementaries/client/screens/SignPostScreen close close signPostClose
+METHOD net/mehvahdjukaar/supplementaries/client/screens/DoormatScreen close close doormatClose
+METHOD net/mehvahdjukaar/supplementaries/client/screens/HangingSignScreen close close hangingSignClose
+METHOD net/mehvahdjukaar/supplementaries/client/screens/BlackBoardScreen close close blackboardClose

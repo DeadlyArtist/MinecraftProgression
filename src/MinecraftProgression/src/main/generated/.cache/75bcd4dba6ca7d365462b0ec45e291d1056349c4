@@ -1,8 +1,8 @@
-// 1.19.2	2024-11-03T14:54:23.8005672	Tags for minecraft:block
-dd47d639e1b3209a6f3ad60518b4ce954b1fdd8f data\minecraft\tags\blocks\mineable\pickaxe.json
+// 1.19.2	2024-11-04T05:02:40.0102272	Tags for minecraft:block
+1aceb23c19df41b5f14337c4c7abecc264c1a55a data\minecraft\tags\blocks\mineable\pickaxe.json
 75fa2796e98dbaa08a6518ad3632c261966f455c data\fabric\tags\blocks\needs_tool_level_5.json
-8e2ce920c555e69363004f46676089de75fcc306 data\minecraft\tags\blocks\needs_diamond_tool.json
+2e6366f5001e8ac68ae1ae5cd0630d0464bc1b59 data\minecraft\tags\blocks\needs_diamond_tool.json
 0d72f2b7044c8894d847a5636faa01540933b063 data\fabric\tags\blocks\needs_tool_level_7.json
 487700103ef4adfe2ae6c3b340be2dc5941baffa data\minecraft\tags\blocks\needs_iron_tool.json
-c61a1d22acb2c7ac6e5aa700df4336d2ce91be89 data\fabric\tags\blocks\needs_tool_level_6.json
-1ff56befea74256dbc0707e51b859142544afdf5 data\fabric\tags\blocks\needs_tool_level_4.json
+793e354922559437c345dd6f309c3982c450c4d4 data\fabric\tags\blocks\needs_tool_level_6.json
+fd396ece41f7c17a9d32d3df451d90bff470c9bc data\fabric\tags\blocks\needs_tool_level_4.json

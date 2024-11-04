@@ -6,6 +6,7 @@ import com.prog.itemOrBlock.custom.FlexibleCookingBlock;
 import com.prog.itemOrBlock.custom.FlexibleCraftingBlock;
 import com.prog.itemOrBlock.data.FlexibleCookingData;
 import com.prog.itemOrBlock.data.FlexibleCraftingData;
+import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -19,7 +20,6 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.Nullable;
 
@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
 public class PBlocks {
@@ -127,6 +126,6 @@ public class PBlocks {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Blocks for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Blocks for: " + Prog.MOD_ID);
     }
 }

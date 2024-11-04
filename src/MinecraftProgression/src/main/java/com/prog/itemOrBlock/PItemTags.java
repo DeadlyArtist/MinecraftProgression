@@ -1,12 +1,11 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
+import com.prog.utils.LOGGER;
 import net.minecraft.item.Item;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import java.util.*;
 
 public class PItemTags {
     public static final TagKey<Item> UPGRADE = createTag("UPGRADE");
@@ -37,6 +36,6 @@ public class PItemTags {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Item Tags for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Item Tags for: " + Prog.MOD_ID);
     }
 }

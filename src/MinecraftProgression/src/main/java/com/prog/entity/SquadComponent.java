@@ -20,8 +20,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.SpawnHelper;
-
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class SquadComponent implements Component, ServerTickingComponent {
     public final static String squadHealthModifierName = "squad_health";
@@ -122,14 +121,12 @@ public class SquadComponent implements Component, ServerTickingComponent {
     }
 
     public double getHealthMultiplier() {
-        Random random = new Random();
         double baseModifier = Math.pow(2, rank);
         double modifiedValue = randomOffset(baseModifier, 0.2);
         return modifiedValue;
     }
 
     public double getDamageMultiplier() {
-        Random random = new Random();
         double baseModifier = Math.pow(2, rank + 2);
         double modifiedValue = randomOffset(baseModifier, 0.2);
         return modifiedValue;
@@ -168,12 +165,11 @@ public class SquadComponent implements Component, ServerTickingComponent {
      * @param maxVal   The maximum value to reach (default Integer.MAX_VALUE).
      * @return The final recursively generated value.
      */
-    public static int randomIncrement(int startVal, int maxVal, double prob) {
+    public static int randomIncrement(Random random, int startVal, int maxVal, double prob) {
         if (startVal >= maxVal) {
             return startVal;
         }
 
-        Random random = new Random();
         double randomChance;
         do {
             randomChance = random.nextDouble();
@@ -186,7 +182,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
      * Overloaded version with default parameters (starting value 0, max value Integer.MAX_VALUE).
      */
     public int randomIncrementRank(double prob) {
-        return randomIncrement(rank, Integer.MAX_VALUE, prob);
+        return randomIncrement(entity.random, rank, Integer.MAX_VALUE, prob);
     }
 
     /**
@@ -197,13 +193,16 @@ public class SquadComponent implements Component, ServerTickingComponent {
      * @return the base value adjusted by a random factor within ±maxOffset percentage.
      * If maxOffset is 0, the base value is returned unmodified.
      */
-    public static double randomOffset(double baseValue, double maxOffset) {
+    public static double randomOffset(Random random, double baseValue, double maxOffset) {
         if (maxOffset == 0) return baseValue;
 
-        Random random = new Random();
         // Generate a random factor between (1 - maxOffset) and (1 + maxOffset)
         double randomFactor = 1 - maxOffset + (2 * maxOffset * random.nextDouble());
         return baseValue * randomFactor;
+    }
+
+    public double randomOffset(double baseValue, double maxOffset) {
+        return randomOffset(entity.random, baseValue, maxOffset);
     }
 
     public void spawnFollowers() {

@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.prog.utils.EnchantmentUtils;
 import net.minecraft.entity.EntityGroup;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +20,7 @@ public abstract class TridentEntityMixin {
                     target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
             )
     )
-    private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local LocalFloatRef f) {
-        return (float) EnchantmentUtils.getAttackDamage(group, stack, f.get()) - f.get();
+    private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local float f) {
+        return (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, f);
     }
 }

@@ -1,20 +1,20 @@
 package com.prog.itemOrBlock;
 
-import com.prog.IDRef;
+import com.prog.XIDs;
 import com.prog.Prog;
 import com.prog.itemOrBlock.tiers.PMiningLevels;
+import com.prog.utils.LOGGER;
 import net.minecraft.block.Block;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 
 public class PBlockTags {
     // Mining levels
-    public static final TagKey<Block> NEEDS_REFINED_OBSIDIAN_TOOL = createExternalTag(IDRef.FABRIC, getToolLevelPath(PMiningLevels.REFINED_OBSIDIAN));
-    public static final TagKey<Block> NEEDS_TITAN_TOOL = createExternalTag(IDRef.FABRIC, getToolLevelPath(PMiningLevels.TITAN));
-    public static final TagKey<Block> NEEDS_PRIMAL_NETHERITE_TOOL = createExternalTag(IDRef.FABRIC, getToolLevelPath(PMiningLevels.PRIMAL_NETHERITE));
-    public static final TagKey<Block> NEEDS_VERUM_TOOL = createExternalTag(IDRef.FABRIC, getToolLevelPath(PMiningLevels.VERUM));
+    public static final TagKey<Block> NEEDS_REFINED_OBSIDIAN_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.REFINED_OBSIDIAN));
+    public static final TagKey<Block> NEEDS_TITAN_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.TITAN));
+    public static final TagKey<Block> NEEDS_PRIMAL_NETHERITE_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.PRIMAL_NETHERITE));
+    public static final TagKey<Block> NEEDS_VERUM_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.VERUM));
 
     // Mining level must be at least 4
     public static String getToolLevelPath(int miningLevel){
@@ -30,6 +30,6 @@ public class PBlockTags {
     }
 
     public static void init() {
-        Prog.LOGGER.info("Registering Block Tags for: " + Prog.MOD_ID);
+        LOGGER.info("Registering Block Tags for: " + Prog.MOD_ID);
     }
 }
