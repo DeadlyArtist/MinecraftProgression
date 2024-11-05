@@ -33,6 +33,16 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(BowItem.class)
 public class BowItemMixin {
+//    @Inject(method = "getMaxUseTime", at = @At("RETURN"), cancellable = true)
+//    private void modifyBowMaxUseTime(ItemStack stack, CallbackInfoReturnable<Integer> cir) {
+//        var entity = stack.getHolder();
+//        if (!(entity instanceof LivingEntity livingEntity)) return;
+//        int originalValue = cir.getReturnValue();
+//        var speed = livingEntity.getAttributeValue(PEntityAttributes.CHARGING_SPEED);
+//        int modifiedValue = speed == 0 ? 0 : (int) (originalValue / speed);
+//        cir.setReturnValue(modifiedValue);
+//    }
+
     @Redirect(
             method = "onStoppedUsing",
             at = @At(

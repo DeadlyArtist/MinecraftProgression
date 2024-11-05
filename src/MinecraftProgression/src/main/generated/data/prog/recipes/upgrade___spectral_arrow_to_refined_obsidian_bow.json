@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___spectral_arrow": ""
+      }
+    },
+    "item": "prog:refined_obsidian_bow"
+  },
+  "ingredient": {
+    "item": "minecraft:spectral_arrow"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___spectral_arrow": {
+        "id": "minecraft:spectral_arrow"
+      }
+    },
+    "item": "prog:refined_obsidian_bow"
+  }
+}

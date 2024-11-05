@@ -78,6 +78,7 @@ public class Upgrades {
         register(Items.HONEYCOMB, UEffectMapper.protection());
         register(Items.RABBIT_FOOT, UEffectMapper.boots(UEffect.increment(XEntityAttributes.BONUS_RARE_LOOT_ROLLS)));
         register(Items.CARVED_PUMPKIN, UEffectMapper.helmet(UEffect.increment(PEntityAttributes.ENDERMAN_DISGUISE)));
+        register(Items.SPECTRAL_ARROW, UEffectMapper.bow(UEffect.add(PEntityAttributes.CHARGING_SPEED, 0.5)));
 
         // Custom
         register(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));

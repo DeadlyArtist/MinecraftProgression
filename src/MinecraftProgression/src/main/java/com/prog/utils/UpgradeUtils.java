@@ -74,7 +74,7 @@ public class UpgradeUtils {
         var upgrades = extractUpgradeData(stack);
         if (upgrades.isEmpty()) return;
 
-        tooltip.add(Text.literal("\n" + PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()).formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
+        tooltip.add(Text.literal(PTexts.UPGRADEABLE_UPGRADE_TOOLTIP.get().getString() + ": " + upgrades.size()).formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.literal("    " + String.join(", ", upgrades.keySet().stream().map((id) -> ItemUtils.byId(id).getName().getString()).toList())).formatted(Formatting.DARK_GRAY).formatted(Formatting.ITALIC));
         }
