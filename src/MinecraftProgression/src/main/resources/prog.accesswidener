@@ -41,6 +41,9 @@ accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
 # Entity
 accessible field net/minecraft/entity/Entity random Lnet/minecraft/util/math/random/Random;
 
+# LivingEntity
+accessible field net/minecraft/entity/LivingEntity itemUseTimeLeft I
+
 # MobEntity
 accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
 accessible method net/minecraft/entity/mob/MobEntity getLootContextBuilder (ZLnet/minecraft/entity/damage/DamageSource;)Lnet/minecraft/loot/context/LootContext$Builder;

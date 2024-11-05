@@ -5,18 +5,23 @@ import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.utils.EnchantmentUtils;
+import com.prog.utils.LOGGER;
+import com.prog.utils.UseUtils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -25,10 +30,45 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
 
+    @Unique
+    private int ticksSince = 0;
+
+
+    @Inject(
+            method = "setCurrentHand",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/item/ItemStack;getMaxUseTime()I",
+                    shift = At.Shift.BEFORE
+            )
+    )
+    private void redirectGetMaxUseTimeInSetCurrentHand(Hand hand, CallbackInfo ci) {
+        ticksSince = 0;
+        LOGGER.info("TRACKED");
+    }
+
+    @Inject(
+            method = "onTrackedDataSet",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/item/ItemStack;getMaxUseTime()I",
+                    shift = At.Shift.BEFORE
+            )
+    )
+    private void redirectGetMaxUseTimeInOnTrackedDataSet(TrackedData<?> data, CallbackInfo ci) {
+        ticksSince = 0;
+        LOGGER.info("SET");
+    }
+
     @Inject(at = @At(value = "HEAD"), method = "tick")
     private void tick(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
         EntityEvents.LIVING_ENTITY_TICK.invoker().tick(entity);
+
+        if (entity.isUsingItem()) {
+            ticksSince++;
+            UseUtils.handleItemUseProgress(entity, ticksSince);
+        }
     }
 
     @Inject(method = "createLivingAttributes", at = @At("RETURN"))

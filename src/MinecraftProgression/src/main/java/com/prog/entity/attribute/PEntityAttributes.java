@@ -33,7 +33,7 @@ public class PEntityAttributes {
     public static final EntityAttribute ENDERMAN_DISGUISE = registerClampedEntityAttribute("ENDERMAN_DISGUISE", 0.0, 0.0, 1.0);
     public static final EntityAttribute JETPACK = registerClampedEntityAttribute("JETPACK", 0.0, 0.0, 1.0);
     public static final EntityAttribute PROJECTILE_SPEED = registerClampedEntityAttribute("PROJECTILE_SPEED", 4.0, 0.0, 1000.0);
-    public static final EntityAttribute CHARGING_SPEED = registerClampedEntityAttribute("CHARGING_SPEED", 1.0, 0.0, 1000.0); // 0 for instant charge
+    public static final EntityAttribute CHARGING_SPEED = registerClampedEntityAttribute("CHARGING_SPEED", 1.0, 0.0, 1000.0); // 0 never progresses, 1000 for instant charge
 
     // Status effect immunities
     public static final EntityAttribute DARKNESS_IMMUNITY = registerClampedEntityAttribute("DARKNESS_IMMUNITY", 0.0, 0.0, 1.0);
