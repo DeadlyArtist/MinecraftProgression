@@ -1,6 +1,8 @@
 package com.prog.utils;
 
+import com.prog.entity.attribute.PEntityAttributes;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;

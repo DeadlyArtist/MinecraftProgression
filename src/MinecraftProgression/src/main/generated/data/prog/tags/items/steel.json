@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "prog:steel_pickaxe",
+    "prog:steel_boots",
     "prog:steel_hoe",
+    "prog:steel_pickaxe",
     "prog:steel_sword",
-    "prog:steel_shovel",
     "prog:steel_bow",
-    "prog:steel_leggings",
+    "prog:steel_shovel",
     "prog:steel_axe",
-    "prog:steel_helmet",
     "prog:steel_chestplate",
-    "prog:steel_boots"
+    "prog:steel_leggings",
+    "prog:steel_helmet"
   ]
 }

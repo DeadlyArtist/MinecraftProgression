@@ -19,6 +19,7 @@ public class EnchantmentUtils {
     public static final float specificConstraintMultiplier = 2;
 
     public static float getCommonDamageMultiplier(int level) {
+        if (level < 1) return 1;
         return 1 + level * 0.1F + 0.1F;
     }
 

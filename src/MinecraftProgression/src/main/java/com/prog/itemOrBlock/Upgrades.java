@@ -67,7 +67,8 @@ public class Upgrades {
         register(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         register(Items.FIREWORK_ROCKET, List.of(UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(UEffect.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.05)), UEffectMapper.chestplate(UEffect.add(EntityAttributes.GENERIC_FLYING_SPEED, 0.05))));
         register(Items.FIRE_CHARGE, UEffectMapper.damage());
-        register(Items.GLOW_BERRIES, UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK)));
+        register(Items.GLOW_BERRIES, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK))));
+        register(Items.GLOW_INK_SAC, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK))));
         register(Items.DRAGON_BREATH, UEffectMapper.best());
         register(Items.DISC_FRAGMENT_5, UEffectMapper.damage());
         register(Items.FEATHER, UEffectMapper.boots(UEffect.add(PEntityAttributes.LIGHTNESS, 0.5)));

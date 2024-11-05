@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___glow_ink_sac": ""
+      }
+    },
+    "item": "prog:end_hoe"
+  },
+  "ingredient": {
+    "item": "minecraft:glow_ink_sac"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___glow_ink_sac": {
+        "id": "minecraft:glow_ink_sac"
+      }
+    },
+    "item": "prog:end_hoe"
+  }
+}
