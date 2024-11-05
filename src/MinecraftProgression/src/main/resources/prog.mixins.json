@@ -11,6 +11,7 @@
     "EndermanEntityMixin",
     "EntityMixin",
     "ExplosionMixin",
+    "ItemEntityMixin",
     "ItemMixin",
     "ItemsMixin",
     "ItemStackMixin",
@@ -34,7 +35,8 @@
     "compat.ironjetpacks.ModJetpacksMixin",
     "compat.ironjetpacks.ToggleEngineMessageMixin",
     "compat.ironjetpacks.ToggleHoverMessageMixin",
-    "compat.projectile_damage.TooltipHelperMixin"
+    "compat.projectile_damage.TooltipHelperMixin",
+    "compat.soulbound.SoulBoundEnchantmentMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",

@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___lodestone": ""
+      }
+    },
+    "item": "prog:primal_netherite_chestplate"
+  },
+  "ingredient": {
+    "item": "minecraft:lodestone"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___lodestone": {
+        "id": "minecraft:lodestone"
+      }
+    },
+    "item": "prog:primal_netherite_chestplate"
+  }
+}

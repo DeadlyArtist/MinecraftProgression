@@ -1,0 +1,19 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "f": {
+      "item": "minecraft:feather"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "ffgff",
+    "fg gf",
+    "  g  "
+  ],
+  "result": {
+    "item": "prog:angel_ring"
+  }
+}

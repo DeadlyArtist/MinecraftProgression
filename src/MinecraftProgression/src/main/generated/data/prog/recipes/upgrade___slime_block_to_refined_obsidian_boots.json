@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___slime_block": ""
+      }
+    },
+    "item": "prog:refined_obsidian_boots"
+  },
+  "ingredient": {
+    "item": "minecraft:slime_block"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___slime_block": {
+        "id": "minecraft:slime_block"
+      }
+    },
+    "item": "prog:refined_obsidian_boots"
+  }
+}

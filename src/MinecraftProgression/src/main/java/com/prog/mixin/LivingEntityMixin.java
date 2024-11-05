@@ -1,38 +1,24 @@
 package com.prog.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.prog.Prog;
 import com.prog.entity.PComponents;
-import com.prog.entity.PEntityLootTables;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.utils.EnchantmentUtils;
-import com.prog.utils.ItemUtils;
-import com.prog.utils.LOGGER;
-import com.prog.utils.SlotUtils;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootManager;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.context.LootContext;
-import net.minecraft.loot.context.LootContextTypes;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -56,8 +42,9 @@ public class LivingEntityMixin {
     )
     private int computeFallDamage(int originalReturnValue, float fallDistance, float damageMultiplier) {
         LivingEntity self = (LivingEntity) (Object) this;
-        double divisor = self.getAttributeValue(PEntityAttributes.FALL_DAMAGE_DIVISOR);
-        return divisor == 16 ? 0 : MathHelper.ceil(originalReturnValue / divisor);
+        double divisor = self.getAttributeValue(PEntityAttributes.LIGHTNESS);
+        double reduction = self.getAttributeValue(PEntityAttributes.IMPACT_ABSORPTION);
+        return divisor == 16 ? 0 : MathHelper.ceil(Math.max(0, originalReturnValue - reduction) / divisor);
     }
 
     @Inject(method = "applyFoodEffects", at = @At("HEAD"))

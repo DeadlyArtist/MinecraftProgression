@@ -27,21 +27,21 @@ public abstract class ModItemsMixin {
         }
     }
 
-//    @Inject(method = "register()V", at = @At("HEAD"), cancellable = true)
-//    private static void onRegister(CallbackInfo ci) {
-//        Registry<Item> registry = Registry.ITEM;
-//        JetpackRegistry jetpacks = JetpackRegistry.getInstance();
-//
-//        ModItems.ENTRIES.forEach((id, itemx) -> {
-//            Registry.register(registry, id, itemx.get());
-//        });
-//
-//        ModJetpacks.loadJsons();
-//
-//        for (var jetpack : jetpacks.getAllJetpacks()) {
-//            Registry.register(registry, new Identifier("iron-jetpacks", jetpack.name + "_jetpack"), (JetpackItem) jetpack.item.get());
-//        }
-//
-//        ci.cancel(); // Overwrite the method
-//    }
+    @Inject(method = "register()V", at = @At("HEAD"), cancellable = true)
+    private static void onRegister(CallbackInfo ci) {
+        Registry<Item> registry = Registry.ITEM;
+        JetpackRegistry jetpacks = JetpackRegistry.getInstance();
+
+        ModItems.ENTRIES.forEach((id, itemx) -> {
+            Registry.register(registry, id, itemx.get());
+        });
+
+        ModJetpacks.loadJsons();
+
+        for (var jetpack : jetpacks.getAllJetpacks()) {
+            Registry.register(registry, new Identifier("iron-jetpacks", jetpack.name + "_jetpack"), (JetpackItem) jetpack.item.get());
+        }
+
+        ci.cancel(); // Overwrite the method
+    }
 }

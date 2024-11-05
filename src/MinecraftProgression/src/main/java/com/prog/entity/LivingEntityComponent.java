@@ -66,9 +66,7 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
     }
 
     public boolean eat(Item item) {
-        LOGGER.info("EAT");
         if (!ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD) || hasEaten(item)) return false;
-        LOGGER.info("TAG");
 
         eatenGourmetFoods.add(Registry.ITEM.getId(item).toString());
         updateGourmetFoodEffect(item);
