@@ -6,7 +6,9 @@ import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.itemOrBlock.PBlocks;
 import com.prog.itemOrBlock.PItemGroups;
 import com.prog.itemOrBlock.PItems;
+import com.prog.itemOrBlock.PJetpacks;
 import com.prog.text.PTexts;
+import com.prog.utils.JetpackUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
@@ -25,5 +27,8 @@ public class PLangProvider extends FabricLanguageProvider {
         PItemGroups.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PEntityAttributes.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PStatusEffects.data.forEach((item, data) -> translationBuilder.add(item, data.name));
+
+        // Custom
+        translationBuilder.add(PJetpacks.MECHANICAL.item.get(), JetpackUtils.getDefaultName(PJetpacks.MECHANICAL));
     }
 }

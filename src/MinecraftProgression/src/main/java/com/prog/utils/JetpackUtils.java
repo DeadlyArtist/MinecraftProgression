@@ -16,10 +16,21 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
+import org.apache.commons.lang3.StringUtils;
 import team.reborn.energy.api.EnergyStorage;
 
 public class JetpackUtils {
+    public static String getDefaultName(Jetpack jetpack) {
+        String name = StringUtils.capitalize(jetpack.name);
+        return name + " Jetpack";
+    }
+
+    public static String getDefaultName(JetpackItem jetpackItem) {
+        return getDefaultName(jetpackItem.getJetpack());
+    }
+
     public static Jetpack getJetpack(PlayerEntity player) {
         if (hasDefaultJetpack(player)) return PJetpacks.getDefault();
 

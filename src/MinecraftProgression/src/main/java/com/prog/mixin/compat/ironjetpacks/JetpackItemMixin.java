@@ -32,6 +32,13 @@ import java.util.List;
 
 @Mixin(JetpackItem.class)
 public class JetpackItemMixin {
+    @Inject(method = "getName", at = @At("HEAD"), cancellable = true)
+    private void getName(ItemStack stack, CallbackInfoReturnable<Text> cir) {
+        var self = (JetpackItem) (Object) this;
+        cir.setReturnValue(Text.translatable(self.getTranslationKey(stack)));
+        cir.cancel();
+    }
+
     @Inject(method = "isItemBarVisible", at = @At("HEAD"), cancellable = true)
     private void isItemBarVisible(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         var self = (JetpackItem) (Object) this;
