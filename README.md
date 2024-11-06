@@ -22,7 +22,7 @@ Full Experience: Most content added by official updates introduced great potenti
 **Difficulty Scaling**: As your armor increases in tier, the monster empire becomes increasingly wary of you, sending stronger and stronger squads to patrol your area, ensuring the security of the world.
 
 ## How To Play
-Until iron, nothing changes in terms of tools and armor. However, you can already benefit from gourmet foods.
+Until iron, nothing changes in terms of tools and armor. However, you can already benefit from any gourmet foods that you can manage to get your hands on.
 
 After that, craft steel bindings and use them to upgrade your iron tools and armor in the smithing table to steel tools and armor. They will stay with you for a while (likely forever), so be sure to not lose them. Now, you can apply any and all upgrades that you can find or craft onto them via the smithing table.
 
