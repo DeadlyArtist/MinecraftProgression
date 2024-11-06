@@ -1,6 +1,12 @@
 # Minecraft: Progression
 A minecraft mod that builds upon and extends vanilla minecraft progression.
 
+## WIP
+This mod is currently in a very early playtesting stage.
+
+## Versions
+Fabric: 1.19.2
+
 ## Design Goals
 Extended Progression: Default minecraft progression from wood to stone to iron to diamond is very enjoyable, but too short. The main goal of this mod is to fix that by introducing tiers beyond diamond.
 
@@ -36,7 +42,6 @@ Next up is a big one. Titan. For it you will need lots(!) of quartz and ember. A
 
 For the rest, it will be up to you to explore.
 
-
 ## Mod Compatibility
 Special mod support:  
 [Roughly Enough Items](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items)  
@@ -50,15 +55,13 @@ However, I have not yet come across any errors in combination with other mods. I
 Incompatible mods:  
 ???
 
-## WIP
-This mod is currently in a very early playtesting stage.
-
 ### Missing Features
 *Keybinds*: Add keybinds for toggling certain upgrades on and off.  
 *Config*: Add config file.  
 *Barrels*: Potion rework to make you love potions.  
 *More Upgradable Tools*: Add upgradable/tiered crossbows, tridents, fishing rods, shears, shields.  
 *More Progression*: Add more tiers (such as Deeper and Darker integration), upgrades, and gourmet food.  
+*More Versions*: Add support for higher minecraft versions, as well as forge.  
 
 ## License
 This mod is licensed under MIT license.
