@@ -105,12 +105,11 @@ public class ItemStackMixin {
     )
     private void injectInfo(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local List<Text> list, @Local(ordinal = 0) int i) {
         var stack = (ItemStack) (Object) this;
-        if (!stack.hasNbt()) return;
 
         if (stack.isSectionVisible(i, ItemStack.TooltipSection.UNBREAKABLE)) {
             List<String> parts = new ArrayList<>();
             var upgradable = stack.isIn(PItemTags.UPGRADABLE);
-            if (upgradable || stack.getNbt().getBoolean("Unbreakable")) parts.add(Text.translatable("item.unbreakable").getString());
+            if (upgradable || (stack.hasNbt() && stack.getNbt().getBoolean("Unbreakable"))) parts.add(Text.translatable("item.unbreakable").getString());
             if (upgradable || stack.getItem().isFireproof()) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
             if (upgradable) parts.add(PTexts.SOULBOUND_TOOLTIP.get().getString());
 
