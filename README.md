@@ -55,7 +55,9 @@ However, I have not yet come across any errors in combination with other mods. I
 Incompatible mods:  
 ???
 
-### Missing Features
+## Missing Features
+These are not yet implemented, but will be in the future.
+
 *Keybinds*: Add keybinds for toggling certain upgrades on and off.  
 *Config*: Add config file.  
 *Barrels*: Potion rework to make you love potions.  
