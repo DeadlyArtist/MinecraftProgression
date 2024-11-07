@@ -1,5 +1,5 @@
-# Minecraft: Progression
-A minecraft mod that builds upon and extends vanilla minecraft progression.
+# More Progression
+A minecraft mod that builds upon and extends vanilla minecraft progression in multiple ways.
 
 ## WIP
 This mod is currently in a very early playtesting stage.
