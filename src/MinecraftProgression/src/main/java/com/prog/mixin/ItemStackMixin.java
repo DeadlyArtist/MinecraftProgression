@@ -109,9 +109,10 @@ public class ItemStackMixin {
 
         if (stack.isSectionVisible(i, ItemStack.TooltipSection.UNBREAKABLE)) {
             List<String> parts = new ArrayList<>();
-            if (stack.getNbt().getBoolean("Unbreakable")) parts.add(Text.translatable("item.unbreakable").getString());
-            if (stack.getItem().isFireproof() || stack.isIn(PItemTags.UPGRADABLE)) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
-            if (stack.isIn(PItemTags.UPGRADABLE)) parts.add(PTexts.SOULBOUND_TOOLTIP.get().getString());
+            var upgradable = stack.isIn(PItemTags.UPGRADABLE);
+            if (upgradable || stack.getNbt().getBoolean("Unbreakable")) parts.add(Text.translatable("item.unbreakable").getString());
+            if (upgradable || stack.getItem().isFireproof()) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
+            if (upgradable) parts.add(PTexts.SOULBOUND_TOOLTIP.get().getString());
 
             if (!parts.isEmpty()) list.add(Text.literal(String.join(", ", parts)).formatted(Formatting.BLUE));
         }
