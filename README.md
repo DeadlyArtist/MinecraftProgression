@@ -38,7 +38,7 @@ Now, it's time for a big change. Not only will you need to go to the nether, you
 
 Using the newly acquired incinerator, you can now smelt obsidian into refined obsidian. Together with some redstone, copper, and gold, you can craft the next tier core, refined obsidian module, once again making you significantly stronger.
 
-Next up is a big one. Titan. For it you will need lots(!) of quartz and ember. As they both spawn on all levels, it is recommended to explore the nether and gather them as you go. However, they do spawn more frequently at lower levels, so going there might give you a headstart on the ancient debris grind (though ancient debris now also has a slight chance to spawn at any levels, so you might come across a few while exploring)...
+Next up is a big one. Titan. For it you will need lots(!) of quartz and a new ore, emberite. As they both spawn on all levels, it is recommended to explore the nether and gather them as you go. However, they do spawn more frequently at lower levels, so going there might give you a headstart on the ancient debris grind (though ancient debris now also has a slight chance to spawn at any levels, so you might come across a few while exploring)...
 
 For the rest, it will be up to you to explore.
 
