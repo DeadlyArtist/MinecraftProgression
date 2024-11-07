@@ -7,7 +7,9 @@ import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.text.PTexts;
 import com.prog.utils.EnchantmentUtils;
+import com.prog.utils.LOGGER;
 import com.prog.utils.UpgradeUtils;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -25,6 +27,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import net.projectile_damage.internal.Constants;
 import org.jetbrains.annotations.Nullable;
@@ -37,6 +40,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
@@ -76,6 +80,41 @@ public class ItemStackMixin {
     private float redirectGetAttributeBaseValue(ItemStack stack, EntityGroup group, @Local(ordinal = 0) LocalDoubleRef d) {
         ItemStack self = (ItemStack) (Object) this;
         return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get());
+    }
+
+    @Redirect(
+            method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/nbt/NbtCompound;getBoolean(Ljava/lang/String;)Z"
+            )
+    )
+    private boolean redirectGetUnbreakable(NbtCompound instance, String key) {
+        return false;
+    }
+
+
+    @Inject(
+            method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/item/ItemStack;hasNbt()Z",
+                    ordinal = 1,
+                    shift = At.Shift.AFTER
+            )
+    )
+    private void injectInfo(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local List<Text> list, @Local(ordinal = 0) int i) {
+        var stack = (ItemStack) (Object) this;
+        if (!stack.hasNbt()) return;
+
+        if (stack.isSectionVisible(i, ItemStack.TooltipSection.UNBREAKABLE)) {
+            List<String> parts = new ArrayList<>();
+            if (stack.getNbt().getBoolean("Unbreakable")) parts.add(Text.translatable("item.unbreakable").getString());
+            if (stack.getItem().isFireproof() || stack.isIn(PItemTags.UPGRADABLE)) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
+            if (stack.isIn(PItemTags.UPGRADABLE)) parts.add(PTexts.SOULBOUND_TOOLTIP.get().getString());
+
+            if (!parts.isEmpty()) list.add(Text.literal(String.join(", ", parts)).formatted(Formatting.BLUE));
+        }
     }
 
     @Inject(method = "onCraft", at = @At("HEAD"))

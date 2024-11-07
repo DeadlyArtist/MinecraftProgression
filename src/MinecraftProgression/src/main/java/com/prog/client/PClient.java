@@ -41,6 +41,11 @@ public class PClient implements ClientModInitializer {
                 lines.add(PTexts.UPGRADABLE_TOOLTIP.get().copy().formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
             }
 
+            // Tier Core
+            if (stack.isIn(PItemTags.TIER_CORE)) {
+                lines.add(PTexts.TIER_CORE_TOOLTIP.get().copy().formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+            }
+
             // Upgrade
             if (stack.isIn(PItemTags.UPGRADE)) {
                 lines.add(PTexts.UPGRADE_TOOLTIP.get().copy().formatted(Formatting.GRAY).formatted(Formatting.ITALIC));

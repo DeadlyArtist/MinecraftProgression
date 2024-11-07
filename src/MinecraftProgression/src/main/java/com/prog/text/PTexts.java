@@ -30,8 +30,12 @@ public class PTexts {
     public static final Map<TextWrapper, TextData> data = new HashMap<>();
 
 
+    public static final TextWrapper FIREPROOF_TOOLTIP = registerText("FIREPROOF_TOOLTIP", "Fireproof");
+    public static final TextWrapper SOULBOUND_TOOLTIP = registerText("SOULBOUND_TOOLTIP", "Soulbound");
+
     public static final TextWrapper UPGRADEABLE_UPGRADE_TOOLTIP = registerText("UPGRADEABLE_UPGRADE_TOOLTIP", "Upgrades");
     public static final TextWrapper UPGRADE_TOOLTIP = registerText("UPGRADE_TOOLTIP", "Upgrade");
+    public static final TextWrapper TIER_CORE_TOOLTIP = registerText("TIER_CORE_TOOLTIP", "Tier Core");
     public static final TextWrapper UPGRADABLE_TOOLTIP = registerText("UPGRADABLE_TOOLTIP", "Upgradable");
     public static final TextWrapper GOURMET_NOT_EATEN_TOOLTIP = registerText("GOURMET_NOT_EATEN_TOOLTIP", "Must... eat...");
     public static final TextWrapper GOURMET_HAS_EATEN_TOOLTIP = registerText("GOURMET_HAS_EATEN_TOOLTIP", "Already tasted");

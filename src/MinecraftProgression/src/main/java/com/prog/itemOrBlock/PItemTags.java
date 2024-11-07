@@ -8,9 +8,10 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class PItemTags {
+    public static final TagKey<Item> UPGRADABLE = createTag("UPGRADABLE");
+    public static final TagKey<Item> TIER_CORE = createTag("TIER_CORE");
     public static final TagKey<Item> UPGRADE = createTag("UPGRADE");
     public static final TagKey<Item> GOURMET_FOOD = createTag("GOURMET_FOOD");
-    public static final TagKey<Item> UPGRADABLE = createTag("UPGRADABLE");
 
     // Tiers
     public static final TagKey<Item> STEEL = createTag("STEEL");

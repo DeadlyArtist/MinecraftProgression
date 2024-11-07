@@ -37,6 +37,7 @@ accessible field net/minecraft/item/ItemStack REPAIR_COST_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack CAN_DESTROY_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack CAN_PLACE_ON_KEY Ljava/lang/String;
 accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
+accessible method net/minecraft/item/ItemStack isSectionVisible (ILnet/minecraft/item/ItemStack$TooltipSection;)Z
 
 # Entity
 accessible field net/minecraft/entity/Entity random Lnet/minecraft/util/math/random/Random;
