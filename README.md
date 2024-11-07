@@ -1,7 +1,7 @@
 # More Progression
 A minecraft mod that builds upon and extends vanilla minecraft progression in multiple ways.
 
-## WIP
+## Work In Progress
 This mod is currently in a very early playtesting stage.
 
 ## Versions
