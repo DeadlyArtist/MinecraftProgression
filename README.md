@@ -1,4 +1,4 @@
-# More Progression ([Curseforge](https://www.curseforge.com/minecraft/mc-mods/more-progression))
+# More Progression ([Curseforge](https://www.curseforge.com/minecraft/mc-mods/more-progression), [Modrinth](https://modrinth.com/mod/more-progression))
 A minecraft mod that builds upon and extends vanilla minecraft progression in multiple ways.
 
 ## Work In Progress
