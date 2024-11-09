@@ -69,7 +69,7 @@ These are not yet implemented, but will be in the future.
 These have been implemented in an update.
 
 *Keybinds*: Added keybinds for toggling certain upgrades on and off. 
-*Rotten Creatures*: Added special mod support.
+*Rotten Creatures*: Added special mod support.  
 
 ## License
 This mod is licensed under MIT license.
