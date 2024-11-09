@@ -68,7 +68,7 @@ These are not yet implemented, but will be in the future.
 ## Feature Changelog
 These have been implemented in an update.
 
-*Keybinds*: Added keybinds for toggling certain upgrades on and off. 
+*Keybinds*: Added keybinds for toggling certain upgrades on and off.  
 *Rotten Creatures*: Added special mod support.  
 
 ## License
