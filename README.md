@@ -46,6 +46,7 @@ For the rest, it will be up to you to explore.
 Special mod support:  
 [Roughly Enough Items](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items)  
 [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs)  
+[Rotten Creatures](https://www.curseforge.com/minecraft/mc-mods/rotten-creatures)  
 
 ## Mod Incompatibility
 This mod was designed as a standalone experience, as it introduces lots of significant changes to make this much progression possible, including very high damage and armor. This massive change in balance makes this mod very overpowered in combination with other mods. Additionally, its unique tier and armor/tool upgrade system would require other mods to be programmed specifically for this mod to stay relevant.
@@ -58,12 +59,17 @@ Incompatible mods:
 ## Missing Features
 These are not yet implemented, but will be in the future.
 
-*Keybinds*: Add keybinds for toggling certain upgrades on and off.  
 *Config*: Add config file.  
 *Barrels*: Potion rework to make you love potions.  
 *More Upgradable Tools*: Add upgradable/tiered crossbows, tridents, fishing rods, shears, shields.  
 *More Progression*: Add more tiers (such as Deeper and Darker integration), upgrades, and gourmet food.  
 *More Versions*: Add support for higher minecraft versions, as well as forge.  
+
+## Feature Changelog
+These have been implemented in an update.
+
+*Keybinds*: Added keybinds for toggling certain upgrades on and off. 
+*Rotten Creatures*: Added special mod support.
 
 ## License
 This mod is licensed under MIT license.
