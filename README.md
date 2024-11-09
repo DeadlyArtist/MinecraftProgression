@@ -34,7 +34,7 @@ After that, craft steel bindings and use them to upgrade your iron tools and arm
 
 Next are the good old diamonds. Find them and craft their tools and armor as normal. However, instead of using them directly, first apply them to your existing arsenal to upgrade them to the next tier, ultimate diamond. At this point, you're already stronger than diamond.
 
-Now, it's time for a big change. Not only will you need to go to the nether, you will also craft a new, bigger, upgraded crafting table, allowing you to craft an incinerator, which is way faster and unlocks new recipes.
+Now, it's time for a big change. Not only will you need to go to the nether, you will also craft a bigger and better crafting table, the assembly. This allows you to craft an incinerator, which is a way faster blast furnace and unlocks new recipes.
 
 Using the newly acquired incinerator, you can now smelt obsidian into refined obsidian. Together with some redstone, copper, and gold, you can craft the next tier core, refined obsidian module, once again making you significantly stronger.
 
