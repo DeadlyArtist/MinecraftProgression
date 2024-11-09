@@ -2,14 +2,14 @@
   "replace": false,
   "values": [
     "prog:refined_obsidian_helmet",
-    "prog:refined_obsidian_shovel",
+    "prog:refined_obsidian_hoe",
+    "prog:refined_obsidian_axe",
     "prog:refined_obsidian_pickaxe",
     "prog:refined_obsidian_boots",
-    "prog:refined_obsidian_sword",
     "prog:refined_obsidian_chestplate",
-    "prog:refined_obsidian_axe",
-    "prog:refined_obsidian_leggings",
+    "prog:refined_obsidian_sword",
     "prog:refined_obsidian_bow",
-    "prog:refined_obsidian_hoe"
+    "prog:refined_obsidian_shovel",
+    "prog:refined_obsidian_leggings"
   ]
 }

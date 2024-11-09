@@ -1,5 +1,6 @@
 package com.prog;
 
+import com.github.teamfusion.rottencreatures.common.registries.RCItems;
 import com.prog.data.PRecipeProvider;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
@@ -23,6 +24,8 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
@@ -33,6 +36,7 @@ import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.projectile_damage.internal.Constants;
@@ -49,7 +53,7 @@ import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
 public class Prog implements ModInitializer {
     public static final String MOD_ID = "prog";
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.0.2";
     public static final Logger __LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override
@@ -77,11 +81,25 @@ public class Prog implements ModInitializer {
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
         TagEvents.TAG_LOADED.register((tagId, entries) -> {
+            if (tagId.equals(BlockTags.NEEDS_DIAMOND_TOOL.id())) {
+                @SuppressWarnings("unchecked")
+                Collection<RegistryEntry<Block>> blockEntries = (Collection<RegistryEntry<Block>>) entries;
+                blockEntries.remove(Blocks.ANCIENT_DEBRIS.getRegistryEntry());
+            }
+
             if (XCompat.isModLoaded(XIDs.FROG_LEGS)) {
                 if (tagId.equals(PItemTags.GOURMET_FOOD.id())) {
                     @SuppressWarnings("unchecked")
                     Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
                     itemEntries.add(FroglegsModItems.COOKED_FROG_LEG.getRegistryEntry());
+                }
+            }
+            if (XCompat.isModLoaded(XIDs.ROTTEN_CREATURES)) {
+                if (tagId.equals(PItemTags.GOURMET_FOOD.id())) {
+                    @SuppressWarnings("unchecked")
+                    Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
+                    itemEntries.add(RCItems.MAGMA_ROTTEN_FLESH.get().getRegistryEntry());
+                    itemEntries.add(RCItems.CORRUPTED_WART.get().getRegistryEntry());
                 }
             }
         });

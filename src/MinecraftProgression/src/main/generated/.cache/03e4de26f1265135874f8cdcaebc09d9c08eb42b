@@ -1,18 +1,18 @@
-// 1.19.2	2024-11-06T22:56:02.9517682	Tags for minecraft:item
-0be20c90d1d9014a7b724c98540143f091f1b4d7 data\prog\tags\items\titan_or_higher.json
-07bbc8a379bdb87dc8f9f7c38d5cda3297e917e0 data\prog\tags\items\ultimate_diamond.json
-a2f345c723245817b4873dcfc90ee76ba01ee5fa data\prog\tags\items\verum.json
-e94f34b4a56dc4d19acf31ee8c0c5f94f55509fd data\prog\tags\items\gourmet_food.json
-a2f345c723245817b4873dcfc90ee76ba01ee5fa data\prog\tags\items\verum_or_higher.json
-e9db43185a406b8e463a77e67cb48ba26b8fbf1d data\prog\tags\items\tier_core.json
-c5238e89efae5adafc768377505b9c1d2e0a7c15 data\prog\tags\items\upgradable.json
-aaadfc7e25b43af83d857ea9bccbc714089951bb data\prog\tags\items\refined_obsidian_or_higher.json
-710384d042f78558ab02e7bfa7d9603fdcf56c4f data\prog\tags\items\primal_netherite.json
-8c3dec3baeab420cadf03bdef26f16e8268657de data\prog\tags\items\primal_netherite_or_higher.json
-60a6dd480f4e209c31aa3605e9010fcbc94ad38d data\prog\tags\items\steel.json
-f9c0552c0e6d01c10dac9063f2cd4e2558871f8d data\minecraft\tags\items\cluster_max_harvestables.json
-63e1bc5ee9b7d6f452632a39869b02a7057c1e37 data\prog\tags\items\refined_obsidian.json
-d07dfc4fe61b1afe948aa448bdb260effd6807e1 data\prog\tags\items\ultimate_diamond_or_higher.json
-59f31d4bcd74d092eaed46f4073883b37b6e197d data\prog\tags\items\upgrade.json
-c5238e89efae5adafc768377505b9c1d2e0a7c15 data\prog\tags\items\steel_or_higher.json
-3a9c145d7554b8cc6fba538cc9dcad709201e907 data\prog\tags\items\titan.json
+// 1.19.2	2024-11-08T23:15:16.2578917	Tags for minecraft:item
+5ec763c8c4dd9331fe5669d7aa9f1b4793e1f62e data\prog\tags\items\titan_or_higher.json
+3176e700bf66894e8c20be7f735a11fc1f538aa1 data\prog\tags\items\ultimate_diamond.json
+9441b2a997b7b2719bf479ef0072d1007b352f56 data\prog\tags\items\verum.json
+f6d8fd6a43834eca42e7926289a299612ea2daf1 data\prog\tags\items\gourmet_food.json
+b8905441891eb6c028c398d53c4f6074caf9fc34 data\prog\tags\items\tier_core.json
+9441b2a997b7b2719bf479ef0072d1007b352f56 data\prog\tags\items\verum_or_higher.json
+44d889d43f8bc38ed2b0b0a282cdd4b9923598c2 data\prog\tags\items\upgradable.json
+2ceae5e828db8d3b098fd0755f8d8bf394292a0f data\prog\tags\items\refined_obsidian_or_higher.json
+fc73a79ed6285e2cab01bba9acba68597e2c9243 data\prog\tags\items\primal_netherite_or_higher.json
+02706cd678f656f2f4ec08c2f63c96ea19949abe data\prog\tags\items\primal_netherite.json
+866887aa9351576394ba30ce78aa44730e102449 data\prog\tags\items\steel.json
+1e9806ed6966b838d968e59d592d8f0dee47200f data\minecraft\tags\items\cluster_max_harvestables.json
+469b7c090a5c8bc38e696baf16eb27a501cd7d05 data\prog\tags\items\refined_obsidian.json
+1cbc00d0d6f5dbe5a8ccaca9065234ee11e94582 data\prog\tags\items\ultimate_diamond_or_higher.json
+933806b4ea7c9f0c7fd5a10626394d12c352052d data\prog\tags\items\upgrade.json
+44d889d43f8bc38ed2b0b0a282cdd4b9923598c2 data\prog\tags\items\steel_or_higher.json
+8c0fd3cf97ad635de9e95948a029a16f48949083 data\prog\tags\items\titan.json

@@ -44,7 +44,6 @@ public class LivingEntityMixin {
     )
     private void redirectGetMaxUseTimeInSetCurrentHand(Hand hand, CallbackInfo ci) {
         ticksSince = 0;
-        LOGGER.info("TRACKED");
     }
 
     @Inject(
@@ -118,7 +117,7 @@ public class LivingEntityMixin {
         var amount = Math.max(1, squad.rank + 1 - maxEnchantmentLevel);
         var enchantmentLevel = Math.min(maxEnchantmentLevel, squad.rank);
         for (var i = 0; i < amount; i++) {
-            var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(self.random, enchantmentLevel));
+            var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(self.random, enchantmentLevel, false));
             self.dropStack(stack);
         }
     }

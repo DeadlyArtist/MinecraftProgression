@@ -106,6 +106,16 @@ dependencies {
 	modImplementation include("curse.maven:cupboard-326652:5170316")
 	implementation include('com.ezylang:EvalEx:3.0.1')
 
+	// Iron Jetpacks
+	modImplementation include("curse.maven:ironjetpacks-386892:4104580")
+	modImplementation include("curse.maven:autoconfig-373261:3668220")
+	modImplementation include("teamreborn:energy:2.3.0")
+
+
+	/////////////
+	// Optional
+	/////
+
 	// REI
 	// Manually override architectury, remove once REI's dependency is fixed
 	modImplementation "dev.architectury:architectury-fabric:6.2.43"
@@ -113,13 +123,11 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 
-	// Frog Legs
-	modCompileOnly("maven.modrinth:equ26Hrh:8Hj9pLxI")
 
-	// Iron Jetpacks
-	modImplementation("curse.maven:ironjetpacks-386892:4104580")
-	modImplementation("curse.maven:autoconfig-373261:3668220")
-	modImplementation("teamreborn:energy:2.3.0")
+	// Other
+	modImplementation("maven.modrinth:equ26Hrh:8Hj9pLxI") // Frog Legs
+	modImplementation("curse.maven:rottencreatures-371033:4063269")
+
 
 	// Not used for now, placeholder for future versions
 //	// Deeper and Darker

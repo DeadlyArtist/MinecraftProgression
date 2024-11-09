@@ -14,6 +14,8 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.mob.*;
+import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -45,11 +47,12 @@ public class SquadComponent implements Component, ServerTickingComponent {
         if (didInit) return;
         didInit = true;
 
-        if (!(entity instanceof HostileEntity) || // Ender dragon is not hostile entity
-                entity instanceof WitherEntity ||
+        var isHostile = entity instanceof HostileEntity; // Ender dragon is not hostile entity
+        var inBlacklist = entity instanceof WitherEntity ||
                 entity instanceof ElderGuardianEntity ||
-                entity instanceof WardenEntity
-        ) return;
+                entity instanceof WardenEntity;
+        //var inWhitelist = entity instanceof IronGolemEntity iron && !iron.isPlayerCreated(); // Meh, not sure
+        if (!isHostile || inBlacklist) return;
         if (entity.hasCustomName()) return;
 
         setRandomRank();
@@ -127,7 +130,13 @@ public class SquadComponent implements Component, ServerTickingComponent {
     }
 
     public double getDamageMultiplier() {
-        double baseModifier = Math.pow(2, rank + 2);
+        double baseModifier = Math.pow(2, rank + 0.7);
+        double modifiedValue = randomOffset(baseModifier, 0.2);
+        return modifiedValue;
+    }
+
+    public double getProjectileDamageMultiplier() {
+        double baseModifier = Math.pow(2, rank + 0.2);
         double modifiedValue = randomOffset(baseModifier, 0.2);
         return modifiedValue;
     }
@@ -153,7 +162,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
         EntityAttributeInstance entityAttributeInstance = entity.getAttributeInstance(XEntityAttributes.PROJECTILE_DAMAGE);
         if (entityAttributeInstance == null) return;
 
-        var modifier = EntityAttributeModifierUtils.of(squadProjectileDamageModifierName, getDamageMultiplier(), EntityAttributeModifier.Operation.MULTIPLY_BASE);
+        var modifier = EntityAttributeModifierUtils.of(squadProjectileDamageModifierName, getProjectileDamageMultiplier(), EntityAttributeModifier.Operation.MULTIPLY_BASE);
         if (!entityAttributeInstance.hasModifier(modifier)) entityAttributeInstance.addPersistentModifier(modifier);
     }
 

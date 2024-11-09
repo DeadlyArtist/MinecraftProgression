@@ -1,5 +1,6 @@
 package com.prog.itemOrBlock;
 
+import com.github.teamfusion.rottencreatures.common.registries.RCItems;
 import com.prog.Prog;
 import com.prog.XIDs;
 import com.prog.utils.LOGGER;
@@ -64,10 +65,16 @@ public class GourmetFoods {
         register(Items.GLOW_BERRIES, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.DRIED_KELP, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.SLIME_BALL, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        //register(Items.SEA_PICKLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1)); // doesn't work because it glitches, as it can also be placed
+        register(Items.MAGMA_CREAM, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
 
         // Compat
         if (XCompat.isModLoaded(XIDs.FROG_LEGS)) {
             register(FroglegsModItems.COOKED_FROG_LEG, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        }
+        if (XCompat.isModLoaded(XIDs.ROTTEN_CREATURES)) {
+            register(RCItems.MAGMA_ROTTEN_FLESH.get(), UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+            register(RCItems.CORRUPTED_WART.get(), UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 2));
         }
 
         // Custom

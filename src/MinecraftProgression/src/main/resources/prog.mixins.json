@@ -8,6 +8,7 @@
     "CakeBlockMixin",
     "ConfiguredFeaturesMixin",
     "CrossbowItemMixin",
+    "DamageSourceMixin",
     "EnchantmentHelperMixin",
     "EnderDragonFightMixin",
     "EndermanEntityMixin",
@@ -39,6 +40,7 @@
     "compat.ironjetpacks.ToggleEngineMessageMixin",
     "compat.ironjetpacks.ToggleHoverMessageMixin",
     "compat.projectile_damage.TooltipHelperMixin",
+    "compat.rottencreatures.RCItemsMixin",
     "compat.soulbound.SoulBoundEnchantmentMixin"
   ],
   "client": [

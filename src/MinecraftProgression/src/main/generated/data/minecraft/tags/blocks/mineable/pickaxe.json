@@ -1,17 +1,17 @@
 {
   "replace": false,
   "values": [
-    "prog:verum_ore",
-    "prog:quartz_catalyst",
-    "prog:emberite_ore",
     "prog:assembly",
-    "prog:cosmic_constructor",
+    "prog:machine_frame",
+    "prog:nether_star_block",
     "prog:emberite_block",
+    "prog:steel_block",
+    "prog:emberite_ore",
     "prog:incinerator",
     "prog:cosmic_incubator",
-    "prog:steel_block",
+    "prog:quartz_catalyst",
     "prog:verum_block",
-    "prog:machine_frame",
-    "prog:nether_star_block"
+    "prog:verum_ore",
+    "prog:cosmic_constructor"
   ]
 }

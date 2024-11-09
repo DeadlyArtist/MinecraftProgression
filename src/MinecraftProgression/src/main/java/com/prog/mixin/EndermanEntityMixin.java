@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class EndermanEntityMixin {
     @Inject(method = "isPlayerStaring", at = @At("HEAD"), cancellable = true)
     private void alwaysStaring(PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-        if (player.getAttributeValue(PEntityAttributes.ENDERMAN_DISGUISE) == 1) cir.setReturnValue(true);
+        if (player.getAttributeValue(PEntityAttributes.ENDERMAN_DISGUISE) == 1) cir.setReturnValue(false);
     }
 }

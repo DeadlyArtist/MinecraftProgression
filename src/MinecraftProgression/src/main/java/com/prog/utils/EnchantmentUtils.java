@@ -28,7 +28,7 @@ public class EnchantmentUtils {
 
         EnchantmentHelper.forEachEnchantment((enchantment, level) -> {
             if (enchantment instanceof DamageEnchantment damageEnchantment) {
-                float multiplier = 0.0F;
+                float multiplier = 1.0F;
 
                 switch (damageEnchantment.typeIndex) {
                     case 0 -> multiplier = getCommonDamageMultiplier(level);
@@ -42,7 +42,7 @@ public class EnchantmentUtils {
                             multiplier = getCommonDamageMultiplier(level) * specificConstraintMultiplier;
                         }
                     }
-                    default -> multiplier = 0.0F; // No damage multiplier for other cases
+                    // No damage multiplier for other cases
                 }
 
                 damage.setValue(damage.getValue() * multiplier);
@@ -54,12 +54,14 @@ public class EnchantmentUtils {
         return damage.getValue() - baseDamage;
     }
 
-    public static EnchantmentLevelEntry getRandomEnchantmentLevelEntry(Random random, int minLevel, int maxLevel) {
+    public static EnchantmentLevelEntry getRandomEnchantmentLevelEntry(Random random, int minLevel, int maxLevel, boolean allowCursed) {
         int effectiveLevel = MathHelper.nextInt(random, minLevel, maxLevel);
 
         // Fetch all Enchantments and filter by whether they meet the min and max level criteria
         List<Enchantment> availableEnchantments = Registry.ENCHANTMENT.stream()
                 .filter(enchantment -> {
+                    if (!allowCursed && enchantment.isCursed()) return false;
+
                     // For treasure enchantments, treat the level requirement as doubled.
                     var multiplier = enchantment.isTreasure() ? 2 : 1;
                     int effectiveMinLevel = enchantment.getMinLevel() * multiplier;
@@ -79,7 +81,7 @@ public class EnchantmentUtils {
         return new EnchantmentLevelEntry(selectedEnchantment, actualLevel);
     }
 
-    public static EnchantmentLevelEntry getRandomEnchantmentLevelEntry(Random random, int level) {
-        return getRandomEnchantmentLevelEntry(random, level, level);
+    public static EnchantmentLevelEntry getRandomEnchantmentLevelEntry(Random random, int level, boolean allowCursed) {
+        return getRandomEnchantmentLevelEntry(random, level, level, allowCursed);
     }
 }

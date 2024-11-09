@@ -10,7 +10,7 @@ public class GourmetUtils {
     }
 
     public static String getGourmetModifierNamePrefix(Item food) {
-        return GOURMET_FOOD_MODIFIER_IDENTIFIER + ItemUtils.getId(food) + "___";
+        return getGourmetModifierNamePrefix(ItemUtils.getId(food).toString());
     }
 
     public static String getGourmetModifierName(String foodId, int effectIndex) {

@@ -2,14 +2,14 @@
   "replace": false,
   "values": [
     "prog:ultimate_diamond_sword",
-    "prog:ultimate_diamond_leggings",
+    "prog:ultimate_diamond_helmet",
+    "prog:ultimate_diamond_hoe",
     "prog:ultimate_diamond_boots",
     "prog:ultimate_diamond_axe",
-    "prog:ultimate_diamond_pickaxe",
-    "prog:ultimate_diamond_hoe",
     "prog:ultimate_diamond_shovel",
+    "prog:ultimate_diamond_pickaxe",
+    "prog:ultimate_diamond_leggings",
     "prog:ultimate_diamond_chestplate",
-    "prog:ultimate_diamond_helmet",
     "prog:ultimate_diamond_bow"
   ]
 }

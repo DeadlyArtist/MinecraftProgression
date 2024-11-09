@@ -26,6 +26,13 @@ public class ItemsMixin {
         } else if ("slime_ball".equals(id.getPath())) {
             item.group = ItemGroup.FOOD;
             item.foodComponent = PFoodComponents.SLIME_BALL;
+            // Doesn't work due to glitches.
+//        } else if ("sea_pickle".equals(id.getPath())) {
+//            item.group = ItemGroup.FOOD;
+//            item.foodComponent = PFoodComponents.SEA_PICKLE;
+        } else if ("magma_cream".equals(id.getPath())) {
+            item.group = ItemGroup.FOOD;
+            item.foodComponent = PFoodComponents.MAGMA_CREAM;
         }
     }
 }

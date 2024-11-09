@@ -77,9 +77,9 @@ public class ItemStackMixin {
                     ordinal = 0
             )
     )
-    private float redirectGetAttributeBaseValue(ItemStack stack, EntityGroup group, @Local(ordinal = 0) LocalDoubleRef d) {
+    private float redirectGetAttributeBaseValue(ItemStack stack, EntityGroup group, @Local(ordinal = 0) double d) {
         ItemStack self = (ItemStack) (Object) this;
-        return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get());
+        return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d);
     }
 
     @Redirect(

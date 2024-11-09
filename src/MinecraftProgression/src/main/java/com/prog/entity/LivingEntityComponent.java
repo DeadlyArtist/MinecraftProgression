@@ -54,6 +54,7 @@ public class LivingEntityComponent implements Component, ServerTickingComponent,
             var attributeInstance = attributes.getCustomInstance(effect.target);
             var name = GourmetUtils.getGourmetModifierName(item, index);
             var modifier = effect.copyWithName(name).modifier;
+            if (attributeInstance.hasModifier(modifier)) attributeInstance.removeModifier(modifier); // Shouldn't be necessary, but server is sometimes throwing errors, so whatever
             attributeInstance.addPersistentModifier(modifier);
             if (effect.target == EntityAttributes.GENERIC_MAX_HEALTH && effect.modifier.getOperation() == EntityAttributeModifier.Operation.ADDITION && !existingEffects.contains(name)) {
                 entity.heal((float) effect.modifier.getValue());

@@ -17,7 +17,8 @@ public class PMixinPlugin implements IMixinConfigPlugin {
 
     private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
             "com.prog.mixin.compat.rei.DefaultClientPluginMixin", () -> XCompat.isModLoaded(XIDs.REI),
-            "com.prog.mixin.compat.supplementaries.DirectionalCakeBlockMixin", () -> XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)
+            "com.prog.mixin.compat.supplementaries.DirectionalCakeBlockMixin", () -> XCompat.isModLoaded(XIDs.SUPPLEMENTARIES),
+            "com.prog.mixin.compat.rottencreatures.RCItemsMixin", () -> XCompat.isModLoaded(XIDs.ROTTEN_CREATURES)
     );
 
     @Override

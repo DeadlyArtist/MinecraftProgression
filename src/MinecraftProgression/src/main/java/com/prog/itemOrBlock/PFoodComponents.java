@@ -9,8 +9,13 @@ public class PFoodComponents {
     // Vanilla
     public static final FoodComponent GLISTERING_MELON_SLICE = new FoodComponent.Builder().hunger(6).saturationModifier(1.2F).build();
     public static final FoodComponent TURTLE_EGG = new FoodComponent.Builder().hunger(5).saturationModifier(0.2F).build();
+    public static final FoodComponent SEA_PICKLE = new FoodComponent.Builder().hunger(1).saturationModifier(0.2F).build();
     public static final FoodComponent SLIME_BALL = new FoodComponent.Builder().hunger(1).saturationModifier(0.1F)
             .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 1), 1.0F)
+            .build();
+    public static final FoodComponent MAGMA_CREAM = new FoodComponent.Builder().hunger(1).saturationModifier(0.1F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 1), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 1600, 2), 1.0F)
             .build();
     public static final FoodComponent NETHER_WART = new FoodComponent.Builder().hunger(2).saturationModifier(0.1F)
             .statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 600, 1), 1.0F)
@@ -47,5 +52,10 @@ public class PFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 3000, 3), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 3000, 3), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 3000, 3), 1.0F)
+            .build();
+
+    // Compat
+    public static final FoodComponent CORRUPTED_WART = new FoodComponent.Builder().hunger(4).saturationModifier(0.5F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 1200, 2), 1.0F)
             .build();
 }

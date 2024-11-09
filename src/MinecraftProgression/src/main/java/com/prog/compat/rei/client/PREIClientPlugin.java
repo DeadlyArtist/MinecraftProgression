@@ -39,15 +39,16 @@ import java.util.stream.IntStream;
 
 @Environment(EnvType.CLIENT)
 public class PREIClientPlugin implements REIClientPlugin {
-    static <C extends ScreenHandler, D extends Display> SimpleTransferHandler createCraftingCompat(Class<? extends C> containerClass,
-                                                                                                   CategoryIdentifier<D> categoryIdentifier,
-                                                                                                   int recipeWidth) {
+    static <C extends ScreenHandler, D extends Display> SimpleTransferHandler createCraftingCompat(CategoryIdentifier<D> categoryIdentifier, int recipeWidth, int recipeHeight) {
+        var containerClass = FlexibleCraftingScreenHandler.class;
         return new SimpleTransferHandler() {
             @Override
             public ApplicabilityResult checkApplicable(Context context) {
                 if (!containerClass.isInstance(context.getMenu())
                         || !categoryIdentifier.equals(context.getDisplay().getCategoryIdentifier())
-                        || context.getContainerScreen() == null) {
+                        || context.getContainerScreen() == null
+                        || (context.getMenu() instanceof FlexibleCraftingScreenHandler flex && (flex.width < recipeWidth || flex.height < recipeHeight))
+                ) {
                     return ApplicabilityResult.createNotApplicable();
                 } else {
                     return ApplicabilityResult.createApplicable();
@@ -59,7 +60,7 @@ public class PREIClientPlugin implements REIClientPlugin {
                 var handler = (FlexibleCraftingScreenHandler) context.getMenu();
                 var width = handler.width;
 
-                return IntStream.range(1, recipeWidth * recipeWidth + 1)
+                return IntStream.range(1, recipeWidth * recipeHeight + 1)
                         .mapToObj(id -> SlotAccessor.fromSlot(handler.getSlot(1 + (id - 1) % recipeWidth + width * (int)((id - 1) / recipeWidth))))
                         .toList();
             }
@@ -73,6 +74,10 @@ public class PREIClientPlugin implements REIClientPlugin {
                         .collect(Collectors.toList());
             }
         };
+    }
+
+    static <C extends ScreenHandler, D extends Display> SimpleTransferHandler createCraftingCompat(CategoryIdentifier<D> categoryIdentifier, FlexibleCraftingData data) {
+        return createCraftingCompat(categoryIdentifier, data.width, data.height);
     }
 
     @Override
@@ -115,10 +120,10 @@ public class PREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerTransferHandlers(TransferHandlerRegistry registry) {
-        registry.register(createCraftingCompat(FlexibleCraftingScreenHandler.class, BuiltinPlugin.CRAFTING, 3));
+        registry.register(createCraftingCompat(BuiltinPlugin.CRAFTING, 3, 3));
 
-        registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.ASSEMBLY, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.ASSEMBLY.height * FlexibleCraftingData.ASSEMBLY.width + 1)));
-        registry.register(SimpleTransferHandler.create(FlexibleCraftingScreenHandler.class, PREICategories.COSMIC_CONSTRUCTOR, new SimpleTransferHandler.IntRange(1, FlexibleCraftingData.COSMIC_CONSTRUCTOR.height * FlexibleCraftingData.COSMIC_CONSTRUCTOR.width + 1)));
+        registry.register(createCraftingCompat(PREICategories.ASSEMBLY, FlexibleCraftingData.ASSEMBLY));
+        registry.register(createCraftingCompat(PREICategories.COSMIC_CONSTRUCTOR, FlexibleCraftingData.COSMIC_CONSTRUCTOR));
 
         registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, BuiltinPlugin.BLASTING, new SimpleTransferHandler.IntRange(0, 1)));
         registry.register(SimpleTransferHandler.create(FlexibleCookingScreenHandler.class, PREICategories.INCINERATOR, new SimpleTransferHandler.IntRange(0, 1)));
