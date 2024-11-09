@@ -12,6 +12,9 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
     public final PlayerEntity player;
     public boolean couldFly = false;
     public boolean didInit = false;
+    public boolean headlightDisabled = false;
+    public boolean stepAssistDisabled = false;
+    public boolean badOmenImmunityDisabled = false;
 
     public PlayerComponent(PlayerEntity player){
         this.player = player;
@@ -60,10 +63,16 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
     @Override
     public void readFromNbt(NbtCompound nbt) {
         couldFly = nbt.getBoolean("couldFly");
+        headlightDisabled = nbt.getBoolean("headlightDisabled");
+        stepAssistDisabled = nbt.getBoolean("stepAssistDisabled");
+        badOmenImmunityDisabled = nbt.getBoolean("badOmenImmunityDisabled");
     }
 
     @Override
     public void writeToNbt(NbtCompound nbt) {
         nbt.putBoolean("couldFly", couldFly);
+        nbt.putBoolean("headlightDisabled", headlightDisabled);
+        nbt.putBoolean("stepAssistDisabled", stepAssistDisabled);
+        nbt.putBoolean("badOmenImmunityDisabled", badOmenImmunityDisabled);
     }
 }

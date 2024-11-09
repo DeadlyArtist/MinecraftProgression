@@ -65,31 +65,35 @@ public class SquadComponent implements Component, ServerTickingComponent {
 
     public void setRandomRank() {
         if (MathHelper.nextInt(entity.random, 0, 9) != 9) return; // 90% chance to be normal, 10% chance to be ranked
-        rank = 1;
 
         var player = entity.world.getClosestPlayer(entity, 1000);
 
-        // https://deadlyartist.github.io/aidevsuite/#local/live_calculator?mode=run
-        //var level = 8
-        //var prob = 0.1
-        //var power = Math.pow(1.35, level - 1) - 0.5
-        //prob = 1 - Math.pow(1 - prob, power);
-        //[power, prob, Math.pow(prob, 5)]
+        // https://deadlyartist.github.io/aidevsuite/#extern?url=data/Live%20Calculator.json&mode=run
+        // var level = 7
+        // var power = level * 6 / 10;
+        // [power].join("    ")
         var power = 4D;
         if (player != null) {
             for (var stack : player.getInventory().armor) {
                 var item = stack.getItem();
                 var level = PTierData.getTierLevel(item);
-                var weight = Math.pow(1.35, level - 1) - 0.5;
+                var weight = level * 6 / 10;
                 power += weight;
             }
         }
         power /= 4;
 
-        var prob = 0.1;
-        prob = 1 - Math.pow(1 - prob, power);
+        rank = (int) Math.round(power);
+        rank = Math.max(1, rank);
 
-        rank = randomIncrementRank(prob);
+        var randomInt = MathHelper.nextInt(entity.random, 1, 100);
+        if (randomInt > 95) { // too strong (5% chance)
+            rank += 1;
+            var prob = 0.1;
+            rank = randomIncrementRank(prob);
+        } else if (randomInt <= 75) { // too weak (75% chance)
+            rank = MathHelper.nextInt(entity.random, 1, Math.max(1, rank - 1));
+        } // else about right (20% chance)
 
         if (isFollower()) rank = Math.min(rank, PComponents.SQUAD.get(leader).rank - 1);
     }

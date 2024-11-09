@@ -1,7 +1,7 @@
 package com.prog;
 
 import com.github.teamfusion.rottencreatures.common.registries.RCItems;
-import com.prog.data.PRecipeProvider;
+import com.prog.data.PKeybindingLangHelper;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
 import com.prog.entity.PEntityLootTables;
@@ -15,6 +15,7 @@ import com.prog.event.RecipeEvents;
 import com.prog.event.TagEvents;
 import com.prog.itemOrBlock.*;
 import com.prog.itemOrBlock.custom.TieredTridentItem;
+import com.prog.network.PNetwork;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
@@ -26,34 +27,31 @@ import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.tag.BlockTags;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.projectile_damage.internal.Constants;
 import net.purejosh.froglegs.init.FroglegsModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.function.Supplier;
 
 import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
 public class Prog implements ModInitializer {
     public static final String MOD_ID = "prog";
     public static final String VERSION = "1.0.2";
+    public static final String NAME = "More Progression";
     public static final Logger __LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override
@@ -77,6 +75,8 @@ public class Prog implements ModInitializer {
         GourmetFoods.init();
         OreGeneration.init();
         PEntityLootTables.init();
+        PNetwork.init();
+        PKeybindingLangHelper.init();
 
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
@@ -114,7 +114,7 @@ public class Prog implements ModInitializer {
         });
 
         EntityEvents.LIVING_ENTITY_TICK.register(entity -> {
-            entity.stepHeight = (float) entity.getAttributeValue(PEntityAttributes.STEP_HEIGHT);
+            entity.stepHeight = (float) ((entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).stepAssistDisabled) ? PEntityAttributes.STEP_HEIGHT.getDefaultValue() : entity.getAttributeValue(PEntityAttributes.STEP_HEIGHT));
         });
 
         EntityEvents.PLAYER_ENTITY_TICK.register(player -> {
@@ -171,6 +171,8 @@ public class Prog implements ModInitializer {
             StatusEffect effect = effectInstance.getEffectType();
             var immunityAttribute = IMMUNITY_MAP.get(effect);
             if (immunityAttribute != null && entity.getAttributeValue(immunityAttribute) == 1.0) {
+                if (immunityAttribute == PEntityAttributes.BAD_OMEN_IMMUNITY && entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).badOmenImmunityDisabled) return true;
+
                 return false;
             }
 

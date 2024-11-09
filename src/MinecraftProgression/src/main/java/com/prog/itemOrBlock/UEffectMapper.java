@@ -1,18 +1,13 @@
 package com.prog.itemOrBlock;
 
 import com.prog.entity.attribute.XEntityAttributes;
-import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.ItemUtils;
 import com.prog.utils.ListUtils;
-import com.prog.utils.SlotUtils;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
-import net.projectile_damage.api.EntityAttributes_ProjectileDamage;
 
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class UEffectMapper {
     public static Function<Item, List<UEffect>> all(List<UEffect> effects) {
@@ -35,7 +30,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> best(double amount) {
-        return armorMeleeRanged(UEffect.add(EntityAttributes.GENERIC_ARMOR, amount), UEffect.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.add(XEntityAttributes.PROJECTILE_DAMAGE, amount));
+        return armorMeleeRanged(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount), UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(XEntityAttributes.PROJECTILE_DAMAGE, amount));
     }
 
     public static Function<Item, List<UEffect>> best() {
@@ -67,7 +62,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> damage(double amount) {
-        return meleeRanged(UEffect.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.add(XEntityAttributes.PROJECTILE_DAMAGE, amount));
+        return meleeRanged(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(XEntityAttributes.PROJECTILE_DAMAGE, amount));
     }
 
     public static Function<Item, List<UEffect>> damage() {
@@ -75,7 +70,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> protection(double amount) {
-        return armor(UEffect.add(EntityAttributes.GENERIC_ARMOR, amount));
+        return armor(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount));
     }
 
     public static Function<Item, List<UEffect>> protection() {

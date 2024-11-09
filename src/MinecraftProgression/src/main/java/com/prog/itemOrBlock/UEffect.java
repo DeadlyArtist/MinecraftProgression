@@ -9,8 +9,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-import java.util.UUID;
-
 public class UEffect {
     public final EntityAttribute target;
     public final EntityAttributeModifier modifier;
@@ -28,7 +26,7 @@ public class UEffect {
         return of(target, EntityAttributeModifierUtils.of(value, operation));
     }
 
-    public static UEffect add(EntityAttribute target, double value) {
+    public static UEffect increment(EntityAttribute target, double value) {
         return of(target, EntityAttributeModifierUtils.add(value));
     }
 
@@ -41,7 +39,7 @@ public class UEffect {
         return of(target, EntityAttributeModifierUtils.of(name, value, operation));
     }
 
-    public static UEffect add(EntityAttribute target, String name, double value) {
+    public static UEffect increment(EntityAttribute target, String name, double value) {
         return of(target, EntityAttributeModifierUtils.add(name, value));
     }
 

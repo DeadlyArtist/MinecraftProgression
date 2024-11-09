@@ -1,7 +1,9 @@
 package com.prog.client;
 
+import com.blakebr0.ironjetpacks.handler.KeyBindingsHandler;
 import com.prog.Prog;
 import com.prog.client.gui.screen.ingame.PHandledScreens;
+import com.prog.client.keybindings.PKeybindings;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.ItemEvents;
@@ -14,6 +16,7 @@ import com.prog.utils.UpgradeUtils;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -30,8 +33,11 @@ public class PClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         PHandledScreens.init();
+        PKeybindings.init();
 
         // Events
+        ClientTickEvents.END_CLIENT_TICK.register(PKeybindings::onClientTick);
+
         ItemEvents.APPEND_TOOLTIP.register((stack, context, lines) -> {
             var player = MinecraftClient.getInstance().player;
             var item = stack.getItem();

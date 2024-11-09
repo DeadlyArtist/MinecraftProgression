@@ -27,6 +27,7 @@ public class PLangProvider extends FabricLanguageProvider {
         PItemGroups.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PEntityAttributes.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PStatusEffects.data.forEach((item, data) -> translationBuilder.add(item, data.name));
+        PKeybindingLangHelper.data.forEach((item, data) -> translationBuilder.add(item, data));
 
         // Custom
         translationBuilder.add(PJetpacks.MECHANICAL.item.get(), JetpackUtils.getDefaultName(PJetpacks.MECHANICAL));

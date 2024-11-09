@@ -30,6 +30,8 @@ public class PTexts {
     public static final Map<TextWrapper, TextData> data = new HashMap<>();
 
 
+    public static final TextWrapper DISABLED_TOOLTIP = registerText("DISABLED_TOOLTIP", "Disabled");
+
     public static final TextWrapper FIREPROOF_TOOLTIP = registerText("FIREPROOF_TOOLTIP", "Fireproof");
     public static final TextWrapper SOULBOUND_TOOLTIP = registerText("SOULBOUND_TOOLTIP", "Soulbound");
 

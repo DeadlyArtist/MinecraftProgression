@@ -5,12 +5,17 @@ import com.google.common.collect.Multimap;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
+import com.prog.entity.PComponents;
+import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.text.PTexts;
 import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.LOGGER;
 import com.prog.utils.UpgradeUtils;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -82,6 +87,48 @@ public class ItemStackMixin {
         return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d);
     }
 
+    // Redirect the first list.add with positive "d"
+    @Environment(EnvType.CLIENT)
+    @Redirect(method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/util/List;add(Ljava/lang/Object;)Z",
+                    ordinal = 8))
+    private boolean redirectBlueText(List<Text> list, Object text, @Local Map.Entry<EntityAttribute, EntityAttributeModifier> entry) {
+        return list.add(tryAppendDisabled((Text) text, entry.getKey()));
+    }
+
+    // Redirect the second list.add with negative "d"
+    @Environment(EnvType.CLIENT)
+    @Redirect(method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/util/List;add(Ljava/lang/Object;)Z",
+                    ordinal = 9))
+    private boolean redirectRedText(List<Text> list, Object text, @Local Map.Entry<EntityAttribute, EntityAttributeModifier> entry) {
+        return list.add(tryAppendDisabled((Text) text, entry.getKey()));
+    }
+
+    @Environment(EnvType.CLIENT)
+    @Unique
+    private static Text tryAppendDisabled(Text text, EntityAttribute attribute) {
+        var player = MinecraftClient.getInstance().player;
+        if (player == null) return text;
+        var pComponent = PComponents.PLAYER.get(player);
+
+        var append = false;
+        if (attribute == PEntityAttributes.LUMINANCE) {
+            if (pComponent.headlightDisabled) append = true;
+        } else if (attribute == PEntityAttributes.STEP_HEIGHT) {
+            if (pComponent.stepAssistDisabled) append = true;
+        } else if (attribute == PEntityAttributes.BAD_OMEN_IMMUNITY) {
+            if (pComponent.badOmenImmunityDisabled) append = true;
+        }
+
+        if (append) return Text.literal(text.getString() + " (" + PTexts.DISABLED_TOOLTIP.get().getString() + ")");
+        return text;
+    }
+
     @Redirect(
             method = "getTooltip",
             at = @At(
@@ -92,7 +139,6 @@ public class ItemStackMixin {
     private boolean redirectGetUnbreakable(NbtCompound instance, String key) {
         return false;
     }
-
 
     @Inject(
             method = "getTooltip",
