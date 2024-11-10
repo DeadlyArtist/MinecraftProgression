@@ -8,7 +8,9 @@ import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TridentEntity.class)
 public abstract class TridentEntityMixin {
@@ -22,5 +24,17 @@ public abstract class TridentEntityMixin {
     )
     private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local float f) {
         return (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, f);
+    }
+
+    @Inject(method = "tick()V", at = @At("HEAD"))
+    private void returnFromVoid(CallbackInfo ci) {
+        var self = (TridentEntity) (Object) this;
+        var accessor = (TridentEntityAccessor) (Object) this;
+        if (self.getDataTracker().get(accessor.getLoyalty()) == 0 || accessor.getDealtDamage()) return;
+
+        if (self.getY() <= self.getWorld().getBottomY()) {
+            accessor.setDealtDamage(true);
+            self.setVelocity(0, 0, 0);
+        }
     }
 }

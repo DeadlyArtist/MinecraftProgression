@@ -7,6 +7,7 @@ import com.prog.event.EntityEvents;
 import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.LOGGER;
 import com.prog.utils.UseUtils;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
@@ -26,6 +27,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.HashSet;
+import java.util.List;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
@@ -56,7 +60,6 @@ public class LivingEntityMixin {
     )
     private void redirectGetMaxUseTimeInOnTrackedDataSet(TrackedData<?> data, CallbackInfo ci) {
         ticksSince = 0;
-        LOGGER.info("SET");
     }
 
     @Inject(at = @At(value = "HEAD"), method = "tick")
@@ -113,11 +116,12 @@ public class LivingEntityMixin {
         MinecraftServer server = self.world.getServer();
         if (server == null) return;
 
-        var maxEnchantmentLevel = 5;
+        var maxEnchantmentLevel = EnchantmentUtils.MAX_ENCHANTMENT_LEVEL;
         var amount = Math.max(1, squad.rank + 1 - maxEnchantmentLevel);
         var enchantmentLevel = Math.min(maxEnchantmentLevel, squad.rank);
+        var excludedEnchantments = new HashSet<>(List.of(Enchantments.MENDING, Enchantments.UNBREAKING));
         for (var i = 0; i < amount; i++) {
-            var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(self.random, enchantmentLevel, false));
+            var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(self.random, enchantmentLevel, false, excludedEnchantments));
             self.dropStack(stack);
         }
     }

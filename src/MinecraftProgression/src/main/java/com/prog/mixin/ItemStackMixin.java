@@ -298,4 +298,9 @@ public class ItemStackMixin {
             }
         }
     }
+
+    @Inject(method = "getRepairCost()I", at = @At("HEAD"), cancellable = true)
+    private void removeStoredRepairCost(CallbackInfoReturnable<Integer> cir) {
+        cir.setReturnValue(0);
+    }
 }
