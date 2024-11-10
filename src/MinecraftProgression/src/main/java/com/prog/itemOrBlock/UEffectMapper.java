@@ -1,5 +1,6 @@
 package com.prog.itemOrBlock;
 
+import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.utils.ItemUtils;
 import com.prog.utils.ListUtils;
@@ -30,7 +31,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> best(double amount) {
-        return armorMeleeRanged(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount), UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(XEntityAttributes.PROJECTILE_DAMAGE, amount));
+        return armorMeleeRanged(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount), UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(PEntityAttributes.PROJECTILE_DAMAGE, amount));
     }
 
     public static Function<Item, List<UEffect>> best() {
@@ -62,7 +63,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> damage(double amount) {
-        return meleeRanged(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(XEntityAttributes.PROJECTILE_DAMAGE, amount));
+        return meleeRanged(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(PEntityAttributes.PROJECTILE_DAMAGE, amount));
     }
 
     public static Function<Item, List<UEffect>> damage() {

@@ -5,6 +5,7 @@
   "mixins": [
     "AnvilBlockMixin",
     "AnvilScreenHandlerMixin",
+    "ArrowItemMixin",
     "BowAttackGoalMixin",
     "BowItemMixin",
     "CakeBlockMixin",
@@ -26,6 +27,7 @@
     "LivingEntityMixin",
     "MilkBucketItemMixin",
     "MobEntityMixin",
+    "PersistentProjectileEntityMixin",
     "PhantomSpawnerMixin",
     "PiglingBrainMixin",
     "PlacedFeaturesMixin",
@@ -48,7 +50,6 @@
     "compat.ironjetpacks.ModJetpacksMixin",
     "compat.ironjetpacks.ToggleEngineMessageMixin",
     "compat.ironjetpacks.ToggleHoverMessageMixin",
-    "compat.projectile_damage.TooltipHelperMixin",
     "compat.rottencreatures.RCItemsMixin",
     "compat.soulbound.SoulBoundEnchantmentMixin",
     "compat.universalenchants.AdditionalEnchantmentDataProviderAccessor",

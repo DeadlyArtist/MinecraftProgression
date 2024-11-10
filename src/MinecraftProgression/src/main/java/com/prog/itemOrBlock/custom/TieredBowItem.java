@@ -10,8 +10,6 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
-import net.projectile_damage.ProjectileDamageMod;
-import net.projectile_damage.api.IProjectileWeapon;
 
 public class TieredBowItem extends BowItem {
     public final BowMaterial material;
@@ -19,10 +17,6 @@ public class TieredBowItem extends BowItem {
     public TieredBowItem(BowMaterial material, Settings settings) {
         super(settings);
         this.material = material;
-
-        if (this instanceof IProjectileWeapon) {
-            ((IProjectileWeapon) this).setProjectileDamage(ProjectileDamageMod.configManager.value.default_bow_damage() + material.getProjectileDamageBonus());
-        }
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(this, new Identifier("pull"), (stack, world, entity, seed) -> {

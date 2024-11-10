@@ -1,9 +1,11 @@
 package com.prog.entity;
 
+import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.itemOrBlock.tiers.PTierData;
 import com.prog.text.PTexts;
 import com.prog.utils.EntityAttributeModifierUtils;
+import com.prog.utils.RandomUtils;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.minecraft.entity.EntityType;
@@ -163,7 +165,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
     }
 
     public void increaseProjectileDamage() {
-        EntityAttributeInstance entityAttributeInstance = entity.getAttributeInstance(XEntityAttributes.PROJECTILE_DAMAGE);
+        EntityAttributeInstance entityAttributeInstance = entity.getAttributeInstance(PEntityAttributes.PROJECTILE_DAMAGE);
         if (entityAttributeInstance == null) return;
 
         var modifier = EntityAttributeModifierUtils.of(squadProjectileDamageModifierName, getProjectileDamageMultiplier(), EntityAttributeModifier.Operation.MULTIPLY_BASE);
@@ -198,24 +200,8 @@ public class SquadComponent implements Component, ServerTickingComponent {
         return randomIncrement(entity.random, rank, Integer.MAX_VALUE, prob);
     }
 
-    /**
-     * Applies a random offset to a baseValue within a ±maxOffset percentage.
-     *
-     * @param baseValue the original value to apply the random offset to.
-     * @param maxOffset the maximum percentage offset (e.g., 0.2 for 20%).
-     * @return the base value adjusted by a random factor within ±maxOffset percentage.
-     * If maxOffset is 0, the base value is returned unmodified.
-     */
-    public static double randomOffset(Random random, double baseValue, double maxOffset) {
-        if (maxOffset == 0) return baseValue;
-
-        // Generate a random factor between (1 - maxOffset) and (1 + maxOffset)
-        double randomFactor = 1 - maxOffset + (2 * maxOffset * random.nextDouble());
-        return baseValue * randomFactor;
-    }
-
     public double randomOffset(double baseValue, double maxOffset) {
-        return randomOffset(entity.random, baseValue, maxOffset);
+        return RandomUtils.randomOffset(entity.random, baseValue, maxOffset);
     }
 
     public void spawnFollowers() {

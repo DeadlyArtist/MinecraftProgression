@@ -4,7 +4,6 @@ import com.prog.entity.attribute.XEntityAttributes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.item.ItemStack;
-import net.projectile_damage.internal.Constants;
 
 import java.util.UUID;
 

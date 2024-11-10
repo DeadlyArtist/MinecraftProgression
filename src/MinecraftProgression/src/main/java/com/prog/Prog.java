@@ -14,6 +14,8 @@ import com.prog.event.ItemStackEvents;
 import com.prog.event.RecipeEvents;
 import com.prog.event.TagEvents;
 import com.prog.itemOrBlock.*;
+import com.prog.itemOrBlock.custom.TieredBowItem;
+import com.prog.itemOrBlock.custom.TieredCrossbowItem;
 import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.network.PNetwork;
 import com.prog.recipe.PRecipeSerializers;
@@ -27,7 +29,6 @@ import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -39,7 +40,6 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.RegistryEntry;
-import net.projectile_damage.internal.Constants;
 import net.purejosh.froglegs.init.FroglegsModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -148,13 +148,26 @@ public class Prog implements ModInitializer {
                 attributeModifiers.put(PEntityAttributes.FLIGHT, EntityAttributeModifierUtils.increment("default_flight"));
             }
 
+            var projectileDamage = 0D;
             if (item instanceof TridentItem) {
-                double damage = TridentUtils.BASE_RANGED_DAMAGE;
-                if (item instanceof TieredTridentItem tieredTridentItem) {
-                    damage += tieredTridentItem.material.getDamageBonus();
-                    damage += (double) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, stack, damage);
+                projectileDamage = RangedUtils.BASE_TRIDENT_RANGED_DAMAGE;
+                if (item instanceof TieredTridentItem tiered) {
+                    projectileDamage += tiered.material.getDamageBonus();
                 }
-                attributeModifiers.put(XEntityAttributes.PROJECTILE_DAMAGE, new EntityAttributeModifier(Constants.GENERIC_PROJECTILE_MODIFIER_ID, "Projectile modifier", damage, EntityAttributeModifier.Operation.ADDITION));
+            } else if (item instanceof BowItem) {
+                projectileDamage = RangedUtils.BASE_BOW_RANGED_DAMAGE;
+                if (item instanceof TieredBowItem tiered) {
+                    projectileDamage += tiered.material.getProjectileDamageBonus();
+                }
+            } else if (item instanceof CrossbowItem) {
+                projectileDamage = RangedUtils.BASE_CROSSBOW_RANGED_DAMAGE;
+                if (item instanceof TieredCrossbowItem tiered) {
+                    projectileDamage += tiered.material.getProjectileDamageBonus();
+                }
+            }
+
+            if (projectileDamage != 0) {
+                attributeModifiers.put(PEntityAttributes.PROJECTILE_DAMAGE, new EntityAttributeModifier(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID, "PROJECTILE_DAMAGE_BASE_MODIFIER", projectileDamage, EntityAttributeModifier.Operation.ADDITION));
             }
 
 //            Example

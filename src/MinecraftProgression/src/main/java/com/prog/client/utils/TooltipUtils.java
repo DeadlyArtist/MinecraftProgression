@@ -1,31 +1,19 @@
-package com.prog.mixin.compat.projectile_damage;
+package com.prog.client.utils;
 
-import com.prog.Prog;
-import net.minecraft.item.ItemStack;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Formatting;
-import net.projectile_damage.client.TooltipHelper;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-@Mixin(TooltipHelper.class)
-public class TooltipHelperMixin {
-    @Inject(method = "replaceAttributeLines_BlueWithGreen", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void replaceAttributeLines_BlueWithGreen(List<Text> tooltip, CallbackInfo ci) {
-        ci.cancel();
-    }
-
-    @Inject(method = "mergeAttributeLines_MainHandOffHand", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void mergeAttributeLines_MainHandOffHand(List<Text> tooltip, CallbackInfo ci) {
+@Environment(EnvType.CLIENT)
+public class TooltipUtils {
+    public static void mergeMultiHandTooltips(List<Text> tooltip) {
         List<Text> heldInHandLines = new ArrayList();
         List<Text> mainHandAttributes = new ArrayList();
         List<Text> offHandAttributes = new ArrayList();
@@ -77,6 +65,5 @@ public class TooltipHelperMixin {
                 }
             }
         }
-        ci.cancel();
     }
 }

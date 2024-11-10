@@ -1,24 +1,19 @@
 package com.prog.itemOrBlock.custom;
 
 import com.prog.itemOrBlock.tiers.BowMaterial;
+import com.prog.itemOrBlock.tiers.CrossbowMaterial;
 import com.prog.utils.FabricUtils;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
-import net.projectile_damage.ProjectileDamageMod;
-import net.projectile_damage.api.IProjectileWeapon;
 
 public class TieredCrossbowItem extends CrossbowItem {
-    public final BowMaterial material;
+    public final CrossbowMaterial material;
 
-    public TieredCrossbowItem(BowMaterial material, Settings settings) {
+    public TieredCrossbowItem(CrossbowMaterial material, Settings settings) {
         super(settings);
         this.material = material;
-
-        if (this instanceof IProjectileWeapon) {
-            ((IProjectileWeapon) this).setProjectileDamage(ProjectileDamageMod.configManager.value.default_crowssbow_damage() + material.getProjectileDamageBonus());
-        }
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(this, new Identifier("pull"), (stack, world, entity, seed) -> {

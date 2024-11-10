@@ -94,7 +94,6 @@ dependencies {
 	modImplementation include("de.siphalor:nbtcrafting-1.19:${project.nbtcrafting_version}")
 	modImplementation include("dev.lambdaurora:spruceui:${project.spruceui_version}")
 	modImplementation include("maven.modrinth:lambdynamiclights:${project.lamb_dynamic_lights_version}")
-	modImplementation include("maven.modrinth:projectile-damage-attribute:${project.projectile_damage_attribute_version}")
 	modImplementation include("maven.modrinth:AdditionalEntityAttributes:${project.additionalentityattributes_version}")
 	modImplementation include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}")
 	modImplementation include("curse.maven:attributefix-280510:5126455")

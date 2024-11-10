@@ -4,6 +4,7 @@ import com.blakebr0.ironjetpacks.handler.KeyBindingsHandler;
 import com.prog.Prog;
 import com.prog.client.gui.screen.ingame.PHandledScreens;
 import com.prog.client.keybindings.PKeybindings;
+import com.prog.client.utils.TooltipUtils;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.ItemEvents;
@@ -17,16 +18,13 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.projectile_damage.ProjectileDamageMod;
-import net.projectile_damage.api.EntityAttributes_ProjectileDamage;
-import net.projectile_damage.api.IProjectileWeapon;
-import net.projectile_damage.internal.Constants;
 
 @Environment(EnvType.CLIENT)
 public class PClient implements ClientModInitializer {
@@ -69,6 +67,10 @@ public class PClient implements ClientModInitializer {
 
             // Contains upgrades
             UpgradeUtils.addUpgradeTooltip(lines, stack);
+        });
+
+        ItemTooltipCallback.EVENT.register((itemStack, context, lines) -> {
+            TooltipUtils.mergeMultiHandTooltips(lines);
         });
     }
 }

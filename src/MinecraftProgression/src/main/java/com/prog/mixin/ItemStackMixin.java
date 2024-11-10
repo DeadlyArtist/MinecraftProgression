@@ -12,6 +12,7 @@ import com.prog.itemOrBlock.PItemTags;
 import com.prog.text.PTexts;
 import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.LOGGER;
+import com.prog.utils.RangedUtils;
 import com.prog.utils.UpgradeUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -25,16 +26,12 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
-import net.projectile_damage.internal.Constants;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -60,14 +57,16 @@ public class ItemStackMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/entity/attribute/EntityAttributeModifier;getId()Ljava/util/UUID;",
+                    ordinal = 0,
                     shift = At.Shift.BEFORE
             )
     )
-    private void redirectGetId(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local EntityAttributeModifier modifier, @Local LocalDoubleRef d, @Local LocalBooleanRef bl) {
+    private void injectGetId(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local EntityAttributeModifier modifier, @Local LocalDoubleRef d, @Local LocalBooleanRef bl) {
         ItemStack self = (ItemStack) (Object) this;
         var modifierId = modifier.getId();
-        if (modifierId.equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID)) {
+        if (modifierId.equals(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID)) {
             d.set(d.get() * EnchantmentUtils.getCommonDamageMultiplier(EnchantmentHelper.getLevel(Enchantments.POWER, self)));
+            if (self.getItem() instanceof TridentItem) d.set(d.get() + (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get()));
             bl.set(true);
         } else if (Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
             bl.set(true);
@@ -240,7 +239,7 @@ public class ItemStackMixin {
             UUID modifierId = modifier.getId();
             if (modifierId.equals(Item.ATTACK_DAMAGE_MODIFIER_ID) ||
                     modifierId.equals(Item.ATTACK_SPEED_MODIFIER_ID) ||
-                    modifierId.equals(Constants.GENERIC_PROJECTILE_MODIFIER_ID) ||
+                    modifierId.equals(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID) ||
                     Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
 
                 // Special modifiers will be added to the beginning later, store the entry (attribute + modifier)

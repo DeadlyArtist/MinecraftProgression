@@ -3,10 +3,14 @@ package com.prog.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.prog.utils.EnchantmentUtils;
+import com.prog.utils.RangedUtils;
 import net.minecraft.entity.EntityGroup;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -15,6 +19,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(TridentEntity.class)
 public abstract class TridentEntityMixin {
 
+    @Inject(
+            method = "<init>(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;)V",
+            at = @At("TAIL")
+    )
+    private void redirectGetAttackDamage(World world, LivingEntity owner, ItemStack stack, CallbackInfo ci) {
+        var self = (TridentEntity) (Object) this;
+        self.setDamage(RangedUtils.getBaseProjectileDamage(owner, stack));
+    }
+
+
     @Redirect(
             method = "onEntityHit(Lnet/minecraft/util/hit/EntityHitResult;)V",
             at = @At(
@@ -22,8 +36,11 @@ public abstract class TridentEntityMixin {
                     target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
             )
     )
-    private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local float f) {
-        return (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, f);
+    private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local LocalFloatRef fRef) {
+        var self = (TridentEntity) (Object) this;
+        fRef.set((float) self.getDamage());
+        var base = (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, fRef.get());
+        return base;
     }
 
     @Inject(method = "tick()V", at = @At("HEAD"))
