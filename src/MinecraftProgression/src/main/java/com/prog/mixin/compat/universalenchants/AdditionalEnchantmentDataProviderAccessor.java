@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 import java.util.Map;
 
-@Mixin(AdditionalEnchantmentDataProvider.class)
+@Mixin(value = AdditionalEnchantmentDataProvider.class, remap = false)
 public interface AdditionalEnchantmentDataProviderAccessor {
     @Invoker("applyIncompatibilityToBoth")
     static void applyIncompatibilityToBoth(Map<Enchantment, DataEntry.Builder> builders,

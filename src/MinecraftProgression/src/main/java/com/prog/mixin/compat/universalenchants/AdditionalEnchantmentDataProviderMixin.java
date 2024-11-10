@@ -23,10 +23,13 @@ public class AdditionalEnchantmentDataProviderMixin {
     // Inject after the 'Registry.ENCHANTMENT.iterator()' iterable line.
     @Inject(
             method = "setupAdditionalCompatibility",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/util/registry/Registry;iterator()Ljava/util/Iterator;", shift = At.Shift.AFTER),
+            at = @At(value = "HEAD"),
             cancellable = true
     )
     private static void injectSetupAdditionalCompatibilityMixin(Map<Enchantment, DataEntry.Builder> builders, CallbackInfo ci) {
+        AdditionalEnchantmentDataProviderAccessor.applyIncompatibilityToBoth(builders, Enchantments.INFINITY, Enchantments.MENDING, false);
+        AdditionalEnchantmentDataProviderAccessor.applyIncompatibilityToBoth(builders, Enchantments.MULTISHOT, Enchantments.PIERCING, false);
+
         List<DamageEnchantment> damageEnchantments = new ArrayList<>();
         List<ProtectionEnchantment> protectionEnchantments = new ArrayList<>();
 

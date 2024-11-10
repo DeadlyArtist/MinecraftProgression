@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import fuzs.universalenchants.handler.ItemCompatHandler;
 
-@Mixin(ItemCompatHandler.class)
+@Mixin(value = ItemCompatHandler.class, remap = false)
 public class ItemCompatHandlerMixin {
 
     @Inject(method = "applyPowerEnchantment", at = @At("HEAD"), cancellable = true)
