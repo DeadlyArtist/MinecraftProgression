@@ -18,7 +18,13 @@ public class PMixinPlugin implements IMixinConfigPlugin {
     private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
             "com.prog.mixin.compat.rei.DefaultClientPluginMixin", () -> XCompat.isModLoaded(XIDs.REI),
             "com.prog.mixin.compat.supplementaries.DirectionalCakeBlockMixin", () -> XCompat.isModLoaded(XIDs.SUPPLEMENTARIES),
-            "com.prog.mixin.compat.rottencreatures.RCItemsMixin", () -> XCompat.isModLoaded(XIDs.ROTTEN_CREATURES)
+            "com.prog.mixin.compat.rottencreatures.RCItemsMixin", () -> XCompat.isModLoaded(XIDs.ROTTEN_CREATURES),
+
+            // Universal Enchants
+            "com.prog.mixin.compat.universalenchants.AdditionalEnchantmentDataProviderAccessor", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
+            "com.prog.mixin.compat.universalenchants.AdditionalEnchantmentDataProviderMixin", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
+            "com.prog.mixin.compat.universalenchants.ItemCompatHandlerMixin", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
+            "com.prog.mixin.compat.universalenchants.ServerConfigMixin", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS)
     );
 
     @Override

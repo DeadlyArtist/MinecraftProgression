@@ -71,6 +71,10 @@ repositories {
 	maven {
 		url = "https://maven.kyrptonaught.dev"
 	}
+	maven {
+		name = "Fuzs Mod Resources"
+		url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+	}
 }
 
 fabricApi {
@@ -122,6 +126,10 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${project.rei_version}"
 
+	// Universal Enchants
+	modImplementation("curse.maven:universalenchants-593958:4395518")
+	modImplementation "fuzs.puzzleslib:puzzleslib-fabric:4.3.0"
+	modImplementation("fuzs.extensibleenums:extensibleenums-fabric:4.0.0")
 
 	// Other
 	modImplementation("maven.modrinth:equ26Hrh:8Hj9pLxI") // Frog Legs

@@ -11,6 +11,7 @@
     "ConfiguredFeaturesMixin",
     "CrossbowItemMixin",
     "DamageSourceMixin",
+    "DamageUtilMixin",
     "EnchantedBookItemMixin",
     "EnchantmentHelperMixin",
     "EnchantmentMixin",
@@ -29,6 +30,7 @@
     "PiglingBrainMixin",
     "PlacedFeaturesMixin",
     "PlayerEntityMixin",
+    "ProtectionEnchantmentMixin",
     "RecipeManagerMixin",
     "RecipeProviderMixin",
     "ServerPlayerEntityMixin",
@@ -48,7 +50,11 @@
     "compat.ironjetpacks.ToggleHoverMessageMixin",
     "compat.projectile_damage.TooltipHelperMixin",
     "compat.rottencreatures.RCItemsMixin",
-    "compat.soulbound.SoulBoundEnchantmentMixin"
+    "compat.soulbound.SoulBoundEnchantmentMixin",
+    "compat.universalenchants.AdditionalEnchantmentDataProviderAccessor",
+    "compat.universalenchants.AdditionalEnchantmentDataProviderMixin",
+    "compat.universalenchants.ItemCompatHandlerMixin",
+    "compat.universalenchants.ServerConfigMixin"
   ],
   "client": [
     "AbstractClientPlayerEntityMixin",
