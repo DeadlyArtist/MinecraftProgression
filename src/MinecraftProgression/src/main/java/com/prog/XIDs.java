@@ -9,4 +9,5 @@ public class XIDs {
     public static final String FROG_LEGS = "froglegs";
     public static final String ROTTEN_CREATURES = "rottencreatures";
     public static final String UNIVERSAL_ENCHANTS = "universalenchants";
+    public static final String ECOLOGICS = "ecologics";
 }

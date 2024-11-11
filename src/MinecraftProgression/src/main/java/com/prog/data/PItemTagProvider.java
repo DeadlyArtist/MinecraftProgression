@@ -30,6 +30,14 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void generateTags() {
+        // Add all tags
+        tags.forEach((tag, items) -> {
+            FabricTagProvider<Item>.FabricTagBuilder<Item> tagBuilder = getOrCreateTagBuilder(tag);
+            items.forEach(item -> tagBuilder.add(item));
+        });
+    }
+
+    public static void initTags() {
         // Vanilla overwrites
         addToTag(PItemTags.TIER_CORE, List.of(Items.DIAMOND_AXE, Items.DIAMOND_BOOTS, Items.DIAMOND_HOE, Items.DIAMOND_CHESTPLATE, Items.DIAMOND_HELMET, Items.DIAMOND_HOE, Items.DIAMOND_LEGGINGS, Items.DIAMOND_PICKAXE, Items.DIAMOND_SHOVEL, Items.DIAMOND_SWORD));
         addToTag(PItemTags.TIER_CORE, List.of(Items.NETHERITE_AXE, Items.NETHERITE_BOOTS, Items.NETHERITE_HOE, Items.NETHERITE_CHESTPLATE, Items.NETHERITE_HELMET, Items.NETHERITE_HOE, Items.NETHERITE_LEGGINGS, Items.NETHERITE_PICKAXE, Items.NETHERITE_SHOVEL, Items.NETHERITE_SWORD));
@@ -41,11 +49,5 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));
         Upgrades.data.forEach((item, upgrade) -> addToTag(PItemTags.UPGRADE, item));
         GourmetFoods.data.forEach((item, data) -> addToTag(PItemTags.GOURMET_FOOD, item));
-
-        // Add all tags
-        tags.forEach((tag, items) -> {
-            FabricTagProvider<Item>.FabricTagBuilder<Item> tagBuilder = getOrCreateTagBuilder(tag);
-            items.forEach(item -> tagBuilder.add(item));
-        });
     }
 }

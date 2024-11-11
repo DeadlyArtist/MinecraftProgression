@@ -2,9 +2,12 @@ package com.prog.itemOrBlock;
 
 import com.kwpugh.ring_of_attraction.RingOfAttraction;
 import com.prog.Prog;
+import com.prog.XIDs;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
+import com.prog.utils.ItemUtils;
 import com.prog.utils.LOGGER;
+import com.prog.utils.XCompat;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -15,6 +18,7 @@ import java.util.stream.Collectors;
 
 public class Upgrades {
     public static final Map<Item, Upgrade> data = new HashMap<>();
+    public static final List<Item> compatData = new ArrayList<>();
 
     static {
         // Vanilla upgrade overrides
@@ -96,6 +100,22 @@ public class Upgrades {
         register(RingOfAttraction.RING_OF_ATTRACTION, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.MAGNET)));
     }
 
+    public static void registerAllCompat() {
+        if (XCompat.isModLoaded(XIDs.ECOLOGICS)) {
+            registerCompat(ItemUtils.byId(XIDs.ECOLOGICS, "penguin_feather"), UEffectMapper.damage());
+        }
+    }
+
+    public static void registerCompat(Item item, Function<Item, List<UEffect>> effects) {
+        register(item, effects);
+        compatData.add(item);
+    }
+
+    public static void registerCompat(Item item, List<Function<Item, List<UEffect>>> effects) {
+        register(item, effects);
+        compatData.add(item);
+    }
+
     public static Upgrade register(Item item, Function<Item, List<UEffect>> effects) {
         Upgrade upgrade = Upgrade.of(item, effects);
         data.put(item, upgrade);
@@ -108,7 +128,7 @@ public class Upgrades {
                         .map(f -> Optional.ofNullable(f.apply(target)).orElse(Collections.emptyList()))
                         .flatMap(List::stream)
                         .collect(Collectors.toList());
-        Upgrades.register(item, func);
+        register(item, func);
     }
 
     public static void init() {

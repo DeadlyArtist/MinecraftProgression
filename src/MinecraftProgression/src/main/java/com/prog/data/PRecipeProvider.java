@@ -628,12 +628,12 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SWORD).offer(exporter);
 
-        // Upgrades
-        List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
-        var upgrades = Upgrades.data;
-        upgrades.forEach((item, upgrade) -> {
-            getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(exporter));
-        });
+//        // Upgrades
+//        List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
+//        var upgrades = Upgrades.data;
+//        upgrades.forEach((item, upgrade) -> {
+//            getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(exporter));
+//        });
     }
 
     public static List<SmithingRecipeBuilderWrapper> getUpgradeRecipes(Upgrade upgrade) {

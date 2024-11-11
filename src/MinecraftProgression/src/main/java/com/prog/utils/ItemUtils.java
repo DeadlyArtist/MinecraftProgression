@@ -7,6 +7,10 @@ import net.minecraft.item.*;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntryList;
+
+import java.util.List;
+import java.util.Optional;
 
 public class ItemUtils {
     public static Item byId(Identifier id) {
@@ -17,12 +21,23 @@ public class ItemUtils {
         return byId(new Identifier(id));
     }
 
+    public static Item byId(String namespace, String path) {
+        return byId(new Identifier(namespace, path));
+    }
+
     public static Identifier getId(Item item) {
         return Registry.ITEM.getId(item);
     }
 
     public static boolean hasTag(Item item, TagKey<Item> tag) {
         return item.getRegistryEntry().isIn(tag);
+    }
+
+    public static List<Item> fromTag(TagKey<Item> tag) {
+        var entries = Registry.ITEM.getEntryList(tag);
+        if (entries.isEmpty()) return List.of();
+
+        return entries.get().stream().map(r -> r.value()).toList();
     }
 
     public static boolean isArmor(Item item) {

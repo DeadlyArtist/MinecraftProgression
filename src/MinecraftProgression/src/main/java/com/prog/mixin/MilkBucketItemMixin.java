@@ -13,9 +13,5 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(MilkBucketItem.class)
 public class MilkBucketItemMixin {
-    @Inject(method = "finishUsing", at = @At(value = "INVOKE",
-            target = "Lnet/minecraft/server/network/ServerPlayerEntity;incrementStat(Lnet/minecraft/stat/Stat;)V"))
-    private void afterIncrementStat(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
-        PComponents.LIVING_ENTITY.get(user).eat(stack.getItem());
-    }
+
 }

@@ -6,6 +6,7 @@ import com.prog.utils.StringUtils;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
@@ -23,8 +24,11 @@ public class PItemGroups {
     public static final Map<ItemGroup, ItemGroupData> data = new HashMap<>();
 
 
-
-    public static final ItemGroup UPGRADES = registerItemGroup("UPGRADES", () -> new ItemStack(PItems.STEEL_INGOT));
+    public static final ItemGroup MORE_PROGRESSION = registerItemGroup("MORE_PROGRESSION", () -> new ItemStack(PBlocks.COSMIC_CONSTRUCTOR));
+    public static final ItemGroup UPGRADABLES = registerItemGroup("UPGRADABLES", () -> new ItemStack(PItems.ULTIMATE_DIAMOND_SWORD));
+    public static final ItemGroup TIER_CORES = registerItemGroup("TIER_CORES", () -> new ItemStack(PItems.REFINED_OBSIDIAN_MODULE));
+    public static final ItemGroup UPGRADES = registerItemGroup("UPGRADES", () -> new ItemStack(PItems.MECHANICAL_BOOTS));
+    public static final ItemGroup GOURMET_FOOD = registerItemGroup("GOURMET_FOOD", () -> new ItemStack(Items.GOLDEN_APPLE));
 
 
 

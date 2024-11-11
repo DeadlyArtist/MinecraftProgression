@@ -2,7 +2,9 @@ package com.prog;
 
 import com.github.teamfusion.rottencreatures.common.registries.RCItems;
 import com.kwpugh.ring_of_attraction.util.MagnetUtil;
+import com.prog.data.PItemTagProvider;
 import com.prog.data.PKeybindingLangHelper;
+import com.prog.data.PRecipeProvider;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
 import com.prog.entity.PEntityLootTables;
@@ -10,10 +12,7 @@ import com.prog.entity.PStatusEffects;
 import com.prog.entity.attribute.PDefaultAttributes;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
-import com.prog.event.EntityEvents;
-import com.prog.event.ItemStackEvents;
-import com.prog.event.RecipeEvents;
-import com.prog.event.TagEvents;
+import com.prog.event.*;
 import com.prog.itemOrBlock.*;
 import com.prog.itemOrBlock.custom.TieredBowItem;
 import com.prog.itemOrBlock.custom.TieredCrossbowItem;
@@ -46,6 +45,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
+import java.util.List;
 
 import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
@@ -78,34 +78,36 @@ public class Prog implements ModInitializer {
         PEntityLootTables.init();
         PNetwork.init();
         PKeybindingLangHelper.init();
+        PItemTagProvider.initTags();
 
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
         TagEvents.TAG_LOADED.register((tagId, entries) -> {
             if (tagId.equals(BlockTags.NEEDS_DIAMOND_TOOL.id())) {
-                @SuppressWarnings("unchecked")
                 Collection<RegistryEntry<Block>> blockEntries = (Collection<RegistryEntry<Block>>) entries;
                 blockEntries.remove(Blocks.ANCIENT_DEBRIS.getRegistryEntry());
             }
 
-            if (XCompat.isModLoaded(XIDs.FROG_LEGS)) {
-                if (tagId.equals(PItemTags.GOURMET_FOOD.id())) {
-                    @SuppressWarnings("unchecked")
-                    Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
-                    itemEntries.add(FroglegsModItems.COOKED_FROG_LEG.getRegistryEntry());
-                }
+            if (tagId.equals(PItemTags.GOURMET_FOOD.id())) {
+                GourmetFoods.registerAllCompat();
+                Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
+                GourmetFoods.compatData.forEach(item -> itemEntries.add(item.getRegistryEntry()));
             }
-            if (XCompat.isModLoaded(XIDs.ROTTEN_CREATURES)) {
-                if (tagId.equals(PItemTags.GOURMET_FOOD.id())) {
-                    @SuppressWarnings("unchecked")
-                    Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
-                    itemEntries.add(RCItems.MAGMA_ROTTEN_FLESH.get().getRegistryEntry());
-                    itemEntries.add(RCItems.CORRUPTED_WART.get().getRegistryEntry());
-                }
+
+            if (tagId.equals(PItemTags.UPGRADE.id())) {
+                Upgrades.registerAllCompat();
+                Collection<RegistryEntry<Item>> itemEntries = (Collection<RegistryEntry<Item>>) entries;
+                Upgrades.compatData.forEach(item -> itemEntries.add(item.getRegistryEntry()));
             }
         });
 
         RecipeEvents.RECIPES_LOADED.register(map -> {
+            // Upgrades
+            Upgrades.data.forEach((item, upgrade) -> {
+                PRecipeProvider.getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(provider -> map.put(wrapper.getId(), provider.toJson())));
+            });
+
+
             // Minecraft modding really does not seem to be made for compat.
 //            if (XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)) {
 //                Supplier<?> wrapper = ModRegistry.BOMB_BLUE_ITEM;
@@ -113,6 +115,24 @@ public class Prog implements ModInitializer {
 //                PRecipeProvider.getUpgradeRecipes(upgrade).forEach(builder -> builder.offer(provider -> map.put(builder.getId(), provider.toJson())));
 //            }
         });
+
+        ItemEvents.APPEND_STACKS.register(((group, stacks, item) -> {
+            if (group == PItemGroups.MORE_PROGRESSION) {
+                if (ItemUtils.getId(item).getNamespace() == Prog.MOD_ID) stacks.add(new ItemStack(item));
+            }
+            if (group == PItemGroups.UPGRADABLES) {
+                if (ItemUtils.hasTag(item, PItemTags.UPGRADABLE)) stacks.add(new ItemStack(item));
+            }
+            if (group == PItemGroups.TIER_CORES) {
+                if (ItemUtils.hasTag(item, PItemTags.TIER_CORE)) stacks.add(new ItemStack(item));
+            }
+            if (group == PItemGroups.UPGRADES) {
+                if (ItemUtils.hasTag(item, PItemTags.UPGRADE)) stacks.add(new ItemStack(item));
+            }
+            if (group == PItemGroups.GOURMET_FOOD) {
+                if (ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD)) stacks.add(new ItemStack(item));
+            }
+        }));
 
         EntityEvents.LIVING_ENTITY_TICK.register(entity -> {
             entity.stepHeight = (float) ((entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).stepAssistDisabled) ? PEntityAttributes.STEP_HEIGHT.getDefaultValue() : entity.getAttributeValue(PEntityAttributes.STEP_HEIGHT));

@@ -134,6 +134,7 @@ dependencies {
 	// Other
 	modImplementation("maven.modrinth:equ26Hrh:8Hj9pLxI") // Frog Legs
 	modImplementation("curse.maven:rottencreatures-371033:4063269")
+	//modImplementation "curse.maven:ecologics-570463:4171284" // jdnaskhdgasjdg sadsadbasbfhdgfasdgsajdsa<
 
 
 	// Not used for now, placeholder for future versions

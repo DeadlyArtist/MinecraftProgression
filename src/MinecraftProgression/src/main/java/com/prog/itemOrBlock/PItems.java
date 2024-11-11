@@ -1,10 +1,12 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
+import com.prog.XIDs;
 import com.prog.itemOrBlock.custom.TieredBowItem;
 import com.prog.itemOrBlock.tiers.*;
 import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
+import com.prog.utils.XCompat;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
@@ -15,6 +17,7 @@ import net.minecraft.tag.TagKey;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.purejosh.froglegs.init.FroglegsModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
