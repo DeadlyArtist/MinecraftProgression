@@ -7,6 +7,9 @@ This mod is currently in a very early playtesting stage.
 ## Versions
 Fabric: 1.19.2
 
+## Modpack
+For a simple, lightweight modpack built around this mod, see the [More Progression Pack](https://www.curseforge.com/minecraft/modpacks/more-progression-pack). By adding many of the basic modding commodities and quality of life changes (such as [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items), [Jade](https://www.curseforge.com/minecraft/mc-mods/jade), and many more), as well as few carefully selected other mods (such as [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), some simple structure mods, [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs), [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge), and more), the progression experience is taken to the next level.
+
 ## Design Goals
 Extended Progression: Default minecraft progression from wood to stone to iron to diamond is very enjoyable, but too short. The main goal of this mod is to fix that by introducing tiers beyond diamond.
 
