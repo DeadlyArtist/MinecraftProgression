@@ -104,6 +104,10 @@ public class Upgrades {
         if (XCompat.isModLoaded(XIDs.ECOLOGICS)) {
             registerCompat(ItemUtils.byId(XIDs.ECOLOGICS, "penguin_feather"), UEffectMapper.damage());
         }
+        if (XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)) {
+            registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "bomb"), UEffectMapper.damage());
+            registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "bomb_blue"), UEffectMapper.damage(2));
+        }
     }
 
     public static void registerCompat(Item item, Function<Item, List<UEffect>> effects) {

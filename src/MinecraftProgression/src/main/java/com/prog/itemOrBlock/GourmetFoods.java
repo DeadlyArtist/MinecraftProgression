@@ -93,6 +93,10 @@ public class GourmetFoods {
             registerCompat(ItemUtils.byId(XIDs.ECOLOGICS, "walnut"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
             registerCompat(ItemUtils.byId(XIDs.ECOLOGICS, "crab_meat"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         }
+        if (XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)) {
+            registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "pancake"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+            registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "candy"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        }
     }
 
     public static void registerCompat(Item item, List<UEffect> effects) {
