@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import com.kwpugh.ring_of_attraction.items.ItemRingAttraction;
 
-@Mixin(value = ItemRingAttraction.class, remap = false)
+@Mixin(ItemRingAttraction.class)
 public class ItemRingAttractionMixin {
 
     @Environment(EnvType.CLIENT)
