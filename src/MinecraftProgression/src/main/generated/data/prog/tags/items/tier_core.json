@@ -21,15 +21,15 @@
     "minecraft:netherite_pickaxe",
     "minecraft:netherite_shovel",
     "minecraft:netherite_sword",
-    "prog:steel_binding",
-    "prog:void_soul_leggings",
-    "prog:refined_obsidian_module",
-    "prog:void_soul_helmet",
+    "prog:void_soul_chestplate",
     "prog:titan_core",
-    "prog:diamond_heart",
-    "prog:void_soul_boots",
-    "prog:void_soul_tool",
+    "prog:void_soul_helmet",
     "prog:netherite_heart",
-    "prog:void_soul_chestplate"
+    "prog:steel_binding",
+    "prog:void_soul_tool",
+    "prog:refined_obsidian_module",
+    "prog:diamond_heart",
+    "prog:void_soul_leggings",
+    "prog:void_soul_boots"
   ]
 }

@@ -50,6 +50,8 @@
     "compat.ironjetpacks.ModJetpacksMixin",
     "compat.ironjetpacks.ToggleEngineMessageMixin",
     "compat.ironjetpacks.ToggleHoverMessageMixin",
+    "compat.ringofattraction.ItemRingAttractionMixin",
+    "compat.ringofattraction.MagnetUtilMixin",
     "compat.rottencreatures.RCItemsMixin",
     "compat.soulbound.SoulBoundEnchantmentMixin",
     "compat.universalenchants.AdditionalEnchantmentDataProviderAccessor",

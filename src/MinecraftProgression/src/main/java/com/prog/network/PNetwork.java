@@ -17,6 +17,7 @@ public class PNetwork {
     public static int TOGGLE_HEADLIGHT = register();
     public static int TOGGLE_STEP_ASSIST = register();
     public static int TOGGLE_BAD_OMEN_IMMUNITY = register();
+    public static int TOGGLE_MAGNET = register();
 
     static {
         ServerPlayNetworking.registerGlobalReceiver(PACKET_ID, (server, player, handler, buf, responseSender) -> {
@@ -32,6 +33,9 @@ public class PNetwork {
             } else if (id == TOGGLE_BAD_OMEN_IMMUNITY) {
                 sync = true;
                 pComponent.badOmenImmunityDisabled = !pComponent.badOmenImmunityDisabled;
+            } else if (id == TOGGLE_MAGNET) {
+                sync = true;
+                pComponent.magnetDisabled = !pComponent.magnetDisabled;
             }
 
             if (sync) PComponents.PLAYER.sync(player);

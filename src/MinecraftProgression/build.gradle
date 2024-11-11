@@ -98,6 +98,7 @@ dependencies {
 	modImplementation include("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}")
 	modImplementation include("curse.maven:attributefix-280510:5126455")
 	modImplementation include("curse.maven:soulboundenchantment-888668:5498214")
+	modImplementation include("curse.maven:ringofattraction-377933:4034398")
 
 	// Cardinal components
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.caridnal_components_version}")

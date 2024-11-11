@@ -1,0 +1,23 @@
+{
+  "type": "prog:nbt_smithing",
+  "base": {
+    "data": {
+      "deny": {
+        "upgrade___ring_of_attraction": ""
+      }
+    },
+    "item": "prog:titan_chestplate"
+  },
+  "ingredient": {
+    "item": "ring_of_attraction:ring_of_attraction"
+  },
+  "result": {
+    "data": {
+      "$": "$base",
+      "upgrade___ring_of_attraction": {
+        "id": "ring_of_attraction:ring_of_attraction"
+      }
+    },
+    "item": "prog:titan_chestplate"
+  }
+}

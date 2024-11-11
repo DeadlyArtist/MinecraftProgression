@@ -1,6 +1,7 @@
 package com.prog;
 
 import com.github.teamfusion.rottencreatures.common.registries.RCItems;
+import com.kwpugh.ring_of_attraction.util.MagnetUtil;
 import com.prog.data.PKeybindingLangHelper;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
@@ -50,7 +51,7 @@ import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
 public class Prog implements ModInitializer {
     public static final String MOD_ID = "prog";
-    public static final String VERSION = "1.0.4";
+    public static final String VERSION = "1.0.5";
     public static final String NAME = "More Progression";
     public static final Logger __LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -120,6 +121,9 @@ public class Prog implements ModInitializer {
         EntityEvents.PLAYER_ENTITY_TICK.register(player -> {
             PComponents.PLAYER.get(player).updateFlight();
             JetpackUtils.tickJetpack(player);
+
+            if (player.getAttributeValue(PEntityAttributes.MAGNET) == 1)
+                MagnetUtil.doMagnet(player.world, player, null);
         });
 
         ItemStackEvents.ITEM_STACK_CTOR.register((stack) -> {

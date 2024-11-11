@@ -14,6 +14,7 @@ public class PKeybindingLangHelper {
         register("TOGGLE_HEADLIGHT");
         register("TOGGLE_STEP_ASSIST");
         register("TOGGLE_BAD_OMEN_IMMUNITY");
+        register("TOGGLE_MAGNET");
     }
 
     public static void register(String id) {

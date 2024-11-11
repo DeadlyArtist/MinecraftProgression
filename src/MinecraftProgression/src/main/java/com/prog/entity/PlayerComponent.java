@@ -15,6 +15,7 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
     public boolean headlightDisabled = false;
     public boolean stepAssistDisabled = false;
     public boolean badOmenImmunityDisabled = false;
+    public boolean magnetDisabled = false;
 
     public PlayerComponent(PlayerEntity player){
         this.player = player;
@@ -66,6 +67,7 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
         headlightDisabled = nbt.getBoolean("headlightDisabled");
         stepAssistDisabled = nbt.getBoolean("stepAssistDisabled");
         badOmenImmunityDisabled = nbt.getBoolean("badOmenImmunityDisabled");
+        magnetDisabled = nbt.getBoolean("magnetDisabled");
     }
 
     @Override
@@ -74,5 +76,6 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
         nbt.putBoolean("headlightDisabled", headlightDisabled);
         nbt.putBoolean("stepAssistDisabled", stepAssistDisabled);
         nbt.putBoolean("badOmenImmunityDisabled", badOmenImmunityDisabled);
+        nbt.putBoolean("magnetDisabled", magnetDisabled);
     }
 }

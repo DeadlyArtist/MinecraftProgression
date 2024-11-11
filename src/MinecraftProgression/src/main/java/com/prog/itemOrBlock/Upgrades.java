@@ -1,5 +1,6 @@
 package com.prog.itemOrBlock;
 
+import com.kwpugh.ring_of_attraction.RingOfAttraction;
 import com.prog.Prog;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
@@ -90,6 +91,9 @@ public class Upgrades {
         register(PItems.OCEANS_GRACE, UEffectMapper.helmet(UEffect.increment(PEntityAttributes.MINING_FATIGUE_IMMUNITY)));
         register(PItems.LIVING_SOUL_FRAGMENT, UEffectMapper.best(4));
         register(PItems.SILENT_HEART, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.DARKNESS_IMMUNITY)));
+
+        // Other
+        register(RingOfAttraction.RING_OF_ATTRACTION, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.MAGNET)));
     }
 
     public static Upgrade register(Item item, Function<Item, List<UEffect>> effects) {

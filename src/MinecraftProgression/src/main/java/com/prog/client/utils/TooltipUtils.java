@@ -1,18 +1,49 @@
 package com.prog.client.utils;
 
+import com.prog.entity.PComponents;
+import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.text.PTexts;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Formatting;
+import org.spongepowered.asm.mixin.Unique;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class TooltipUtils {
+
+    public static Text tryAppendDisabled(Text text, EntityAttribute attribute) {
+        var player = MinecraftClient.getInstance().player;
+        if (player == null) return text;
+        var pComponent = PComponents.PLAYER.get(player);
+
+        var append = false;
+        if (attribute == PEntityAttributes.LUMINANCE) {
+            if (pComponent.headlightDisabled) append = true;
+        } else if (attribute == PEntityAttributes.STEP_HEIGHT) {
+            if (pComponent.stepAssistDisabled) append = true;
+        } else if (attribute == PEntityAttributes.BAD_OMEN_IMMUNITY) {
+            if (pComponent.badOmenImmunityDisabled) append = true;
+        } else if (attribute == PEntityAttributes.MAGNET) {
+            if (pComponent.magnetDisabled) append = true;
+        }
+
+        if (append) return appendDisabled(text);
+        return text;
+    }
+
+    public static MutableText appendDisabled(Text text) {
+        return Text.literal(text.getString() + " (" + PTexts.DISABLED_TOOLTIP.get().getString() + ")");
+    }
+
     public static void mergeMultiHandTooltips(List<Text> tooltip) {
         List<Text> heldInHandLines = new ArrayList();
         List<Text> mainHandAttributes = new ArrayList();
