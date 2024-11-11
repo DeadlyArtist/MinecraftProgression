@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.mixinInterfaces.IPersistentProjectileEntityMixin;
 import com.prog.utils.EnchantmentUtils;
+import com.prog.utils.LOGGER;
 import com.prog.utils.RangedUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -59,7 +60,7 @@ public class BowItemMixin {
         var projectileMixin = (IPersistentProjectileEntityMixin) (Object) persistentProjectileEntity;
         projectileMixin.setChargeModifier(f);
 
-        var playerEntity = (PlayerEntity) entity;
-        persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, f * 3.0F * (float) playerEntity.getAttributeValue(PEntityAttributes.PROJECTILE_SPEED) / 4, 1.0F);
+        var playerEntity = (PlayerEntity) entity; // Caller function guarantees
+        persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, speed * (float) RangedUtils.getProjectileSpeedMultiplier(playerEntity), 1.0F);
     }
 }

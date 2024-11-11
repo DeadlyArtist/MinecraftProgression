@@ -45,4 +45,8 @@ public class RangedUtils {
         if (chargeModifier == 1) chargeDamageModifier = chargeModifier * random.nextTriangular(1, 0.2);
         return damage * chargeDamageModifier;
     }
+
+    public static double getProjectileSpeedMultiplier(LivingEntity entity) {
+         return entity.getAttributeValue(PEntityAttributes.PROJECTILE_SPEED) / 4;
+    }
 }
