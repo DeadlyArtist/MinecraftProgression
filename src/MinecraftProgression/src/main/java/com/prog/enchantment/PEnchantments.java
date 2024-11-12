@@ -14,23 +14,24 @@ import java.util.Map;
 public class PEnchantments {
     public static class EnchantmentData {
         public String name;
+        public String description;
 
-        public EnchantmentData(String name) {
+        public EnchantmentData(String name, String description) {
             this.name = name;
+            this.description = description;
         }
     }
 
     public static final Map<Enchantment, EnchantmentData> data = new HashMap<>();
 
-    public static Enchantment AIR_AFFINITY = register("AIR_AFFINITY",
-            new AirAffinityEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.HEAD));
+    public static Enchantment AIR_AFFINITY = register("AIR_AFFINITY", new AirAffinityEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.HEAD), "Increases mining speed while in the air.");
 
 
-    private static Enchantment register(String id, Enchantment enchantment) {
+    private static Enchantment register(String id, Enchantment enchantment, String description) {
         id = id.toLowerCase();
         String name = StringUtils.toNormalCase(id);
         var registeredEnchantment = Registry.register(Registry.ENCHANTMENT, new Identifier(Prog.MOD_ID, id.toLowerCase()), enchantment);
-        data.put(registeredEnchantment, new EnchantmentData(name));
+        data.put(registeredEnchantment, new EnchantmentData(name, description));
         return registeredEnchantment;
     }
 

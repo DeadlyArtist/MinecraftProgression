@@ -1,6 +1,8 @@
 package com.prog.mixin;
 
+import com.imoonday.soulbound.SoulBound;
 import com.llamalad7.mixinextras.sugar.Local;
+import com.prog.text.PTexts;
 import com.prog.utils.NumberUtils;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.text.MutableText;
@@ -14,6 +16,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Enchantment.class)
 public class EnchantmentMixin {
+
+    @Redirect(method = "getName", at = @At(value = "INVOKE", target = "Lnet/minecraft/text/Text;translatable(Ljava/lang/String;)Lnet/minecraft/text/MutableText;", ordinal = 0))
+    public MutableText redirectGetLevel(String key) {
+        var self = (Enchantment) (Object) this;
+        if (self == SoulBound.SOUL_BOUND) return PTexts.SOULBOUND_TOOLTIP.get().copy();
+
+        return Text.translatable(self.getTranslationKey());
+    }
 
     @Redirect(method = "getName", at = @At(value = "INVOKE", target = "Lnet/minecraft/text/MutableText;append(Lnet/minecraft/text/Text;)Lnet/minecraft/text/MutableText;"))
     public MutableText redirectGetLevel(MutableText instance, Text text, @Local int level) {

@@ -39,6 +39,7 @@
   "block.prog.verum_ore": "Verum Ore",
   "effect.prog.wither_immunity": "Wither Immunity",
   "enchantment.prog.air_affinity": "Air Affinity",
+  "enchantment.prog.air_affinity.desc": "Increases mining speed while in the air.",
   "item.iron-jetpacks.mechanical_jetpack": "Mechanical Jetpack",
   "item.prog.anchor": "Anchor",
   "item.prog.angel_ring": "Angel Ring",

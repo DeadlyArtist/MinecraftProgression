@@ -11,6 +11,7 @@ import com.prog.text.PTexts;
 import com.prog.utils.JetpackUtils;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.util.Identifier;
 
 public class PLangProvider extends FabricLanguageProvider {
     public PLangProvider(FabricDataGenerator generator) {
@@ -22,6 +23,7 @@ public class PLangProvider extends FabricLanguageProvider {
         // Preregistered
         PTexts.data.forEach((item, data) -> translationBuilder.add(item.id, data.text));
         PEnchantments.data.forEach((item, data) -> translationBuilder.add(item, data.name));
+        PEnchantments.data.forEach((item, data) -> translationBuilder.add(item.getTranslationKey() + ".desc", data.description));
         PItems.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PBlocks.data.forEach((item, data) -> translationBuilder.add(item, data.name));
         PItemGroups.data.forEach((item, data) -> translationBuilder.add(item, data.name));
