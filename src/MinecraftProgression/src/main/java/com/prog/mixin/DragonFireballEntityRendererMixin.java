@@ -19,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class DragonFireballEntityRendererMixin {
     @Redirect(method = "render(Lnet/minecraft/entity/projectile/DragonFireballEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;scale(FFF)V"))
     private void redirectRender(MatrixStack instance, float x, float y, float z, @Local DragonFireballEntity entity) {
-        LOGGER.info(String.valueOf(PComponents.DRAGON_FIREBALL.get(entity).sizeMultiplier));
         var value = (float) ((2.5 + DragonUtils.getPhase(entity) / 3D) * PComponents.DRAGON_FIREBALL.get(entity).sizeMultiplier);
         instance.scale(value, value, value);
     }

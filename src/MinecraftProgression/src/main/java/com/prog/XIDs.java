@@ -10,4 +10,5 @@ public class XIDs {
     public static final String ROTTEN_CREATURES = "rottencreatures";
     public static final String UNIVERSAL_ENCHANTS = "universalenchants";
     public static final String ECOLOGICS = "ecologics";
+    public static final String SOPHISTICATED_BACKPACKS = "sophisticatedbackpacks";
 }

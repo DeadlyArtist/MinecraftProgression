@@ -1,8 +1,12 @@
 package com.prog.mixin.compat.soulbound;
 
 import com.imoonday.soulbound.SoulBoundEnchantment;
+import com.prog.XIDs;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.utils.ItemUtils;
+import com.prog.utils.XCompat;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,7 +18,6 @@ public class SoulBoundEnchantmentMixin {
     private static void injectHasSoulbound(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if (stack.isIn(PItemTags.UPGRADABLE)) {
             cir.setReturnValue(true);
-            cir.cancel();
         }
     }
 }
