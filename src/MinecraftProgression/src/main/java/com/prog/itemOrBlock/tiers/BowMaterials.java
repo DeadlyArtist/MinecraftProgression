@@ -4,9 +4,9 @@ public enum BowMaterials implements BowMaterial {
     STEEL(1),
     ULTIMATE_DIAMOND(2),
     REFINED_OBSIDIAN(4),
-    TITAN(7),
-    PRIMAL_NETHERITE(11),
-    VERUM(16);
+    TITAN(11),
+    PRIMAL_NETHERITE(22),
+    VERUM(36);
 
     public final int projectileDamageBonus;
 

@@ -34,9 +34,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
         super(type, syncId, playerInventory, context);
     }
 
-    @Inject(
-            method = "updateResult()V",
-            at = @At("TAIL"))
+    @Inject(method = "updateResult()V", at = @At("TAIL"))
     private void capNameChangeCost(CallbackInfo ci) {
         if (this.input.getStack(1).isEmpty()) {
             levelCost.set(1);

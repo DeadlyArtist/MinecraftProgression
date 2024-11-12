@@ -9,6 +9,7 @@ import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.projectile.DragonFireballEntity;
 import net.minecraft.util.Identifier;
 
 public class PComponents implements EntityComponentInitializer {
@@ -17,6 +18,7 @@ public class PComponents implements EntityComponentInitializer {
     public static final ComponentKey<SquadComponent> SQUAD = register("SQUAD", SquadComponent.class);
     public static final ComponentKey<LivingEntityComponent> LIVING_ENTITY = register("LIVING_ENTITY", LivingEntityComponent.class);
     public static final ComponentKey<PlayerComponent> PLAYER = register("PLAYER", PlayerComponent.class);
+    public static final ComponentKey<DragonFireballEntityComponent> DRAGON_FIREBALL = register("DRAGON_FIREBALL", DragonFireballEntityComponent.class);
 
 
     public static <T extends Component> ComponentKey<T> register(String id, Class<T> componentClass) {
@@ -30,5 +32,6 @@ public class PComponents implements EntityComponentInitializer {
         registry.registerFor(LivingEntity.class, LIVING_ENTITY, LivingEntityComponent::new);
         registry.registerForPlayers(LIVING_ENTITY, LivingEntityComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
         registry.registerForPlayers(PLAYER, PlayerComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
+        registry.registerFor(DragonFireballEntity.class, DRAGON_FIREBALL, DragonFireballEntityComponent::new);
     }
 }
