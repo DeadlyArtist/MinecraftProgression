@@ -1,5 +1,6 @@
 package com.prog.mixin.compat.universalenchants;
 
+import com.prog.PSettings;
 import fuzs.universalenchants.world.item.enchantment.data.AdditionalEnchantmentDataProvider;
 import fuzs.universalenchants.world.item.enchantment.serialize.entry.DataEntry;
 import net.minecraft.enchantment.DamageEnchantment;
@@ -27,6 +28,8 @@ public class AdditionalEnchantmentDataProviderMixin {
             cancellable = true
     )
     private static void injectSetupAdditionalCompatibilityMixin(Map<Enchantment, DataEntry.Builder> builders, CallbackInfo ci) {
+        if (!PSettings.COMBINE_MORE_ENCHANTS) return;
+
         AdditionalEnchantmentDataProviderAccessor.applyIncompatibilityToBoth(builders, Enchantments.INFINITY, Enchantments.MENDING, false);
         AdditionalEnchantmentDataProviderAccessor.applyIncompatibilityToBoth(builders, Enchantments.MULTISHOT, Enchantments.PIERCING, false);
 
