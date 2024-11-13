@@ -51,6 +51,8 @@ Special mod support:
 [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs)  
 [Rotten Creatures](https://www.curseforge.com/minecraft/mc-mods/rotten-creatures)  
 [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge)  
+[Ecologics](https://www.curseforge.com/minecraft/mc-mods/ecologics)  
+[Supplementaries](https://www.curseforge.com/minecraft/mc-mods/supplementaries)  
 
 ## Mod Incompatibility
 This mod was designed as a standalone experience, as it introduces lots of significant changes to make this much progression possible, including very high damage and armor. This massive change in balance makes this mod very overpowered in combination with other mods. Additionally, its unique tier and armor/tool upgrade system would require other mods to be programmed specifically for this mod to stay relevant.
@@ -76,6 +78,9 @@ These have been implemented in an update.
 *Rotten Creatures*: Added special mod support.  
 *Fixed Anvil*: Applying enchantments now costs a fair price, regardless in which order you apply them, even if you already have a lower level of the enchantment applied. Additionally, anvils no longer break, and many enchantments now allow you to merge them in the anvil beyond their usual limit.  
 *Universal Enchants*: Added special mod support.  
+*Ecologics*: Added special mod support.  
+*Supplementaries*: Added special mod support.  
+*Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, instead of permanently running away. The difficulty has been adjusted to this mod, regarding both damage and the fact that you can use a jetpack.  
 
 ## License
 This mod is licensed under MIT license.
