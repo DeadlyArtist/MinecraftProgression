@@ -1,6 +1,5 @@
 package com.prog.client;
 
-import com.blakebr0.ironjetpacks.handler.KeyBindingsHandler;
 import com.prog.Prog;
 import com.prog.client.gui.screen.ingame.PHandledScreens;
 import com.prog.client.keybindings.PKeybindings;

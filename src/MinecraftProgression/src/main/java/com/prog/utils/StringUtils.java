@@ -26,8 +26,7 @@ public class StringUtils {
             return input;
         }
 
-        // Split the input by underscores and then capitalize each part
-        String[] parts = input.toLowerCase().split("_");
+        String[] parts = input.toLowerCase().split("[ _]");
         StringBuilder result = new StringBuilder();
 
         for (String part : parts) {

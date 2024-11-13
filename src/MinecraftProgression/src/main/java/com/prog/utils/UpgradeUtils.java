@@ -23,11 +23,11 @@ public class UpgradeUtils {
     public static final String UPGRADE_NBT_PREFIX = "upgrade___";
 
     public static String getUpgradeNbtName(ItemConvertible upgrade){
-        return UPGRADE_NBT_PREFIX + getItemPath(upgrade);
+        return UPGRADE_NBT_PREFIX + ItemUtils.getId(upgrade.asItem());
     }
 
     public static String getRecipePath(ItemConvertible upgrade, ItemConvertible target) {
-        return getUpgradeNbtName(upgrade) + "_to_" + getItemPath(target);
+        return getUpgradeNbtName(upgrade).replace(":", "___") + "___to___" + ItemUtils.getId(target.asItem()).toString().replace(":", "___");
     }
 
     public static String getUpgradeModifierNamePrefix(String upgradeId, String upgradableId) {

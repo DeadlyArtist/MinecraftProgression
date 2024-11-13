@@ -1,5 +1,6 @@
 package com.prog.data;
 
+import com.deadlyartist.jpa.config.Jetpacks;
 import com.prog.itemOrBlock.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -41,9 +42,6 @@ public class PItemTagProvider extends FabricTagProvider.ItemTagProvider {
         // Vanilla overwrites
         addToTag(PItemTags.TIER_CORE, List.of(Items.DIAMOND_AXE, Items.DIAMOND_BOOTS, Items.DIAMOND_HOE, Items.DIAMOND_CHESTPLATE, Items.DIAMOND_HELMET, Items.DIAMOND_HOE, Items.DIAMOND_LEGGINGS, Items.DIAMOND_PICKAXE, Items.DIAMOND_SHOVEL, Items.DIAMOND_SWORD));
         addToTag(PItemTags.TIER_CORE, List.of(Items.NETHERITE_AXE, Items.NETHERITE_BOOTS, Items.NETHERITE_HOE, Items.NETHERITE_CHESTPLATE, Items.NETHERITE_HELMET, Items.NETHERITE_HOE, Items.NETHERITE_LEGGINGS, Items.NETHERITE_PICKAXE, Items.NETHERITE_SHOVEL, Items.NETHERITE_SWORD));
-
-        // Custom
-        addToTag(PItemTags.UPGRADE, PJetpacks.MECHANICAL.item.get());
 
         // Preregistered
         PItems.data.forEach((item, data) -> data.tags.forEach(tag -> addToTag(tag, item)));

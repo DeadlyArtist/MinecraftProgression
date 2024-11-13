@@ -9,7 +9,6 @@ import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
 import com.prog.entity.PEntityLootTables;
 import com.prog.entity.PStatusEffects;
-import com.prog.entity.attribute.PDefaultAttributes;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.*;
@@ -29,6 +28,7 @@ import net.fabricmc.fabric.api.item.v1.ModifyItemAttributeModifiersCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -46,6 +46,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
@@ -71,7 +72,6 @@ public class Prog implements ModInitializer {
         PBlocks.init();
         PBlockEntityTypes.init();
         PEntityAttributes.init();
-        PDefaultAttributes.init();
         PStatusEffects.init();
         GourmetFoods.init();
         OreGeneration.init();
@@ -102,10 +102,15 @@ public class Prog implements ModInitializer {
         });
 
         RecipeEvents.RECIPES_LOADED.register(map -> {
+            Consumer<RecipeJsonProvider> exporter = provider -> map.put(provider.getRecipeId(), provider.toJson());
+
             // Upgrades
             Upgrades.data.forEach((item, upgrade) -> {
-                PRecipeProvider.getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(provider -> map.put(wrapper.getId(), provider.toJson())));
+                PRecipeProvider.getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(exporter));
             });
+
+            // Compat
+            PRecipeProvider.registerCompatRecipes(exporter);
 
 
             // Minecraft modding really does not seem to be made for compat.
@@ -140,7 +145,6 @@ public class Prog implements ModInitializer {
 
         EntityEvents.PLAYER_ENTITY_TICK.register(player -> {
             PComponents.PLAYER.get(player).updateFlight();
-            JetpackUtils.tickJetpack(player);
 
             if (player.getAttributeValue(PEntityAttributes.MAGNET) == 1)
                 MagnetUtil.doMagnet(player.world, player, null);

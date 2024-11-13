@@ -55,14 +55,6 @@
     "TridentEntityMixin",
     "TridentItemMixin",
     "compat.armordamagescaling.CommonConfigurationMixin",
-    "compat.ironjetpacks.IronJetpacksMixin",
-    "compat.ironjetpacks.JetpackDynamicRecipeManagerMixin",
-    "compat.ironjetpacks.JetpackItemMixin",
-    "compat.ironjetpacks.JetpackMixin",
-    "compat.ironjetpacks.ModItemsMixin",
-    "compat.ironjetpacks.ModJetpacksMixin",
-    "compat.ironjetpacks.ToggleEngineMessageMixin",
-    "compat.ironjetpacks.ToggleHoverMessageMixin",
     "compat.ringofattraction.ItemRingAttractionMixin",
     "compat.ringofattraction.MagnetUtilMixin",
     "compat.rottencreatures.RCItemsMixin",
@@ -81,14 +73,7 @@
     "DragonFireballEntityRendererMixin",
     "HeldItemRendererMixin",
     "MinecraftClientMixin",
-    "TitleScreenMixin",
-    "compat.ironjetpacks.ColorHandlerAccessor",
-    "compat.ironjetpacks.ColorHandlerMixin",
-    "compat.ironjetpacks.HudHandlerMixin",
-    "compat.ironjetpacks.JetpackClientHandlerMixin",
-    "compat.ironjetpacks.KeyBindingsHandlerAccessor",
-    "compat.ironjetpacks.KeyBindingsHandlerMixin",
-    "compat.ironjetpacks.ModelHandlerMixin"
+    "TitleScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

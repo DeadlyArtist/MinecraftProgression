@@ -11,6 +11,8 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
 
+import java.util.function.Consumer;
+
 public class PNetwork {
     public static Identifier PACKET_ID = Identifier.of(Prog.MOD_ID, "network");
     public static int counter = 0;
@@ -44,8 +46,15 @@ public class PNetwork {
 
     @Environment(EnvType.CLIENT)
     public static void sendToServer(int message) {
+        sendToServer(message, buf -> {
+        });
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static void sendToServer(int message, Consumer<PacketByteBuf> bufferWriter) {
         PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
         buf.writeInt(message);
+        bufferWriter.accept(buf);
         ClientPlayNetworking.send(PACKET_ID, buf);
     }
 

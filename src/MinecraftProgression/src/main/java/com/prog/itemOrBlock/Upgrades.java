@@ -1,5 +1,7 @@
 package com.prog.itemOrBlock;
 
+import com.deadlyartist.jpa.JPA;
+import com.deadlyartist.jpa.config.Jetpacks;
 import com.kwpugh.ring_of_attraction.RingOfAttraction;
 import com.prog.Prog;
 import com.prog.XIDs;
@@ -88,7 +90,6 @@ public class Upgrades {
         // Custom
         register(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
         register(PItems.MECHANICAL_BOOTS, UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
-        register(PJetpacks.MECHANICAL.item.get(), UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.JETPACK)));
         register(PItems.ANGEL_RING, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.LIGHTNESS, 0.5)));
         register(PItems.ANCHOR, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.LEVITATION_IMMUNITY)));
         register(PItems.DREAM_CATCHER, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.INSOMNIA_IMMUNITY)));
@@ -101,6 +102,9 @@ public class Upgrades {
     }
 
     public static void registerAllCompat() {
+        if (XCompat.isModLoaded(XIDs.JETPACK_ATTRIBUTE)) {
+            registerCompat(Jetpacks.DEFAULT.item.get(), UEffectMapper.chestplate(UEffect.increment(XEntityAttributes.JETPACK)));
+        }
         if (XCompat.isModLoaded(XIDs.ECOLOGICS)) {
             registerCompat(ItemUtils.byId(XIDs.ECOLOGICS, "penguin_feather"), UEffectMapper.damage());
         }

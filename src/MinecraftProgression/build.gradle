@@ -109,10 +109,8 @@ dependencies {
 	modImplementation include("curse.maven:cupboard-326652:5170316")
 	implementation include('com.ezylang:EvalEx:3.0.1')
 
-	// Iron Jetpacks
-	modImplementation include("curse.maven:ironjetpacks-386892:4104580")
-	modImplementation include("curse.maven:autoconfig-373261:3668220")
-	modImplementation include("teamreborn:energy:2.3.0")
+	// https://github.com/DeadlyArtist/JetpackAttribute
+	modImplementation include(files("libs/jetpack-attribute-${project.jetpack_attribute_version}.jar"))
 
 
 	/////////////

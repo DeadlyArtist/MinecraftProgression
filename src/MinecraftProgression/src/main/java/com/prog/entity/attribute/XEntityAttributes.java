@@ -1,10 +1,14 @@
 package com.prog.entity.attribute;
 
+import com.deadlyartist.jpa.entity.attribute.JEntityAttributes;
 import com.jamieswhiteshirt.reachentityattributes.ReachEntityAttributes;
 import de.dafuqs.additionalentityattributes.AdditionalEntityAttributes;
 import net.minecraft.entity.attribute.EntityAttribute;
 
 public class XEntityAttributes {
+    // Jetpack attribute mod
+    public static final EntityAttribute JETPACK = JEntityAttributes.JETPACK;
+
     // Reach entity attributes mod
     public static final EntityAttribute REACH = ReachEntityAttributes.REACH;
     public static final EntityAttribute ATTACK_RANGE = ReachEntityAttributes.ATTACK_RANGE; // Capped by reach
