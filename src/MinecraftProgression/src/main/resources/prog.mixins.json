@@ -54,7 +54,6 @@
     "TridentEntityAccessor",
     "TridentEntityMixin",
     "TridentItemMixin",
-    "compat.armordamagescaling.CommonConfigurationMixin",
     "compat.ringofattraction.ItemRingAttractionMixin",
     "compat.ringofattraction.MagnetUtilMixin",
     "compat.rottencreatures.RCItemsMixin",

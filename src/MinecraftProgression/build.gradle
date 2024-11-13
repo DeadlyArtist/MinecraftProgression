@@ -104,11 +104,6 @@ dependencies {
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.caridnal_components_version}")
 	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.caridnal_components_version}")
 
-	// Armor & Damage Scaling
-	modImplementation include("curse.maven:armordamagescaling-824936:4669620")
-	modImplementation include("curse.maven:cupboard-326652:5170316")
-	implementation include('com.ezylang:EvalEx:3.0.1')
-
 	// https://github.com/DeadlyArtist/JetpackAttribute
 	modImplementation include(files("libs/jetpack-attribute-${project.jetpack_attribute_version}.jar"))
 
