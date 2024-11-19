@@ -102,6 +102,8 @@ public class Upgrades {
     }
 
     public static void registerAllCompat() {
+        if (!compatData.isEmpty()) return;
+
         if (XCompat.isModLoaded(XIDs.JETPACK_ATTRIBUTE)) {
             registerCompat(Jetpacks.DEFAULT.item.get(), UEffectMapper.chestplate(UEffect.increment(XEntityAttributes.JETPACK)));
         }

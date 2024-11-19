@@ -55,7 +55,6 @@ public class GourmetFoods {
         register(Items.SUSPICIOUS_STEW, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.RABBIT_STEW, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.HONEY_BOTTLE, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
-        register(Items.POTION, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.COOKIE, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.BAKED_POTATO, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         register(Items.BREAD, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
@@ -80,6 +79,8 @@ public class GourmetFoods {
 
     // Combat. Separated so we can wait for other mods to finish registering
     public static void registerAllCompat() {
+        if (!compatData.isEmpty()) return;
+
         if (XCompat.isModLoaded(XIDs.FROG_LEGS)) {
             registerCompat(FroglegsModItems.COOKED_FROG_LEG, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         }
@@ -94,7 +95,7 @@ public class GourmetFoods {
             registerCompat(ItemUtils.byId(XIDs.ECOLOGICS, "crab_meat"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         }
         if (XCompat.isModLoaded(XIDs.SUPPLEMENTARIES)) {
-            registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "pancake"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+            //registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "pancake"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
             registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "candy"), UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         }
     }

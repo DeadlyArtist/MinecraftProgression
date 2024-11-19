@@ -9,6 +9,7 @@ import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.ItemEvents;
 import com.prog.itemOrBlock.GourmetFoods;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.itemOrBlock.Upgrades;
 import com.prog.itemOrBlock.custom.TieredBowItem;
 import com.prog.text.PTexts;
 import com.prog.utils.ItemStackUtils;
@@ -70,6 +71,11 @@ public class PClient implements ClientModInitializer {
 
         ItemTooltipCallback.EVENT.register((itemStack, context, lines) -> {
             TooltipUtils.mergeMultiHandTooltips(lines);
+        });
+
+        ClientTickEvents.START_WORLD_TICK.register(world -> {
+            GourmetFoods.registerAllCompat();
+            Upgrades.registerAllCompat();
         });
     }
 }
