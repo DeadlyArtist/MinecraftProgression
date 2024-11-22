@@ -10,6 +10,9 @@ import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.itemOrBlock.custom.TieredCrossbowItem;
+import com.prog.itemOrBlock.custom.TieredFishingRodItem;
+import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.text.PTexts;
 import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.LOGGER;
@@ -51,6 +54,18 @@ public class ItemStackMixin {
     private void onConstructorHead(ItemConvertible item, int count, CallbackInfo info) {
         var stack = (ItemStack) (Object) this;
         ItemStackEvents.ITEM_STACK_CTOR.invoker().ctor(stack);
+    }
+
+    @Inject(method = "isOf", at = @At("HEAD"), cancellable = true)
+    private void injectIsOf(Item item, CallbackInfoReturnable<Boolean> cir) {
+        var stack = (ItemStack) (Object) this;
+
+        // bad hack, but might still be better than a dozen mixins
+        if (item == Items.SHEARS && stack.getItem() instanceof ShearsItem) cir.setReturnValue(true);
+        if (item == Items.FLINT_AND_STEEL && stack.getItem() instanceof FlintAndSteelItem) cir.setReturnValue(true);
+        if (item == Items.FISHING_ROD && stack.getItem() instanceof FishingRodItem) cir.setReturnValue(true);
+        if (item == Items.TRIDENT && stack.getItem() instanceof TridentItem) cir.setReturnValue(true);
+        if (item == Items.CROSSBOW && stack.getItem() instanceof CrossbowItem) cir.setReturnValue(true);
     }
 
     @Inject(

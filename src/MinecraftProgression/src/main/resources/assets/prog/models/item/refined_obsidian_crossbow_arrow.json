@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/refined_obsidian_crossbow",
+    "textures": {
+        "layer0": "prog:item/refined_obsidian_crossbow_arrow"
+    }
+}

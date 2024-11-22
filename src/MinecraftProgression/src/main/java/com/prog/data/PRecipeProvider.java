@@ -522,6 +522,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("nsn", "bHu", "thf"), List.of(Input.of(Items.NAUTILUS_SHELL), Input.of(Items.SPONGE), Input.of(Items.BRAIN_CORAL), Input.of(Items.HEART_OF_THE_SEA), Input.of(Items.BUBBLE_CORAL), Input.of(Items.TUBE_CORAL), Input.of(Items.HORN_CORAL), Input.of(Items.FIRE_CORAL)), PItems.OCEANS_GRACE).offer(exporter);
         createShapelessRecipe(List.of(Input.of(Items.BOWL), Input.of(Items.DRAGON_EGG), Input.of(Items.CHORUS_FLOWER), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(Items.SHULKER_SHELL)), PItems.COSMIC_SOUP).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of("ffgff", "fg gf", "  g  "), List.of(Input.of(Items.FEATHER), Input.of(Items.GOLD_INGOT)), PItems.ANGEL_RING).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("ggg", "ghg", "ggg"), List.of(Input.of(Items.GOLD_BLOCK), Input.of(Items.HEART_OF_THE_SEA)), PItems.HEART_OF_GREED).offer(exporter);
 
 
         // Tier upgrades
@@ -531,6 +532,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("cr#rc", "c#g#c", "cr#rc"), List.of(Input.of(Items.COPPER_INGOT), Input.of(Items.REDSTONE), Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.GOLD_INGOT)), PItems.REFINED_OBSIDIAN_MODULE).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("  cce", " eCe ", "ecc  "), List.of(Input.of(PItems.COMPRESSED_QUARTZ), Input.of(PItems.EMBERITE), Input.of(PBlocks.QUARTZ_CATALYST)), PItems.TITAN_INGOT).requireAssembly().offer(exporter);
         createShapedRecipe(List.of(" t ", "tdt", " t "), List.of(Input.of(PItems.TITAN_INGOT), Input.of(Items.DIAMOND)), PItems.TITAN_CORE).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("ada", "ege", "ada"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(Items.DIAMOND), Input.of(Items.EMERALD), Input.of(Items.GOLD_INGOT)), PItems.AMETHYST_HEART).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("avava", "cavac", "cvdvc", "ce ec"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(PItems.VERUM_INGOT), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.DRAGON_HEAD), Input.of(Items.ENDER_EYE)), PItems.VOID_SOUL_HELMET).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of("av va", "cavac", "ceEec", "cavac", "avcva"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(PItems.VERUM_INGOT), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.ENDER_EYE), Input.of(Items.ELYTRA)), PItems.VOID_SOUL_CHESTPLATE).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of("aeaea", "csvsc", "vaaav", "va av", "ca ac"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(Items.ENDER_EYE), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.SHULKER_SHELL), Input.of(PItems.VERUM_INGOT)), PItems.VOID_SOUL_LEGGINGS).requireCosmicConstructor().offer(exporter);
@@ -544,6 +546,10 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("caRac", "deqed", "RM MR", "cCICc", "EEDEE"), List.of(Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.AMETHYST_SHARD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(PItems.DIAMOND_HEART), Input.of(Items.ENDER_EYE), Input.of(PBlocks.QUARTZ_CATALYST), Input.of(PBlocks.MACHINE_FRAME), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PBlocks.INCINERATOR), Input.of(Items.END_STONE), Input.of(Blocks.DRAGON_EGG)), PBlocks.COSMIC_INCUBATOR).requireCosmicConstructor().offer(exporter);
 
         // Tier Upgrades
+        // Amethyst
+        createSmithingRecipe(Input.of(Items.SHEARS), Input.of(PItems.AMETHYST_HEART), PItems.AMETHYST_SHEARS).offer(exporter);
+        createSmithingRecipe(Input.of(Items.FLINT_AND_STEEL), Input.of(PItems.AMETHYST_HEART), PItems.FLINT_AND_AMETHYST).offer(exporter);
+
         // Steel
         createSmithingRecipe(Input.of(Items.IRON_BOOTS), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOOTS).offer(exporter);
         createSmithingRecipe(Input.of(Items.IRON_CHESTPLATE), Input.of(PItems.STEEL_BINDING), PItems.STEEL_CHESTPLATE).offer(exporter);

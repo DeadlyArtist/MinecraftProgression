@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "g": {
+      "item": "minecraft:gold_block"
+    },
+    "h": {
+      "item": "minecraft:heart_of_the_sea"
+    }
+  },
+  "pattern": [
+    "ggg",
+    "ghg",
+    "ggg"
+  ],
+  "result": {
+    "item": "prog:heart_of_greed"
+  }
+}

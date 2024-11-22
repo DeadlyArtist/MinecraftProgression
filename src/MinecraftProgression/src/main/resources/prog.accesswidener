@@ -50,6 +50,9 @@ accessible field net/minecraft/entity/LivingEntity itemUseTimeLeft I
 accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
 accessible method net/minecraft/entity/mob/MobEntity getLootContextBuilder (ZLnet/minecraft/entity/damage/DamageSource;)Lnet/minecraft/loot/context/LootContext$Builder;
 
+# TridentEntity
+accessible field net/minecraft/entity/projectile/TridentEntity tridentStack Lnet/minecraft/item/ItemStack;
+
 # AttributeContainer
 accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;
 

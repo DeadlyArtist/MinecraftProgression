@@ -1,0 +1,25 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "e": {
+      "item": "minecraft:emerald"
+    },
+    "g": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "ada",
+    "ege",
+    "ada"
+  ],
+  "result": {
+    "item": "prog:amethyst_heart"
+  }
+}

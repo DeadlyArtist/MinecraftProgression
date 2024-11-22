@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/ultimate_diamond_crossbow",
+    "textures": {
+        "layer0": "prog:item/ultimate_diamond_crossbow_pulling_0"
+    }
+}

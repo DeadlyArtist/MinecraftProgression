@@ -102,6 +102,16 @@ https://github.com/LieOnLion/Enderite
 https://github.com/Pdiddy973/AllTheCompressed  
 https://github.com/mariumbacchus/Soulslike-Weaponry  
 https://github.com/KyaniteMods/DeeperAndDarker  
+https://github.com/Rajhab/More-Vanilla-Shields-Forge  
+https://github.com/Nova-Committee/Re-Avaritia  
+https://github.com/yuoft/Endless  
+https://github.com/Nic4Las/Minecraft-Enderite-Mod  
+https://github.com/Lightning-64/Tide  
+https://www.curseforge.com/minecraft/mc-mods/more-crossbows-cj  
+https://github.com/YggdrasziI/BetterShears3  
+https://github.com/fzzyhmstrs/ai  
+https://github.com/fzzyhmstrs/tns  
+https://github.com/fzzyhmstrs/ig  
 
 ## Author
 

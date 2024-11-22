@@ -3,6 +3,9 @@ package com.prog.itemOrBlock;
 import com.prog.Prog;
 import com.prog.XIDs;
 import com.prog.itemOrBlock.custom.TieredBowItem;
+import com.prog.itemOrBlock.custom.TieredCrossbowItem;
+import com.prog.itemOrBlock.custom.TieredFishingRodItem;
+import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.itemOrBlock.tiers.*;
 import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
@@ -42,6 +45,7 @@ public class PItems {
     // Misc
     public static final Item MACHINE_CIRCUIT = register("MACHINE_CIRCUIT", new Item(new FabricItemSettings().group(ItemGroup.REDSTONE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item TELEPORTATION_CORE = register("TELEPORTATION_CORE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item HEART_OF_GREED = register("HEART_OF_GREED", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item STAR_APPLE = register("STAR_APPLE", new Item(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item ENCHANTED_STAR_APPLE = register("ENCHANTED_STAR_APPLE", new EnchantedGoldenAppleItem(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.ENCHANTED_STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, PItems.STAR_APPLE, Models.GENERATED)).finished();
     public static final Item COSMIC_SOUP = register("COSMIC_SOUP", new StewItem(new FabricItemSettings().group(ItemGroup.FOOD).maxCount(1).rarity(Rarity.EPIC).food(PFoodComponents.COSMIC_SOUP)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
@@ -56,6 +60,17 @@ public class PItems {
     public static final Item DREAM_CATCHER = register("DREAM_CATCHER", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item OCEANS_GRACE = register("OCEANS_GRACE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Ocean's Grace").finished();
 
+    // Amethyst
+    public static final Item AMETHYST_HEART = register("AMETHYST_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
+    public static final Item AMETHYST_SHEARS = register("AMETHYST_SHEARS", new ShearsItem(new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item FLINT_AND_AMETHYST = register("FLINT_AND_AMETHYST", new FlintAndSteelItem(new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+
+    // Trident
+    public static final Item AMETHYST_TRIDENT = register("AMETHYST_TRIDENT", new TieredTridentItem(TridentMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item HELL_TRIDENT = register("HELL_TRIDENT", new TieredTridentItem(TridentMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item PRIMAL_TRIDENT = register("PRIMAL_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item STELLAR_TRIDENT = register("STELLAR_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+
     // Steel
     public static final Item STEEL_INGOT = register("STEEL_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item STEEL_BINDING = register("STEEL_BINDING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
@@ -67,7 +82,9 @@ public class PItems {
     public static final Item STEEL_BOOTS = register("STEEL_BOOTS", new ArmorItem(PArmorMaterials.STEEL, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
 
     // Steel tier weapons
-    public static final Item STEEL_BOW = register("STEEL_BOW", new TieredBowItem(BowMaterials.STEEL, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
+    public static final Item STEEL_BOW = register("STEEL_BOW", new TieredBowItem(BowMaterials.STEEL, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
+    public static final Item STEEL_CROSSBOW = register("STEEL_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.STEEL, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
     public static final Item STEEL_SWORD = register("STEEL_SWORD", new SwordItem(PToolMaterials.STEEL, 4, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
 
     // Steel tier tools
@@ -75,6 +92,7 @@ public class PItems {
     public static final Item STEEL_HOE = register("STEEL_HOE", new HoeItem(PToolMaterials.STEEL, -1, -1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
     public static final Item STEEL_PICKAXE = register("STEEL_PICKAXE", new PickaxeItem(PToolMaterials.STEEL, 2, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
     public static final Item STEEL_SHOVEL = register("STEEL_SHOVEL", new ShovelItem(PToolMaterials.STEEL, 1F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
+    public static final Item STEEL_FISHING_ROD = register("STEEL_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.STEEL, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.STEEL)).finished();
 
     // Ultimate diamond
     public static final Item DIAMOND_HEART = register("DIAMOND_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
@@ -86,7 +104,9 @@ public class PItems {
     public static final Item ULTIMATE_DIAMOND_BOOTS = register("ULTIMATE_DIAMOND_BOOTS", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
 
     // Ultimate diamond tier weapons
-    public static final Item ULTIMATE_DIAMOND_BOW = register("ULTIMATE_DIAMOND_BOW", new TieredBowItem(BowMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
+    public static final Item ULTIMATE_DIAMOND_BOW = register("ULTIMATE_DIAMOND_BOW", new TieredBowItem(BowMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
+    public static final Item ULTIMATE_DIAMOND_CROSSBOW = register("ULTIMATE_DIAMOND_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
     public static final Item ULTIMATE_DIAMOND_SWORD = register("ULTIMATE_DIAMOND_SWORD", new SwordItem(PToolMaterials.ULTIMATE_DIAMOND, 5, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
 
     // Ultimate diamond tier tools
@@ -107,7 +127,9 @@ public class PItems {
     public static final Item REFINED_OBSIDIAN_BOOTS = register("REFINED_OBSIDIAN_BOOTS", new ArmorItem(PArmorMaterials.REFINED_OBSIDIAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
 
     // Refined obsidian tier weapons
-    public static final Item REFINED_OBSIDIAN_BOW = register("REFINED_OBSIDIAN_BOW", new TieredBowItem(BowMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
+    public static final Item REFINED_OBSIDIAN_BOW = register("REFINED_OBSIDIAN_BOW", new TieredBowItem(BowMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
+    public static final Item REFINED_OBSIDIAN_CROSSBOW = register("REFINED_OBSIDIAN_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
     public static final Item REFINED_OBSIDIAN_SWORD = register("REFINED_OBSIDIAN_SWORD", new SwordItem(PToolMaterials.REFINED_OBSIDIAN, 8, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
 
     // Refined obsidian tier tools
@@ -130,7 +152,9 @@ public class PItems {
     public static final Item TITAN_BOOTS = register("TITAN_BOOTS", new ArmorItem(PArmorMaterials.TITAN, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
 
     // Titan tier weapons
-    public static final Item TITAN_BOW = register("TITAN_BOW", new TieredBowItem(BowMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
+    public static final Item TITAN_BOW = register("TITAN_BOW", new TieredBowItem(BowMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
+    public static final Item TITAN_CROSSBOW = register("TITAN_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
     public static final Item TITAN_SWORD = register("TITAN_SWORD", new SwordItem(PToolMaterials.TITAN, 17, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
 
     // Titan tier tools
@@ -149,7 +173,9 @@ public class PItems {
     public static final Item PRIMAL_NETHERITE_BOOTS = register("PRIMAL_NETHERITE_BOOTS", new ArmorItem(PArmorMaterials.PRIMAL_NETHERITE, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
 
     // Primal netherite tier weapons
-    public static final Item PRIMAL_NETHERITE_BOW = register("PRIMAL_NETHERITE_BOW", new TieredBowItem(BowMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
+    public static final Item PRIMAL_NETHERITE_BOW = register("PRIMAL_NETHERITE_BOW", new TieredBowItem(BowMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
+    public static final Item PRIMAL_NETHERITE_CROSSBOW = register("PRIMAL_NETHERITE_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_SWORD = register("PRIMAL_NETHERITE_SWORD", new SwordItem(PToolMaterials.PRIMAL_NETHERITE, 31, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
 
     // Primal netherite tier tools
@@ -175,7 +201,9 @@ public class PItems {
     public static final Item END_BOOTS = register("END_BOOTS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
 
     // Verum tier weapons
-    public static final Item END_BOW = register("END_BOW", new TieredBowItem(BowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_BOW = register("END_BOW", new TieredBowItem(BowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_CROSSBOW = register("END_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
     public static final Item END_SWORD = register("END_SWORD", new SwordItem(PToolMaterials.VERUM, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
 
     // Verum tier tools

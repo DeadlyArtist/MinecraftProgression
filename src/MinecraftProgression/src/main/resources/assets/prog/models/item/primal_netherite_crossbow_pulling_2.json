@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/primal_netherite_crossbow",
+    "textures": {
+        "layer0": "prog:item/primal_netherite_crossbow_pulling_2"
+    }
+}

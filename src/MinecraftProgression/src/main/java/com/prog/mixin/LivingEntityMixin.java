@@ -6,6 +6,7 @@ import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.LOGGER;
+import com.prog.utils.SquadUtils;
 import com.prog.utils.UseUtils;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -119,19 +120,10 @@ public abstract class LivingEntityMixin {
     private void dropBonusLoot(DamageSource source, boolean causedByPlayer, CallbackInfo info) {
         LivingEntity self = (LivingEntity) (Object) this;
         if (!causedByPlayer || !(self instanceof MobEntity entity)) return;
-        var squad = PComponents.SQUAD.get(entity);
-        if (squad.normal()) return;
         MinecraftServer server = self.world.getServer();
         if (server == null) return;
 
-        var maxEnchantmentLevel = EnchantmentUtils.MAX_ENCHANTMENT_LEVEL;
-        var amount = Math.max(1, squad.rank + 1 - maxEnchantmentLevel);
-        var enchantmentLevel = Math.min(maxEnchantmentLevel, squad.rank);
-        var excludedEnchantments = new HashSet<>(List.of(Enchantments.MENDING, Enchantments.UNBREAKING));
-        for (var i = 0; i < amount; i++) {
-            var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(self.random, enchantmentLevel, false, excludedEnchantments));
-            self.dropStack(stack);
-        }
+        SquadUtils.DropBonusLoot(entity);
     }
 
     @Inject(method = "applyArmorToDamage", at = @At("HEAD"), cancellable = true)

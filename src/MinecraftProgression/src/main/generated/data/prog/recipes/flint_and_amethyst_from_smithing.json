@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:amethyst_heart"
+  },
+  "base": {
+    "item": "minecraft:flint_and_steel"
+  },
+  "result": {
+    "item": "prog:flint_and_amethyst"
+  }
+}

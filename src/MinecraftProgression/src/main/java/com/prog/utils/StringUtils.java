@@ -39,4 +39,25 @@ public class StringUtils {
 
         return result.toString().trim();
     }
+
+    /**
+     * Splits the input string using the provided delimiter and returns the last element.
+     *
+     * @param input     The input string to be split.
+     * @param delimiter The delimiter to split by.
+     * @return The last element after splitting the string, or null if the input is null, empty, or the delimiter is not found.
+     */
+    public static String getLastElement(String input, String delimiter) {
+        if (input == null || input.isEmpty() || delimiter == null || delimiter.isEmpty()) {
+            return null;
+        }
+
+        String[] parts = input.split(delimiter); // Split the string using the delimiter
+
+        if (parts.length == 0) {
+            return null;
+        }
+
+        return parts[parts.length - 1];
+    }
 }

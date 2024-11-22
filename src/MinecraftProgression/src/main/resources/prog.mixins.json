@@ -54,6 +54,7 @@
     "TridentEntityAccessor",
     "TridentEntityMixin",
     "TridentItemMixin",
+    "ZombieEntityMixin",
     "compat.ringofattraction.ItemRingAttractionMixin",
     "compat.ringofattraction.MagnetUtilMixin",
     "compat.rottencreatures.RCItemsMixin",
@@ -66,13 +67,16 @@
   "client": [
     "AbstractClientPlayerEntityMixin",
     "AnvilScreenMixin",
+    "BuiltinModelItemRendererMixin",
     "ClientPlayerEntityMixin",
     "ClientRecipeBookMixin",
     "DebugHudMixin",
     "DragonFireballEntityRendererMixin",
     "HeldItemRendererMixin",
+    "ItemRendererMixin",
     "MinecraftClientMixin",
-    "TitleScreenMixin"
+    "TitleScreenMixin",
+    "TridentEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
