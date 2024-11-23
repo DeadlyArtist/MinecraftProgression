@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "prog:entity/ultimate_diamond_shield_base"
+    },
+    {
+      "type": "single",
+      "resource": "prog:entity/ultimate_diamond_shield_base_nopattern"
+    }
+  ]
+}

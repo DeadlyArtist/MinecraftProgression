@@ -1,27 +1,20 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum FishingRodMaterials implements FishingRodMaterial {
-    STEEL(1, 1),
-    ULTIMATE_DIAMOND(2, 2),
-    REFINED_OBSIDIAN(3, 2),
-    TITAN(5, 3),
-    PRIMAL_NETHERITE(8, 3),
-    VERUM(10, 4);
+    STEEL(1),
+    ULTIMATE_DIAMOND(3),
+    REFINED_OBSIDIAN(5),
+    TITAN(12),
+    PRIMAL_NETHERITE(20),
+    END(30);
 
-    public final double luckIncrease;
-    public final double lureIncrease;
-    FishingRodMaterials(double luckIncrease, double lureIncrease) {
-        this.luckIncrease = luckIncrease;
-        this.lureIncrease = lureIncrease;
+    public final double treasureQualityBonus;
+    FishingRodMaterials(double treasureQualityBonus) {
+        this.treasureQualityBonus = treasureQualityBonus;
     }
 
     @Override
-    public double getLuckIncrease() {
-        return 0;
-    }
-
-    @Override
-    public double getLureIncrease() {
-        return 0;
+    public double getTreasureQualityBonus() {
+        return treasureQualityBonus;
     }
 }

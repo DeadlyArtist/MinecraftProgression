@@ -14,10 +14,7 @@ import com.prog.itemOrBlock.custom.TieredCrossbowItem;
 import com.prog.itemOrBlock.custom.TieredFishingRodItem;
 import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.text.PTexts;
-import com.prog.utils.EnchantmentUtils;
-import com.prog.utils.LOGGER;
-import com.prog.utils.RangedUtils;
-import com.prog.utils.UpgradeUtils;
+import com.prog.utils.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -61,11 +58,12 @@ public class ItemStackMixin {
         var stack = (ItemStack) (Object) this;
 
         // bad hack, but might still be better than a dozen mixins
-        if (item == Items.SHEARS && stack.getItem() instanceof ShearsItem) cir.setReturnValue(true);
+        //if (item == Items.SHEARS && stack.getItem() instanceof ShearsItem) cir.setReturnValue(true);
         if (item == Items.FLINT_AND_STEEL && stack.getItem() instanceof FlintAndSteelItem) cir.setReturnValue(true);
-        if (item == Items.FISHING_ROD && stack.getItem() instanceof FishingRodItem) cir.setReturnValue(true);
-        if (item == Items.TRIDENT && stack.getItem() instanceof TridentItem) cir.setReturnValue(true);
-        if (item == Items.CROSSBOW && stack.getItem() instanceof CrossbowItem) cir.setReturnValue(true);
+        //if (item == Items.FISHING_ROD && stack.getItem() instanceof FishingRodItem) cir.setReturnValue(true);
+        //if (item == Items.TRIDENT && stack.getItem() instanceof TridentItem) cir.setReturnValue(true);
+        //if (item == Items.CROSSBOW && stack.getItem() instanceof CrossbowItem) cir.setReturnValue(true);
+        //if (item == Items.SHIELD && stack.getItem() instanceof ShieldItem) cir.setReturnValue(true);
     }
 
     @Inject(
@@ -81,8 +79,9 @@ public class ItemStackMixin {
         ItemStack self = (ItemStack) (Object) this;
         var modifierId = modifier.getId();
         if (modifierId.equals(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID)) {
-            d.set(d.get() * EnchantmentUtils.getCommonDamageMultiplier(EnchantmentHelper.getLevel(Enchantments.POWER, self)));
-            if (self.getItem() instanceof TridentItem) d.set(d.get() + (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get()));
+            d.set(d.get() + EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get(), true));
+            bl.set(true);
+        } else if (modifierId.equals(MeleeUtils.SHIELD_BASE_MODIFIER_ID)) {
             bl.set(true);
         } else if (Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
             bl.set(true);

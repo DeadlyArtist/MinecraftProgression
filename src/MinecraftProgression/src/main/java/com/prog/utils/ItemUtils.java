@@ -96,6 +96,10 @@ public class ItemUtils {
         return item instanceof ShovelItem;
     }
 
+    public static boolean isShield(Item item) {
+        return item instanceof ShieldItem;
+    }
+
     public static boolean isSword(Item item) {
         return item instanceof SwordItem;
     }

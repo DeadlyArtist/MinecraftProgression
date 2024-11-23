@@ -6,16 +6,21 @@ public enum TridentMaterials implements TridentMaterial {
     REFINED_OBSIDIAN(7),
     TITAN(15),
     PRIMAL_NETHERITE(25),
-    VERUM(38);
+    END(38);
 
-    public final int damageBonus;
+    public final double damageBonus;
 
-    TridentMaterials(int damageBonus) {
+    TridentMaterials(double damageBonus) {
         this.damageBonus = damageBonus;
     }
 
     @Override
-    public double getDamageBonus() {
+    public double getMeleeDamageBonus() {
         return damageBonus;
+    }
+
+    @Override
+    public double getRangedDamageBonus() {
+        return Math.ceil(damageBonus * 0.8);
     }
 }

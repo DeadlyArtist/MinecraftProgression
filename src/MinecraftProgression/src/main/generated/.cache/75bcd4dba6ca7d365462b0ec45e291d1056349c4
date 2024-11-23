@@ -1,10 +1,10 @@
-// 1.19.2	2024-11-22T05:52:28.2120074	Tags for minecraft:block
+// 1.19.2	2024-11-22T20:25:11.6648755	Tags for minecraft:block
 75fa2796e98dbaa08a6518ad3632c261966f455c data\fabric\tags\blocks\needs_tool_level_5.json
-f3fc6530841ee45853af077e9f1fc1869c732fb4 data\minecraft\tags\blocks\mineable\pickaxe.json
-95d29a2c734e2b479ef206e29babf62c9b97d473 data\minecraft\tags\blocks\needs_diamond_tool.json
+559c3a5a22a58983c28ff7170cd66833de09730a data\minecraft\tags\blocks\mineable\pickaxe.json
 3ad93edd5fc44a5850ae436daea82fed7265289e data\minecraft\tags\blocks\wither_immune.json
+95d29a2c734e2b479ef206e29babf62c9b97d473 data\minecraft\tags\blocks\needs_diamond_tool.json
 0d72f2b7044c8894d847a5636faa01540933b063 data\fabric\tags\blocks\needs_tool_level_7.json
-6589d8995a68b5950e670d860902d81b48a4fd75 data\minecraft\tags\blocks\dragon_immune.json
+226f829a850b318d6d96006aa81d21b948e5d1fc data\minecraft\tags\blocks\dragon_immune.json
 16287efdd3c63f039cc29f9e4ac590a6319083fe data\minecraft\tags\blocks\needs_iron_tool.json
-20ccd62c66791e1e77bcfceb1556fea9ea7aec8c data\fabric\tags\blocks\needs_tool_level_6.json
-fd396ece41f7c17a9d32d3df451d90bff470c9bc data\fabric\tags\blocks\needs_tool_level_4.json
+b11d01ee1a3de6ff3d1045cefa0d7696682fbcf4 data\fabric\tags\blocks\needs_tool_level_6.json
+c241cd7faf91a45219c7378d4b8076000c6d1412 data\fabric\tags\blocks\needs_tool_level_4.json

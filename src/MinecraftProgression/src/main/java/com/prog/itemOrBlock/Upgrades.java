@@ -74,11 +74,11 @@ public class Upgrades {
         register(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         register(Items.FIREWORK_ROCKET, List.of(UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(UEffect.increment(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.05)), UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_FLYING_SPEED, 0.05))));
         register(Items.FIRE_CHARGE, UEffectMapper.damage());
-        register(Items.GLOW_BERRIES, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK))));
-        register(Items.GLOW_INK_SAC, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(EntityAttributes.GENERIC_LUCK))));
+        register(Items.GLOW_BERRIES, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(PEntityAttributes.TREASURE_QUALITY))));
+        register(Items.GLOW_INK_SAC, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(PEntityAttributes.TREASURE_QUALITY))));
         register(Items.DRAGON_BREATH, UEffectMapper.best(3));
         register(Items.DISC_FRAGMENT_5, UEffectMapper.damage(2));
-        register(Items.FEATHER, UEffectMapper.boots(UEffect.increment(PEntityAttributes.LIGHTNESS, 0.5)));
+        register(Items.FEATHER, UEffectMapper.boots(UEffect.increment(PEntityAttributes.LIGHTNESS, 0.2)));
         register(Items.FERMENTED_SPIDER_EYE, UEffectMapper.helmet(UEffect.increment(XEntityAttributes.WATER_VISIBILITY, 20)));
         register(Items.CONDUIT, UEffectMapper.damage(5));
         register(Items.SHULKER_SHELL, UEffectMapper.protection(3));
@@ -90,7 +90,7 @@ public class Upgrades {
         // Custom
         register(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
         register(PItems.MECHANICAL_BOOTS, UEffectMapper.boots(UEffect.increment(PEntityAttributes.STEP_HEIGHT)));
-        register(PItems.ANGEL_RING, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.LIGHTNESS, 0.5)));
+        register(PItems.ANGEL_RING, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.LIGHTNESS, 0.3)));
         register(PItems.ANCHOR, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.LEVITATION_IMMUNITY)));
         register(PItems.DREAM_CATCHER, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.INSOMNIA_IMMUNITY)));
         register(PItems.OCEANS_GRACE, UEffectMapper.helmet(UEffect.increment(PEntityAttributes.MINING_FATIGUE_IMMUNITY)));

@@ -1,14 +1,12 @@
 package com.prog.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.prog.entity.PComponents;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
-import com.prog.utils.EnchantmentUtils;
-import com.prog.utils.LOGGER;
+import com.prog.utils.MeleeUtils;
 import com.prog.utils.SquadUtils;
 import com.prog.utils.UseUtils;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -16,10 +14,9 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShieldItem;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
@@ -27,14 +24,9 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.HashSet;
-import java.util.List;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -95,7 +87,7 @@ public abstract class LivingEntityMixin {
         LivingEntity self = (LivingEntity) (Object) this;
         double divisor = self.getAttributeValue(PEntityAttributes.LIGHTNESS);
         double reduction = self.getAttributeValue(PEntityAttributes.IMPACT_ABSORPTION);
-        return divisor == 16 ? 0 : MathHelper.ceil(Math.max(0, originalReturnValue - reduction) / divisor);
+        return divisor == 0 ? 0 : MathHelper.ceil(Math.max(0, originalReturnValue - reduction) / divisor);
     }
 
     @Inject(method = "applyFoodEffects", at = @At("HEAD"))
@@ -155,5 +147,18 @@ public abstract class LivingEntityMixin {
         damage = damage * (1 / (toughness / 10 + 1) * hitpct + (1 - hitpct));
 
         cir.setReturnValue(Math.max(0.5f, damage));
+    }
+
+    @ModifyConstant(method = "damage", constant = @Constant(floatValue = 0, ordinal = 1))
+    private float changeDamageBlocking(float constant, @Local(ordinal = 0) float amount) {
+        var self = (LivingEntity) (Object) this;
+        Item item = self.getActiveItem().getItem();
+
+        var newAmount = 0f;
+        if (item instanceof ShieldItem shield) {
+            newAmount = (float) (amount - self.getAttributeValue(PEntityAttributes.SHIELD));
+        }
+
+        return newAmount;
     }
 }

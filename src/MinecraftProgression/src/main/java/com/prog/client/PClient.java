@@ -1,12 +1,15 @@
 package com.prog.client;
 
 import com.prog.Prog;
+import com.prog.client.entity.PEntityModelLayers;
+import com.prog.client.entity.PEntityRenderers;
 import com.prog.client.gui.screen.ingame.PHandledScreens;
 import com.prog.client.keybindings.PKeybindings;
 import com.prog.client.utils.TooltipUtils;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.ItemEvents;
+import com.prog.event.RendererEvents;
 import com.prog.itemOrBlock.GourmetFoods;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.itemOrBlock.Upgrades;
@@ -32,6 +35,8 @@ public class PClient implements ClientModInitializer {
     public void onInitializeClient() {
         PHandledScreens.init();
         PKeybindings.init();
+        PEntityModelLayers.init();
+        PEntityRenderers.init();
 
         // Events
         ClientTickEvents.END_CLIENT_TICK.register(PKeybindings::onClientTick);
@@ -76,6 +81,10 @@ public class PClient implements ClientModInitializer {
         ClientTickEvents.START_WORLD_TICK.register(world -> {
             GourmetFoods.registerAllCompat();
             Upgrades.registerAllCompat();
+        });
+
+        RendererEvents.RELOAD_MODELS.register(loader -> {
+            PEntityModelLayers.onReload(loader);
         });
     }
 }

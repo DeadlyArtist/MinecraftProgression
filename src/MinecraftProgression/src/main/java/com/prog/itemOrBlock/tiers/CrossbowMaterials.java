@@ -6,7 +6,7 @@ public enum CrossbowMaterials implements CrossbowMaterial {
     REFINED_OBSIDIAN(7),
     TITAN(16),
     PRIMAL_NETHERITE(30),
-    VERUM(48);
+    END(48);
 
     public final int projectileDamageBonus;
 

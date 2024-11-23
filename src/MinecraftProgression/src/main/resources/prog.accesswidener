@@ -52,6 +52,8 @@ accessible method net/minecraft/entity/mob/MobEntity getLootContextBuilder (ZLne
 
 # TridentEntity
 accessible field net/minecraft/entity/projectile/TridentEntity tridentStack Lnet/minecraft/item/ItemStack;
+accessible field net/minecraft/entity/projectile/TridentEntity LOYALTY Lnet/minecraft/entity/data/TrackedData;
+accessible field net/minecraft/entity/projectile/TridentEntity ENCHANTED Lnet/minecraft/entity/data/TrackedData;
 
 # AttributeContainer
 accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;

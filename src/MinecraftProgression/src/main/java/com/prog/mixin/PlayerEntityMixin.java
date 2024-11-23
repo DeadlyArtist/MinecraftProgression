@@ -9,13 +9,18 @@ import com.prog.utils.EnchantmentUtils;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.ItemCooldownManager;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.item.ShieldItem;
 import net.minecraft.world.World;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -62,5 +67,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         PlayerEntity self = (PlayerEntity) (Object) this;
         var group = target instanceof LivingEntity livingEntity ? livingEntity.getGroup() : EntityGroup.DEFAULT;
         g.set((float) EnchantmentUtils.getAttackDamageIncrease(group, this.getMainHandStack(), f));
+    }
+
+    @Redirect(method = "disableShield", at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/player/ItemCooldownManager;set(Lnet/minecraft/item/Item;I)V"
+    ))
+    public void disableShield(ItemCooldownManager instance, Item item, int duration) {
+        Item activeItem = this.activeItemStack.getItem();
+        instance.set(activeItem instanceof ShieldItem ? activeItem : Items.SHIELD, duration);
     }
 }

@@ -1,6 +1,5 @@
 package com.prog;
 
-import com.github.teamfusion.rottencreatures.common.registries.RCItems;
 import com.kwpugh.ring_of_attraction.util.MagnetUtil;
 import com.prog.data.PItemTagProvider;
 import com.prog.data.PKeybindingLangHelper;
@@ -8,6 +7,7 @@ import com.prog.data.PRecipeProvider;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PComponents;
 import com.prog.entity.PEntityLootTables;
+import com.prog.entity.PEntityTypes;
 import com.prog.entity.PStatusEffects;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
@@ -15,6 +15,7 @@ import com.prog.event.*;
 import com.prog.itemOrBlock.*;
 import com.prog.itemOrBlock.custom.TieredBowItem;
 import com.prog.itemOrBlock.custom.TieredCrossbowItem;
+import com.prog.itemOrBlock.custom.TieredShieldItem;
 import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.network.PNetwork;
 import com.prog.recipe.PRecipeSerializers;
@@ -32,6 +33,7 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -40,12 +42,10 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.RegistryEntry;
-import net.purejosh.froglegs.init.FroglegsModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.function.Consumer;
 
 import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
@@ -72,6 +72,7 @@ public class Prog implements ModInitializer {
         PBlocks.init();
         PBlockEntityTypes.init();
         PEntityAttributes.init();
+        PEntityTypes.init();
         PStatusEffects.init();
         GourmetFoods.init();
         OreGeneration.init();
@@ -172,15 +173,27 @@ public class Prog implements ModInitializer {
                 attributeModifiers.put(XEntityAttributes.ATTACK_RANGE, EntityAttributeModifierUtils.increment("default_attack_range_increase_1"));
             }
 
-            if (item instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && stack.isIn(PItemTags.VERUM_OR_HIGHER)) {
+            if (item instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && stack.isIn(PItemTags.END_OR_HIGHER)) {
                 attributeModifiers.put(PEntityAttributes.FLIGHT, EntityAttributeModifierUtils.increment("default_flight"));
             }
 
+            if (item instanceof TridentItem && stack.isIn(PItemTags.REFINED_OBSIDIAN_OR_HIGHER)) {
+                attributeModifiers.put(PEntityAttributes.LAVA_FISHING, EntityAttributeModifierUtils.increment("default_lava_fishing"));
+            }
+
+            if (item instanceof TridentItem && stack.isIn(PItemTags.END_OR_HIGHER)) {
+                attributeModifiers.put(PEntityAttributes.VOID_FISHING, EntityAttributeModifierUtils.increment("default_void_fishing"));
+            }
+
             var projectileDamage = 0D;
+            var meleeDamage = 0D;
+            var shield = 0D;
             if (item instanceof TridentItem) {
                 projectileDamage = RangedUtils.BASE_TRIDENT_RANGED_DAMAGE;
+                meleeDamage = MeleeUtils.BASE_TRIDENT_MELEE_DAMAGE;
                 if (item instanceof TieredTridentItem tiered) {
-                    projectileDamage += tiered.material.getDamageBonus();
+                    projectileDamage += tiered.material.getRangedDamageBonus();
+                    meleeDamage += tiered.material.getMeleeDamageBonus();
                 }
             } else if (item instanceof BowItem) {
                 projectileDamage = RangedUtils.BASE_BOW_RANGED_DAMAGE;
@@ -192,10 +205,31 @@ public class Prog implements ModInitializer {
                 if (item instanceof TieredCrossbowItem tiered) {
                     projectileDamage += tiered.material.getProjectileDamageBonus();
                 }
+            } else if (item instanceof ShieldItem) {
+                shield = MeleeUtils.BASE_SHIELD;
+                if (item instanceof TieredShieldItem tiered) {
+                    shield += tiered.material.getShieldBonus();
+                }
             }
 
             if (projectileDamage != 0) {
                 attributeModifiers.put(PEntityAttributes.PROJECTILE_DAMAGE, new EntityAttributeModifier(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID, "PROJECTILE_DAMAGE_BASE_MODIFIER", projectileDamage, EntityAttributeModifier.Operation.ADDITION));
+            }
+            if (meleeDamage != 0) {
+                var entries = attributeModifiers.entries().iterator();
+
+                while (entries.hasNext()) {
+                    var entry = entries.next();
+                    var attribute = entry.getKey();
+                    EntityAttributeModifier modifier = entry.getValue();
+                    if (attribute == EntityAttributes.GENERIC_ATTACK_DAMAGE && modifier.getId().equals(Item.ATTACK_DAMAGE_MODIFIER_ID)) {
+                        entries.remove(); // Remove the matching modifier
+                    }
+                }
+                attributeModifiers.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(Item.ATTACK_DAMAGE_MODIFIER_ID, "Tool modifier", meleeDamage, EntityAttributeModifier.Operation.ADDITION));
+            }
+            if (shield != 0) {
+                attributeModifiers.put(PEntityAttributes.SHIELD, new EntityAttributeModifier(MeleeUtils.SHIELD_BASE_MODIFIER_ID, "SHIELD_BASE_MODIFIER", shield, EntityAttributeModifier.Operation.ADDITION));
             }
 
 //            Example

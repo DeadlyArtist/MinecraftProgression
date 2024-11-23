@@ -1,15 +1,10 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
-import com.prog.XIDs;
-import com.prog.itemOrBlock.custom.TieredBowItem;
-import com.prog.itemOrBlock.custom.TieredCrossbowItem;
-import com.prog.itemOrBlock.custom.TieredFishingRodItem;
-import com.prog.itemOrBlock.custom.TieredTridentItem;
+import com.prog.itemOrBlock.custom.*;
 import com.prog.itemOrBlock.tiers.*;
 import com.prog.utils.LOGGER;
 import com.prog.utils.StringUtils;
-import com.prog.utils.XCompat;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
@@ -20,7 +15,6 @@ import net.minecraft.tag.TagKey;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.purejosh.froglegs.init.FroglegsModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
@@ -104,10 +98,10 @@ public class PItems {
     public static final Item ULTIMATE_DIAMOND_BOOTS = register("ULTIMATE_DIAMOND_BOOTS", new ArmorItem(PArmorMaterials.ULTIMATE_DIAMOND, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
 
     // Ultimate diamond tier weapons
-    public static final Item ULTIMATE_DIAMOND_BOW = register("ULTIMATE_DIAMOND_BOW", new TieredBowItem(BowMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
+    public static final Item ULTIMATE_DIAMOND_BOW = register("ULTIMATE_DIAMOND_BOW", new TieredBowItem(BowMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
     public static final Item ULTIMATE_DIAMOND_CROSSBOW = register("ULTIMATE_DIAMOND_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
     public static final Item ULTIMATE_DIAMOND_SWORD = register("ULTIMATE_DIAMOND_SWORD", new SwordItem(PToolMaterials.ULTIMATE_DIAMOND, 5, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
+    public static final Item ULTIMATE_DIAMOND_SHIELD = register("ULTIMATE_DIAMOND_SHIELD", new TieredShieldItem(ShieldMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
 
     // Ultimate diamond tier tools
     public static final Item ULTIMATE_DIAMOND_AXE = register("ULTIMATE_DIAMOND_AXE", new AxeItem(PToolMaterials.ULTIMATE_DIAMOND, 8.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
@@ -195,22 +189,22 @@ public class PItems {
     public static final Item VOID_SOUL_TOOL = register("VOID_SOUL_TOOL", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Void Soul (Tool)").tierCore().finished();
 
     // Verum tier armor
-    public static final Item END_HELMET = register("END_HELMET", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_CHESTPLATE = register("END_CHESTPLATE", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_LEGGINGS = register("END_LEGGINGS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_BOOTS = register("END_BOOTS", new ArmorItem(PArmorMaterials.VERUM, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_HELMET = register("END_HELMET", new ArmorItem(PArmorMaterials.END, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_CHESTPLATE = register("END_CHESTPLATE", new ArmorItem(PArmorMaterials.END, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_LEGGINGS = register("END_LEGGINGS", new ArmorItem(PArmorMaterials.END, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_BOOTS = register("END_BOOTS", new ArmorItem(PArmorMaterials.END, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
 
     // Verum tier weapons
-    public static final Item END_BOW = register("END_BOW", new TieredBowItem(BowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_CROSSBOW = register("END_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.VERUM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_SWORD = register("END_SWORD", new SwordItem(PToolMaterials.VERUM, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_BOW = register("END_BOW", new TieredBowItem(BowMaterials.END, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_CROSSBOW = register("END_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.END, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_SWORD = register("END_SWORD", new SwordItem(PToolMaterials.END, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
 
     // Verum tier tools
-    public static final Item END_AXE = register("END_AXE", new AxeItem(PToolMaterials.VERUM, 64.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_HOE = register("END_HOE", new HoeItem(PToolMaterials.VERUM, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_PICKAXE = register("END_PICKAXE", new PickaxeItem(PToolMaterials.VERUM, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
-    public static final Item END_SHOVEL = register("END_SHOVEL", new ShovelItem(PToolMaterials.VERUM, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERUM)).finished();
+    public static final Item END_AXE = register("END_AXE", new AxeItem(PToolMaterials.END, 64.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_HOE = register("END_HOE", new HoeItem(PToolMaterials.END, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_PICKAXE = register("END_PICKAXE", new PickaxeItem(PToolMaterials.END, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_SHOVEL = register("END_SHOVEL", new ShovelItem(PToolMaterials.END, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {

@@ -15,23 +15,25 @@ public class UEffectMapper {
         return item -> effects;
     }
 
-    public static Function<Item, List<UEffect>> byType(List<UEffect> armorEffects, List<UEffect> toolEffects, List<UEffect> rangedEffects, List<UEffect> otherEffects) {
+    public static Function<Item, List<UEffect>> byType(List<UEffect> armorEffects, List<UEffect> toolEffects, List<UEffect> rangedEffects, List<UEffect> shieldEffects, List<UEffect> fishingEffects, List<UEffect> otherEffects) {
         var tridentEffects = ListUtils.ofMany(toolEffects, rangedEffects);
         return item -> {
             if (ItemUtils.isArmor(item)) return armorEffects;
             else if (ItemUtils.isTool(item)) return toolEffects;
             else if (ItemUtils.isTrident(item)) return tridentEffects;
             else if (ItemUtils.isRanged(item)) return rangedEffects;
+            else if (ItemUtils.isShield(item)) return shieldEffects;
+            else if (ItemUtils.isFishingRod(item)) return fishingEffects;
             else return otherEffects;
         };
     }
 
-    public static Function<Item, List<UEffect>> byType(UEffect armorEffect, UEffect toolEffect, UEffect rangedEffect, UEffect otherEffect) {
-        return byType(List.of(armorEffect), List.of(toolEffect), List.of(rangedEffect), List.of(otherEffect));
+    public static Function<Item, List<UEffect>> byType(UEffect armorEffect, UEffect toolEffect, UEffect rangedEffect, UEffect shieldEffect, UEffect fishingEffect, UEffect otherEffect) {
+        return byType(armorEffect == null ? null : List.of(armorEffect), toolEffect == null ? null : List.of(toolEffect), rangedEffect == null ? null : List.of(rangedEffect), shieldEffect == null ? null : List.of(shieldEffect), fishingEffect == null ? null : List.of(fishingEffect), otherEffect == null ? null : List.of(otherEffect));
     }
 
     public static Function<Item, List<UEffect>> best(double amount) {
-        return armorMeleeRanged(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount), UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(PEntityAttributes.PROJECTILE_DAMAGE, amount));
+        return byType(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount), UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(PEntityAttributes.PROJECTILE_DAMAGE, amount), UEffect.increment(PEntityAttributes.SHIELD, amount), UEffect.increment(PEntityAttributes.TREASURE_QUALITY, amount), null);
     }
 
     public static Function<Item, List<UEffect>> best() {
@@ -39,7 +41,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> melee(List<UEffect> effects) {
-        return byType(null, effects, null, effects);
+        return byType(null, effects, null, null, null, null);
     }
 
     public static Function<Item, List<UEffect>> melee(UEffect effect) {
@@ -47,7 +49,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> meleeRanged(List<UEffect> meleeEffects, List<UEffect> rangedEffects) {
-        return byType(null, meleeEffects, rangedEffects, meleeEffects);
+        return byType(null, meleeEffects, rangedEffects, null, null, null);
     }
 
     public static Function<Item, List<UEffect>> meleeRanged(UEffect meleeEffect, UEffect rangedEffect) {
@@ -55,7 +57,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> armorMeleeRanged(List<UEffect> armorEffects, List<UEffect> meleeEffects, List<UEffect> rangedEffects) {
-        return byType(armorEffects, meleeEffects, rangedEffects, meleeEffects);
+        return byType(armorEffects, meleeEffects, rangedEffects, null, null, null);
     }
 
     public static Function<Item, List<UEffect>> armorMeleeRanged(UEffect armorEffect, UEffect meleeEffect, UEffect rangedEffect) {
@@ -164,6 +166,14 @@ public class UEffectMapper {
 
     public static Function<Item, List<UEffect>> pickaxe(UEffect effect) {
         return pickaxe(List.of(effect));
+    }
+
+    public static Function<Item, List<UEffect>> shield(List<UEffect> effects) {
+        return item -> (ItemUtils.isShield(item)) ? effects : null;
+    }
+
+    public static Function<Item, List<UEffect>> shield(UEffect effect) {
+        return shield(List.of(effect));
     }
 
     public static Function<Item, List<UEffect>> shovel(List<UEffect> effects) {

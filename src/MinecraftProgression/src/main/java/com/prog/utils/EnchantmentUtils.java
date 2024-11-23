@@ -22,8 +22,13 @@ public class EnchantmentUtils {
         return 1 + level * 0.1F + 0.1F;
     }
 
-    public static double getAttackDamageIncrease(EntityGroup group, ItemStack stack, double baseDamage) {
+    public static double getAttackDamageIncrease(EntityGroup group, ItemStack stack, double baseDamage, boolean ranged) {
         MutableFloat damage = new MutableFloat(baseDamage);
+
+        if (ranged) {
+            int powerLevel = EnchantmentHelper.getLevel(Enchantments.POWER, stack);
+            damage.setValue(baseDamage * EnchantmentUtils.getCommonDamageMultiplier(powerLevel));
+        }
 
         EnchantmentHelper.forEachEnchantment((enchantment, level) -> {
             if (enchantment instanceof DamageEnchantment damageEnchantment) {
@@ -51,6 +56,10 @@ public class EnchantmentUtils {
         }, stack);
 
         return damage.getValue() - baseDamage;
+    }
+
+    public static double getAttackDamageIncrease(EntityGroup group, ItemStack stack, double baseDamage) {
+        return getAttackDamageIncrease(group, stack, baseDamage, false);
     }
 
     public static EnchantmentLevelEntry getRandomEnchantmentLevelEntry(Random random, int minLevel, int maxLevel, boolean allowCursed, Set<Enchantment> excludedEnchantments) {

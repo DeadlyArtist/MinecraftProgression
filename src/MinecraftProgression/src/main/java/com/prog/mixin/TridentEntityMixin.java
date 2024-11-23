@@ -3,6 +3,7 @@ package com.prog.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.prog.utils.EnchantmentUtils;
+import com.prog.utils.LOGGER;
 import com.prog.utils.RangedUtils;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.LivingEntity;
@@ -25,6 +26,7 @@ public abstract class TridentEntityMixin {
     )
     private void redirectGetAttackDamage(World world, LivingEntity owner, ItemStack stack, CallbackInfo ci) {
         var self = (TridentEntity) (Object) this;
+        LOGGER.info("ssssssssssssssssssssssssssssssss");
         self.setDamage(RangedUtils.getBaseProjectileDamage(owner, stack));
     }
 
@@ -36,11 +38,13 @@ public abstract class TridentEntityMixin {
                     target = "Lnet/minecraft/enchantment/EnchantmentHelper;getAttackDamage(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityGroup;)F"
             )
     )
-    private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local LocalFloatRef fRef) {
+    private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local float f) {
+        LOGGER.info("ASJKDHAGHUSZDHGZUASDHJADJNSBAM NBDSNABJDMNB ;ASJHBDNABLK");
         var self = (TridentEntity) (Object) this;
-        fRef.set((float) self.getDamage());
-        var base = (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, fRef.get());
-        return base;
+        LOGGER.info(String.valueOf(self.getDamage()));
+        var damage = self.getDamage();
+        var base = (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, damage, true);
+        return (float) (base + damage - f);
     }
 
     @Inject(method = "tick()V", at = @At("HEAD"))
