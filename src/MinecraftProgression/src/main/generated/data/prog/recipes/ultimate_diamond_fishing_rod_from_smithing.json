@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:diamond_heart"
+  },
+  "base": {
+    "item": "prog:steel_fishing_rod"
+  },
+  "result": {
+    "item": "prog:ultimate_diamond_fishing_rod"
+  }
+}

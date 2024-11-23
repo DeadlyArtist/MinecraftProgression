@@ -1,14 +1,14 @@
 {
   "parent": "item/handheld_rod",
   "textures": {
-    "layer0": "prog:item/primal_netherite_fishing_rod"
+    "layer0": "prog:item/end_fishing_rod"
   },
   "overrides": [
     {
       "predicate": {
         "cast": 1
       },
-      "model": "prog:item/primal_netherite_fishing_rod_cast"
+      "model": "prog:item/end_fishing_rod_cast"
     }
   ]
 }

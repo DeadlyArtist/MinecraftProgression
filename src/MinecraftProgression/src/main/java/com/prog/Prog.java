@@ -13,10 +13,7 @@ import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.*;
 import com.prog.itemOrBlock.*;
-import com.prog.itemOrBlock.custom.TieredBowItem;
-import com.prog.itemOrBlock.custom.TieredCrossbowItem;
-import com.prog.itemOrBlock.custom.TieredShieldItem;
-import com.prog.itemOrBlock.custom.TieredTridentItem;
+import com.prog.itemOrBlock.custom.*;
 import com.prog.network.PNetwork;
 import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
@@ -188,6 +185,7 @@ public class Prog implements ModInitializer {
             var projectileDamage = 0D;
             var meleeDamage = 0D;
             var shield = 0D;
+            var treasureQuality = 0D;
             if (item instanceof TridentItem) {
                 projectileDamage = RangedUtils.BASE_TRIDENT_RANGED_DAMAGE;
                 meleeDamage = MeleeUtils.BASE_TRIDENT_MELEE_DAMAGE;
@@ -210,6 +208,11 @@ public class Prog implements ModInitializer {
                 if (item instanceof TieredShieldItem tiered) {
                     shield += tiered.material.getShieldBonus();
                 }
+            } else if (item instanceof FishingRodItem) {
+                treasureQuality = RangedUtils.BASE_TREASURE_QUALITY;
+                if (item instanceof TieredFishingRodItem tiered) {
+                    treasureQuality += tiered.material.getTreasureQualityBonus();
+                }
             }
 
             if (projectileDamage != 0) {
@@ -230,6 +233,9 @@ public class Prog implements ModInitializer {
             }
             if (shield != 0) {
                 attributeModifiers.put(PEntityAttributes.SHIELD, new EntityAttributeModifier(MeleeUtils.SHIELD_BASE_MODIFIER_ID, "SHIELD_BASE_MODIFIER", shield, EntityAttributeModifier.Operation.ADDITION));
+            }
+            if (treasureQuality != 0) {
+                attributeModifiers.put(PEntityAttributes.TREASURE_QUALITY, new EntityAttributeModifier(RangedUtils.TREASURE_QUALITY_BASE_MODIFIER_ID, "TREASURE_QUALITY_BASE_MODIFIER", treasureQuality, EntityAttributeModifier.Operation.ADDITION));
             }
 
 //            Example

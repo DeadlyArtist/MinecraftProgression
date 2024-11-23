@@ -83,6 +83,8 @@ public class ItemStackMixin {
             bl.set(true);
         } else if (modifierId.equals(MeleeUtils.SHIELD_BASE_MODIFIER_ID)) {
             bl.set(true);
+        } else if (modifierId.equals(RangedUtils.TREASURE_QUALITY_BASE_MODIFIER_ID)) {
+            bl.set(true);
         } else if (Arrays.asList(ArmorItem.MODIFIERS).contains(modifierId)) {
             bl.set(true);
         }

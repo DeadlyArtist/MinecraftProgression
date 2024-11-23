@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:netherite_heart"
+  },
+  "base": {
+    "item": "prog:hell_trident"
+  },
+  "result": {
+    "item": "prog:primal_trident"
+  }
+}

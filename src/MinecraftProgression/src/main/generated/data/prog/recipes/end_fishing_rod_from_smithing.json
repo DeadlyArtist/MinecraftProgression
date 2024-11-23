@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:void_soul_tool"
+  },
+  "base": {
+    "item": "prog:primal_netherite_fishing_rod"
+  },
+  "result": {
+    "item": "prog:end_fishing_rod"
+  }
+}

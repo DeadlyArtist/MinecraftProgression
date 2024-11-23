@@ -20,10 +20,12 @@ import java.util.UUID;
 
 public class RangedUtils {
     public static final UUID PROJECTILE_DAMAGE_BASE_MODIFIER_ID = UUIDUtils.of("PROJECTILE_DAMAGE_BASE_MODIFIER");
+    public static final UUID TREASURE_QUALITY_BASE_MODIFIER_ID = UUIDUtils.of("TREASURE_QUALITY_BASE_MODIFIER");
 
     public static final double BASE_BOW_RANGED_DAMAGE = 6;
     public static final double BASE_CROSSBOW_RANGED_DAMAGE = 10;
     public static final double BASE_TRIDENT_RANGED_DAMAGE = 8;
+    public static final double BASE_TREASURE_QUALITY = 5;
 
     public static float getPullProgress(LivingEntity entity, int useTicks) {
         float f = (float) useTicks / 20.0F;

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:titan_core"
+  },
+  "base": {
+    "item": "prog:apocalyptic_trident"
+  },
+  "result": {
+    "item": "prog:hell_trident"
+  }
+}

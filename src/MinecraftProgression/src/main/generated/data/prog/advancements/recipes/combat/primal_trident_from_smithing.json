@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hell_trident": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:hell_trident"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_netherite_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:netherite_heart"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:primal_trident_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_hell_trident",
+      "has_netherite_heart",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:primal_trident_from_smithing"
+    ]
+  }
+}
