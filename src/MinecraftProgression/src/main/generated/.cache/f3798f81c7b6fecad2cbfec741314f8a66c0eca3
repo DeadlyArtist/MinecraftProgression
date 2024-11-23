@@ -1,4 +1,4 @@
-// 1.19.2	2024-11-23T05:30:45.2903212	Models
+// 1.19.2	2024-11-23T06:21:19.3920708	Models
 c93cd1f505f0a7286f671c54ccbbb698a6f8a1f1 assets\prog\models\block\nether_star_block.json
 901ea4797edad38c4bc1797ef4d0a0fae39b2d86 assets\prog\models\item\ultimate_diamond_sword.json
 88649eda1d41114bb026d0b19d5d018b2da8ab3a assets\prog\models\item\refined_obsidian_chestplate.json
@@ -34,6 +34,7 @@ b7d4cc18deb41c20822b0bd3a9d4ae7cad1e2233 assets\prog\models\item\void_soul_chest
 bfc7d4e2fef33da38cea86ae928fdc30e80d032c assets\prog\models\item\void_soul_boots.json
 11aa6174afbfcf23cffd5097fb7a097e07ce2226 assets\prog\models\block\emberite_block.json
 c06eb512949c4fa7d988bb871f09d9c154d4e4cb assets\prog\models\item\netherite_heart.json
+e7e399d5e7598e423a865b9f09dd39930093f8a0 assets\prog\models\item\apocalyptic_trident.json
 8db7f1e91b4574f65f6845069deb772a8ec0deea assets\prog\models\block\verum_ore.json
 af8d2472c7de402c2178dfb8e02f5877e6cd021c assets\prog\models\item\refined_obsidian_ingot.json
 ab966780db18497c6f2f6ecf92c05fa581ce68ae assets\prog\models\block\cosmic_incubator_on.json

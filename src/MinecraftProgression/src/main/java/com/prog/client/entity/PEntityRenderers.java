@@ -16,6 +16,7 @@ public class PEntityRenderers {
 
     static {
         register(PEntityTypes.AMETHYST_TRIDENT, TridentEntityRenderer::new);
+        register(PEntityTypes.APOCALYPTIC_TRIDENT, TridentEntityRenderer::new);
         register(PEntityTypes.HELL_TRIDENT, TridentEntityRenderer::new);
         register(PEntityTypes.PRIMAL_TRIDENT, TridentEntityRenderer::new);
         register(PEntityTypes.STELLAR_TRIDENT, TridentEntityRenderer::new);

@@ -62,6 +62,7 @@ public class PItems {
     // Trident
     public static final Item AMETHYST_TRIDENT = register("AMETHYST_TRIDENT", new TieredTridentItem(TridentMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item HELL_TRIDENT = register("HELL_TRIDENT", new TieredTridentItem(TridentMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item APOCALYPTIC_TRIDENT = register("APOCALYPTIC_TRIDENT", new TieredTridentItem(TridentMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item PRIMAL_TRIDENT = register("PRIMAL_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item STELLAR_TRIDENT = register("STELLAR_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
 
@@ -108,6 +109,8 @@ public class PItems {
     public static final Item ULTIMATE_DIAMOND_HOE = register("ULTIMATE_DIAMOND_HOE", new HoeItem(PToolMaterials.ULTIMATE_DIAMOND, -2, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
     public static final Item ULTIMATE_DIAMOND_PICKAXE = register("ULTIMATE_DIAMOND_PICKAXE", new PickaxeItem(PToolMaterials.ULTIMATE_DIAMOND, 4, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
     public static final Item ULTIMATE_DIAMOND_SHOVEL = register("ULTIMATE_DIAMOND_SHOVEL", new ShovelItem(PToolMaterials.ULTIMATE_DIAMOND, 3F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
+    public static final Item ULTIMATE_DIAMOND_FISHING_ROD = register("ULTIMATE_DIAMOND_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.ULTIMATE_DIAMOND)).finished();
 
 
     // Refined obsidian
@@ -131,6 +134,8 @@ public class PItems {
     public static final Item REFINED_OBSIDIAN_HOE = register("REFINED_OBSIDIAN_HOE", new HoeItem(PToolMaterials.REFINED_OBSIDIAN, -2, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
     public static final Item REFINED_OBSIDIAN_PICKAXE = register("REFINED_OBSIDIAN_PICKAXE", new PickaxeItem(PToolMaterials.REFINED_OBSIDIAN, 8, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
     public static final Item REFINED_OBSIDIAN_SHOVEL = register("REFINED_OBSIDIAN_SHOVEL", new ShovelItem(PToolMaterials.REFINED_OBSIDIAN, 6F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
+    public static final Item REFINED_OBSIDIAN_FISHING_ROD = register("REFINED_OBSIDIAN_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.REFINED_OBSIDIAN)).finished();
 
 
     // Titan
@@ -156,6 +161,9 @@ public class PItems {
     public static final Item TITAN_HOE = register("TITAN_HOE", new HoeItem(PToolMaterials.TITAN, -3, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
     public static final Item TITAN_PICKAXE = register("TITAN_PICKAXE", new PickaxeItem(PToolMaterials.TITAN, 12, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
     public static final Item TITAN_SHOVEL = register("TITAN_SHOVEL", new ShovelItem(PToolMaterials.TITAN, 10F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
+    public static final Item TITAN_FISHING_ROD = register("TITAN_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.TITAN, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.TITAN)).finished();
+
 
     // Primal netherite
     public static final Item NETHERITE_HEART = register("NETHERITE_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
@@ -177,6 +185,8 @@ public class PItems {
     public static final Item PRIMAL_NETHERITE_HOE = register("PRIMAL_NETHERITE_HOE", new HoeItem(PToolMaterials.PRIMAL_NETHERITE, 6, 0.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_PICKAXE = register("PRIMAL_NETHERITE_PICKAXE", new PickaxeItem(PToolMaterials.PRIMAL_NETHERITE, 20, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_SHOVEL = register("PRIMAL_NETHERITE_SHOVEL", new ShovelItem(PToolMaterials.PRIMAL_NETHERITE, 15F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
+    public static final Item PRIMAL_NETHERITE_FISHING_ROD = register("PRIMAL_NETHERITE_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
 
 
     // Verum
@@ -205,6 +215,9 @@ public class PItems {
     public static final Item END_HOE = register("END_HOE", new HoeItem(PToolMaterials.END, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
     public static final Item END_PICKAXE = register("END_PICKAXE", new PickaxeItem(PToolMaterials.END, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
     public static final Item END_SHOVEL = register("END_SHOVEL", new ShovelItem(PToolMaterials.END, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_FISHING_ROD = register("END_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.END, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+
 
     // Doesn't work
     public static HoeItem createHoeItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {

@@ -34,13 +34,12 @@ public class PEntityModelLayers {
 
     public static final EntityModelLayer ULTIMATE_DIAMOND_SHIELD = registerShield("ULTIMATE_DIAMOND_SHIELD", PItems.ULTIMATE_DIAMOND_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer AMETHYST_TRIDENT = registerTrident("AMETHYST_TRIDENT", PItems.AMETHYST_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer APOCALYPTIC_TRIDENT = registerTrident("APOCALYPTIC_TRIDENT", PItems.APOCALYPTIC_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer HELL_TRIDENT = registerTrident("HELL_TRIDENT", PItems.HELL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer PRIMAL_TRIDENT = registerTrident("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
 
-    @SuppressWarnings("deprecation")
     public static final SpriteIdentifier LEATHER_SHIELD_BASE = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(Prog.MOD_ID, "entity/ultimate_diamond_shield_base"));
-    @SuppressWarnings("deprecation")
     public static final SpriteIdentifier LEATHER_SHIELD_BASE_NO_PATTERN = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(Prog.MOD_ID, "entity/ultimate_diamond_shield_base_nopattern"));
 
     public static EntityModelLayer registerShield(String name, Item item, Function<ModelPart, Model> modelProvider, Supplier<TexturedModelData> dataProvider) {
