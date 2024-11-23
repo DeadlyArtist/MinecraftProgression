@@ -1,6 +1,7 @@
 package com.prog.client.entity;
 
 import com.prog.Prog;
+import com.prog.client.entity.custom.EdgedTridentEntityModel;
 import com.prog.client.item.PItemModels;
 import com.prog.client.utils.RenderUtils;
 import com.prog.itemOrBlock.PItems;
@@ -42,10 +43,10 @@ public class PEntityModelLayers {
 
     // Tridents
     public static final EntityModelLayer AMETHYST_TRIDENT = registerTrident("AMETHYST_TRIDENT", PItems.AMETHYST_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
-    public static final EntityModelLayer APOCALYPTIC_TRIDENT = registerTrident("APOCALYPTIC_TRIDENT", PItems.APOCALYPTIC_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer APOCALYPTIC_TRIDENT = registerTrident("APOCALYPTIC_TRIDENT", PItems.APOCALYPTIC_TRIDENT, part -> new TridentEntityModel(part), EdgedTridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer HELL_TRIDENT = registerTrident("HELL_TRIDENT", PItems.HELL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer PRIMAL_TRIDENT = registerTrident("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
-    public static final EntityModelLayer STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), EdgedTridentEntityModel::getTexturedModelData);
 
 
 
