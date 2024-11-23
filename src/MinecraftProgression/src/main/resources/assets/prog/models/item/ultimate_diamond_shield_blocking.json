@@ -7,7 +7,7 @@
     ],
     "textures": {
         "0": "prog:entity/ultimate_diamond_shield_base_nopattern",
-        "particle": "block/dark_oak_planks"
+        "particle": "prog:entity/ultimate_diamond_shield_base_nopattern"
     },
     "display": {
         "thirdperson_righthand": {

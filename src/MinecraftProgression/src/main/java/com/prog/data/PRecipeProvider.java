@@ -570,6 +570,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         createSmithingRecipe(Input.of(Items.BOW), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOW).offer(exporter);
         createSmithingRecipe(Input.of(Items.IRON_SWORD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(Items.SHIELD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(Items.FISHING_ROD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_FISHING_ROD).offer(exporter);
 
         // Ultimate diamond
@@ -585,6 +586,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         createSmithingRecipe(Input.of(PItems.STEEL_BOW), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_SWORD), Input.of(Items.DIAMOND_SWORD), PItems.ULTIMATE_DIAMOND_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.STEEL_SHIELD), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_FISHING_ROD), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_FISHING_ROD).offer(exporter);
 
         // Refined obsidian
@@ -600,6 +602,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_BOW), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SWORD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SHIELD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_FISHING_ROD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_FISHING_ROD).offer(exporter);
 
         // Titan
@@ -615,6 +618,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_BOW), Input.of(PItems.TITAN_CORE), PItems.TITAN_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SWORD), Input.of(PItems.TITAN_CORE), PItems.TITAN_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SHIELD), Input.of(PItems.TITAN_CORE), PItems.TITAN_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_FISHING_ROD), Input.of(PItems.TITAN_CORE), PItems.TITAN_FISHING_ROD).offer(exporter);
 
         // Primal netherite
@@ -630,6 +634,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         createSmithingRecipe(Input.of(PItems.TITAN_BOW), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SWORD), Input.of(Items.NETHERITE_SWORD), PItems.PRIMAL_NETHERITE_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_SHIELD), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_FISHING_ROD), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_FISHING_ROD).offer(exporter);
 
 
@@ -646,14 +651,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
 
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_BOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHIELD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_FISHING_ROD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_FISHING_ROD).offer(exporter);
-
-//        // Upgrades
-//        List<Item> upgradeTargets = PItemTagProvider.tags.get(PItemTags.UPGRADABLE);
-//        var upgrades = Upgrades.data;
-//        upgrades.forEach((item, upgrade) -> {
-//            getUpgradeRecipes(upgrade).forEach(wrapper -> wrapper.offer(exporter));
-//        });
     }
 
     public static List<SmithingRecipeBuilderWrapper> getUpgradeRecipes(Upgrade upgrade) {

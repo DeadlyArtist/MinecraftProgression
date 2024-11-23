@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:netherite_heart"
+  },
+  "base": {
+    "item": "prog:titan_shield"
+  },
+  "result": {
+    "item": "prog:primal_netherite_shield"
+  }
+}

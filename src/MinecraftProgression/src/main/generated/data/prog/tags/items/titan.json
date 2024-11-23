@@ -1,17 +1,20 @@
 {
   "replace": false,
   "values": [
-    "prog:titan_leggings",
-    "prog:titan_shovel",
-    "prog:titan_chestplate",
+    "prog:titan_crossbow",
     "prog:titan_pickaxe",
+    "prog:primal_netherite_shield",
+    "prog:end_shield",
     "prog:titan_bow",
     "prog:titan_boots",
-    "prog:titan_crossbow",
-    "prog:titan_helmet",
+    "prog:titan_shield",
+    "prog:titan_leggings",
+    "prog:titan_chestplate",
+    "prog:titan_sword",
     "prog:titan_hoe",
+    "prog:titan_helmet",
     "prog:titan_axe",
     "prog:titan_fishing_rod",
-    "prog:titan_sword"
+    "prog:titan_shovel"
   ]
 }

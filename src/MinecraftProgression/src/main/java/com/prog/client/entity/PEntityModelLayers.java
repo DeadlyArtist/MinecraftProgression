@@ -32,20 +32,27 @@ public class PEntityModelLayers {
     public static Map<EntityModelLayer, Function<ModelPart, Model>> modelProvidersByLayer = new HashMap<>();
     public static Map<EntityModelLayer, Model> modelsByLayer = new HashMap<>();
 
+    // Shields
+    public static final EntityModelLayer STEEL_SHIELD = registerShield("STEEL_SHIELD", PItems.STEEL_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer ULTIMATE_DIAMOND_SHIELD = registerShield("ULTIMATE_DIAMOND_SHIELD", PItems.ULTIMATE_DIAMOND_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+    public static final EntityModelLayer REFINED_OBSIDIAN_SHIELD = registerShield("REFINED_OBSIDIAN_SHIELD", PItems.REFINED_OBSIDIAN_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+    public static final EntityModelLayer TITAN_SHIELD = registerShield("TITAN_SHIELD", PItems.TITAN_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+    public static final EntityModelLayer PRIMAL_NETHERITE_SHIELD = registerShield("PRIMAL_NETHERITE_SHIELD", PItems.PRIMAL_NETHERITE_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+    public static final EntityModelLayer END_SHIELD = registerShield("END_SHIELD", PItems.END_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+
+    // Tridents
     public static final EntityModelLayer AMETHYST_TRIDENT = registerTrident("AMETHYST_TRIDENT", PItems.AMETHYST_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer APOCALYPTIC_TRIDENT = registerTrident("APOCALYPTIC_TRIDENT", PItems.APOCALYPTIC_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer HELL_TRIDENT = registerTrident("HELL_TRIDENT", PItems.HELL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer PRIMAL_TRIDENT = registerTrident("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
 
-    public static final SpriteIdentifier LEATHER_SHIELD_BASE = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(Prog.MOD_ID, "entity/ultimate_diamond_shield_base"));
-    public static final SpriteIdentifier LEATHER_SHIELD_BASE_NO_PATTERN = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(Prog.MOD_ID, "entity/ultimate_diamond_shield_base_nopattern"));
+
 
     public static EntityModelLayer registerShield(String name, Item item, Function<ModelPart, Model> modelProvider, Supplier<TexturedModelData> dataProvider) {
         var model = registerMain(name, item, modelProvider, dataProvider);
         BuiltinItemRendererRegistry.INSTANCE.register(item, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
-            RenderUtils.renderBanner(stack, matrices, vertexConsumers, light, overlay, (ShieldEntityModel) getModel(item), LEATHER_SHIELD_BASE, LEATHER_SHIELD_BASE_NO_PATTERN);
+            RenderUtils.renderBanner(stack, matrices, vertexConsumers, light, overlay, (ShieldEntityModel) getModel(item), RenderUtils.getShieldBaseSpriteIdentifier(item), RenderUtils.getShieldBaseNoPatternSpriteIdentifier(item));
         });
         return model;
     }

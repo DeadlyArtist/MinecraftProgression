@@ -3,9 +3,9 @@
   "values": [
     "prog:titan_pickaxe",
     "prog:primal_netherite_pickaxe",
+    "prog:steel_pickaxe",
     "prog:end_pickaxe",
     "prog:ultimate_diamond_pickaxe",
-    "prog:refined_obsidian_pickaxe",
-    "prog:steel_pickaxe"
+    "prog:refined_obsidian_pickaxe"
   ]
 }

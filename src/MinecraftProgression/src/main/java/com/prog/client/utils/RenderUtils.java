@@ -25,7 +25,6 @@ import static net.minecraft.item.ShieldItem.getColor;
 
 public class RenderUtils {
     public static void renderBanner(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, ShieldEntityModel model, SpriteIdentifier base, SpriteIdentifier base_nopattern) {
-        LOGGER.info(stack.getTranslationKey());
         boolean bl = stack.getSubNbt("BlockEntityTag") != null;
         matrices.push();
         matrices.scale(1.0F, -1.0F, -1.0F);
