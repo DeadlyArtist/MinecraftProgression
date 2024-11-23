@@ -4,7 +4,9 @@ import com.prog.Prog;
 import com.prog.client.entity.PEntityModelLayers;
 import com.prog.client.entity.PEntityRenderers;
 import com.prog.client.gui.screen.ingame.PHandledScreens;
+import com.prog.client.item.PItemModels;
 import com.prog.client.keybindings.PKeybindings;
+import com.prog.client.utils.ItemModelRegistry;
 import com.prog.client.utils.TooltipUtils;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.XEntityAttributes;
@@ -37,6 +39,8 @@ public class PClient implements ClientModInitializer {
         PKeybindings.init();
         PEntityModelLayers.init();
         PEntityRenderers.init();
+        PItemModels.init();
+        ItemModelRegistry.registerAll();
 
         // Events
         ClientTickEvents.END_CLIENT_TICK.register(PKeybindings::onClientTick);

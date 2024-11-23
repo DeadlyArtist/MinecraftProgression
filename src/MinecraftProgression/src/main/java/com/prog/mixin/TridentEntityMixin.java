@@ -26,7 +26,6 @@ public abstract class TridentEntityMixin {
     )
     private void redirectGetAttackDamage(World world, LivingEntity owner, ItemStack stack, CallbackInfo ci) {
         var self = (TridentEntity) (Object) this;
-        LOGGER.info("ssssssssssssssssssssssssssssssss");
         self.setDamage(RangedUtils.getBaseProjectileDamage(owner, stack));
     }
 
@@ -39,9 +38,7 @@ public abstract class TridentEntityMixin {
             )
     )
     private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local float f) {
-        LOGGER.info("ASJKDHAGHUSZDHGZUASDHJADJNSBAM NBDSNABJDMNB ;ASJHBDNABLK");
         var self = (TridentEntity) (Object) this;
-        LOGGER.info(String.valueOf(self.getDamage()));
         var damage = self.getDamage();
         var base = (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, damage, true);
         return (float) (base + damage - f);

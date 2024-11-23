@@ -1,6 +1,7 @@
 package com.prog.client.entity;
 
 import com.prog.Prog;
+import com.prog.client.item.PItemModels;
 import com.prog.client.utils.RenderUtils;
 import com.prog.itemOrBlock.PItems;
 import com.prog.utils.LOGGER;
@@ -8,6 +9,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.model.TexturedModelData;
@@ -31,10 +33,10 @@ public class PEntityModelLayers {
     public static Map<EntityModelLayer, Model> modelsByLayer = new HashMap<>();
 
     public static final EntityModelLayer ULTIMATE_DIAMOND_SHIELD = registerShield("ULTIMATE_DIAMOND_SHIELD", PItems.ULTIMATE_DIAMOND_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
-    public static final EntityModelLayer AMETHYST_TRIDENT = registerMain("AMETHYST_TRIDENT", PItems.AMETHYST_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
-    public static final EntityModelLayer HELL_TRIDENT = registerMain("HELL_TRIDENT", PItems.HELL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
-    public static final EntityModelLayer PRIMAL_TRIDENT = registerMain("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
-    public static final EntityModelLayer STELLAR_TRIDENT = registerMain("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer AMETHYST_TRIDENT = registerTrident("AMETHYST_TRIDENT", PItems.AMETHYST_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer HELL_TRIDENT = registerTrident("HELL_TRIDENT", PItems.HELL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer PRIMAL_TRIDENT = registerTrident("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
 
     @SuppressWarnings("deprecation")
     public static final SpriteIdentifier LEATHER_SHIELD_BASE = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(Prog.MOD_ID, "entity/ultimate_diamond_shield_base"));
@@ -46,6 +48,12 @@ public class PEntityModelLayers {
         BuiltinItemRendererRegistry.INSTANCE.register(item, (stack, mode, matrices, vertexConsumers, light, overlay) -> {
             RenderUtils.renderBanner(stack, matrices, vertexConsumers, light, overlay, (ShieldEntityModel) getModel(item), LEATHER_SHIELD_BASE, LEATHER_SHIELD_BASE_NO_PATTERN);
         });
+        return model;
+    }
+
+    public static EntityModelLayer registerTrident(String name, Item item, Function<ModelPart, Model> modelProvider, Supplier<TexturedModelData> dataProvider) {
+        var model = registerMain(name, item, modelProvider, dataProvider);
+        PItemModels.registerTrident(name, item);
         return model;
     }
 
@@ -72,6 +80,10 @@ public class PEntityModelLayers {
 
     public static EntityModelLayer getLayer(Item item, String layer) {
         return layersByItem.get(item).get(layer);
+    }
+
+    public static EntityModelLayer getLayer(Item item) {
+        return getLayer(item, MAIN);
     }
 
     public static Model getModel(Item item) {

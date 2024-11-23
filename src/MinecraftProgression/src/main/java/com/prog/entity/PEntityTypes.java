@@ -3,10 +3,10 @@ package com.prog.entity;
 import com.prog.Prog;
 import com.prog.itemOrBlock.PItems;
 import com.prog.utils.LOGGER;
+import com.prog.utils.StringUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
 
@@ -14,6 +14,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PEntityTypes {
+
+    public static class EntityTypeData {
+        public String name;
+
+        public EntityTypeData(String name) {
+            this.name = name;
+        }
+    }
+
+    public static final Map<EntityType<?>, EntityTypeData> data = new HashMap<>();
 
     public static Map<Item, EntityType<FlexibleTridentEntity>> tridentEntityTypesByItem = new HashMap<>();
     public static Map<EntityType<FlexibleTridentEntity>, Item> itemsByTridentEntityType = new HashMap<>();
@@ -39,9 +49,11 @@ public class PEntityTypes {
         return type;
     }
 
-    public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> type) {
+    public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> typeBuilder) {
         id = id.toLowerCase();
-        return Registry.register(Registry.ENTITY_TYPE, id, type.build(id));
+        var type = Registry.register(Registry.ENTITY_TYPE, id, typeBuilder.build(id));
+        data.put(type, new EntityTypeData(StringUtils.toNormalCase(id)));
+        return type;
     }
 
     public static void init() {

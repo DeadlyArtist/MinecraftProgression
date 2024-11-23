@@ -32,7 +32,6 @@ public class FlexibleTridentEntity extends TridentEntity {
         if (owner instanceof PlayerEntity) {
             this.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
         }
-        com.prog.utils.LOGGER.info(String.valueOf(RangedUtils.getBaseProjectileDamage(owner, stack)));
         setDamage(RangedUtils.getBaseProjectileDamage(owner, stack));
     }
 
