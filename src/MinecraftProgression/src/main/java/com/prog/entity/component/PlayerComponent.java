@@ -1,6 +1,6 @@
-package com.prog.entity;
+package com.prog.entity.component;
 
-import com.prog.Prog;
+import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;

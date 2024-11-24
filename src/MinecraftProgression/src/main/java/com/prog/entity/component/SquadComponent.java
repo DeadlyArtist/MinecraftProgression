@@ -1,11 +1,12 @@
-package com.prog.entity;
+package com.prog.entity.component;
 
+import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
-import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.itemOrBlock.tiers.PTierData;
 import com.prog.text.PTexts;
 import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.RandomUtils;
+import com.prog.utils.SquadUtils;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.tick.ServerTickingComponent;
 import net.minecraft.entity.EntityType;
@@ -16,8 +17,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.mob.*;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.SnowGolemEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
@@ -173,31 +172,10 @@ public class SquadComponent implements Component, ServerTickingComponent {
     }
 
     /**
-     * Recursively increments the value based on the given probability.
-     *
-     * @param prob     The probability of incrementing the value (0.0 to 1.0).
-     * @param startVal The starting value (default 0).
-     * @param maxVal   The maximum value to reach (default Integer.MAX_VALUE).
-     * @return The final recursively generated value.
-     */
-    public static int randomIncrement(Random random, int startVal, int maxVal, double prob) {
-        if (startVal >= maxVal) {
-            return startVal;
-        }
-
-        double randomChance;
-        do {
-            randomChance = random.nextDouble();
-        } while(randomChance <= prob && startVal++ < maxVal);
-
-        return startVal;
-    }
-
-    /**
      * Overloaded version with default parameters (starting value 0, max value Integer.MAX_VALUE).
      */
     public int randomIncrementRank(double prob) {
-        return randomIncrement(entity.random, rank, Integer.MAX_VALUE, prob);
+        return RandomUtils.randomIncrement(entity.random, rank, Integer.MAX_VALUE, prob);
     }
 
     public double randomOffset(double baseValue, double maxOffset) {

@@ -9,6 +9,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.village.TradeOffers;
 import org.apache.commons.lang3.mutable.MutableFloat;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 public class EnchantmentUtils {
     public static final float specificConstraintMultiplier = 2;
     public static int MAX_ENCHANTMENT_LEVEL = 30;
+    public static Set<Enchantment> BAD_ENCHANTMENTS = new HashSet<>(List.of(Enchantments.MENDING, Enchantments.UNBREAKING));
 
     public static float getCommonDamageMultiplier(int level) {
         if (level < 1) return 1;

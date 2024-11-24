@@ -41,4 +41,29 @@ public class RandomUtils {
         // Generate a random double within the range [min, max)
         return min + (random.nextDouble() * (max - min));
     }
+
+    /**
+     * Recursively increments the value based on the given probability.
+     *
+     * @param prob     The probability of incrementing the value (0.0 to 1.0).
+     * @param startVal The starting value (default 0).
+     * @param maxVal   The maximum value to reach (default Integer.MAX_VALUE).
+     * @return The final recursively generated value.
+     */
+    public static int randomIncrement(Random random, int startVal, int maxVal, double prob) {
+        if (startVal >= maxVal) {
+            return startVal;
+        }
+
+        double randomChance;
+        do {
+            randomChance = random.nextDouble();
+        } while (randomChance <= prob && startVal++ < maxVal);
+
+        return startVal;
+    }
+
+    public static int randomIncrement(Random random, int startVal, double prob) {
+        return randomIncrement(random, startVal, Integer.MAX_VALUE, prob);
+    }
 }

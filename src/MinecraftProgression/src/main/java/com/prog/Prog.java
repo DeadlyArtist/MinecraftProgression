@@ -174,11 +174,11 @@ public class Prog implements ModInitializer {
                 attributeModifiers.put(PEntityAttributes.FLIGHT, EntityAttributeModifierUtils.increment("default_flight"));
             }
 
-            if (item instanceof TridentItem && stack.isIn(PItemTags.REFINED_OBSIDIAN_OR_HIGHER)) {
+            if (item instanceof FishingRodItem && stack.isIn(PItemTags.REFINED_OBSIDIAN_OR_HIGHER)) {
                 attributeModifiers.put(PEntityAttributes.LAVA_FISHING, EntityAttributeModifierUtils.increment("default_lava_fishing"));
             }
 
-            if (item instanceof TridentItem && stack.isIn(PItemTags.END_OR_HIGHER)) {
+            if (item instanceof FishingRodItem && stack.isIn(PItemTags.END_OR_HIGHER)) {
                 attributeModifiers.put(PEntityAttributes.VOID_FISHING, EntityAttributeModifierUtils.increment("default_void_fishing"));
             }
 

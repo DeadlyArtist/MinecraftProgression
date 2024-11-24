@@ -1,12 +1,12 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum FishingRodMaterials implements FishingRodMaterial {
-    STEEL(1),
-    ULTIMATE_DIAMOND(3),
-    REFINED_OBSIDIAN(5),
-    TITAN(12),
-    PRIMAL_NETHERITE(20),
-    END(30);
+    STEEL(2),
+    ULTIMATE_DIAMOND(5),
+    REFINED_OBSIDIAN(8),
+    TITAN(18),
+    PRIMAL_NETHERITE(30),
+    END(45);
 
     public final double treasureQualityBonus;
     FishingRodMaterials(double treasureQualityBonus) {

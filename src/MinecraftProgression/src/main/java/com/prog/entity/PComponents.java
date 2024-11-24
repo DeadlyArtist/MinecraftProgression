@@ -1,6 +1,7 @@
 package com.prog.entity;
 
 import com.prog.Prog;
+import com.prog.entity.component.*;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
@@ -10,6 +11,7 @@ import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.DragonFireballEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.util.Identifier;
 
 public class PComponents implements EntityComponentInitializer {
@@ -19,6 +21,7 @@ public class PComponents implements EntityComponentInitializer {
     public static final ComponentKey<LivingEntityComponent> LIVING_ENTITY = register("LIVING_ENTITY", LivingEntityComponent.class);
     public static final ComponentKey<PlayerComponent> PLAYER = register("PLAYER", PlayerComponent.class);
     public static final ComponentKey<DragonFireballEntityComponent> DRAGON_FIREBALL = register("DRAGON_FIREBALL", DragonFireballEntityComponent.class);
+    public static final ComponentKey<ProjectileEntityComponent> PROJECTILE = register("PROJECTILE", ProjectileEntityComponent.class);
 
 
     public static <T extends Component> ComponentKey<T> register(String id, Class<T> componentClass) {
@@ -33,5 +36,6 @@ public class PComponents implements EntityComponentInitializer {
         registry.registerForPlayers(LIVING_ENTITY, LivingEntityComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
         registry.registerForPlayers(PLAYER, PlayerComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
         registry.registerFor(DragonFireballEntity.class, DRAGON_FIREBALL, DragonFireballEntityComponent::new);
+        registry.registerFor(ProjectileEntity.class, PROJECTILE, ProjectileEntityComponent::new);
     }
 }
