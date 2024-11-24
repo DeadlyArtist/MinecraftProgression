@@ -57,7 +57,7 @@ public class PItems {
     // Amethyst
     public static final Item AMETHYST_HEART = register("AMETHYST_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
     public static final Item AMETHYST_SHEARS = register("AMETHYST_SHEARS", new ShearsItem(new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
-    public static final Item FLINT_AND_AMETHYST = register("FLINT_AND_AMETHYST", new FlintAndSteelItem(new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item FLINT_AND_AMETHYST = register("FLINT_AND_AMETHYST", new FlintAndSteelItem(new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).name("Flint and Amethyst").finished();
 
     // Trident
     public static final Item AMETHYST_TRIDENT = register("AMETHYST_TRIDENT", new TieredTridentItem(TridentMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();

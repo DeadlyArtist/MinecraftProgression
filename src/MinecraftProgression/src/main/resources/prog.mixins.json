@@ -53,6 +53,7 @@
     "RecipeManagerMixin",
     "RecipeProviderMixin",
     "ServerPlayerEntityMixin",
+    "ServerPlayNetworkHandlerMixin",
     "SheepEntityMixin",
     "ShieldItemMixin",
     "SittingFlamingPhaseMixin",
