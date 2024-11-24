@@ -61,8 +61,8 @@ public class PItems {
 
     // Trident
     public static final Item AMETHYST_TRIDENT = register("AMETHYST_TRIDENT", new TieredTridentItem(TridentMaterials.ULTIMATE_DIAMOND, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
-    public static final Item HELL_TRIDENT = register("HELL_TRIDENT", new TieredTridentItem(TridentMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item APOCALYPTIC_TRIDENT = register("APOCALYPTIC_TRIDENT", new TieredTridentItem(TridentMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item HELL_TRIDENT = register("HELL_TRIDENT", new TieredTridentItem(TridentMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item PRIMAL_TRIDENT = register("PRIMAL_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item STELLAR_TRIDENT = register("STELLAR_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
 
@@ -186,7 +186,7 @@ public class PItems {
     public static final Item PRIMAL_NETHERITE_CROSSBOW = register("PRIMAL_NETHERITE_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_SWORD = register("PRIMAL_NETHERITE_SWORD", new SwordItem(PToolMaterials.PRIMAL_NETHERITE, 31, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
     public static final Item PRIMAL_NETHERITE_SHIELD = register("PRIMAL_NETHERITE_SHIELD", new TieredShieldItem(ShieldMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.PRIMAL_NETHERITE, PItemTags.TITAN)).finished();
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
 
     // Primal netherite tier tools
     public static final Item PRIMAL_NETHERITE_AXE = register("PRIMAL_NETHERITE_AXE", new AxeItem(PToolMaterials.PRIMAL_NETHERITE, 39F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
@@ -218,7 +218,7 @@ public class PItems {
     public static final Item END_CROSSBOW = register("END_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.END, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
     public static final Item END_SWORD = register("END_SWORD", new SwordItem(PToolMaterials.END, 50, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
     public static final Item END_SHIELD = register("END_SHIELD", new TieredShieldItem(ShieldMaterials.END, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.END, PItemTags.TITAN)).finished();
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
 
     // End tier tools
     public static final Item END_AXE = register("END_AXE", new AxeItem(PToolMaterials.END, 64.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
