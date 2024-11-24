@@ -64,6 +64,14 @@ public class UEffectMapper {
         return armorMeleeRanged(List.of(armorEffect), List.of(meleeEffect), List.of(rangedEffect));
     }
 
+    public static Function<Item, List<UEffect>> armorShield(List<UEffect> armorEffects, List<UEffect> shieldEffects) {
+        return byType(armorEffects, null, null, shieldEffects, null, null);
+    }
+
+    public static Function<Item, List<UEffect>> armorShield(UEffect armorEffect, UEffect shieldEffect) {
+        return armorShield(List.of(armorEffect), List.of(shieldEffect));
+    }
+
     public static Function<Item, List<UEffect>> damage(double amount) {
         return meleeRanged(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE, amount), UEffect.increment(PEntityAttributes.PROJECTILE_DAMAGE, amount));
     }
@@ -73,7 +81,7 @@ public class UEffectMapper {
     }
 
     public static Function<Item, List<UEffect>> protection(double amount) {
-        return armor(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount));
+        return armorShield(UEffect.increment(EntityAttributes.GENERIC_ARMOR, amount), UEffect.increment(PEntityAttributes.SHIELD, amount));
     }
 
     public static Function<Item, List<UEffect>> protection() {

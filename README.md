@@ -1,5 +1,5 @@
 # More Progression ([Curseforge](https://www.curseforge.com/minecraft/mc-mods/more-progression), [Modrinth](https://modrinth.com/mod/more-progression))
-A minecraft mod that builds upon and extends vanilla minecraft progression in multiple ways.
+An epic minecraft mod that builds upon and extends vanilla minecraft progression in multiple ways.
 
 ## Work In Progress
 This mod is currently in a very early playtesting stage.
@@ -26,7 +26,7 @@ Full Experience: Most content added by official updates introduced great potenti
 
 **Gourmet Food** (*search for $gourmet in REI*): Explore all kinds of different cuisine, including some previously unedible items (glistering melon, turtle egg, nether wart, and more), as well as new items (star apple, cosmic soup, and more).
 
-**Monster Squads**: Monsters now have a small chance to have a military rank (general, commander, warlord, and more) assigned to them by the monster empire based on their capabilities. These are way stronger than normal mobs, and always spawn with their own squad of even more mobs. Higher ranked mobs have more squad members, some of which may even have a rank of their own. However, ranked monsters drop enchantments that increase with their ranks.
+**Monster Squads**: Monsters now have a small chance to have a military rank (general, commander, warlord, and more) assigned to them by the monster empire based on their capabilities. These are way stronger than normal mobs, and always spawn with their own squad of even more mobs. Higher ranked mobs have more squad members, some of which may even have a rank of their own. However, taking the risk to challenge them brings high rewards, as ranked monsters drop enchantments which increase with their ranks.
 
 **Difficulty Scaling**: As your armor increases in tier, the monster empire becomes increasingly wary of you, sending stronger and stronger squads to patrol your area, ensuring the security of the world.
 
@@ -67,7 +67,6 @@ These are not yet implemented, but will be in the future.
 
 *Config*: Add config file.  
 *Barrels*: Potion rework to make you love potions.  
-*More Upgradable Tools*: Add upgradable/tiered crossbows, tridents, fishing rods, shears, shields.  
 *More Progression*: Add more tiers (such as Deeper and Darker integration), upgrades, and gourmet food.  
 *More Versions*: Add support for higher minecraft versions, as well as forge.  
 
@@ -80,7 +79,9 @@ These have been implemented in an update.
 *Universal Enchants*: Added special mod support.  
 *Ecologics*: Added special mod support.  
 *Supplementaries*: Added special mod support.  
-*Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, instead of permanently running away. The difficulty has been adjusted to this mod, regarding both damage and the fact that you can use a jetpack.  
+*Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, instead of permanently running away. The difficulty has been adjusted to this mod, regarding both damage and the fact that you can use a jetpack, making the fight very intense.  
+*More Upgradable Tools*: Added tiered crossbows, tridents, fishing rods, and shields, as well as upgradable shears and flint and steel.  
+*Lava and Void Fishing*: Some higher ranked fishing rods are now able to fish in lava, or even in the empty void.
 
 ## License
 This mod is licensed under MIT license.
@@ -104,14 +105,11 @@ https://github.com/mariumbacchus/Soulslike-Weaponry
 https://github.com/KyaniteMods/DeeperAndDarker  
 https://github.com/Rajhab/More-Vanilla-Shields-Forge  
 https://github.com/Nova-Committee/Re-Avaritia  
-https://github.com/yuoft/Endless  
-https://github.com/Nic4Las/Minecraft-Enderite-Mod  
 https://github.com/Lightning-64/Tide  
 https://www.curseforge.com/minecraft/mc-mods/more-crossbows-cj  
 https://github.com/YggdrasziI/BetterShears3  
 https://github.com/fzzyhmstrs/ai  
 https://github.com/fzzyhmstrs/tns  
-https://github.com/fzzyhmstrs/ig  
 
 ## Author
 

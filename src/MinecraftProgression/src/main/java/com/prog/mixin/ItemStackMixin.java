@@ -201,6 +201,7 @@ public class ItemStackMixin {
         }
     }
 
+    @Environment(EnvType.CLIENT)
     @Inject(method = "getTooltip",
             at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/item/ItemStack;getAttributeModifiers(Lnet/minecraft/entity/EquipmentSlot;)Lcom/google/common/collect/Multimap;", shift = At.Shift.AFTER)
     )

@@ -9,7 +9,7 @@ public class ListUtils {
     public static <T> List<T> ofMany(List<T>... lists) {
         List<T> combinedList = new ArrayList<>();
         for (List<T> list : lists) {
-            combinedList.addAll(list);
+            if (list != null) combinedList.addAll(list);
         }
         return Collections.unmodifiableList(combinedList); // Return an immutable list if desired
     }
