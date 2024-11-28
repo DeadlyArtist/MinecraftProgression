@@ -2,6 +2,7 @@ package com.prog.data;
 
 import com.deadlyartist.jpa.config.Jetpacks;
 import com.deadlyartist.jpa.util.JetpackUtils;
+import com.prog.XIDs;
 import com.prog.enchantment.PEnchantments;
 import com.prog.entity.PEntityTypes;
 import com.prog.entity.PStatusEffects;
@@ -19,8 +20,15 @@ public class PLangProvider extends FabricLanguageProvider {
         super(generator);
     }
 
+    public void addCompatEnchantmentDescription(TranslationBuilder translationBuilder, Identifier enchantmentId, String description) {
+        translationBuilder.add("enchantment." + enchantmentId.getNamespace() + "." + enchantmentId.getPath() + ".desc", description);
+    }
+
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
+        // Compat
+        addCompatEnchantmentDescription(translationBuilder, new Identifier(XIDs.STRIDERS_GRACE, "striders_grace"), "Increases movement speed while in lava.");
+
         // Preregistered
         PTexts.data.forEach((item, data) -> translationBuilder.add(item.id, data.text));
         PEnchantments.data.forEach((item, data) -> translationBuilder.add(item, data.name));

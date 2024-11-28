@@ -39,6 +39,10 @@ public class TooltipUtils {
             if (pComponent.badOmenImmunityDisabled) append = true;
         } else if (attribute == PEntityAttributes.MAGNET) {
             if (pComponent.magnetDisabled) append = true;
+        } else if (attribute == PEntityAttributes.SILENT) {
+            if (pComponent.silentDisabled) append = true;
+        } else if (attribute == PEntityAttributes.ELYTRA) {
+            if (pComponent.elytraDisabled) append = true;
         }
 
         if (append) return appendDisabled(text);
