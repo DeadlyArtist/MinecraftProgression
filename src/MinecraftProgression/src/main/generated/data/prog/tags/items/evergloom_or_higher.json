@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "prog:end_bow",
+    "prog:end_sword",
+    "prog:end_shovel",
+    "prog:evergloom_boots",
+    "prog:evergloom_leggings",
+    "prog:evergloom_chestplate",
+    "prog:end_leggings",
+    "prog:end_crossbow",
+    "prog:evergloom_crossbow",
+    "prog:end_helmet",
+    "prog:evergloom_helmet",
+    "prog:evergloom_bow",
+    "prog:end_pickaxe",
+    "prog:end_hoe",
+    "prog:end_shield",
+    "prog:end_axe",
+    "prog:evergloom_fishing_rod",
+    "prog:end_boots",
+    "prog:evergloom_axe",
+    "prog:evergloom_shield",
+    "prog:evergloom_hoe",
+    "prog:evergloom_sword",
+    "prog:end_shears",
+    "prog:evergloom_shovel",
+    "prog:end_fishing_rod",
+    "prog:evergloom_pickaxe",
+    "prog:end_chestplate"
+  ]
+}

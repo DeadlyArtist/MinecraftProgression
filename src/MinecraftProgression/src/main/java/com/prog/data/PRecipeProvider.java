@@ -29,7 +29,6 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
@@ -505,9 +504,9 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of(" qcq ", "ccecc", " qcq "), List.of(Input.of(Items.QUARTZ), Input.of(PItems.COMPRESSED_QUARTZ), Input.of(PItems.EMBERITE)), PBlocks.QUARTZ_CATALYST).requireAssembly().offer(exporter);
         createShapedRecipe(List.of(" lCl ", "qCMCq", "lrCrl"), List.of(Input.of(Items.LEATHER), Input.of(PItems.MACHINE_CIRCUIT), Input.of(PItems.COMPRESSED_QUARTZ), Input.of(PItems.REFINED_OBSIDIAN_MODULE), Input.of(Items.REDSTONE)), PItems.MECHANICAL_BOOTS).requireAssembly().offer(exporter);
         createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(Items.QUARTZ), PItems.COMPRESSED_QUARTZ, 300, 2F).offer(exporter);
-        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(PBlocks.VERDITE_ORE), PItems.VERDITE_INGOT, 2000, 5F).offer(exporter);
-        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(PItems.RAW_VERDITE), PItems.VERDITE_INGOT, 2000, 5F).offer(exporter);
-        offerReversibleCompactingRecipes(exporter, PItems.VERDITE_INGOT, PBlocks.VERDITE_BLOCK, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
+        createCookingRecipe(PRecipeSerializers.INCINERATOR, Input.of(PBlocks.EVERGLOOM), PItems.PURE_EVERGLOOM_INGOT, 2000, 5F).offer(exporter);
+        offerReversibleCompactingRecipes(exporter, PItems.PURE_EVERGLOOM_INGOT, PBlocks.PURE_EVERGLOOM_BLOCK, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
+        createShapedRecipe(List.of(" b ", "pem", " c "), List.of(Input.of(Items.BEEF), Input.of(Items.PORKCHOP), Input.of(PItems.PURE_EVERGLOOM_INGOT), Input.of(Items.MUTTON), Input.of(Items.CHICKEN)), PItems.PURE_EVERBLOOD_INGOT).offer(exporter);
         offerReversibleCompactingRecipes(exporter, PItems.VERUM_INGOT, PBlocks.VERUM_BLOCK, FlexibleCraftingData.COSMIC_CONSTRUCTOR);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PBlocks.VERUM_ORE), PItems.VERUM_INGOT, 7500, 10F).offer(exporter);
         createCookingRecipe(PRecipeSerializers.COSMIC_INCUBATOR, Input.of(PItems.RAW_VERUM), PItems.VERUM_INGOT, 7500, 10F).offer(exporter);
@@ -540,7 +539,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("ada", "ege", "ada"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(Items.DIAMOND), Input.of(Items.EMERALD), Input.of(Items.GOLD_INGOT)), PItems.AMETHYST_HEART).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("   rs", "rfwfr", "sr   "), List.of(Input.of(PItems.REFINED_OBSIDIAN_INGOT), Input.of(Items.STICK), Input.of(Items.WARPED_FUNGUS), Input.of(Items.WITHER_SKELETON_SKULL)), PItems.APOCALYPTIC_SCEPTER).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("ete", "tet", "ete"), List.of(Input.of(PItems.EMBERITE), Input.of(PItems.TITAN_INGOT)), PItems.FLAME_ORB).requireAssembly().offer(exporter);
-        createShapedRecipe(List.of(" v   ", "v v v", " ese "), List.of(Input.of(PItems.VERDITE_INGOT), Input.of(Items.ECHO_SHARD), Input.of(PItems.LIVING_SOUL_FRAGMENT)), PItems.KNOWLEDGE_POWDER).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of(" v   ", "v v v", " ese "), List.of(Input.of(PItems.PURE_EVERGLOOM_INGOT), Input.of(Items.ECHO_SHARD), Input.of(PItems.LIVING_SOUL_FRAGMENT)), PItems.KNOWLEDGE_POWDER).requireAssembly().offer(exporter);
+        createShapedRecipe(List.of("b b", "blb", " b "), List.of(Input.of(PItems.PURE_EVERBLOOD_INGOT), Input.of(PItems.LIVING_SOUL_FRAGMENT)), PItems.DEMON_HEART).offer(exporter);
         createShapedRecipe(List.of("avava", "cavac", "cvdvc", "ce ec"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(PItems.VERUM_INGOT), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.DRAGON_HEAD), Input.of(Items.ENDER_EYE)), PItems.VOID_SOUL_HELMET).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of("av va", "cavac", "ceEec", "cavac", "avcva"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(PItems.VERUM_INGOT), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.ENDER_EYE), Input.of(Items.ELYTRA)), PItems.VOID_SOUL_CHESTPLATE).requireCosmicConstructor().offer(exporter);
         createShapedRecipe(List.of("aeaea", "csvsc", "vaaav", "va av", "ca ac"), List.of(Input.of(Items.AMETHYST_SHARD), Input.of(Items.ENDER_EYE), Input.of(Items.CRYING_OBSIDIAN), Input.of(Items.SHULKER_SHELL), Input.of(PItems.VERUM_INGOT)), PItems.VOID_SOUL_LEGGINGS).requireCosmicConstructor().offer(exporter);
@@ -564,7 +564,8 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.AMETHYST_TRIDENT), Input.of(PItems.APOCALYPTIC_SCEPTER), PItems.APOCALYPTIC_TRIDENT).offer(exporter);
         createSmithingRecipe(Input.of(PItems.APOCALYPTIC_TRIDENT), Input.of(PItems.FLAME_ORB), PItems.HELL_TRIDENT).offer(exporter);
         createSmithingRecipe(Input.of(PItems.HELL_TRIDENT), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_TRIDENT).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_TRIDENT), Input.of(PItems.STELLAR_SOUL), PItems.STELLAR_TRIDENT).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_TRIDENT), Input.of(PItems.DEMON_HEART), PItems.SANGUINE_TRIDENT).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.SANGUINE_TRIDENT), Input.of(PItems.STELLAR_SOUL), PItems.STELLAR_TRIDENT).offer(exporter);
 
         // Steel
         createSmithingRecipe(Input.of(Items.IRON_BOOTS), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOOTS).offer(exporter);
@@ -650,39 +651,40 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.TITAN_SHIELD), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_FISHING_ROD), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_FISHING_ROD).offer(exporter);
 
-        // Verdite
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOOTS), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_BOOTS).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CHESTPLATE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_CHESTPLATE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HELMET), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_HELMET).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_LEGGINGS), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_LEGGINGS).offer(exporter);
+        // Evergloom
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOOTS), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CHESTPLATE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HELMET), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_LEGGINGS), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_LEGGINGS).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_AXE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_AXE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HOE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_HOE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_PICKAXE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_PICKAXE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHOVEL), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_SHOVEL).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_AXE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_HOE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_PICKAXE), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHOVEL), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_SHOVEL).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_BOW).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CROSSBOW), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_CROSSBOW).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_SWORD).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHIELD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_SHIELD).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_FISHING_ROD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_FISHING_ROD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CROSSBOW), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_CROSSBOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHIELD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_SHIELD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_FISHING_ROD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.EVERGLOOM_FISHING_ROD).offer(exporter);
 
         // End
-        createSmithingRecipe(Input.of(PItems.VERDITE_BOOTS), Input.of(PItems.VOID_SOUL_BOOTS), PItems.END_BOOTS).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_CHESTPLATE), Input.of(PItems.VOID_SOUL_CHESTPLATE), PItems.END_CHESTPLATE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_HELMET), Input.of(PItems.VOID_SOUL_HELMET), PItems.END_HELMET).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_LEGGINGS), Input.of(PItems.VOID_SOUL_LEGGINGS), PItems.END_LEGGINGS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_BOOTS), Input.of(PItems.VOID_SOUL_BOOTS), PItems.END_BOOTS).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_CHESTPLATE), Input.of(PItems.VOID_SOUL_CHESTPLATE), PItems.END_CHESTPLATE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_HELMET), Input.of(PItems.VOID_SOUL_HELMET), PItems.END_HELMET).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_LEGGINGS), Input.of(PItems.VOID_SOUL_LEGGINGS), PItems.END_LEGGINGS).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.VERDITE_AXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_AXE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_HOE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_HOE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_PICKAXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_PICKAXE).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_SHOVEL), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHOVEL).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_AXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_AXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_HOE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_HOE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_PICKAXE), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_PICKAXE).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_SHOVEL), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHOVEL).offer(exporter);
 
-        createSmithingRecipe(Input.of(PItems.VERDITE_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_BOW).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_CROSSBOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_CROSSBOW).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SWORD).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_SHIELD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHIELD).offer(exporter);
-        createSmithingRecipe(Input.of(PItems.VERDITE_FISHING_ROD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_FISHING_ROD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_CROSSBOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_CROSSBOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SWORD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_SHIELD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHIELD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.EVERGLOOM_FISHING_ROD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_FISHING_ROD).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.AMETHYST_SHEARS), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHEARS).offer(exporter);
     }
 
     public static List<SmithingRecipeBuilderWrapper> getUpgradeRecipes(Upgrade upgrade) {

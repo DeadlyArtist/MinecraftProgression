@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_primal_trident": {
+    "has_sanguine_trident": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:primal_trident"
+              "prog:sanguine_trident"
             ]
           }
         ]
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_primal_trident",
+      "has_sanguine_trident",
       "has_stellar_soul",
       "has_the_recipe"
     ]

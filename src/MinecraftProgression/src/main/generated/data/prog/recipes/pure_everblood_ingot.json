@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "item": "minecraft:beef"
+    },
+    "c": {
+      "item": "minecraft:chicken"
+    },
+    "e": {
+      "item": "prog:pure_evergloom_ingot"
+    },
+    "m": {
+      "item": "minecraft:mutton"
+    },
+    "p": {
+      "item": "minecraft:porkchop"
+    }
+  },
+  "pattern": [
+    " b ",
+    "pem",
+    " c "
+  ],
+  "result": {
+    "item": "prog:pure_everblood_ingot"
+  }
+}

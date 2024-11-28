@@ -64,7 +64,8 @@ public class PItems {
     public static final Item APOCALYPTIC_TRIDENT = register("APOCALYPTIC_TRIDENT", new TieredTridentItem(TridentMaterials.REFINED_OBSIDIAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item HELL_TRIDENT = register("HELL_TRIDENT", new TieredTridentItem(TridentMaterials.TITAN, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
     public static final Item PRIMAL_TRIDENT = register("PRIMAL_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
-    public static final Item STELLAR_TRIDENT = register("STELLAR_TRIDENT", new TieredTridentItem(TridentMaterials.PRIMAL_NETHERITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item SANGUINE_TRIDENT = register("SANGUINE_TRIDENT", new TieredTridentItem(TridentMaterials.EVERGLOOM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
+    public static final Item STELLAR_TRIDENT = register("STELLAR_TRIDENT", new TieredTridentItem(TridentMaterials.END, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
 
     // Steel
     public static final Item STEEL_INGOT = register("STEEL_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
@@ -199,33 +200,33 @@ public class PItems {
     }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.PRIMAL_NETHERITE)).finished();
 
 
-    // Verdite
-    public static final Item VERDITE_INGOT = register("VERDITE_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
-    public static final Item RAW_VERDITE = register("RAW_VERDITE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    // Evergloom
+    public static final Item PURE_EVERGLOOM_INGOT = register("PURE_EVERGLOOM_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item KNOWLEDGE_POWDER = register("KNOWLEDGE_POWDER", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
+    public static final Item PURE_EVERBLOOD_INGOT = register("PURE_EVERBLOOD_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item DEMON_HEART = register("DEMON_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
 
-    // Verdite tier armor
-    public static final Item VERDITE_HELMET = register("VERDITE_HELMET", new ArmorItem(PArmorMaterials.VERDITE, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_CHESTPLATE = register("VERDITE_CHESTPLATE", new ArmorItem(PArmorMaterials.VERDITE, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_LEGGINGS = register("VERDITE_LEGGINGS", new ArmorItem(PArmorMaterials.VERDITE, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_BOOTS = register("VERDITE_BOOTS", new ArmorItem(PArmorMaterials.VERDITE, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
+    // Evergloom tier armor
+    public static final Item EVERGLOOM_HELMET = register("EVERGLOOM_HELMET", new ArmorItem(PArmorMaterials.EVERGLOOM, EquipmentSlot.HEAD, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_CHESTPLATE = register("EVERGLOOM_CHESTPLATE", new ArmorItem(PArmorMaterials.EVERGLOOM, EquipmentSlot.CHEST, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_LEGGINGS = register("EVERGLOOM_LEGGINGS", new ArmorItem(PArmorMaterials.EVERGLOOM, EquipmentSlot.LEGS, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_BOOTS = register("EVERGLOOM_BOOTS", new ArmorItem(PArmorMaterials.EVERGLOOM, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
 
-    // Verdite tier weapons
-    public static final Item VERDITE_BOW = register("VERDITE_BOW", new TieredBowItem(BowMaterials.VERDITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_CROSSBOW = register("VERDITE_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.VERDITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_SWORD = register("VERDITE_SWORD", new SwordItem(PToolMaterials.VERDITE, 39, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_SHIELD = register("VERDITE_SHIELD", new TieredShieldItem(ShieldMaterials.VERDITE, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
+    // Evergloom tier weapons
+    public static final Item EVERGLOOM_BOW = register("EVERGLOOM_BOW", new TieredBowItem(BowMaterials.EVERGLOOM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_CROSSBOW = register("EVERGLOOM_CROSSBOW", new TieredCrossbowItem(CrossbowMaterials.EVERGLOOM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_SWORD = register("EVERGLOOM_SWORD", new SwordItem(PToolMaterials.EVERGLOOM, 39, -2.4F, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_SHIELD = register("EVERGLOOM_SHIELD", new TieredShieldItem(ShieldMaterials.EVERGLOOM, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> {
+    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
 
-    // Verdite tier tools
-    public static final Item VERDITE_AXE = register("VERDITE_AXE", new AxeItem(PToolMaterials.VERDITE, 49.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_HOE = register("VERDITE_HOE", new HoeItem(PToolMaterials.VERDITE, 9, 1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_PICKAXE = register("VERDITE_PICKAXE", new PickaxeItem(PToolMaterials.VERDITE, 27, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_SHOVEL = register("VERDITE_SHOVEL", new ShovelItem(PToolMaterials.VERDITE, 21F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    public static final Item VERDITE_FISHING_ROD = register("VERDITE_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.VERDITE, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
-    //public static final Item VERDITE_SHEARS = register("VERDITE_SHEARS", new TieredShearsItem(ShearsMaterials.VERDITE, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.VERDITE)).finished();
+    // Evergloom tier tools
+    public static final Item EVERGLOOM_AXE = register("EVERGLOOM_AXE", new AxeItem(PToolMaterials.EVERGLOOM, 49.0F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_HOE = register("EVERGLOOM_HOE", new HoeItem(PToolMaterials.EVERGLOOM, 9, 1.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_PICKAXE = register("EVERGLOOM_PICKAXE", new PickaxeItem(PToolMaterials.EVERGLOOM, 27, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_SHOVEL = register("EVERGLOOM_SHOVEL", new ShovelItem(PToolMaterials.EVERGLOOM, 21F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
+    public static final Item EVERGLOOM_FISHING_ROD = register("EVERGLOOM_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.EVERGLOOM, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.EVERGLOOM)).finished();
 
 
     // End
@@ -258,8 +259,8 @@ public class PItems {
     public static final Item END_HOE = register("END_HOE", new HoeItem(PToolMaterials.END, 12, 2.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
     public static final Item END_PICKAXE = register("END_PICKAXE", new PickaxeItem(PToolMaterials.END, 37, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
     public static final Item END_SHOVEL = register("END_SHOVEL", new ShovelItem(PToolMaterials.END, 30F, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
-    public static final Item END_FISHING_ROD = register("END_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.END, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {
-    }).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_FISHING_ROD = register("END_FISHING_ROD", new TieredFishingRodItem(FishingRodMaterials.END, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> {}).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
+    public static final Item END_SHEARS = register("END_SHEARS", new TieredShearsItem(ShearsMaterials.END, new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE, PItemTags.END)).finished();
 
 
     // Doesn't work

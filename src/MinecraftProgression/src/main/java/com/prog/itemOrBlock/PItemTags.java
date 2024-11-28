@@ -19,7 +19,7 @@ public class PItemTags {
     public static final TagKey<Item> REFINED_OBSIDIAN = createTag("REFINED_OBSIDIAN");
     public static final TagKey<Item> TITAN = createTag("TITAN");
     public static final TagKey<Item> PRIMAL_NETHERITE = createTag("PRIMAL_NETHERITE");
-    public static final TagKey<Item> VERDITE = createTag("VERDITE");
+    public static final TagKey<Item> EVERGLOOM = createTag("EVERGLOOM");
     public static final TagKey<Item> END = createTag("END");
 
     public static final TagKey<Item> STEEL_OR_HIGHER = createTag("STEEL_OR_HIGHER");
@@ -27,7 +27,7 @@ public class PItemTags {
     public static final TagKey<Item> REFINED_OBSIDIAN_OR_HIGHER = createTag("REFINED_OBSIDIAN_OR_HIGHER");
     public static final TagKey<Item> TITAN_OR_HIGHER = createTag("TITAN_OR_HIGHER");
     public static final TagKey<Item> PRIMAL_NETHERITE_OR_HIGHER = createTag("PRIMAL_NETHERITE_OR_HIGHER");
-    public static final TagKey<Item> VERDITE_OR_HIGHER = createTag("VERDITE_OR_HIGHER");
+    public static final TagKey<Item> EVERGLOOM_OR_HIGHER = createTag("EVERGLOOM_OR_HIGHER");
     public static final TagKey<Item> END_OR_HIGHER = createTag("END_OR_HIGHER");
 
     private static TagKey<Item> createTag(String id) {

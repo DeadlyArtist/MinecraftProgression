@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:reinforced_deepslate",
-    "prog:verdite_block",
-    "prog:verum_ore"
+    "prog:verum_ore",
+    "prog:pure_evergloom_block"
   ]
 }

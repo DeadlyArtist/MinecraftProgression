@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/evergloom_bow",
+    "textures": {
+        "layer0": "prog:item/evergloom_bow_pulling_1"
+    }
+}

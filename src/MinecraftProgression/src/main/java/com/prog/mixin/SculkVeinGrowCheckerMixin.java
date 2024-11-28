@@ -19,6 +19,6 @@ public abstract class SculkVeinGrowCheckerMixin {
             )
     )
     public boolean redirectIsOf(BlockState instance, Block block) {
-        return instance.isOf(block) || instance.isOf(PBlocks.VERDITE_ORE) || instance.isOf(PBlocks.VERDITE_BLOCK);
+        return instance.isOf(block) || instance.isOf(PBlocks.EVERGLOOM) || instance.isOf(PBlocks.PURE_EVERGLOOM_BLOCK);
     }
 }

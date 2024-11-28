@@ -1,23 +1,23 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "prog:end_chestplate_from_smithing"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_verdite_chestplate": {
+    "has_evergloom_chestplate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:verdite_chestplate"
+              "prog:evergloom_chestplate"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:end_chestplate_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "has_void_soul_chestplate": {
       "conditions": {
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_verdite_chestplate",
+      "has_evergloom_chestplate",
       "has_void_soul_chestplate",
       "has_the_recipe"
     ]

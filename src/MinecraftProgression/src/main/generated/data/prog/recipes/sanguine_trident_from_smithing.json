@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:demon_heart"
+  },
+  "base": {
+    "item": "prog:primal_trident"
+  },
+  "result": {
+    "item": "prog:sanguine_trident"
+  }
+}

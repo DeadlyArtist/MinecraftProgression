@@ -4,6 +4,6 @@ public class PMiningLevels {
     public static final int REFINED_OBSIDIAN = 4;
     public static final int TITAN = 5;
     public static final int PRIMAL_NETHERITE = 6;
-    public static final int VERDITE = 7;
+    public static final int EVERGLOOM = 7;
     public static final int END = 8;
 }

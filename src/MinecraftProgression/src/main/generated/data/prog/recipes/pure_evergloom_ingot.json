@@ -1,0 +1,12 @@
+{
+  "type": "prog:cosmic_constructor_shapeless",
+  "ingredients": [
+    {
+      "item": "prog:pure_evergloom_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "prog:pure_evergloom_ingot"
+  }
+}

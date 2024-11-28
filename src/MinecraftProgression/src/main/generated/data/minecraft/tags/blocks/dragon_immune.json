@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "prog:verdite_block",
-    "prog:verum_ore",
-    "prog:verdite_ore",
     "prog:verum_block",
+    "prog:evergloom",
     "prog:cosmic_constructor",
-    "prog:cosmic_incubator"
+    "prog:cosmic_incubator",
+    "prog:verum_ore",
+    "prog:pure_evergloom_block"
   ]
 }

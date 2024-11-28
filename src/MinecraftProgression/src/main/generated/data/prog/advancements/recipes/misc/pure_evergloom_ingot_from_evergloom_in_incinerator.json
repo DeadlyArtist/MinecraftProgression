@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_evergloom": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:evergloom"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:pure_evergloom_ingot_from_evergloom_in_incinerator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_evergloom",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "prog:pure_evergloom_ingot_from_evergloom_in_incinerator"
+    ]
+  }
+}

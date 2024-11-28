@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "item": "prog:pure_everblood_ingot"
+    },
+    "l": {
+      "item": "prog:living_soul_fragment"
+    }
+  },
+  "pattern": [
+    "b b",
+    "blb",
+    " b "
+  ],
+  "result": {
+    "item": "prog:demon_heart"
+  }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/evergloom_crossbow",
+    "textures": {
+        "layer0": "prog:item/evergloom_crossbow_firework"
+    }
+}

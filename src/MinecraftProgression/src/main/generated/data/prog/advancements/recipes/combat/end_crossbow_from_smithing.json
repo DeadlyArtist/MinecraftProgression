@@ -1,23 +1,23 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "prog:end_crossbow_from_smithing"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_verdite_crossbow": {
+    "has_evergloom_crossbow": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:verdite_crossbow"
+              "prog:evergloom_crossbow"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:end_crossbow_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "has_void_soul_tool": {
       "conditions": {
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_verdite_crossbow",
+      "has_evergloom_crossbow",
       "has_void_soul_tool",
       "has_the_recipe"
     ]

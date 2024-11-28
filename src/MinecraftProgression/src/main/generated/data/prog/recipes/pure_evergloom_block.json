@@ -1,0 +1,16 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "#": {
+      "item": "prog:pure_evergloom_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "prog:pure_evergloom_block"
+  }
+}

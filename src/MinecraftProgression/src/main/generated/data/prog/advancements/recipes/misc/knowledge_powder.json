@@ -25,28 +25,28 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:knowledge_powder"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_verdite_ingot": {
+    "has_pure_evergloom_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:verdite_ingot"
+              "prog:pure_evergloom_ingot"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:knowledge_powder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_verdite_ingot",
+      "has_pure_evergloom_ingot",
       "has_echo_shard",
       "has_living_soul_fragment",
       "has_the_recipe"

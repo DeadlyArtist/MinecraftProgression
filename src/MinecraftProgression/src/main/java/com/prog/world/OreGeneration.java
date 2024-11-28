@@ -27,7 +27,6 @@ public class OreGeneration {
 
     static {
         register(PBlocks.EMBERITE_ORE, BiomeSelectors.foundInTheNether(), OreConfiguredFeatures.BASE_STONE_NETHER, 5, List.of(CountPlacementModifier.of(10), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(128))));
-        //register(PBlocks.VERDITE_ORE, BiomeSelectors.foundInOverworld(), new BlockMatchRuleTest(Blocks.SCULK), 20, List.of(CountPlacementModifier.of(20), HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)))); // Don't think it works
         register(PBlocks.VERUM_ORE, BiomeSelectors.foundInTheEnd(), new BlockMatchRuleTest(Blocks.END_STONE), 3, List.of(CountPlacementModifier.of(2), SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(10), YOffset.fixed(20))));
         register(Blocks.ANCIENT_DEBRIS, BiomeSelectors.foundInTheNether(), OreConfiguredFeatures.BASE_STONE_NETHER, 3, List.of(CountPlacementModifier.of(5), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(128))));
     }

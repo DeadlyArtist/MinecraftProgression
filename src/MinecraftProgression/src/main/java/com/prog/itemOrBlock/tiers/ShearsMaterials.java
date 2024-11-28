@@ -6,7 +6,7 @@ public enum ShearsMaterials implements ShearsMaterial {
     REFINED_OBSIDIAN(4),
     TITAN(6),
     PRIMAL_NETHERITE(8),
-    VERDITE(9),
+    EVERGLOOM(9),
     END(12);
 
     public final float miningSpeedBonus;

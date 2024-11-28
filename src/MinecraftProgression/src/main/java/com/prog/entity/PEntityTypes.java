@@ -32,6 +32,7 @@ public class PEntityTypes {
     public static final EntityType<FlexibleTridentEntity> APOCALYPTIC_TRIDENT = registerTrident("APOCALYPTIC_TRIDENT", PItems.APOCALYPTIC_TRIDENT);
     public static final EntityType<FlexibleTridentEntity> HELL_TRIDENT = registerTrident("HELL_TRIDENT", PItems.HELL_TRIDENT);
     public static final EntityType<FlexibleTridentEntity> PRIMAL_TRIDENT = registerTrident("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT);
+    public static final EntityType<FlexibleTridentEntity> SANGUINE_TRIDENT = registerTrident("SANGUINE_TRIDENT", PItems.SANGUINE_TRIDENT);
     public static final EntityType<FlexibleTridentEntity> STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT);
 
 

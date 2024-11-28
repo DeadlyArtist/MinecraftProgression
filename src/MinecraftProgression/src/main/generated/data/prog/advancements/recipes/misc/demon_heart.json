@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_living_soul_fragment": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:living_soul_fragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_pure_everblood_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:pure_everblood_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:demon_heart"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pure_everblood_ingot",
+      "has_living_soul_fragment",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:demon_heart"
+    ]
+  }
+}

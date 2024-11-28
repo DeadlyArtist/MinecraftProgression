@@ -1,11 +1,11 @@
-// 1.19.2	2024-11-28T07:54:04.2731312	Block Loot Tables
+// 1.19.2	2024-11-28T19:13:06.7582444	Block Loot Tables
 c7d26791132737f6ef7843b07be5e5623741bc4c data\prog\loot_tables\blocks\cosmic_incubator.json
 49c48299af0a159f273e53a43e1743f146815a57 data\prog\loot_tables\blocks\emberite_block.json
 2549fb6233797a858b87309c7e0296014de361e2 data\prog\loot_tables\blocks\large_stellar_bud.json
 ad807c0a19440e5bd099b350713cee0124097497 data\prog\loot_tables\blocks\incinerator.json
 51b9d441977f3f07d8215e48c66763b131515a84 data\prog\loot_tables\blocks\steel_block.json
 1a4256f69155579ebefe0e3651c47a66e7fcd1c7 data\prog\loot_tables\blocks\emberite_ore.json
-c3cd9cf6c3926f1838dd6e7893e6aac3bea32429 data\prog\loot_tables\blocks\verdite_block.json
+2df8dfcb677dea5f06fdcc69f67e9d85748ce666 data\prog\loot_tables\blocks\evergloom.json
 a7fbf358a086fd26d718dfdc2b8442543502f3e2 data\prog\loot_tables\blocks\stellar_cluster.json
 52634576928f56651f93e7a79c7350bf7740c8bf data\prog\loot_tables\blocks\small_stellar_bud.json
 841541f080f1e59b0791d3c3cea7878f87d8799c data\prog\loot_tables\blocks\stellar_block.json
@@ -15,7 +15,7 @@ fda90652e47d0ebb689d0d6aae3cac3136a43800 data\prog\loot_tables\blocks\medium_ste
 78268c23833213bf45108d6f6bffd33be9080b75 data\minecraft\loot_tables\blocks\reinforced_deepslate.json
 39bee51e50d9165b6672643402f05fee89b9834f data\prog\loot_tables\blocks\verum_ore.json
 c8c8571e8b931063e5ba8419d55436981535af35 data\prog\loot_tables\blocks\verum_block.json
-f26ba0376c8d37c39ed1e91f2951a682ca8c60e2 data\prog\loot_tables\blocks\verdite_ore.json
 4859c7fc464d1486dde1c923c2b3b3aeba8a9b10 data\prog\loot_tables\blocks\nether_star_block.json
+06612ce1bc432a8c008a7fa64755dd9b86ccd933 data\prog\loot_tables\blocks\pure_evergloom_block.json
 1a3d0e25b46bbd03029b94d756c157bb0d888ddb data\prog\loot_tables\blocks\assembly.json
 50a8798fb2afa8e3645e01f65cede3168eaaa2f1 data\prog\loot_tables\blocks\cosmic_constructor.json

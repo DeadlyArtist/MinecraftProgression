@@ -6,7 +6,7 @@ public enum ShieldMaterials implements ShieldMaterial {
     REFINED_OBSIDIAN(9),
     TITAN(18),
     PRIMAL_NETHERITE(30),
-    VERDITE(37),
+    EVERGLOOM(37),
     END(45);
 
     public final double shieldBonus;

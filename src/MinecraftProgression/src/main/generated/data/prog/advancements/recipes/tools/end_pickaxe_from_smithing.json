@@ -1,23 +1,23 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "prog:end_pickaxe_from_smithing"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_verdite_pickaxe": {
+    "has_evergloom_pickaxe": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:verdite_pickaxe"
+              "prog:evergloom_pickaxe"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:end_pickaxe_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "has_void_soul_tool": {
       "conditions": {
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_verdite_pickaxe",
+      "has_evergloom_pickaxe",
       "has_void_soul_tool",
       "has_the_recipe"
     ]

@@ -10,13 +10,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.*;
-import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 
@@ -39,7 +36,7 @@ public class PEntityModelLayers {
     public static final EntityModelLayer REFINED_OBSIDIAN_SHIELD = registerShield("REFINED_OBSIDIAN_SHIELD", PItems.REFINED_OBSIDIAN_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer TITAN_SHIELD = registerShield("TITAN_SHIELD", PItems.TITAN_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer PRIMAL_NETHERITE_SHIELD = registerShield("PRIMAL_NETHERITE_SHIELD", PItems.PRIMAL_NETHERITE_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
-    public static final EntityModelLayer VERDITE_SHIELD = registerShield("VERDITE_SHIELD", PItems.VERDITE_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+    public static final EntityModelLayer EVERGLOOM_SHIELD = registerShield("EVERGLOOM_SHIELD", PItems.EVERGLOOM_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer END_SHIELD = registerShield("END_SHIELD", PItems.END_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
 
     // Tridents
@@ -47,6 +44,7 @@ public class PEntityModelLayers {
     public static final EntityModelLayer APOCALYPTIC_TRIDENT = registerTrident("APOCALYPTIC_TRIDENT", PItems.APOCALYPTIC_TRIDENT, part -> new TridentEntityModel(part), EdgedTridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer HELL_TRIDENT = registerTrident("HELL_TRIDENT", PItems.HELL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer PRIMAL_TRIDENT = registerTrident("PRIMAL_TRIDENT", PItems.PRIMAL_TRIDENT, part -> new TridentEntityModel(part), TridentEntityModel::getTexturedModelData);
+    public static final EntityModelLayer SANGUINE_TRIDENT = registerTrident("SANGUINE_TRIDENT", PItems.SANGUINE_TRIDENT, part -> new TridentEntityModel(part), EdgedTridentEntityModel::getTexturedModelData);
     public static final EntityModelLayer STELLAR_TRIDENT = registerTrident("STELLAR_TRIDENT", PItems.STELLAR_TRIDENT, part -> new TridentEntityModel(part), EdgedTridentEntityModel::getTexturedModelData);
 
 
