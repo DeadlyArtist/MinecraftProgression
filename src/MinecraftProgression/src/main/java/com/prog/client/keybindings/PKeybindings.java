@@ -10,8 +10,6 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Formatting;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +26,7 @@ public class PKeybindings {
 
     public static final Map<KeyBinding, KeyBindingData> data = new HashMap<>();
 
-    public static KeyBinding TOGGLE_HEADLIGHT = register("TOGGLE_HEADLIGHT", InputUtil.UNKNOWN_KEY.getCode());
+    public static KeyBinding TOGGLE_LUMINANCE = register("TOGGLE_LUMINANCE", InputUtil.UNKNOWN_KEY.getCode());
     public static KeyBinding TOGGLE_STEP_ASSIST = register("TOGGLE_STEP_ASSIST", InputUtil.UNKNOWN_KEY.getCode());
     public static KeyBinding TOGGLE_BAD_OMEN_IMMUNITY = register("TOGGLE_BAD_OMEN_IMMUNITY", InputUtil.UNKNOWN_KEY.getCode());
     public static KeyBinding TOGGLE_MAGNET = register("TOGGLE_MAGNET", InputUtil.UNKNOWN_KEY.getCode());
@@ -45,7 +43,7 @@ public class PKeybindings {
         var player = client.player;
         if (player == null) return;
 
-        while (TOGGLE_HEADLIGHT.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_HEADLIGHT);
+        while (TOGGLE_LUMINANCE.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_LUMINANCE);
         while (TOGGLE_STEP_ASSIST.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_STEP_ASSIST);
         while (TOGGLE_BAD_OMEN_IMMUNITY.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_BAD_OMEN_IMMUNITY);
         while (TOGGLE_MAGNET.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_MAGNET);

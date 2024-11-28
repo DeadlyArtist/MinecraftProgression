@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:void_soul_tool"
+  },
+  "base": {
+    "item": "prog:verdite_crossbow"
+  },
+  "result": {
+    "item": "prog:end_crossbow"
+  }
+}

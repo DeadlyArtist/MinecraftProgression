@@ -19,7 +19,6 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Formatting;
-import org.spongepowered.asm.mixin.Unique;
 
 import java.util.*;
 
@@ -33,7 +32,7 @@ public class TooltipUtils {
 
         var append = false;
         if (attribute == PEntityAttributes.LUMINANCE) {
-            if (pComponent.headlightDisabled) append = true;
+            if (pComponent.luminanceDisabled) append = true;
         } else if (attribute == PEntityAttributes.STEP_HEIGHT) {
             if (pComponent.stepAssistDisabled) append = true;
         } else if (attribute == PEntityAttributes.BAD_OMEN_IMMUNITY) {

@@ -11,7 +11,7 @@ public class PKeybindingLangHelper {
     public static Map<String, String> data = new HashMap<>();;
 
     static {
-        register("TOGGLE_HEADLIGHT");
+        register("TOGGLE_LUMINANCE");
         register("TOGGLE_STEP_ASSIST");
         register("TOGGLE_BAD_OMEN_IMMUNITY");
         register("TOGGLE_MAGNET");

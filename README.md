@@ -45,6 +45,27 @@ Next up is a big one. Titan. For it you will need lots(!) of quartz and a new or
 
 For the rest, it will be up to you to explore.
 
+## Useful Info
+Below is a list of useful things that might be easy to miss.
+
+*Disabling Effects*: The following effects allow you to set keybinds to enable/disable them: Luminance, Jetpack (in "Jetpack Attribute" category), Step Assist, Bad Omen Immunity, Magnet, Silent, Elytra.  
+*Torch*: Upgrade your helmet to emit light.  
+*Rocket*: Upgrade your boots to become much faster.  
+*Jetpack*: Upgrade your chestplate to attach a jetpack.  
+*Golden armor*: Upgrade your armor with the golden armor pieces. After upgrading all of four, you no longer draw piglin aggro.  
+*Carved Pumpkin*: Upgrade your helmet to not draw enderman aggro from staring.  
+*Mechanical Boots*: Upgrade your boots to enjoy a step assist.  
+*Ring of Attraction*: Upgrade your chestplate to passively pull in all nearby items.  
+*Dream Catcher*: Upgrade your chestplate to gain Insomnia Immunity.  
+*White Banner*: Upgrade your chestplate to gain Bad Omen Immunity.  
+*Ocean's Grace*: Upgrade your helmet to gain Mining Fatigue Immunity.  
+*Silent Heart*: Upgrade your helmet to gain Darkness Immunity and your boots to become Silent.  
+*Anchor*: Upgrade your chestplate to gain Levitation Immunity.  
+*Verdite Ore*: Verdite can be found whereever sculk can be found, especially in ancient cities.  
+*Verum Ore*: Look below the end islands to find them.  
+*Stellar Shards*: They spawn in geodes that are exclusive to the end.  
+
+
 ## Mod Compatibility
 Special mod support:  
 [Roughly Enough Items](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items)  
@@ -67,7 +88,7 @@ These are not yet implemented, but will be in the future.
 
 *Config*: Add config file.  
 *Barrels*: Potion rework to make you love potions.  
-*More Progression*: Add more tiers (such as Deeper and Darker integration), upgrades, and gourmet food.  
+*More Progression*: Add more tiers (post end game grind), upgrades, and gourmet food.  
 *More Versions*: Add support for higher minecraft versions, as well as forge.  
 
 ## Feature Changelog

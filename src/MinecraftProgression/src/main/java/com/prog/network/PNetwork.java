@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 public class PNetwork {
     public static Identifier PACKET_ID = Identifier.of(Prog.MOD_ID, "network");
     public static int counter = 0;
-    public static int TOGGLE_HEADLIGHT = register();
+    public static int TOGGLE_LUMINANCE = register();
     public static int TOGGLE_STEP_ASSIST = register();
     public static int TOGGLE_BAD_OMEN_IMMUNITY = register();
     public static int TOGGLE_MAGNET = register();
@@ -28,9 +28,9 @@ public class PNetwork {
             int id = buf.readInt();
             var pComponent = PComponents.PLAYER.get(player);
             var sync = false;
-            if (id == TOGGLE_HEADLIGHT) {
+            if (id == TOGGLE_LUMINANCE) {
                 sync = true;
-                pComponent.headlightDisabled = !pComponent.headlightDisabled;
+                pComponent.luminanceDisabled = !pComponent.luminanceDisabled;
             } else if (id == TOGGLE_STEP_ASSIST) {
                 sync = true;
                 pComponent.stepAssistDisabled = !pComponent.stepAssistDisabled;

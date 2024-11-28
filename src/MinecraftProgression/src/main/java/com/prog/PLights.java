@@ -11,6 +11,6 @@ import static dev.lambdaurora.lambdynlights.api.DynamicLightHandlers.registerDyn
 public class PLights implements DynamicLightsInitializer {
     @Override
     public void onInitializeDynamicLights() {
-        registerDynamicLightHandler(EntityType.PLAYER, entity -> (entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).headlightDisabled) ? 0 : (int) entity.getAttributeValue(PEntityAttributes.LUMINANCE));
+        registerDynamicLightHandler(EntityType.PLAYER, entity -> (entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).luminanceDisabled) ? 0 : (int) entity.getAttributeValue(PEntityAttributes.LUMINANCE));
     }
 }

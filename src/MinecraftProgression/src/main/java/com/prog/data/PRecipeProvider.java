@@ -594,6 +594,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.STEEL_SHOVEL), Input.of(Items.DIAMOND_SHOVEL), PItems.ULTIMATE_DIAMOND_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.STEEL_BOW), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.STEEL_CROSSBOW), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_SWORD), Input.of(Items.DIAMOND_SWORD), PItems.ULTIMATE_DIAMOND_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_SHIELD), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.STEEL_FISHING_ROD), Input.of(PItems.DIAMOND_HEART), PItems.ULTIMATE_DIAMOND_FISHING_ROD).offer(exporter);
@@ -610,6 +611,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SHOVEL), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_BOW), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_CROSSBOW), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SWORD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_SHIELD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.ULTIMATE_DIAMOND_FISHING_ROD), Input.of(PItems.REFINED_OBSIDIAN_MODULE), PItems.REFINED_OBSIDIAN_FISHING_ROD).offer(exporter);
@@ -626,6 +628,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SHOVEL), Input.of(PItems.TITAN_CORE), PItems.TITAN_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_BOW), Input.of(PItems.TITAN_CORE), PItems.TITAN_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_CROSSBOW), Input.of(PItems.TITAN_CORE), PItems.TITAN_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SWORD), Input.of(PItems.TITAN_CORE), PItems.TITAN_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_SHIELD), Input.of(PItems.TITAN_CORE), PItems.TITAN_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.REFINED_OBSIDIAN_FISHING_ROD), Input.of(PItems.TITAN_CORE), PItems.TITAN_FISHING_ROD).offer(exporter);
@@ -642,6 +645,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.TITAN_SHOVEL), Input.of(Items.NETHERITE_SHOVEL), PItems.PRIMAL_NETHERITE_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.TITAN_BOW), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.TITAN_CROSSBOW), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SWORD), Input.of(Items.NETHERITE_SWORD), PItems.PRIMAL_NETHERITE_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_SHIELD), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.TITAN_FISHING_ROD), Input.of(PItems.NETHERITE_HEART), PItems.PRIMAL_NETHERITE_FISHING_ROD).offer(exporter);
@@ -658,6 +662,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHOVEL), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_BOW), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_CROSSBOW), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SWORD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_SHIELD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.PRIMAL_NETHERITE_FISHING_ROD), Input.of(PItems.KNOWLEDGE_POWDER), PItems.VERDITE_FISHING_ROD).offer(exporter);
@@ -674,6 +679,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(PItems.VERDITE_SHOVEL), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(PItems.VERDITE_BOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(PItems.VERDITE_CROSSBOW), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(PItems.VERDITE_SWORD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.VERDITE_SHIELD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(PItems.VERDITE_FISHING_ROD), Input.of(PItems.VOID_SOUL_TOOL), PItems.END_FISHING_ROD).offer(exporter);
