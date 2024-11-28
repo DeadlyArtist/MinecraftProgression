@@ -61,7 +61,7 @@ Below is a list of useful things that might be easy to miss.
 *Ocean's Grace*: Upgrade your helmet to gain Mining Fatigue Immunity.  
 *Silent Heart*: Upgrade your helmet to gain Darkness Immunity and your boots to become Silent.  
 *Anchor*: Upgrade your chestplate to gain Levitation Immunity.  
-*Evergloom*: Evergloom can be found whereever sculk can be found (such as in ancient cities).  
+*Evergloom*: Can be found whereever sculk can be found (such as in ancient cities).  
 *Verum Ore*: Look below the end islands to find them.  
 *Stellar Shards*: They spawn in geodes that are exclusive to the end.  
 
