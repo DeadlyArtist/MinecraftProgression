@@ -102,7 +102,9 @@ These have been implemented in an update.
 *Supplementaries*: Added special mod support.  
 *Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, instead of permanently running away. The difficulty has been adjusted to this mod, regarding both damage and the fact that you can use a jetpack, making the fight very intense.  
 *More Upgradable Tools*: Added tiered crossbows, tridents, fishing rods, and shields, as well as upgradable shears and flint and steel.  
-*Lava and Void Fishing*: Some higher ranked fishing rods are now able to fish in lava, or even in the empty void.
+*Lava and Void Fishing*: Some higher ranked fishing rods are now able to fish in lava, or even in the empty void.  
+*Verdite*: Added a new tier using a new ore that only spawns in sculk.  
+*Stellar Geode*: Added a new geode that only spawns in the end.  
 
 ## License
 This mod is licensed under MIT license.
