@@ -73,6 +73,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_stellar_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:stellar_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "minecraft:cosmic_soup"
@@ -87,6 +99,7 @@
       "has_chorus_flower",
       "has_crying_obsidian",
       "has_amethyst_shard",
+      "has_stellar_shard",
       "has_shulker_shell",
       "has_the_recipe"
     ]

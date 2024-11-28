@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "prog:verum_block"
+    "minecraft:reinforced_deepslate",
+    "prog:verdite_block",
+    "prog:verum_ore"
   ]
 }

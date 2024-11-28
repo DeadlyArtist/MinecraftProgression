@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "prog:titan_core"
+    "item": "prog:flame_orb"
   },
   "base": {
     "item": "prog:apocalyptic_trident"

@@ -1,0 +1,15 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "s": {
+      "item": "prog:stellar_shard"
+    }
+  },
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "result": {
+    "item": "prog:stellar_block"
+  }
+}

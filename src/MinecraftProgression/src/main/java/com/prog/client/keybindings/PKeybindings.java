@@ -32,6 +32,8 @@ public class PKeybindings {
     public static KeyBinding TOGGLE_STEP_ASSIST = register("TOGGLE_STEP_ASSIST", InputUtil.UNKNOWN_KEY.getCode());
     public static KeyBinding TOGGLE_BAD_OMEN_IMMUNITY = register("TOGGLE_BAD_OMEN_IMMUNITY", InputUtil.UNKNOWN_KEY.getCode());
     public static KeyBinding TOGGLE_MAGNET = register("TOGGLE_MAGNET", InputUtil.UNKNOWN_KEY.getCode());
+    public static KeyBinding TOGGLE_SILENT = register("TOGGLE_SILENT", InputUtil.UNKNOWN_KEY.getCode());
+    public static KeyBinding TOGGLE_ELYTRA = register("TOGGLE_ELYTRA", InputUtil.UNKNOWN_KEY.getCode());
 
     public static KeyBinding register(String id, int key) {
         var binding = KeyBindingHelper.registerKeyBinding(new KeyBinding("key." + Prog.MOD_ID + "." + id.toLowerCase(), InputUtil.Type.KEYSYM, key, Prog.NAME));
@@ -47,6 +49,8 @@ public class PKeybindings {
         while (TOGGLE_STEP_ASSIST.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_STEP_ASSIST);
         while (TOGGLE_BAD_OMEN_IMMUNITY.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_BAD_OMEN_IMMUNITY);
         while (TOGGLE_MAGNET.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_MAGNET);
+        while (TOGGLE_SILENT.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_SILENT);
+        while (TOGGLE_ELYTRA.wasPressed()) PNetwork.sendToServer(PNetwork.TOGGLE_ELYTRA);
     }
 
     public static void init() {

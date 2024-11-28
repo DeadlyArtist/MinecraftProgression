@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "prog:verdite_axe",
+    "prog:verdite_hoe",
+    "prog:verdite_leggings",
+    "prog:verdite_sword",
+    "prog:verdite_shield",
+    "prog:verdite_chestplate",
+    "prog:verdite_boots",
+    "prog:verdite_shovel",
+    "prog:verdite_bow",
+    "prog:verdite_fishing_rod",
+    "prog:verdite_pickaxe",
+    "prog:verdite_helmet",
+    "prog:verdite_crossbow"
+  ]
+}

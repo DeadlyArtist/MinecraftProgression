@@ -1,0 +1,6 @@
+{
+    "parent": "prog:item/verdite_crossbow",
+    "textures": {
+        "layer0": "prog:item/verdite_crossbow_pulling_2"
+    }
+}

@@ -1,0 +1,28 @@
+package com.prog.mixin;
+
+import com.llamalad7.mixinextras.sugar.Local;
+import com.prog.utils.ElytraUtils;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.render.entity.feature.ElytraFeatureRenderer;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ElytraItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+
+@Environment(EnvType.CLIENT)
+@Mixin(ElytraFeatureRenderer.class)
+public class ElytraFeatureRendererMixin {
+
+    @Redirect(method = "render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/entity/LivingEntity;FFFFFF)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
+    public boolean redirectIsOf(ItemStack instance, Item item, @Local LivingEntity entity) {
+        if (entity instanceof PlayerEntity player) return ElytraUtils.canUse(player, instance);
+        return instance.getItem() instanceof ElytraItem;
+    }
+}

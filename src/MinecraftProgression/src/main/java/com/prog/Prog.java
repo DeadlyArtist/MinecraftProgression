@@ -19,6 +19,7 @@ import com.prog.recipe.PRecipeSerializers;
 import com.prog.recipe.PRecipeTypes;
 import com.prog.text.PTexts;
 import com.prog.utils.*;
+import com.prog.world.GeodeGeneration;
 import com.prog.world.OreGeneration;
 import net.fabricmc.api.ModInitializer;
 
@@ -73,6 +74,7 @@ public class Prog implements ModInitializer {
         PStatusEffects.init();
         GourmetFoods.init();
         OreGeneration.init();
+        GeodeGeneration.init();
         PEntityLootTables.init();
         PNetwork.init();
         PKeybindingLangHelper.init();
@@ -171,7 +173,7 @@ public class Prog implements ModInitializer {
             }
 
             if (item instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && stack.isIn(PItemTags.END_OR_HIGHER)) {
-                attributeModifiers.put(PEntityAttributes.FLIGHT, EntityAttributeModifierUtils.increment("default_flight"));
+                attributeModifiers.put(PEntityAttributes.ELYTRA, EntityAttributeModifierUtils.increment("default_elytra"));
             }
 
             if (item instanceof FishingRodItem && stack.isIn(PItemTags.REFINED_OBSIDIAN_OR_HIGHER)) {

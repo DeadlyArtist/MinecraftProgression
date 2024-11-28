@@ -39,6 +39,7 @@ public class PEntityModelLayers {
     public static final EntityModelLayer REFINED_OBSIDIAN_SHIELD = registerShield("REFINED_OBSIDIAN_SHIELD", PItems.REFINED_OBSIDIAN_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer TITAN_SHIELD = registerShield("TITAN_SHIELD", PItems.TITAN_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer PRIMAL_NETHERITE_SHIELD = registerShield("PRIMAL_NETHERITE_SHIELD", PItems.PRIMAL_NETHERITE_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
+    public static final EntityModelLayer VERDITE_SHIELD = registerShield("VERDITE_SHIELD", PItems.VERDITE_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
     public static final EntityModelLayer END_SHIELD = registerShield("END_SHIELD", PItems.END_SHIELD, part -> new ShieldEntityModel(part), ShieldEntityModel::getTexturedModelData);
 
     // Tridents

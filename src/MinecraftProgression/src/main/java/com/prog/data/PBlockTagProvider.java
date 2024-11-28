@@ -28,6 +28,8 @@ public class PBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void generateTags() {
         // Vanilla Overrides
         addToTag(PBlockTags.NEEDS_TITAN_TOOL, Blocks.ANCIENT_DEBRIS);
+        addToTag(BlockTags.PICKAXE_MINEABLE, Blocks.REINFORCED_DEEPSLATE);
+        addToTag(PBlockTags.NEEDS_VERDITE_TOOL, Blocks.REINFORCED_DEEPSLATE);
 
         // Preregistered
         PBlocks.data.forEach((block, data) -> data.tags.forEach(tag -> addToTag(tag, block)));

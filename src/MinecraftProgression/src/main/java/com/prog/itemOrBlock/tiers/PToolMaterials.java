@@ -10,6 +10,7 @@ public enum PToolMaterials implements ToolMaterial {
     REFINED_OBSIDIAN(PMiningLevels.REFINED_OBSIDIAN, 9.0F, 5.0F, 20),
     TITAN(PMiningLevels.TITAN, 10.0F, 7.0F, 24),
     PRIMAL_NETHERITE(PMiningLevels.PRIMAL_NETHERITE, 10.0F, 10.0F, 25),
+    VERDITE(PMiningLevels.VERDITE, 11.0F, 10.0F, 27),
     END(PMiningLevels.END, 12.0F, 10.0F, 30);
 
     private final int miningLevel;

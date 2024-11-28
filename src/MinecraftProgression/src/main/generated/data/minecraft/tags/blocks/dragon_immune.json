@@ -2,8 +2,10 @@
   "replace": false,
   "values": [
     "prog:cosmic_constructor",
+    "prog:verdite_block",
+    "prog:verdite_ore",
     "prog:verum_ore",
-    "prog:cosmic_incubator",
-    "prog:verum_block"
+    "prog:verum_block",
+    "prog:cosmic_incubator"
   ]
 }

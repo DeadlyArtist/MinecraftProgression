@@ -39,6 +39,8 @@ public class PEntityAttributes {
     public static final EntityAttribute LAVA_FISHING = registerClampedEntityAttribute("LAVA_FISHING", 0.0, 0.0, 1.0);
     public static final EntityAttribute VOID_FISHING = registerClampedEntityAttribute("VOID_FISHING", 0.0, 0.0, 1.0);
     public static final EntityAttribute SHIELD = registerClampedEntityAttribute("SHIELD", 0, 0.0, 1000.0);
+    public static final EntityAttribute SILENT = registerClampedEntityAttribute("SILENT", 0.0, 0.0, 1.0);
+    public static final EntityAttribute ELYTRA = registerClampedEntityAttribute("ELYTRA", 0.0, 0.0, 1.0);
 
     // Status effect immunities
     public static final EntityAttribute DARKNESS_IMMUNITY = registerClampedEntityAttribute("DARKNESS_IMMUNITY", 0.0, 0.0, 1.0);

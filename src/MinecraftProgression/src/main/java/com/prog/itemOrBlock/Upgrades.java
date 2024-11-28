@@ -24,7 +24,7 @@ public class Upgrades {
 
     static {
         // Vanilla upgrade overrides
-        register(Items.END_CRYSTAL, UEffectMapper.damage());
+        register(Items.END_CRYSTAL, UEffectMapper.damage(3));
         register(Items.PRISMARINE_SHARD, UEffectMapper.damage());
         register(Items.AMETHYST_SHARD, UEffectMapper.damage());
         register(Items.ECHO_SHARD, UEffectMapper.damage());
@@ -96,8 +96,9 @@ public class Upgrades {
         register(PItems.DREAM_CATCHER, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.INSOMNIA_IMMUNITY)));
         register(PItems.OCEANS_GRACE, UEffectMapper.helmet(UEffect.increment(PEntityAttributes.MINING_FATIGUE_IMMUNITY)));
         register(PItems.LIVING_SOUL_FRAGMENT, UEffectMapper.best(4));
-        register(PItems.SILENT_HEART, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.DARKNESS_IMMUNITY)));
+        register(PItems.SILENT_HEART, List.of(UEffectMapper.boots(UEffect.increment(PEntityAttributes.SILENT)), UEffectMapper.helmet(UEffect.increment(PEntityAttributes.DARKNESS_IMMUNITY))));
         register(PItems.HEART_OF_GREED, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.UNLUCK_IMMUNITY)));
+        register(PItems.STELLAR_SHARD, UEffectMapper.damage(5));
 
         // Other
         register(RingOfAttraction.RING_OF_ATTRACTION, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.MAGNET)));

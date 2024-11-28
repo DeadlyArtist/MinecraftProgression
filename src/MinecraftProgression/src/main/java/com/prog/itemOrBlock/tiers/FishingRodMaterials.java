@@ -6,6 +6,7 @@ public enum FishingRodMaterials implements FishingRodMaterial {
     REFINED_OBSIDIAN(8),
     TITAN(18),
     PRIMAL_NETHERITE(30),
+    VERDITE(37),
     END(45);
 
     public final double treasureQualityBonus;

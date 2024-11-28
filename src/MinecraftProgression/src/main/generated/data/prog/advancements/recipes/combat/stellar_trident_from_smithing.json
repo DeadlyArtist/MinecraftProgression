@@ -13,29 +13,29 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "prog:stellar_trident_from_smithing"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_void_soul_tool": {
+    "has_stellar_soul": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:void_soul_tool"
+              "prog:stellar_soul"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:stellar_trident_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_primal_trident",
-      "has_void_soul_tool",
+      "has_stellar_soul",
       "has_the_recipe"
     ]
   ],

@@ -1,0 +1,9 @@
+{
+  "type": "prog:incinerator",
+  "cookingtime": 2000,
+  "experience": 5.0,
+  "ingredient": {
+    "item": "prog:verdite_ore"
+  },
+  "result": "prog:verdite_ingot"
+}

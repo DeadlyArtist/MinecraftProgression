@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "prog:block/large_stellar_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "prog:block/large_stellar_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "prog:block/large_stellar_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "prog:block/large_stellar_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "prog:block/large_stellar_bud"
+    },
+    "facing=west": {
+      "model": "prog:block/large_stellar_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

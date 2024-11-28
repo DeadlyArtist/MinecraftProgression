@@ -13,29 +13,29 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "prog:hell_trident_from_smithing"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_titan_core": {
+    "has_flame_orb": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:titan_core"
+              "prog:flame_orb"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "prog:hell_trident_from_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_apocalyptic_trident",
-      "has_titan_core",
+      "has_flame_orb",
       "has_the_recipe"
     ]
   ],

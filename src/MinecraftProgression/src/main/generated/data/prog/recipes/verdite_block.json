@@ -1,0 +1,16 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "#": {
+      "item": "prog:verdite_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "prog:verdite_block"
+  }
+}

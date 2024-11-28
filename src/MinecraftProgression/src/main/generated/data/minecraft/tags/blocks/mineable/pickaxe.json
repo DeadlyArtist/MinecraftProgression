@@ -1,17 +1,26 @@
 {
   "replace": false,
   "values": [
-    "prog:emberite_ore",
-    "prog:cosmic_constructor",
-    "prog:incinerator",
-    "prog:quartz_catalyst",
-    "prog:verum_ore",
+    "minecraft:reinforced_deepslate",
     "prog:assembly",
-    "prog:cosmic_incubator",
-    "prog:machine_frame",
+    "prog:cosmic_constructor",
     "prog:steel_block",
+    "prog:verdite_block",
+    "prog:verdite_ore",
+    "prog:verum_ore",
+    "prog:stellar_cluster",
+    "prog:incinerator",
+    "prog:nether_star_block",
+    "prog:large_stellar_bud",
+    "prog:stellar_block",
+    "prog:medium_stellar_bud",
     "prog:emberite_block",
     "prog:verum_block",
-    "prog:nether_star_block"
+    "prog:budding_stellar",
+    "prog:small_stellar_bud",
+    "prog:cosmic_incubator",
+    "prog:machine_frame",
+    "prog:quartz_catalyst",
+    "prog:emberite_ore"
   ]
 }

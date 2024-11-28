@@ -1,0 +1,25 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "f": {
+      "item": "minecraft:warped_fungus"
+    },
+    "r": {
+      "item": "prog:refined_obsidian_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
+  "pattern": [
+    "   rs",
+    "rfwfr",
+    "sr   "
+  ],
+  "result": {
+    "item": "prog:apocalyptic_scepter"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "prog:knowledge_powder"
+  },
+  "base": {
+    "item": "prog:primal_netherite_boots"
+  },
+  "result": {
+    "item": "prog:verdite_boots"
+  }
+}

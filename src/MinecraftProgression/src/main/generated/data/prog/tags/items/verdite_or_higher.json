@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "prog:verdite_axe",
+    "prog:end_chestplate",
+    "prog:end_crossbow",
+    "prog:end_hoe",
+    "prog:verdite_hoe",
+    "prog:verdite_leggings",
+    "prog:end_shovel",
+    "prog:verdite_sword",
+    "prog:verdite_shield",
+    "prog:end_pickaxe",
+    "prog:verdite_chestplate",
+    "prog:end_fishing_rod",
+    "prog:end_leggings",
+    "prog:verdite_boots",
+    "prog:verdite_shovel",
+    "prog:end_boots",
+    "prog:end_shield",
+    "prog:verdite_bow",
+    "prog:verdite_fishing_rod",
+    "prog:verdite_pickaxe",
+    "prog:verdite_helmet",
+    "prog:end_helmet",
+    "prog:verdite_crossbow",
+    "prog:end_axe",
+    "prog:end_bow",
+    "prog:end_sword"
+  ]
+}

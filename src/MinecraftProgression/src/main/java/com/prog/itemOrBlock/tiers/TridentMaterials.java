@@ -6,6 +6,7 @@ public enum TridentMaterials implements TridentMaterial {
     REFINED_OBSIDIAN(7),
     TITAN(15),
     PRIMAL_NETHERITE(25),
+    VERDITE(30),
     END(38);
 
     public final double damageBonus;

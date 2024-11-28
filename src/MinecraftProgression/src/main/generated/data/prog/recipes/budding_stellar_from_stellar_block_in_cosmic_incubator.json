@@ -1,0 +1,9 @@
+{
+  "type": "prog:cosmic_incubator",
+  "cookingtime": 50000,
+  "experience": 50.0,
+  "ingredient": {
+    "item": "prog:stellar_block"
+  },
+  "result": "prog:budding_stellar"
+}

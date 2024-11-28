@@ -1,0 +1,19 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "e": {
+      "item": "prog:emberite"
+    },
+    "t": {
+      "item": "prog:titan_ingot"
+    }
+  },
+  "pattern": [
+    "ete",
+    "tet",
+    "ete"
+  ],
+  "result": {
+    "item": "prog:flame_orb"
+  }
+}

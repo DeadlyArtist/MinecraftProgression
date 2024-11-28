@@ -4,9 +4,11 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
+import com.prog.utils.ElytraUtils;
 import com.prog.utils.MeleeUtils;
 import com.prog.utils.SquadUtils;
 import com.prog.utils.UseUtils;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -14,6 +16,8 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ElytraItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
@@ -30,6 +34,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+
+    @Unique
+    private LivingEntity self = (LivingEntity)(Object)this;
 
     @Shadow public abstract void damageArmor(DamageSource source, float amount);
 
@@ -160,5 +167,11 @@ public abstract class LivingEntityMixin {
         }
 
         return newAmount;
+    }
+
+    @Redirect(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
+    public boolean redirectIsOf(ItemStack instance, Item item) {
+        if (self instanceof PlayerEntity player) return ElytraUtils.canUse(player, instance);
+        return instance.getItem() instanceof ElytraItem;
     }
 }

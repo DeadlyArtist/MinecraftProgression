@@ -1,0 +1,11 @@
+  {
+  "parent": "prog:item/stellar_bud",
+  "textures": {
+    "layer0": "prog:block/large_stellar_bud"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 4, 0 ]
+    }
+  }
+}

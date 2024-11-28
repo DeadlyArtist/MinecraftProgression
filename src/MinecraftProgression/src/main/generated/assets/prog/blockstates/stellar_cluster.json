@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "prog:block/stellar_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "prog:block/stellar_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "prog:block/stellar_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "prog:block/stellar_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "prog:block/stellar_cluster"
+    },
+    "facing=west": {
+      "model": "prog:block/stellar_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

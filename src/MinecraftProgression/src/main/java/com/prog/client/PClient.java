@@ -13,6 +13,7 @@ import com.prog.entity.attribute.XEntityAttributes;
 import com.prog.event.ItemEvents;
 import com.prog.event.RendererEvents;
 import com.prog.itemOrBlock.GourmetFoods;
+import com.prog.itemOrBlock.PBlocks;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.itemOrBlock.Upgrades;
 import com.prog.itemOrBlock.custom.TieredBowItem;
@@ -25,6 +26,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
@@ -44,6 +46,15 @@ public class PClient implements ClientModInitializer {
 
         // Events
         ClientTickEvents.END_CLIENT_TICK.register(PKeybindings::onClientTick);
+
+        RendererEvents.RENDER_LAYERS.register(blocks -> {
+            RenderLayer renderLayer3 = RenderLayer.getCutout();
+
+            blocks.put(PBlocks.SMALL_STELLAR_BUD, renderLayer3);
+            blocks.put(PBlocks.MEDIUM_STELLAR_BUD, renderLayer3);
+            blocks.put(PBlocks.LARGE_STELLAR_BUD, renderLayer3);
+            blocks.put(PBlocks.STELLAR_CLUSTER, renderLayer3);
+        });
 
         ItemEvents.APPEND_TOOLTIP.register((stack, context, lines) -> {
             var player = MinecraftClient.getInstance().player;

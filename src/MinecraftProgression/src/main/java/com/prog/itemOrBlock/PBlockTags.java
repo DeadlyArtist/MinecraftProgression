@@ -14,7 +14,8 @@ public class PBlockTags {
     public static final TagKey<Block> NEEDS_REFINED_OBSIDIAN_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.REFINED_OBSIDIAN));
     public static final TagKey<Block> NEEDS_TITAN_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.TITAN));
     public static final TagKey<Block> NEEDS_PRIMAL_NETHERITE_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.PRIMAL_NETHERITE));
-    public static final TagKey<Block> NEEDS_VERUM_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.END));
+    public static final TagKey<Block> NEEDS_VERDITE_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.VERDITE));
+    public static final TagKey<Block> NEEDS_END_TOOL = createExternalTag(XIDs.FABRIC, getToolLevelPath(PMiningLevels.END));
 
     // Mining level must be at least 4
     public static String getToolLevelPath(int miningLevel){

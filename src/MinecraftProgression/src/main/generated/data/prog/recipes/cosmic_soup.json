@@ -17,6 +17,9 @@
       "item": "minecraft:amethyst_shard"
     },
     {
+      "item": "prog:stellar_shard"
+    },
+    {
       "item": "minecraft:shulker_shell"
     }
   ],

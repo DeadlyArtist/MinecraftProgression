@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "prog:void_soul_tool"
+    "item": "prog:stellar_soul"
   },
   "base": {
     "item": "prog:primal_trident"

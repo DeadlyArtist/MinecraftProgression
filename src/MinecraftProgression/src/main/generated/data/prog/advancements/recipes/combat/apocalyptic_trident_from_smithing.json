@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_refined_obsidian_module": {
+    "has_apocalyptic_scepter": {
       "conditions": {
         "items": [
           {
             "items": [
-              "prog:refined_obsidian_module"
+              "prog:apocalyptic_scepter"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_amethyst_trident",
-      "has_refined_obsidian_module",
+      "has_apocalyptic_scepter",
       "has_the_recipe"
     ]
   ],

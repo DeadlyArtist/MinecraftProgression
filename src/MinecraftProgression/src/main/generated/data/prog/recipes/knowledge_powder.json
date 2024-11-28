@@ -1,0 +1,22 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "e": {
+      "item": "minecraft:echo_shard"
+    },
+    "s": {
+      "item": "prog:living_soul_fragment"
+    },
+    "v": {
+      "item": "prog:verdite_ingot"
+    }
+  },
+  "pattern": [
+    " v   ",
+    "v v v",
+    " ese "
+  ],
+  "result": {
+    "item": "prog:knowledge_powder"
+  }
+}

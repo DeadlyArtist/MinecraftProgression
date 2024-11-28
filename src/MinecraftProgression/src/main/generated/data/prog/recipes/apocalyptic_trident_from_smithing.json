@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing",
   "addition": {
-    "item": "prog:refined_obsidian_module"
+    "item": "prog:apocalyptic_scepter"
   },
   "base": {
     "item": "prog:amethyst_trident"
