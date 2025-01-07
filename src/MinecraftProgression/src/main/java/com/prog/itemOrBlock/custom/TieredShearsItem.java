@@ -12,6 +12,7 @@ public class TieredShearsItem extends ShearsItem {
 
     public TieredShearsItem(ShearsMaterial material, Settings settings) {
         super(settings);
+        this.material = material;
     }
 
     @Override
