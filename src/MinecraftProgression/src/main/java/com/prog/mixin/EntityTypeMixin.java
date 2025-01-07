@@ -1,23 +1,24 @@
 package com.prog.mixin;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.FishingBobberEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EntityType.class)
 public class EntityTypeMixin {
-    @Redirect(
-            method = "<clinit>",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/EntityType$Builder;disableSaving()Lnet/minecraft/entity/EntityType$Builder;"
-            )
+    @Inject(
+            method = "register",
+            at = @At("HEAD")
     )
-    private static EntityType.Builder<FishingBobberEntity> makeFireImmune(
-            EntityType.Builder<FishingBobberEntity> builder
-    ) {
-        return builder.disableSaving().makeFireImmune();
+    private static <T extends Entity> void injectMakeFishingBobberFireImmune(String id, EntityType.Builder<T> type, CallbackInfoReturnable<EntityType<T>> cir) {
+        if ("fishing_bobber".equals(id)) {
+            type.makeFireImmune();
+        }
     }
 }

@@ -1,18 +1,18 @@
 {
   "replace": false,
   "values": [
-    "prog:evergloom_crossbow",
-    "prog:evergloom_shovel",
-    "prog:evergloom_sword",
-    "prog:evergloom_chestplate",
-    "prog:evergloom_hoe",
-    "prog:evergloom_fishing_rod",
-    "prog:evergloom_bow",
     "prog:evergloom_axe",
     "prog:evergloom_helmet",
+    "prog:evergloom_chestplate",
+    "prog:evergloom_boots",
+    "prog:evergloom_shovel",
+    "prog:evergloom_hoe",
     "prog:evergloom_shield",
-    "prog:evergloom_pickaxe",
     "prog:evergloom_leggings",
-    "prog:evergloom_boots"
+    "prog:evergloom_sword",
+    "prog:evergloom_fishing_rod",
+    "prog:evergloom_crossbow",
+    "prog:evergloom_bow",
+    "prog:evergloom_pickaxe"
   ]
 }

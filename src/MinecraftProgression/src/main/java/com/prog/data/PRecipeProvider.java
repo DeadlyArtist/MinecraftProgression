@@ -579,6 +579,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createSmithingRecipe(Input.of(Items.IRON_SHOVEL), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SHOVEL).offer(exporter);
 
         createSmithingRecipe(Input.of(Items.BOW), Input.of(PItems.STEEL_BINDING), PItems.STEEL_BOW).offer(exporter);
+        createSmithingRecipe(Input.of(Items.CROSSBOW), Input.of(PItems.STEEL_BINDING), PItems.STEEL_CROSSBOW).offer(exporter);
         createSmithingRecipe(Input.of(Items.IRON_SWORD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SWORD).offer(exporter);
         createSmithingRecipe(Input.of(Items.SHIELD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_SHIELD).offer(exporter);
         createSmithingRecipe(Input.of(Items.FISHING_ROD), Input.of(PItems.STEEL_BINDING), PItems.STEEL_FISHING_ROD).offer(exporter);

@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "prog:evergloom",
-    "prog:cosmic_constructor",
+    "prog:cosmic_incubator",
     "prog:pure_evergloom_block",
     "prog:verum_ore",
-    "prog:verum_block",
-    "prog:cosmic_incubator"
+    "prog:evergloom",
+    "prog:cosmic_constructor",
+    "prog:verum_block"
   ]
 }
