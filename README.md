@@ -53,6 +53,7 @@ Below is a list of useful things that might be easy to miss.
 *Rocket*: Upgrade your boots to become much faster.  
 *Jetpack*: Upgrade your chestplate to attach a jetpack.  
 *Golden armor*: Upgrade your armor with the golden armor pieces. After upgrading all of four, you no longer draw piglin aggro.  
+*Ghast Tear*: Upgrade your helmet to gain lava vision. This is useful for quickly farming a lot of ancient debris.  
 *Carved Pumpkin*: Upgrade your helmet to not draw enderman aggro from staring.  
 *Mechanical Boots*: Upgrade your boots to enjoy a step assist.  
 *Ring of Attraction*: Upgrade your chestplate to passively pull in all nearby items.  
@@ -102,7 +103,7 @@ These have been implemented in an update.
 *Supplementaries*: Added special mod support.  
 *Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, instead of permanently running away. The difficulty has been adjusted to this mod, regarding both damage and the fact that you can use a jetpack, making the fight very intense.  
 *More Upgradable Tools*: Added tiered crossbows, tridents, fishing rods, and shields, as well as upgradable shears and flint and steel.  
-*Lava and Void Fishing*: Some higher ranked fishing rods are now able to fish in lava, or even in the empty void.  
+*Lava and Void Fishing*: Some higher ranked fishing rods are now able to fish in lava, or even in the void.  
 *Evergloom*: Added a new tier using a new block that only spawns in sculk.  
 *Stellar Geode*: Added a new geode that only spawns in the end.  
 
