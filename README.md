@@ -49,7 +49,7 @@ For the rest, it will be up to you to explore.
 Below is a list of useful things that might be easy to miss.
 
 ### Gameplay
-*REI*: Make use of [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items) to see all the recipes, what the upgrades can do, and to spot untasted gourmet foods.
+*REI*: Make use of [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items) to see all the recipes, what the upgrades can do, and to spot untasted gourmet foods.  
 *Prepare for Death*: You will likely die. Often. Therefore, it is recommended to play with a backpack mod, and try to enchant it with soulbound as early as possible.  
 *Be a Gourmet*: Find and eat as much different gourmet food as you can get your hands on to increase your max health.  
 *Enchant your Gear*: Try to enchant your gear with protection and sharpness as early as possible to get a headstart over your enemies. You can find good enchantments by killing monsters with a rank or by fishing with a good rod (a high lure enchantment is recommended).  
