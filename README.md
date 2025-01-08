@@ -52,7 +52,7 @@ Below is a list of useful things that might be easy to miss.
 *Torch*: Upgrade your helmet to emit light.  
 *Rocket*: Upgrade your boots to become much faster.  
 *Jetpack*: Upgrade your chestplate to attach a jetpack.  
-*Golden armor*: Upgrade your armor with the golden armor pieces. After upgrading all of four, you no longer draw piglin aggro.  
+*Golden armor*: Upgrade your armor with the golden armor pieces. After upgrading all four, you no longer draw piglin aggro.  
 *Ghast Tear*: Upgrade your helmet to gain lava vision. This is useful for quickly farming a lot of ancient debris.  
 *Carved Pumpkin*: Upgrade your helmet to not draw enderman aggro from staring.  
 *Mechanical Boots*: Upgrade your boots to enjoy a step assist.  
