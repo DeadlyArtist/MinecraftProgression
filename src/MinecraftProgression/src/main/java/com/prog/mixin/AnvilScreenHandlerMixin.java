@@ -57,7 +57,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
     }
 
     @Inject(method = "updateResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getCount()I", ordinal = 1, shift = At.Shift.BEFORE))
-    private void inject(CallbackInfo ci, @Local(ordinal = 0) LocalIntRef costRef, @Local(ordinal = 3) int oldEnchantmentLevel, @Local(ordinal = 4) int newEnchantmentLevel, @Local(ordinal = 5) int s, @Local(ordinal = 0) ItemStack stack, @Local Enchantment enchantment) {
+    private void injectUpdateResult(CallbackInfo ci, @Local(ordinal = 0) LocalIntRef costRef, @Local(ordinal = 3) int oldEnchantmentLevel, @Local(ordinal = 4) int newEnchantmentLevel, @Local(ordinal = 5) int s, @Local(ordinal = 0) ItemStack stack, @Local Enchantment enchantment) {
         costRef.set(costRef.get() - newEnchantmentLevel * s); // Undo previous line
 
         var levelDifference = newEnchantmentLevel - oldEnchantmentLevel;

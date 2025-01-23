@@ -14,6 +14,7 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
     public boolean didInit = false;
     public boolean luminanceDisabled = false;
     public boolean stepAssistDisabled = false;
+    public boolean insomniaImmunityDisabled = false;
     public boolean badOmenImmunityDisabled = false;
     public boolean magnetDisabled = false;
     public boolean silentDisabled = false;
@@ -68,6 +69,7 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
         couldFly = nbt.getBoolean("couldFly");
         luminanceDisabled = nbt.getBoolean("luminanceDisabled");
         stepAssistDisabled = nbt.getBoolean("stepAssistDisabled");
+        insomniaImmunityDisabled = nbt.getBoolean("insomniaImmunityDisabled");
         badOmenImmunityDisabled = nbt.getBoolean("badOmenImmunityDisabled");
         magnetDisabled = nbt.getBoolean("magnetDisabled");
         silentDisabled = nbt.getBoolean("silentDisabled");
@@ -79,6 +81,7 @@ public class PlayerComponent implements Component, ServerTickingComponent, AutoS
         nbt.putBoolean("couldFly", couldFly);
         nbt.putBoolean("luminanceDisabled", luminanceDisabled);
         nbt.putBoolean("stepAssistDisabled", stepAssistDisabled);
+        nbt.putBoolean("insomniaImmunityDisabled", insomniaImmunityDisabled);
         nbt.putBoolean("badOmenImmunityDisabled", badOmenImmunityDisabled);
         nbt.putBoolean("magnetDisabled", magnetDisabled);
         nbt.putBoolean("silentDisabled", silentDisabled);

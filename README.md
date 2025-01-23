@@ -58,7 +58,7 @@ Below is a list of useful things that might be easy to miss.
 *Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, so don't go there unless you are fully prepared. It is recommended to play this mod in combination with [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), which reworks the end portal to require collecting different eyes from all over minecraft.  
 
 ### Upgrades
-*Disabling Effects*: The following effects allow you to set keybinds to enable/disable them: Luminance, Jetpack (in "Jetpack Attribute" category), Step Assist, Bad Omen Immunity, Magnet, Silent, Elytra.  
+*Disabling Effects*: The following effects allow you to set keybinds to enable/disable them: Luminance, Jetpack (in "Jetpack Attribute" category), Step Assist, Insomnia Immunity, Bad Omen Immunity, Magnet, Silent, Elytra.  
 *Torch*: Upgrade your helmet to emit light.  
 *Rocket*: Upgrade your boots to become much faster.  
 *Jetpack*: Upgrade your chestplate to attach a jetpack.  

@@ -3,9 +3,14 @@ package com.prog.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.prog.entity.PComponents;
+import com.prog.utils.DragonUtils;
+import com.prog.utils.WitherUtils;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.entity.LivingEntity;
@@ -50,6 +55,14 @@ public class ExplosionMixin {
             if (!squad.normal()) {
                 q.set((float) (q.get() * squad.getDamageMultiplier()));
             }
+        }
+
+        if (explosion.entity instanceof EnderDragonEntity) {
+            q.set((float) (q.get() * DragonUtils.FIREBALL_EXPLOSION_DAMAGE_MULTIPLIER));
+        } else if (explosion.entity instanceof WitherEntity) {
+            q.set((float) (q.get() * WitherUtils.EXPLOSION_DAMAGE_MULTIPLIER));
+        } else if (explosion.entity instanceof WitherSkullEntity) {
+            q.set((float) (q.get() * WitherUtils.EXPLOSION_DAMAGE_MULTIPLIER));
         }
     }
 }

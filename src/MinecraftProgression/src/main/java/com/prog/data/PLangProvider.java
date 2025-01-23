@@ -28,6 +28,7 @@ public class PLangProvider extends FabricLanguageProvider {
     public void generateTranslations(TranslationBuilder translationBuilder) {
         // Compat
         addCompatEnchantmentDescription(translationBuilder, new Identifier(XIDs.STRIDERS_GRACE, "striders_grace"), "Increases movement speed while in lava.");
+        addCompatEnchantmentDescription(translationBuilder, new Identifier(XIDs.SOULBOUND, "soulbound"), "The item is kept beyond death.");
 
         // Preregistered
         PTexts.data.forEach((item, data) -> translationBuilder.add(item.id, data.text));

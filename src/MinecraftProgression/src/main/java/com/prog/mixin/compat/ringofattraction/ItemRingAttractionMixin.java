@@ -26,12 +26,6 @@ import java.util.List;
 public class ItemRingAttractionMixin {
 
     @Environment(EnvType.CLIENT)
-    @Inject(method = "appendTooltip", at = @At("HEAD"))
-    private void injectAppendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext, CallbackInfo ci) {
-        ItemEvents.APPEND_TOOLTIP.invoker().append(itemStack, tooltipContext, tooltip);
-    }
-
-    @Environment(EnvType.CLIENT)
     @Redirect(
             method = "appendTooltip",
             at = @At(

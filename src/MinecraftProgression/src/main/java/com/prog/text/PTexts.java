@@ -47,6 +47,9 @@ public class PTexts {
     public static final TextWrapper INCINERATOR_UI_TITLE = registerText("INCINERATOR_UI_TITLE", "Incinerator");
     public static final TextWrapper COSMIC_INCUBATOR_UI_TITLE = registerText("COSMIC_INCUBATOR_UI_TITLE", "Cosmic Incubator");
 
+    public static final TextWrapper KEYBIND_TOGGLED_ON_TOOLTIP = registerText("KEYBIND_TOGGLED_ON_TOOLTIP", "Toggled %s On");
+    public static final TextWrapper KEYBIND_TOGGLED_OFF_TOOLTIP = registerText("KEYBIND_TOGGLED_OFF_TOOLTIP", "Toggled %s Off");
+
     // Ranks
     public static final TextWrapper GENERAL_RANK = registerText("GENERAL_RANK", "General");
     public static final TextWrapper COMMANDER_RANK = registerText("COMMANDER_RANK", "Commander");

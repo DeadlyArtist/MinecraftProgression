@@ -18,6 +18,7 @@ public class PNetwork {
     public static int counter = 0;
     public static int TOGGLE_LUMINANCE = register();
     public static int TOGGLE_STEP_ASSIST = register();
+    public static int TOGGLE_INSOMNIA_IMMUNITY = register();
     public static int TOGGLE_BAD_OMEN_IMMUNITY = register();
     public static int TOGGLE_MAGNET = register();
     public static int TOGGLE_SILENT = register();
@@ -34,6 +35,9 @@ public class PNetwork {
             } else if (id == TOGGLE_STEP_ASSIST) {
                 sync = true;
                 pComponent.stepAssistDisabled = !pComponent.stepAssistDisabled;
+            } else if (id == TOGGLE_INSOMNIA_IMMUNITY) {
+                sync = true;
+                pComponent.insomniaImmunityDisabled = !pComponent.insomniaImmunityDisabled;
             } else if (id == TOGGLE_BAD_OMEN_IMMUNITY) {
                 sync = true;
                 pComponent.badOmenImmunityDisabled = !pComponent.badOmenImmunityDisabled;

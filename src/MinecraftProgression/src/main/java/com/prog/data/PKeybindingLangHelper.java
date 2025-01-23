@@ -13,6 +13,7 @@ public class PKeybindingLangHelper {
     static {
         register("TOGGLE_LUMINANCE");
         register("TOGGLE_STEP_ASSIST");
+        register("TOGGLE_INSOMNIA_IMMUNITY");
         register("TOGGLE_BAD_OMEN_IMMUNITY");
         register("TOGGLE_MAGNET");
         register("TOGGLE_SILENT");

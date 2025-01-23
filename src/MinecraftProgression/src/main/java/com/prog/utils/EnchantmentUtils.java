@@ -8,6 +8,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.village.TradeOffers;
 import org.apache.commons.lang3.mutable.MutableFloat;
+import org.apache.commons.lang3.mutable.MutableInt;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +19,7 @@ public class EnchantmentUtils {
     public static final float specificConstraintMultiplier = 2;
     public static int MAX_ENCHANTMENT_LEVEL = 30;
     public static Set<Enchantment> BAD_ENCHANTMENTS = new HashSet<>(List.of(Enchantments.MENDING, Enchantments.UNBREAKING));
+    public static int FALL_PROTECTION_MULTIPLIER = 2;
 
     public static float getCommonDamageMultiplier(int level) {
         if (level < 1) return 1;
@@ -32,30 +34,33 @@ public class EnchantmentUtils {
             damage.setValue(baseDamage * EnchantmentUtils.getCommonDamageMultiplier(powerLevel));
         }
 
+        MutableInt baseLevel = new MutableInt(0);
+        MutableInt specificLevel = new MutableInt(0);
         EnchantmentHelper.forEachEnchantment((enchantment, level) -> {
             if (enchantment instanceof DamageEnchantment damageEnchantment) {
-                float multiplier = 1.0F;
-
                 switch (damageEnchantment.typeIndex) {
-                    case 0 -> multiplier = getCommonDamageMultiplier(level);
+                    case 0 -> baseLevel.setValue(level);
                     case 1 -> {
                         if (group == EntityGroup.UNDEAD) {
-                            multiplier = getCommonDamageMultiplier(level) * specificConstraintMultiplier;
+                            specificLevel.setValue(level);
                         }
                     }
                     case 2 -> {
                         if (group == EntityGroup.ARTHROPOD) {
-                            multiplier = getCommonDamageMultiplier(level) * specificConstraintMultiplier;
+                            specificLevel.setValue(level);
                         }
                     }
                     // No damage multiplier for other cases
                 }
-
-                damage.setValue(damage.getValue() * multiplier);
             } else {
                 damage.add(enchantment.getAttackDamage(level, group));
             }
         }, stack);
+
+        var multiplier = getCommonDamageMultiplier(baseLevel.getValue());
+        if (specificLevel.getValue() > 0)
+            multiplier += getCommonDamageMultiplier(specificLevel.getValue()) * specificConstraintMultiplier;
+        damage.setValue(damage.getValue() * multiplier);
 
         return damage.getValue() - baseDamage;
     }

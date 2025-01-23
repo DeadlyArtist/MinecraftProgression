@@ -32,6 +32,16 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
         return instance.add(EntityAttributes.GENERIC_MAX_HEALTH, DragonUtils.DRAGON_MAX_HEALTH).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, DragonUtils.DRAGON_ATTACK_DAMAGE);
     }
 
+    @ModifyConstant(method = "updatePostDeath", constant = @Constant(intValue = 500, ordinal = 0))
+    private int changeXPReward(int constant) {
+        return DragonUtils.DRAGON_KILL_XP;
+    }
+
+    @ModifyConstant(method = "updatePostDeath", constant = @Constant(intValue = 12000, ordinal = 0))
+    private int changeXPFirstKillReward(int constant) {
+        return DragonUtils.DRAGON_FIRST_KILL_XP;
+    }
+
     @ModifyConstant(method = "launchLivingEntities", constant = @Constant(floatValue = 5, ordinal = 0))
     private float changeDamageBody(float constant) {
         return (float) getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);

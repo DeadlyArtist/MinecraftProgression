@@ -50,7 +50,7 @@ import static com.prog.entity.attribute.PEntityAttributes.IMMUNITY_MAP;
 
 public class Prog implements ModInitializer {
     public static final String MOD_ID = "prog";
-    public static final String VERSION = "1.1.1";
+    public static final String VERSION = "1.1.2";
     public static final String NAME = "More Progression";
     public static final Logger __LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -255,7 +255,8 @@ public class Prog implements ModInitializer {
             var immunityAttribute = IMMUNITY_MAP.get(effect);
             if (immunityAttribute != null && entity.getAttributeValue(immunityAttribute) == 1.0) {
                 if (immunityAttribute == PEntityAttributes.BAD_OMEN_IMMUNITY && entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).badOmenImmunityDisabled) return true;
-
+                if (immunityAttribute == PEntityAttributes.INSOMNIA_IMMUNITY && entity instanceof PlayerEntity && PComponents.PLAYER.get(entity).insomniaImmunityDisabled)
+                    return true;
                 return false;
             }
 

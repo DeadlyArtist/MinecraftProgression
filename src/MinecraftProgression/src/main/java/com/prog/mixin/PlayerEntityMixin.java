@@ -40,12 +40,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         EntityEvents.PLAYER_ENTITY_TICK.invoker().tick(entity);
     }
 
-    @Inject(method = "getMoveEffect", at = @At("HEAD"), cancellable = true)
-    protected void getMoveEffect(CallbackInfoReturnable<MoveEffect> cir) {
-        PlayerEntity entity = (PlayerEntity) (Object) this;
-        if (SilentUtils.isSilent(entity)) cir.setReturnValue(MoveEffect.NONE);
-    }
-
     // Function adapted from https://github.com/pauverblom/flight-affinity/blob/1.20.x/src/main/java/net/baneina/flightaffinity/mixin/PlayerEntityMixin.java
     @ModifyExpressionValue(method = "getBlockBreakingSpeed", at = @At(value = "FIELD", target = "Lnet/minecraft/entity/player/PlayerEntity;onGround:Z", opcode = Opcodes.GETFIELD))
     public boolean flightAffinityEnchantmentAndIsOnGround(boolean originalIsOnGround) {

@@ -8,6 +8,7 @@ import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
 import com.prog.client.utils.TooltipUtils;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.event.ItemEvents;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
 import com.prog.itemOrBlock.custom.TieredCrossbowItem;
@@ -64,6 +65,19 @@ public class ItemStackMixin {
         //if (item == Items.TRIDENT && stack.getItem() instanceof TridentItem) cir.setReturnValue(true);
         //if (item == Items.CROSSBOW && stack.getItem() instanceof CrossbowItem) cir.setReturnValue(true);
         //if (item == Items.SHIELD && stack.getItem() instanceof ShieldItem) cir.setReturnValue(true);
+    }
+
+    @Inject(
+            method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/item/Item;appendTooltip(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Ljava/util/List;Lnet/minecraft/client/item/TooltipContext;)V",
+                    ordinal = 0
+            )
+    )
+    private void injectAppendTooltip(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local List<Text> list) {
+        var stack = (ItemStack) (Object) this;
+        ItemEvents.APPEND_TOOLTIP.invoker().append(stack, context, list);
     }
 
     @Inject(

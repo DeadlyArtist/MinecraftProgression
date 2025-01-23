@@ -20,9 +20,4 @@ import java.util.List;
 @Mixin(FireworkRocketItem.class)
 public class FireworkRocketItemMixin {
 
-    @Environment(EnvType.CLIENT)
-    @Inject(method = "appendTooltip", at = @At("HEAD"))
-    private void injectAppendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
-        ItemEvents.APPEND_TOOLTIP.invoker().append(stack, context, tooltip);
-    }
 }

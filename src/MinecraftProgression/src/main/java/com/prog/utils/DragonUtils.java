@@ -10,10 +10,14 @@ import net.minecraft.world.WorldEvents;
 
 public class DragonUtils {
 
-    public static int DRAGON_MAX_HEALTH = 1000;
-    public static int DRAGON_ATTACK_DAMAGE = 40;
+    public static int DRAGON_MAX_HEALTH = 2222;
+    public static int DRAGON_ATTACK_DAMAGE = 400;
     public static int HIGHEST_PHASE = 3;
     public static int MAXIMUM_FIREBALL_ANGLE = 70;
+    public static int FIREBALL_EXPLOSION_DAMAGE_MULTIPLIER = 10;
+
+    public static int DRAGON_FIRST_KILL_XP = 150000;
+    public static int DRAGON_KILL_XP = 100000;
 
     public static int getPhase(EnderDragonEntity dragon) {
         if (dragon.getHealth() / dragon.getMaxHealth() < 0.2) return 3;

@@ -34,11 +34,12 @@ public class ItemMixin {
 //    private static Item.Settings modifyItemSettings(Item.Settings settings) {
 //        return settings.group(ItemGroup.FOOD).food(PFoodComponents.GLISTERING_MELON_SLICE);
 //    }
-
-    @Inject(method = "appendTooltip", at = @At("HEAD"))
-    private void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context, CallbackInfo info) {
-        ItemEvents.APPEND_TOOLTIP.invoker().append(stack, context, tooltip);
-    }
+//
+//    // Moved to ItemStackMixin to avoid edge cases.
+//    @Inject(method = "appendTooltip", at = @At("HEAD"))
+//    private void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context, CallbackInfo info) {
+//        ItemEvents.APPEND_TOOLTIP.invoker().append(stack, context, tooltip);
+//    }
 
     @Inject(method = "getRarity", at = @At("RETURN"), cancellable = true)
     private void injectGetRarity(ItemStack stack, CallbackInfoReturnable<Rarity> cir) {
