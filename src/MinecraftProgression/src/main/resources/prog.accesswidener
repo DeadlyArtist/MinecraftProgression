@@ -10,6 +10,12 @@ mutable field net/minecraft/item/MiningToolItem attackDamage F
 # Netherite spawn chance increase
 mutable field net/minecraft/world/gen/feature/OreFeatureConfig size I
 
+# CommandManager
+accessible field net/minecraft/server/command/CommandManager dispatcher Lcom/mojang/brigadier/CommandDispatcher;
+
+# ArgumentTypes
+accessible method net/minecraft/command/argument/ArgumentTypes register (Lnet/minecraft/util/registry/Registry;Ljava/lang/String;Ljava/lang/Class;Lnet/minecraft/command/argument/serialize/ArgumentSerializer;)Lnet/minecraft/command/argument/serialize/ArgumentSerializer;
+
 # ArmorItem
 accessible field net/minecraft/item/ArmorItem attributeModifiers Lcom/google/common/collect/Multimap;
 mutable field net/minecraft/item/ArmorItem attributeModifiers Lcom/google/common/collect/Multimap;

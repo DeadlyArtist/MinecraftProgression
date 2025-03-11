@@ -10,6 +10,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.DragonFireballEntity;
 import net.minecraft.entity.projectile.ExplosiveProjectileEntity;
@@ -45,7 +46,7 @@ public abstract class DragonFireballEntityMixin extends ExplosiveProjectileEntit
 
     @Unique
     public int getRank() {
-        return self.getOwner() == null || !(self.getOwner() instanceof LivingEntity) ? 0 : PComponents.SQUAD.get(self.getOwner()).rank;
+        return self.getOwner() == null || !(self.getOwner() instanceof MobEntity) ? 0 : PComponents.SQUAD.get(self.getOwner()).rank;
     }
 
     @Override

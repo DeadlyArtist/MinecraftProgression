@@ -1,6 +1,10 @@
 # More Progression ([Curseforge](https://www.curseforge.com/minecraft/mc-mods/more-progression), [Modrinth](https://modrinth.com/mod/more-progression))
 An epic minecraft mod that builds upon and extends vanilla minecraft progression in multiple ways.
 
+## Info
+**Goal**: Defeat the Ender Dragon  
+**Expected Playtime**: 4-5 days  
+
 ## Work In Progress
 This mod is currently in an early playtesting stage. The core features are done and working, but additional features and quality of life are still missing.
 

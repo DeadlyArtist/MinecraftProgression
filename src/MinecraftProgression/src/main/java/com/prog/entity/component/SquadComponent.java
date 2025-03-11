@@ -35,6 +35,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
 
     public boolean didInit = false;
     public int rank = 0;
+    public boolean forcedRank = false;
 
     public SquadComponent(MobEntity entity) {
         this.entity = entity;
@@ -64,7 +65,14 @@ public class SquadComponent implements Component, ServerTickingComponent {
         spawnFollowers();
     }
 
+    public void setForcedRank(int rank) {
+        this.rank = rank;
+        this.forcedRank = true;
+    }
+
     public void setRandomRank() {
+        if (this.forcedRank) return;
+
         if (MathHelper.nextInt(entity.random, 0, 9) != 9) return; // 90% chance to be normal, 10% chance to be ranked
 
         var player = entity.world.getClosestPlayer(entity, 1000);

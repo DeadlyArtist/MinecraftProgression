@@ -28,17 +28,17 @@ public class PEntityAttributes {
     public static final EntityAttribute IMPACT_ABSORPTION = registerClampedEntityAttribute("IMPACT_ABSORPTION", 0.0, 0.0, 1000.0);
     public static final EntityAttribute LIGHTNESS = registerClampedEntityAttribute("LIGHTNESS", 1.0, 0.5, 16.0);
     public static final EntityAttribute LUMINANCE = registerClampedEntityAttribute("LUMINANCE", 0.0, 0.0, 15.0);
-    public static final EntityAttribute FLIGHT = registerClampedEntityAttribute("FLIGHT", 0.0, 0.0, 20.0);
+    public static final EntityAttribute FLIGHT = registerClampedEntityAttribute("FLIGHT", 0.0, 0.0, 1.0);
     public static final EntityAttribute PIGLIN_LOVED = registerClampedEntityAttribute("PIGLIN_LOVED", 0.0, 0.0, 1.0);
     public static final EntityAttribute ENDERMAN_DISGUISE = registerClampedEntityAttribute("ENDERMAN_DISGUISE", 0.0, 0.0, 1.0);
-    public static final EntityAttribute PROJECTILE_DAMAGE = registerClampedEntityAttribute("PROJECTILE_DAMAGE", 0, 0.0, 1000.0);
+    public static final EntityAttribute PROJECTILE_DAMAGE = registerClampedEntityAttribute("PROJECTILE_DAMAGE", 0, 0.0, Double.MAX_VALUE);
     public static final EntityAttribute PROJECTILE_SPEED = registerClampedEntityAttribute("PROJECTILE_SPEED", 4.0, 0.0, 1000.0);
     public static final EntityAttribute CHARGING_SPEED = registerClampedEntityAttribute("CHARGING_SPEED", 1.0, 0.0, 1000.0); // 0 never progresses, 1000 for instant charge
     public static final EntityAttribute MAGNET = registerClampedEntityAttribute("MAGNET", 0.0, 0.0, 1.0);
-    public static final EntityAttribute TREASURE_QUALITY = registerClampedEntityAttribute("TREASURE_QUALITY", 0.0, 0.0, 1000.0);
+    public static final EntityAttribute TREASURE_QUALITY = registerClampedEntityAttribute("TREASURE_QUALITY", 0.0, 0.0, Double.MAX_VALUE);
     public static final EntityAttribute LAVA_FISHING = registerClampedEntityAttribute("LAVA_FISHING", 0.0, 0.0, 1.0);
     public static final EntityAttribute VOID_FISHING = registerClampedEntityAttribute("VOID_FISHING", 0.0, 0.0, 1.0);
-    public static final EntityAttribute SHIELD = registerClampedEntityAttribute("SHIELD", 0, 0.0, 1000.0);
+    public static final EntityAttribute SHIELD = registerClampedEntityAttribute("SHIELD", 0, 0.0, Double.MAX_VALUE);
     public static final EntityAttribute SILENT = registerClampedEntityAttribute("SILENT", 0.0, 0.0, 1.0);
     public static final EntityAttribute ELYTRA = registerClampedEntityAttribute("ELYTRA", 0.0, 0.0, 1.0);
 

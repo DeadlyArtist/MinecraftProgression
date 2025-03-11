@@ -10,6 +10,7 @@ import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.CreeperEntity;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.WitherSkullEntity;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
@@ -30,8 +31,8 @@ public class ExplosionMixin {
     private void modifyExplosionRadius(World world, Entity entity, DamageSource damageSource, ExplosionBehavior behavior, double x, double y, double z, float power, boolean createFire, Explosion.DestructionType destructionType, CallbackInfo ci) {
         Explosion explosion = (Explosion) (Object) this;
 
-        if (entity instanceof LivingEntity living) {
-            var squad = PComponents.SQUAD.get(living);
+        if (entity instanceof MobEntity mob) {
+            var squad = PComponents.SQUAD.get(mob);
             if (!squad.normal()) {
                 explosion.power = (float) (power * 5 / (5 + squad.rank));
             }
@@ -50,8 +51,8 @@ public class ExplosionMixin {
     private void modifyDamage(CallbackInfo ci, @Local LocalFloatRef q) {
         Explosion explosion = (Explosion) (Object) this;
 
-        if (explosion.entity instanceof LivingEntity living) {
-            var squad = PComponents.SQUAD.get(living);
+        if (explosion.entity instanceof MobEntity mob) {
+            var squad = PComponents.SQUAD.get(mob);
             if (!squad.normal()) {
                 q.set((float) (q.get() * squad.getDamageMultiplier()));
             }
