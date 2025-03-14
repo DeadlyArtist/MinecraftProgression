@@ -99,8 +99,8 @@ public class SquadComponent implements Component, ServerTickingComponent {
         var randomInt = MathHelper.nextInt(entity.random, 1, 100);
         if (randomInt > 90) { // too strong (10% chance)
             rank += 1;
-            var prob = 0.1;
-            rank = randomIncrementRank(prob); // 10% chance to get even stronger (recursively)
+            var prob = 0.2;
+            rank = randomIncrementRank(prob); // 20% chance to get even stronger (recursively)
         } else if (randomInt <= 60) { // too weak (60% chance)
             rank = MathHelper.nextInt(entity.random, 1, Math.max(1, rank - 1));
         } // else about right (30% chance)

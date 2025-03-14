@@ -1,6 +1,7 @@
 package com.prog.utils;
 
 import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.itemOrBlock.PItemTags;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.*;
@@ -38,6 +39,17 @@ public class ItemUtils {
         if (entries.isEmpty()) return List.of();
 
         return entries.get().stream().map(r -> r.value()).toList();
+    }
+
+    public static boolean isFireproof(Item item) {
+        return ItemUtils.hasTag(item, PItemTags.UPGRADABLE)
+                || item == Items.ENCHANTED_BOOK
+                || item == Items.NAUTILUS_SHELL
+                || item.isFireproof();
+    }
+
+    public static boolean isFireproof(ItemStack stack) {
+        return isFireproof(stack.getItem());
     }
 
     public static boolean isArmor(Item item) {

@@ -50,7 +50,7 @@ public class ItemMixin {
         }
     }
 
-    // Helper method to increase the rarity by one, but not exceeding EPIC
+    // Helper method to increase the rarity by one
     @Unique
     private Rarity increaseRarity(Rarity originalRarity) {
         // Move from COMMON -> UNCOMMON -> RARE -> EPIC

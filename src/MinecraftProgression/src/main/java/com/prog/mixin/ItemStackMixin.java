@@ -166,7 +166,7 @@ public class ItemStackMixin {
             List<String> parts = new ArrayList<>();
             var upgradable = stack.isIn(PItemTags.UPGRADABLE);
             if (upgradable || (stack.hasNbt() && stack.getNbt().getBoolean("Unbreakable"))) parts.add(Text.translatable("item.unbreakable").getString());
-            if (upgradable || stack.getItem().isFireproof()) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
+            if (ItemUtils.isFireproof(stack)) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
             if (upgradable) parts.add(PTexts.SOULBOUND_TOOLTIP.get().getString());
 
             if (!parts.isEmpty()) list.add(Text.literal(String.join(", ", parts)).formatted(Formatting.BLUE));
