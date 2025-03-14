@@ -1,24 +1,27 @@
 package com.prog.utils;
 
 import com.prog.entity.PComponents;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.EnchantedBookItem;
-import net.minecraft.util.math.random.Random;
-
-import java.util.HashSet;
-import java.util.List;
 
 public class SquadUtils {
+
+    public static double SCALING_BASE = 1.6;
 
     public static void DropBonusLoot(MobEntity entity) {
         var squad = PComponents.SQUAD.get(entity);
         if (squad.normal()) return;
 
+        // https://deadlyartist.github.io/aidevsuite/#extern?url=data/Live%20Calculator.json&mode=run
+        // var rank = 8;
+        // var scaling = 1.15;
+        // var min = Math.pow(rank - 1, scaling) + 1;
+        // var max = Math.pow(rank, scaling);
+        // [min, max, Math.round(min), Math.round(max)].join("    ")
         var maxEnchantmentLevel = EnchantmentUtils.MAX_ENCHANTMENT_LEVEL;
-        var minLevel = (int) Math.floor(squad.rank * 1.2);
-        var maxLevel = (int) Math.ceil(squad.rank * 1.5);
+        var scaling = 1.15;
+        var minLevel = (int) Math.round(Math.pow(squad.rank - 1, scaling) + 1);
+        var maxLevel = (int) Math.round(Math.pow(squad.rank, scaling));
         var desiredLevel = entity.random.nextBetween(minLevel, maxLevel);
         var amount = Math.max(1, desiredLevel + 1 - maxEnchantmentLevel);
         var enchantmentLevel = Math.min(maxEnchantmentLevel, desiredLevel);
@@ -26,5 +29,10 @@ public class SquadUtils {
             var stack = EnchantedBookItem.forEnchantment(EnchantmentUtils.getRandomEnchantmentLevelEntry(entity.random, enchantmentLevel, false, EnchantmentUtils.BAD_ENCHANTMENTS));
             entity.dropStack(stack);
         }
+    }
+
+    public static void adjustXPDrop(MobEntity mob) {
+        var squad = PComponents.SQUAD.get(mob);
+        mob.experiencePoints *= (int) Math.pow(SCALING_BASE, squad.rank);
     }
 }

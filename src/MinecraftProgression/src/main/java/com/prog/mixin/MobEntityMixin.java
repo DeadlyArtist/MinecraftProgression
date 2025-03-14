@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import com.prog.entity.PComponents;
 import com.prog.utils.EnchantmentUtils;
+import com.prog.utils.SquadUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.mob.MobEntity;
@@ -35,7 +36,6 @@ public abstract class MobEntityMixin {
     @Inject(at = @At("HEAD"), method = "getXpToDrop")
     protected void multiplyXpDrop(CallbackInfoReturnable<Integer> cir) {
         MobEntity self = (MobEntity) (Object) this;
-        var squad = PComponents.SQUAD.get(self);
-        self.experiencePoints *= (int) Math.pow(2, squad.rank);
+        SquadUtils.adjustXPDrop(self);
     }
 }

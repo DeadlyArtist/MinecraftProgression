@@ -192,28 +192,28 @@ public class Prog implements ModInitializer {
                 projectileDamage = RangedUtils.BASE_TRIDENT_RANGED_DAMAGE;
                 meleeDamage = MeleeUtils.BASE_TRIDENT_MELEE_DAMAGE;
                 if (item instanceof TieredTridentItem tiered) {
-                    projectileDamage += tiered.material.getRangedDamageBonus();
-                    meleeDamage += tiered.material.getMeleeDamageBonus();
+                    projectileDamage = tiered.material.getRangedDamage();
+                    meleeDamage = tiered.material.getMeleeDamage();
                 }
             } else if (item instanceof BowItem) {
                 projectileDamage = RangedUtils.BASE_BOW_RANGED_DAMAGE;
                 if (item instanceof TieredBowItem tiered) {
-                    projectileDamage += tiered.material.getProjectileDamageBonus();
+                    projectileDamage = tiered.material.getProjectileDamage();
                 }
             } else if (item instanceof CrossbowItem) {
                 projectileDamage = RangedUtils.BASE_CROSSBOW_RANGED_DAMAGE;
                 if (item instanceof TieredCrossbowItem tiered) {
-                    projectileDamage += tiered.material.getProjectileDamageBonus();
+                    projectileDamage = tiered.material.getProjectileDamage();
                 }
             } else if (item instanceof ShieldItem) {
                 shield = MeleeUtils.BASE_SHIELD;
                 if (item instanceof TieredShieldItem tiered) {
-                    shield += tiered.material.getShieldBonus();
+                    shield = tiered.material.getShield();
                 }
             } else if (item instanceof FishingRodItem) {
                 treasureQuality = RangedUtils.BASE_TREASURE_QUALITY;
                 if (item instanceof TieredFishingRodItem tiered) {
-                    treasureQuality += tiered.material.getTreasureQualityBonus();
+                    treasureQuality = tiered.material.getTreasureQuality();
                 }
             }
 

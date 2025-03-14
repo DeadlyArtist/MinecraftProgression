@@ -54,16 +54,24 @@ public class PTexts {
     public static final TextWrapper GENERAL_RANK = registerText("GENERAL_RANK", "General");
     public static final TextWrapper COMMANDER_RANK = registerText("COMMANDER_RANK", "Commander");
     public static final TextWrapper WARLORD_RANK = registerText("WARLORD_RANK", "Warlord");
+    public static final TextWrapper MONARCH_RANK = registerText("MONARCH_RANK", "Monarch");
     public static final TextWrapper OVERLORD_RANK = registerText("OVERLORD_RANK", "Overlord");
+    public static final TextWrapper EMPEROR_RANK = registerText("EMPEROR_RANK", "Emperor");
     public static final TextWrapper GOD_RANK = registerText("GOD_RANK", "God");
+    public static final TextWrapper TITAN_RANK = registerText("TITAN_RANK", "Titan");
+    public static final TextWrapper PRIMORDIAL_RANK = registerText("PRIMORDIAL_RANK", "Primordial");
 
     public static Map<Integer, TextWrapper> nameByRank = new HashMap<>();
     static {
         nameByRank.put(1, GENERAL_RANK);
         nameByRank.put(2, COMMANDER_RANK);
         nameByRank.put(3, WARLORD_RANK);
-        nameByRank.put(4, OVERLORD_RANK);
-        nameByRank.put(5, GOD_RANK);
+        nameByRank.put(4, MONARCH_RANK);
+        nameByRank.put(5, OVERLORD_RANK);
+        nameByRank.put(6, EMPEROR_RANK);
+        nameByRank.put(7, GOD_RANK);
+        nameByRank.put(8, TITAN_RANK);
+        nameByRank.put(9, PRIMORDIAL_RANK);
     }
 
 

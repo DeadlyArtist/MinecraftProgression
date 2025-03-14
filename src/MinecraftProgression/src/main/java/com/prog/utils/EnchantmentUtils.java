@@ -1,14 +1,19 @@
 package com.prog.utils;
 
+import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
 import net.minecraft.enchantment.*;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.village.TradeOffers;
 import org.apache.commons.lang3.mutable.MutableFloat;
 import org.apache.commons.lang3.mutable.MutableInt;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.HashSet;
 import java.util.List;
@@ -99,6 +104,26 @@ public class EnchantmentUtils {
 
     public static EnchantmentLevelEntry getRandomEnchantmentLevelEntry(Random random, int level, boolean allowCursed, Set<Enchantment> excludedEnchantments) {
         return getRandomEnchantmentLevelEntry(random, level, level, allowCursed, excludedEnchantments);
+    }
+
+    public static int getAnvilEnchantmentCost(int oldEnchantmentLevel, int newEnchantmentLevel, ItemStack stack, Enchantment enchantment) {
+        var levelDifference = newEnchantmentLevel - oldEnchantmentLevel;
+        var scaling = 2; // Scales higher than monster xp drops, as looting enchantment increases xp gained
+        var newCost = (int) Math.pow(scaling, newEnchantmentLevel) - (int) Math.pow(scaling, oldEnchantmentLevel);
+        if (oldEnchantmentLevel == 0) newCost += getAnvilEnchantmentBonusCost(enchantment);
+
+        if (stack.isOf(Items.ENCHANTED_BOOK)) newCost = newEnchantmentLevel - oldEnchantmentLevel;
+        return newCost;
+    }
+
+    public static int getAnvilEnchantmentBonusCost(Enchantment enchantment) {
+        var rarity = enchantment.getRarity();
+        var cost = 1;
+        if (rarity == Enchantment.Rarity.UNCOMMON) cost = 2;
+        if (rarity == Enchantment.Rarity.RARE) cost = 5;
+        if (rarity == Enchantment.Rarity.VERY_RARE) cost = 10;
+
+        return cost;
     }
 
     public static int getMaxEnchantmentLevelForAnvil(Enchantment enchantment) {

@@ -23,7 +23,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.SpawnHelper;
-import net.minecraft.util.math.random.Random;
 
 public class SquadComponent implements Component, ServerTickingComponent {
     public final static String squadHealthModifierName = "squad_health";
@@ -79,30 +78,32 @@ public class SquadComponent implements Component, ServerTickingComponent {
 
         // https://deadlyartist.github.io/aidevsuite/#extern?url=data/Live%20Calculator.json&mode=run
         // var level = 7
-        // var power = level * 6 / 10;
+        // var power = level * 10 / 10;
         // [power].join("    ")
-        var power = 4D;
+        var power = 0D;
         if (player != null) {
             for (var stack : player.getInventory().armor) {
                 var item = stack.getItem();
                 var level = PTierData.getTierLevel(item);
-                var weight = level * 6 / 10;
+                var weight = level * 10 / 10; // non operation, can adjust scaling here.
                 power += weight;
             }
         }
         power /= 4;
 
-        rank = (int) Math.round(power);
+        rank = (int) Math.floor(power);
+        var hiddenRankRest = power - rank;
+        if (entity.random.nextDouble() < hiddenRankRest) rank++;
         rank = Math.max(1, rank);
 
         var randomInt = MathHelper.nextInt(entity.random, 1, 100);
-        if (randomInt > 95) { // too strong (5% chance)
+        if (randomInt > 90) { // too strong (10% chance)
             rank += 1;
             var prob = 0.1;
-            rank = randomIncrementRank(prob);
-        } else if (randomInt <= 75) { // too weak (75% chance)
+            rank = randomIncrementRank(prob); // 10% chance to get even stronger (recursively)
+        } else if (randomInt <= 60) { // too weak (60% chance)
             rank = MathHelper.nextInt(entity.random, 1, Math.max(1, rank - 1));
-        } // else about right (20% chance)
+        } // else about right (30% chance)
 
         if (isFollower()) rank = Math.min(rank, PComponents.SQUAD.get(leader).rank - 1);
     }
@@ -137,21 +138,21 @@ public class SquadComponent implements Component, ServerTickingComponent {
     }
 
     public double getHealthMultiplier() {
-        double baseModifier = Math.pow(2, rank);
+        double baseModifier = Math.pow(SquadUtils.SCALING_BASE, rank);
         double modifiedValue = randomOffset(baseModifier, 0.2);
-        return modifiedValue;
+        return Math.round(modifiedValue);
     }
 
     public double getDamageMultiplier() {
-        double baseModifier = Math.pow(2, rank + 0.7);
+        double baseModifier = Math.pow(SquadUtils.SCALING_BASE, rank + 0.7);
         double modifiedValue = randomOffset(baseModifier, 0.2);
-        return modifiedValue;
+        return Math.round(modifiedValue);
     }
 
     public double getProjectileDamageMultiplier() {
-        double baseModifier = Math.pow(2, rank + 0.2);
+        double baseModifier = Math.pow(SquadUtils.SCALING_BASE, rank + 0.2);
         double modifiedValue = randomOffset(baseModifier, 0.2);
-        return modifiedValue;
+        return Math.round(modifiedValue);
     }
 
     public void increaseHealth() {
@@ -192,10 +193,12 @@ public class SquadComponent implements Component, ServerTickingComponent {
 
     public void spawnFollowers() {
         if (normal() || isFollower() || !(entity.world instanceof ServerWorld serverWorld)) return;
+        if (entity.world.getClosestPlayer(entity, 24.0) != null) return;
 
         var min = rank;
         var max = rank * 3;
         var amount = MathHelper.nextInt(entity.random, min, max);
+        amount = MathHelper.clamp(amount, 0, 12);
         for (var i = 0; i < amount; i++) {
             spawnFollower();
         }

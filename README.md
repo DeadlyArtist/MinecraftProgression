@@ -59,6 +59,7 @@ Below is a list of useful things that might be easy to miss.
 *Enchant your Gear*: Try to enchant your gear with protection and sharpness as early as possible to get a headstart over your enemies. You can find good enchantments by killing monsters with a rank or by fishing with a good rod (a high lure enchantment is recommended).  
 *Fixed Anvil*: Applying enchantments now costs a fair price, regardless in which order you apply them, even if you already have a lower level of the enchantment applied. Additionally, anvils no longer break, and many enchantments now allow you to merge them in the anvil beyond their usual limit.  
 *Linear Experience*: You need the same amount of xp to reach the next level, regardless of your current level.  
+*Shield*: While equipped, a shield provides a flat damage reduction.  
 *Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, so don't go there unless you are fully prepared. It is recommended to play this mod in combination with [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), which reworks the end portal to require collecting different eyes from all over minecraft.  
 
 ### Upgrades

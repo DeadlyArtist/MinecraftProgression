@@ -1,22 +1,22 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum BowMaterials implements BowMaterial {
-    STEEL(1),
-    ULTIMATE_DIAMOND(2),
-    REFINED_OBSIDIAN(4),
-    TITAN(11),
-    PRIMAL_NETHERITE(22),
-    EVERGLOOM(28),
-    END(36);
+    STEEL(7),
+    ULTIMATE_DIAMOND(8),
+    REFINED_OBSIDIAN(10),
+    TITAN(17),
+    PRIMAL_NETHERITE(28),
+    EVERGLOOM(42),
+    END(60);
 
-    public final int projectileDamageBonus;
+    public final int projectileDamage;
 
-    BowMaterials(int projectileDamageBonus) {
-        this.projectileDamageBonus = projectileDamageBonus;
+    BowMaterials(int projectileDamage) {
+        this.projectileDamage = projectileDamage;
     }
 
     @Override
-    public double getProjectileDamageBonus() {
-        return projectileDamageBonus;
+    public double getProjectileDamage() {
+        return projectileDamage;
     }
 }

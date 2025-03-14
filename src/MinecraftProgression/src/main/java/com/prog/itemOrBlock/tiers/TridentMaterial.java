@@ -1,7 +1,7 @@
 package com.prog.itemOrBlock.tiers;
 
 public interface TridentMaterial {
-    double getMeleeDamageBonus();
+    double getMeleeDamage();
 
-    double getRangedDamageBonus();
+    double getRangedDamage();
 }

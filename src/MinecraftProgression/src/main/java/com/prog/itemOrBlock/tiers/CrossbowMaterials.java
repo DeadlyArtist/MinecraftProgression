@@ -1,22 +1,22 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum CrossbowMaterials implements CrossbowMaterial {
-    STEEL(2),
-    ULTIMATE_DIAMOND(4),
-    REFINED_OBSIDIAN(7),
-    TITAN(16),
-    PRIMAL_NETHERITE(30),
-    EVERGLOOM(38),
-    END(48);
+    STEEL(12),
+    ULTIMATE_DIAMOND(14),
+    REFINED_OBSIDIAN(17),
+    TITAN(26),
+    PRIMAL_NETHERITE(40),
+    EVERGLOOM(58),
+    END(82);
 
-    public final int projectileDamageBonus;
+    public final int projectileDamage;
 
-    CrossbowMaterials(int projectileDamageBonus) {
-        this.projectileDamageBonus = projectileDamageBonus;
+    CrossbowMaterials(int projectileDamage) {
+        this.projectileDamage = projectileDamage;
     }
 
     @Override
-    public double getProjectileDamageBonus() {
-        return projectileDamageBonus;
+    public double getProjectileDamage() {
+        return projectileDamage;
     }
 }

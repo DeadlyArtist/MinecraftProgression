@@ -67,6 +67,9 @@ accessible field net/minecraft/entity/projectile/TridentEntity ENCHANTED Lnet/mi
 # FishingBobberEntity
 accessible class net/minecraft/entity/projectile/FishingBobberEntity$PositionType
 
+# SheepEntity
+accessible field net/minecraft/entity/passive/SheepEntity DROPS Ljava/util/Map;
+
 # AttributeContainer
 accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;
 

@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "prog:assembly",
-    "prog:incinerator",
-    "prog:quartz_catalyst"
+    "prog:quartz_catalyst",
+    "prog:incinerator"
   ]
 }

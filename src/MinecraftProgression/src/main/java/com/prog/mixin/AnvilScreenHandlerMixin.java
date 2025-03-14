@@ -59,23 +59,6 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
     @Inject(method = "updateResult", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;getCount()I", ordinal = 1, shift = At.Shift.BEFORE))
     private void injectUpdateResult(CallbackInfo ci, @Local(ordinal = 0) LocalIntRef costRef, @Local(ordinal = 3) int oldEnchantmentLevel, @Local(ordinal = 4) int newEnchantmentLevel, @Local(ordinal = 5) int s, @Local(ordinal = 0) ItemStack stack, @Local Enchantment enchantment) {
         costRef.set(costRef.get() - newEnchantmentLevel * s); // Undo previous line
-
-        var levelDifference = newEnchantmentLevel - oldEnchantmentLevel;
-        var newCost = (int) Math.pow(2, newEnchantmentLevel) - (int) Math.pow(2, oldEnchantmentLevel);
-        if (oldEnchantmentLevel == 0) newCost += getBonusCost(enchantment);
-
-        if (stack.isOf(Items.ENCHANTED_BOOK)) newCost = newEnchantmentLevel - oldEnchantmentLevel;
-        costRef.set(costRef.get() + newCost);
-    }
-
-    @Unique
-    private int getBonusCost(Enchantment enchantment) {
-        var rarity = enchantment.getRarity();
-        var cost = 1;
-        if (rarity == Enchantment.Rarity.UNCOMMON) cost = 2;
-        if (rarity == Enchantment.Rarity.RARE) cost = 5;
-        if (rarity == Enchantment.Rarity.VERY_RARE) cost = 10;
-
-        return cost;
+        costRef.set(costRef.get() + EnchantmentUtils.getAnvilEnchantmentCost(oldEnchantmentLevel, newEnchantmentLevel, stack, enchantment));
     }
 }

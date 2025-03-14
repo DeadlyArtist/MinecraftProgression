@@ -1,27 +1,27 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum TridentMaterials implements TridentMaterial {
-    STEEL(1),
-    ULTIMATE_DIAMOND(4),
-    REFINED_OBSIDIAN(7),
-    TITAN(15),
-    PRIMAL_NETHERITE(25),
-    EVERGLOOM(30),
-    END(38);
+    STEEL(11),
+    ULTIMATE_DIAMOND(14),
+    REFINED_OBSIDIAN(17),
+    TITAN(25),
+    PRIMAL_NETHERITE(35),
+    EVERGLOOM(52),
+    END(72);
 
-    public final double damageBonus;
+    public final double damage;
 
-    TridentMaterials(double damageBonus) {
-        this.damageBonus = damageBonus;
+    TridentMaterials(double damage) {
+        this.damage = damage;
     }
 
     @Override
-    public double getMeleeDamageBonus() {
-        return damageBonus;
+    public double getMeleeDamage() {
+        return damage;
     }
 
     @Override
-    public double getRangedDamageBonus() {
-        return Math.ceil(damageBonus * 0.8);
+    public double getRangedDamage() {
+        return Math.ceil(damage * 0.8);
     }
 }

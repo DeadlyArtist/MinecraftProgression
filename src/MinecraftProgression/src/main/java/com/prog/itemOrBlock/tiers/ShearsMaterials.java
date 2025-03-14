@@ -1,22 +1,29 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum ShearsMaterials implements ShearsMaterial {
-    STEEL(1),
-    ULTIMATE_DIAMOND(3),
-    REFINED_OBSIDIAN(4),
-    TITAN(6),
-    PRIMAL_NETHERITE(8),
-    EVERGLOOM(9),
-    END(12);
+    STEEL(1, 1),
+    ULTIMATE_DIAMOND(3, 1),
+    REFINED_OBSIDIAN(4, 1),
+    TITAN(6, 1),
+    PRIMAL_NETHERITE(8, 1),
+    EVERGLOOM(12, 1),
+    END(15, 2);
 
     public final float miningSpeedBonus;
+    public final int woolBonus;
 
-    ShearsMaterials(float miningSpeedBonus) {
+    ShearsMaterials(float miningSpeedBonus, int woolBonus) {
         this.miningSpeedBonus = miningSpeedBonus;
+        this.woolBonus = woolBonus;
     }
 
     @Override
     public float getMiningSpeedBonus() {
         return miningSpeedBonus;
+    }
+
+    @Override
+    public int getWoolBonus() {
+        return woolBonus;
     }
 }

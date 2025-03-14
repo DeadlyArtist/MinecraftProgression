@@ -14,8 +14,8 @@ public enum PArmorMaterials implements ArmorMaterial {
     REFINED_OBSIDIAN("REFINED_OBSIDIAN", new int[]{6, 10, 12, 5}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F, 0.2F),
     TITAN("TITAN", new int[]{10, 18, 21, 9}, 10, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 5.0F, 0.2F),
     PRIMAL_NETHERITE("PRIMAL_NETHERITE", new int[]{15, 28, 33, 14}, 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 6.0F, 0.3F),
-    EVERGLOOM("EVERGLOOM", new int[]{18, 34, 39, 17}, 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 7.0F, 0.3F),
-    END("END", new int[]{22, 42, 48, 21}, 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 8.0F, 0.3F);
+    EVERGLOOM("EVERGLOOM", new int[]{22, 42, 48, 21}, 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 8.0F, 0.3F),
+    END("END", new int[]{32, 62, 70, 30}, 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 10.0F, 0.4F);
 
     private final String name;
     private final int[] protectionAmounts;
