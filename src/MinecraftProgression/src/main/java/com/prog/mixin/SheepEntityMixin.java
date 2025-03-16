@@ -2,6 +2,7 @@ package com.prog.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.prog.itemOrBlock.custom.TieredShearsItem;
+import com.prog.utils.ShearsUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -43,9 +44,7 @@ public abstract class SheepEntityMixin extends AnimalEntity {
     private void sheared(SoundCategory shearedSoundCategory, Item shearsItem) {
         this.world.playSoundFromEntity(null, this, SoundEvents.ENTITY_SHEEP_SHEAR, shearedSoundCategory, 1.0F, 1.0F);
         self.setSheared(true);
-        var woolBonus = 0;
-        if (shearsItem instanceof TieredShearsItem tiered) woolBonus = tiered.material.getWoolBonus();
-        int i = 1 + this.random.nextInt(3);
+        int i = ShearsUtils.getWoolAmount(self, shearsItem);
 
         for (int j = 0; j < i; j++) {
             ItemEntity itemEntity = this.dropItem((ItemConvertible) SheepEntity.DROPS.get(self.getColor()), 1);
