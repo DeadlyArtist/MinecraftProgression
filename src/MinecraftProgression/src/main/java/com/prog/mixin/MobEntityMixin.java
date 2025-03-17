@@ -20,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(MobEntity.class)
 public abstract class MobEntityMixin {
 
-    @Shadow public int experiencePoints;
-
     @Redirect(
             method = "tryAttack(Lnet/minecraft/entity/Entity;)Z",
             at = @At(
@@ -31,11 +29,5 @@ public abstract class MobEntityMixin {
     )
     private float redirectGetAttackDamage(ItemStack stack, EntityGroup group, @Local LocalRef<Entity> entity, @Local(ordinal = 0) float f) {
         return (float) EnchantmentUtils.getAttackDamageIncrease(group, stack, f);
-    }
-
-    @Inject(at = @At("HEAD"), method = "getXpToDrop")
-    protected void multiplyXpDrop(CallbackInfoReturnable<Integer> cir) {
-        MobEntity self = (MobEntity) (Object) this;
-        SquadUtils.adjustXPDrop(self);
     }
 }

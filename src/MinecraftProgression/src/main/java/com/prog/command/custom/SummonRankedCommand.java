@@ -72,11 +72,9 @@ public class SummonRankedCommand {
 
     private static int execute(ServerCommandSource source, Identifier entity, int rank, Vec3d pos, NbtCompound nbt, boolean initialize) throws CommandSyntaxException {
         BlockPos blockPos = new BlockPos(pos);
-        LOGGER.info("HELLLLLOOO");
         if (!World.isValid(blockPos)) {
             throw INVALID_POSITION_EXCEPTION.create();
         } else {
-            LOGGER.info("VALID");
             NbtCompound nbtCompound = nbt.copy();
             nbtCompound.putString("id", entity.toString());
             ServerWorld serverWorld = source.getWorld();
@@ -87,9 +85,7 @@ public class SummonRankedCommand {
             if (entity2 == null) {
                 throw FAILED_EXCEPTION.create();
             } else {
-                LOGGER.info("CREATED");
                 if (initialize && entity2 instanceof MobEntity mob) {
-                    LOGGER.info("INIT");
                     mob.initialize(source.getWorld(), source.getWorld().getLocalDifficulty(entity2.getBlockPos()), SpawnReason.COMMAND, null, null);
                     PComponents.SQUAD.get(mob).setForcedRank(rank);
                 } else {

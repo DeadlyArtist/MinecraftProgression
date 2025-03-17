@@ -1,7 +1,6 @@
-package com.prog.mixin;
+package com.prog;
 
 import com.google.common.collect.ImmutableMap;
-import com.prog.XIDs;
 import com.prog.utils.XCompat;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;

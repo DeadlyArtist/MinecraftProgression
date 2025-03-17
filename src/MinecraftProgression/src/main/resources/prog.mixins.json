@@ -30,6 +30,8 @@
     "EndermanEntityMixin",
     "EntityMixin",
     "EntityTypeMixin",
+    "ExperienceOrbEntityMixin",
+    "ExperienceOrbSpawnS2CPacketMixin",
     "ExplosionMixin",
     "FireworkRocketItemMixin",
     "FishingBobberEntityMixin",
@@ -112,5 +114,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "plugin": "com.prog.mixin.PMixinPlugin"
+  "plugin": "com.prog.PMixinPlugin"
 }

@@ -7,6 +7,8 @@ import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.EntityEvents;
 import com.prog.utils.*;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -20,8 +22,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,7 +39,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class LivingEntityMixin {
 
     @Unique
-    private LivingEntity self = (LivingEntity)(Object)this;
+    private final LivingEntity self = (LivingEntity)(Object)this;
 
     @Shadow public abstract void damageArmor(DamageSource source, float amount);
 
@@ -113,9 +118,23 @@ public abstract class LivingEntityMixin {
         }
     }
 
+    @Redirect(method = "drop", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;dropXp()V"))
+    private void redirectDropXp(LivingEntity instance, @Local DamageSource source) {
+        var entity = source.getAttacker();
+        var lootingLevel = 0;
+        if (entity instanceof PlayerEntity) lootingLevel = EnchantmentHelper.getLooting((LivingEntity) entity);
+        if (self.world instanceof ServerWorld
+                && !self.isExperienceDroppingDisabled()
+                && (self.shouldAlwaysDropXp() || self.playerHitTimer > 0 && self.shouldDropXp() && self.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT))) {
+            var amount = self.getXpToDrop();
+            if (self instanceof MobEntity mob) amount = SquadUtils.adjustXPDrop(mob, amount);
+            amount = XpUtils.getDroppedXp(amount, lootingLevel);
+            ExperienceOrbEntity.spawn((ServerWorld) self.world, self.getPos(), amount);
+        }
+    }
+
     @Inject(at = @At("TAIL"), method = "dropLoot")
     private void dropBonusLoot(DamageSource source, boolean causedByPlayer, CallbackInfo info) {
-        LivingEntity self = (LivingEntity) (Object) this;
         if (!causedByPlayer || !(self instanceof MobEntity entity)) return;
         MinecraftServer server = self.world.getServer();
         if (server == null) return;

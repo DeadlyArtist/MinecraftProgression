@@ -108,8 +108,9 @@ public class EnchantmentUtils {
 
     public static int getAnvilEnchantmentCost(int oldEnchantmentLevel, int newEnchantmentLevel, ItemStack stack, Enchantment enchantment) {
         var levelDifference = newEnchantmentLevel - oldEnchantmentLevel;
-        var scaling = 2; // Scales higher than monster xp drops, as looting enchantment increases xp gained (maybe???)
-        var newCost = (int) Math.pow(scaling, newEnchantmentLevel) - (int) Math.pow(scaling, oldEnchantmentLevel);
+        var scaling = 1.7;
+        var offset = 1;
+        var newCost = (int) Math.pow(scaling, newEnchantmentLevel + offset) - (int) Math.pow(scaling, oldEnchantmentLevel + offset);
         if (oldEnchantmentLevel == 0) newCost += getAnvilEnchantmentBonusCost(enchantment);
 
         if (stack.isOf(Items.ENCHANTED_BOOK)) newCost = newEnchantmentLevel - oldEnchantmentLevel;

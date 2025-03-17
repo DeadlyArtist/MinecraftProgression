@@ -13,5 +13,7 @@ public class ServerConfigMixin {
     private void modifyNoProjectileImmunity(CallbackInfo ci) {
         ServerConfig self = (ServerConfig) (Object) this;
         self.noProjectileImmunity = false;
+        self.lootingBoostsXp = false;
+        self.mendingCraftingRepair = false;
     }
 }

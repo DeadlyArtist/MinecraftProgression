@@ -19,10 +19,7 @@ public class SquadUtils {
         // var max = Math.pow(rank, scaling);
         // [min, max, Math.round(min), Math.round(max)].join("    ")
         var maxEnchantmentLevel = EnchantmentUtils.MAX_ENCHANTMENT_LEVEL;
-        var scaling = 1.15;
-        var minLevel = (int) Math.round(Math.pow(squad.rank - 1, scaling) + 1);
-        var maxLevel = (int) Math.round(Math.pow(squad.rank, scaling));
-        var desiredLevel = entity.random.nextBetween(minLevel, maxLevel);
+        var desiredLevel = squad.rank;
         var amount = Math.max(1, desiredLevel + 1 - maxEnchantmentLevel);
         var enchantmentLevel = Math.min(maxEnchantmentLevel, desiredLevel);
         for (var i = 0; i < amount; i++) {
@@ -31,8 +28,9 @@ public class SquadUtils {
         }
     }
 
-    public static void adjustXPDrop(MobEntity mob) {
+    public static int adjustXPDrop(MobEntity mob, int experience) {
         var squad = PComponents.SQUAD.get(mob);
-        mob.experiencePoints *= (int) Math.pow(SCALING_BASE, squad.rank);
+        if (!squad.normal()) experience *= (int) Math.pow(1.7, squad.rank) * 2;
+        return experience;
     }
 }

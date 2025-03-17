@@ -54,6 +54,8 @@ accessible field net/minecraft/entity/Entity dimensions Lnet/minecraft/entity/En
 
 # LivingEntity
 accessible field net/minecraft/entity/LivingEntity itemUseTimeLeft I
+accessible method net/minecraft/entity/LivingEntity shouldAlwaysDropXp ()Z
+accessible field net/minecraft/entity/LivingEntity playerHitTimer I
 
 # MobEntity
 accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
@@ -69,6 +71,14 @@ accessible class net/minecraft/entity/projectile/FishingBobberEntity$PositionTyp
 
 # SheepEntity
 accessible field net/minecraft/entity/passive/SheepEntity DROPS Ljava/util/Map;
+
+# ExperienceOrbEntity
+accessible field net/minecraft/entity/ExperienceOrbEntity amount I
+accessible field net/minecraft/entity/ExperienceOrbEntity pickingCount I
+
+# ExperienceOrbSpawnS2CPacket
+mutable field net/minecraft/network/packet/s2c/play/ExperienceOrbSpawnS2CPacket experience I
+accessible field net/minecraft/network/packet/s2c/play/ExperienceOrbSpawnS2CPacket experience I
 
 # AttributeContainer
 accessible field net/minecraft/entity/attribute/AttributeContainer custom Ljava/util/Map;
