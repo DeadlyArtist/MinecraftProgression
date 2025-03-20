@@ -16,7 +16,8 @@ public class ProgDataGenerator implements DataGeneratorEntrypoint {
 		generator.addProvider(PLangProvider::new);
 		generator.addProvider(PModelProvider::new);
 		generator.addProvider(PRecipeProvider::new);
-		generator.addProvider(PLootTableProvider::new);
+		generator.addProvider(PBlockLootTableProvider::new);
+		generator.addProvider(PFishingLootTableProvider::new);
 
 	}
 }

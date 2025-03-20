@@ -95,7 +95,7 @@ public class FishingUtils {
     public static ItemStack generateTreasure(Random random, double treasureQuality) {
         var logBase = 1.33;
         var baseLogValue = (int) MathUtils.logX(logBase, treasureQuality);
-        var desiredLevel = baseLogValue - 4;
+        var desiredLevel = baseLogValue - 5;
         var probabilityForHigherLevel = treasureQuality <= RangedUtils.BASE_TREASURE_QUALITY ? 0 : 0.1;
         if (desiredLevel < 1) {
             desiredLevel = 1;
@@ -109,7 +109,7 @@ public class FishingUtils {
         var reducedLevelProbability = 0.7;
         if (random.nextDouble() < reducedLevelProbability) desiredLevel = random.nextBetween(1, desiredLevel);
 
-        var incrementProb = 0.05;
+        var incrementProb = 0.2;
         desiredLevel = RandomUtils.randomIncrement(random, desiredLevel, incrementProb);
 
         var enchantment = EnchantmentUtils.getRandomEnchantmentLevelEntry(random, desiredLevel, true, EnchantmentUtils.BAD_ENCHANTMENTS);

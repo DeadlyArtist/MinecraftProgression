@@ -74,6 +74,7 @@ public class Upgrades {
         register(Items.SNOWBALL, UEffectMapper.bow(UEffect.increment(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         register(Items.FIREWORK_ROCKET, List.of(UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)), UEffectMapper.boots(UEffect.increment(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.05)), UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_FLYING_SPEED, 0.05))));
         register(Items.FIRE_CHARGE, UEffectMapper.damage());
+        register(Items.TNT, UEffectMapper.damage());
         register(Items.GLOW_BERRIES, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(PEntityAttributes.TREASURE_QUALITY))));
         register(Items.GLOW_INK_SAC, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_LUCK)), UEffectMapper.fishingRod(UEffect.increment(PEntityAttributes.TREASURE_QUALITY))));
         register(Items.DRAGON_BREATH, UEffectMapper.best(3));
@@ -88,6 +89,7 @@ public class Upgrades {
         register(Items.SPECTRAL_ARROW, UEffectMapper.bow(UEffect.increment(PEntityAttributes.CHARGING_SPEED, 0.1)));
         register(Items.RESPAWN_ANCHOR, UEffectMapper.protection(2));
         register(Items.EXPERIENCE_BOTTLE, UEffectMapper.best(2));
+        register(Items.BLUE_ICE, UEffectMapper.protection());
 
         // Custom
         register(PItems.TELEPORTATION_CORE, UEffectMapper.ranged(UEffect.increment(PEntityAttributes.PROJECTILE_SPEED)));
@@ -100,6 +102,10 @@ public class Upgrades {
         register(PItems.SILENT_HEART, List.of(UEffectMapper.boots(UEffect.increment(PEntityAttributes.SILENT)), UEffectMapper.helmet(UEffect.increment(PEntityAttributes.DARKNESS_IMMUNITY))));
         register(PItems.HEART_OF_GREED, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.UNLUCK_IMMUNITY)));
         register(PItems.STELLAR_SHARD, UEffectMapper.damage(5));
+        register(PItems.RUBY, UEffectMapper.best(3));
+        register(PItems.BURNED_CD, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_ATTACK_SPEED, 0.1)), UEffectMapper.fishingRod(UEffect.increment(PEntityAttributes.TREASURE_QUALITY, 2))));
+        register(PItems.STAR_FRAGMENT, UEffectMapper.damage(5));
+        register(PItems.STAR, UEffectMapper.best(10));
 
         // Other
         register(RingOfAttraction.RING_OF_ATTRACTION, UEffectMapper.chestplate(UEffect.increment(PEntityAttributes.MAGNET)));

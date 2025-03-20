@@ -69,12 +69,22 @@ public class GourmetFoods {
         register(Items.SLIME_BALL, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
         //register(Items.SEA_PICKLE, UEffect.add(EntityAttributes.GENERIC_MAX_HEALTH, 1)); // doesn't work because it glitches, as it can also be placed
         register(Items.MAGMA_CREAM, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(Items.TROPICAL_FISH, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
 
         // Custom
         register(PItems.STAR_APPLE, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 10));
         register(PItems.ENCHANTED_STAR_APPLE, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 20));
         register(PItems.SILENT_HEART, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 5));
         register(PItems.COSMIC_SOUP, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 5));
+        register(PItems.BLUE_ALGAE, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 4));
+        register(PItems.BLACK_BASS, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 2));
+        register(PItems.GOLDEN_LOBSTER, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 4));
+        register(PItems.RAINBOWFISH, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 2));
+        register(PItems.SUNFISH, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 1));
+        register(PItems.FLYING_FISH, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 2));
+        register(PItems.SPACE_EEL, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 5));
+        register(PItems.STELLAR_JELLY, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 3));
+        register(PItems.VACUUM_FISH, UEffect.increment(EntityAttributes.GENERIC_MAX_HEALTH, 4));
     }
 
     // Combat. Separated so we can wait for other mods to finish registering

@@ -1,0 +1,9 @@
+// 1.19.2	2025-03-20T22:38:49.5719096	minecraft:fishing Loot Table
+794ec02c89c4b39df52eb30d44f7a08fd1cb9abc data\prog\loot_tables\gameplay\lava_fishing.json
+e21fa58103d19c514a003463271350f183b9f2b4 data\prog\loot_tables\gameplay\void_fishing.json
+18423ea7c69c6b352c3f2dc87390d8f9795f0491 data\prog\loot_tables\gameplay\lava_fishing\treasure.json
+5bd547ebe421c375a6c95ac1166959588b0f9481 data\prog\loot_tables\gameplay\void_fishing\fish.json
+ba68405d4a2781c654598077b8d7bc75327085e3 data\prog\loot_tables\gameplay\void_fishing\treasure.json
+602e4b6892461a76db5e645fd0aeef1df35df6e9 data\prog\loot_tables\gameplay\lava_fishing\fish.json
+b619170cd5a08c6dd6bc970edd5bcb7c4d8d8b2a data\prog\loot_tables\gameplay\void_fishing\junk.json
+21baa407af47b12fe45aaa6644f3fa55965d6e8b data\prog\loot_tables\gameplay\lava_fishing\junk.json

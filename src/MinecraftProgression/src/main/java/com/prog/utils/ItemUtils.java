@@ -44,6 +44,10 @@ public class ItemUtils {
     public static boolean isFireproof(Item item) {
         return ItemUtils.hasTag(item, PItemTags.UPGRADABLE)
                 || item == Items.ENCHANTED_BOOK
+                || item == Items.POTION
+                || item == Items.EXPERIENCE_BOTTLE
+                || item == Items.GLASS_BOTTLE
+                || item == Items.HONEY_BOTTLE
                 || item == Items.NAUTILUS_SHELL
                 || item.isFireproof();
     }

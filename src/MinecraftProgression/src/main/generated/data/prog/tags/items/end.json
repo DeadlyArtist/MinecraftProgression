@@ -1,19 +1,19 @@
 {
   "replace": false,
   "values": [
-    "prog:end_sword",
-    "prog:end_chestplate",
-    "prog:end_shovel",
+    "prog:end_shield",
+    "prog:end_helmet",
+    "prog:end_crossbow",
+    "prog:end_axe",
+    "prog:end_bow",
     "prog:end_hoe",
     "prog:end_boots",
-    "prog:end_leggings",
-    "prog:end_axe",
-    "prog:end_pickaxe",
+    "prog:end_shovel",
     "prog:end_fishing_rod",
-    "prog:end_helmet",
-    "prog:end_shears",
-    "prog:end_crossbow",
-    "prog:end_bow",
-    "prog:end_shield"
+    "prog:end_sword",
+    "prog:end_chestplate",
+    "prog:end_leggings",
+    "prog:end_pickaxe",
+    "prog:end_shears"
   ]
 }

@@ -53,6 +53,35 @@ public class PFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 3000, 3), 1.0F)
             .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 3000, 3), 1.0F)
             .build();
+    public static final FoodComponent BLUE_ALGAE = new FoodComponent.Builder().hunger(1).saturationModifier(0.3F).snack()
+            .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 1600, 2), 1.0F)
+            .build();
+    public static final FoodComponent BLACK_BASS = new FoodComponent.Builder().hunger(6).saturationModifier(0.8F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 1600, 2), 1.0F)
+            .build();
+    public static final FoodComponent GOLDEN_LOBSTER = new FoodComponent.Builder()
+            .hunger(3)
+            .saturationModifier(0.8F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 100, 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 600, 0), 1.0F)
+            .build();
+    public static final FoodComponent RAINBOWFISH = new FoodComponent.Builder().hunger(5).saturationModifier(0.8F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 0), 1.0F)
+            .build();
+    public static final FoodComponent SUNFISH = new FoodComponent.Builder().hunger(4).saturationModifier(0.8F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 600, 0), 1.0F)
+            .build();
+    public static final FoodComponent FLYING_FISH = new FoodComponent.Builder().hunger(6).saturationModifier(0.8F).build();
+    public static final FoodComponent SPACE_EEL = new FoodComponent.Builder().hunger(8).saturationModifier(0.8F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 1600, 0), 1.0F)
+            .build();
+    public static final FoodComponent STELLAR_JELLY = new FoodComponent.Builder().hunger(1).saturationModifier(0.3F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 1600, 6), 1.0F)
+            .build();
+    public static final FoodComponent VACUUM_FISH = new FoodComponent.Builder().hunger(5).saturationModifier(0.8F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 1200, 0), 1.0F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 1200, 0), 1.0F)
+            .build();
 
     // Compat
     public static final FoodComponent CORRUPTED_WART = new FoodComponent.Builder().hunger(4).saturationModifier(0.5F)

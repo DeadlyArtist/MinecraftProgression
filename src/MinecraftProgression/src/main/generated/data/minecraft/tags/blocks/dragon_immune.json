@@ -4,8 +4,8 @@
     "prog:pure_evergloom_block",
     "prog:cosmic_incubator",
     "prog:verum_block",
-    "prog:evergloom",
     "prog:verum_ore",
+    "prog:evergloom",
     "prog:cosmic_constructor"
   ]
 }

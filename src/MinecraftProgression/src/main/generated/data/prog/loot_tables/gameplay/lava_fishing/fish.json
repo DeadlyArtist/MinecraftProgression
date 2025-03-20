@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "prog:sunfish",
+          "weight": 60
+        },
+        {
+          "type": "minecraft:item",
+          "name": "prog:rainbowfish",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "prog:golden_lobster",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "prog:black_bass",
+          "weight": 13
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

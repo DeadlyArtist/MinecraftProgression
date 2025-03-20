@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "prog:flying_fish",
+          "weight": 60
+        },
+        {
+          "type": "minecraft:item",
+          "name": "prog:stellar_jelly",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "prog:space_eel",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "prog:vacuum_fish",
+          "weight": 10
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

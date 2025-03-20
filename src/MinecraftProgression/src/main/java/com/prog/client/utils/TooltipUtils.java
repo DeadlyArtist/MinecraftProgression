@@ -2,28 +2,59 @@ package com.prog.client.utils;
 
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.text.PTexts;
+import com.prog.utils.EnchantmentUtils;
 import com.prog.utils.MeleeUtils;
 import com.prog.utils.RangedUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Formatting;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 @Environment(EnvType.CLIENT)
 public class TooltipUtils {
+
+    public static double calculateBonus(ItemStack stack, EntityAttributeModifier entityAttributeModifier, double baseDamage) {
+        var bonus = 0D;
+        if (entityAttributeModifier.getId() == Item.ATTACK_DAMAGE_MODIFIER_ID)
+            bonus = EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, stack, baseDamage, false);
+        if (entityAttributeModifier.getId() == RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID)
+            bonus = EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, stack, baseDamage, true);
+
+        return bonus;
+    }
+
+    public static String getBonusString(ItemStack stack, Multimap<EntityAttribute, EntityAttributeModifier> multimap, EntityAttribute entityAttribute, EntityAttributeModifier entityAttributeModifier, DecimalFormat instance, double baseDamage) {
+        var string = instance.format(baseDamage);
+        var plusDamage = 0D;
+        for (var mod : multimap.get(entityAttribute)) {
+            if (mod.getOperation() != EntityAttributeModifier.Operation.ADDITION ||
+                    mod.getId() == entityAttributeModifier.getId()) continue;
+            plusDamage += mod.getValue();
+        }
+        baseDamage += plusDamage;
+        var bonus = calculateBonus(stack, entityAttributeModifier, baseDamage);
+//        if (Screen.hasShiftDown() && (plusDamage != 0 || bonus != 0)) string += " (" + instance.format(baseDamage) + ", " + instance.format(baseDamage + bonus) + ")"; // Uncomment to show extra for sharpness/power
+        if (Screen.hasShiftDown() && plusDamage != 0) string += " (" + instance.format(baseDamage) + ")";
+        return string;
+    }
 
     public static Text tryAppendDisabled(Text text, EntityAttribute attribute) {
         var player = MinecraftClient.getInstance().player;
@@ -35,6 +66,8 @@ public class TooltipUtils {
             if (pComponent.luminanceDisabled) append = true;
         } else if (attribute == PEntityAttributes.STEP_HEIGHT) {
             if (pComponent.stepAssistDisabled) append = true;
+        } else if (attribute == PEntityAttributes.INSOMNIA_IMMUNITY) {
+            if (pComponent.insomniaImmunityDisabled) append = true;
         } else if (attribute == PEntityAttributes.BAD_OMEN_IMMUNITY) {
             if (pComponent.badOmenImmunityDisabled) append = true;
         } else if (attribute == PEntityAttributes.MAGNET) {

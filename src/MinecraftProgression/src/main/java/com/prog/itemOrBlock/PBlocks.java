@@ -1,7 +1,7 @@
 package com.prog.itemOrBlock;
 
 import com.prog.Prog;
-import com.prog.data.PLootTableProvider;
+import com.prog.data.PBlockLootTableProvider;
 import com.prog.itemOrBlock.custom.FlexibleBuddingBlock;
 import com.prog.itemOrBlock.custom.FlexibleCookingBlock;
 import com.prog.itemOrBlock.custom.FlexibleCraftingBlock;
@@ -47,10 +47,10 @@ public class PBlocks {
         public String name;
         public Item blockItem;
         public Consumer<BlockStateModelGenerator> modelSupplier;
-        public Consumer<PLootTableProvider> lootSupplier;
+        public Consumer<PBlockLootTableProvider> lootSupplier;
         public List<TagKey<Block>> tags;
 
-        public BlockData(String name, Item blockItem, Consumer<BlockStateModelGenerator> modelSupplier, Consumer<PLootTableProvider> lootSupplier, @Nullable List<TagKey<Block>> tags) {
+        public BlockData(String name, Item blockItem, Consumer<BlockStateModelGenerator> modelSupplier, Consumer<PBlockLootTableProvider> lootSupplier, @Nullable List<TagKey<Block>> tags) {
             this.name = name;
             this.blockItem = blockItem;
             this.modelSupplier = modelSupplier;
@@ -117,11 +117,11 @@ public class PBlocks {
         protected final Block block;
         protected final ItemGroup group;
         protected final BiConsumer<BlockStateModelGenerator, Block> modelSupplier;
-        protected final BiConsumer<PLootTableProvider, Block> lootSupplier;
+        protected final BiConsumer<PBlockLootTableProvider, Block> lootSupplier;
         protected List<TagKey<Block>> tags = List.of();
         protected Consumer<FabricItemSettings> itemSettings = s -> {};
 
-        public BlockBuilder(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PLootTableProvider, Block> lootSupplier) {
+        public BlockBuilder(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PBlockLootTableProvider, Block> lootSupplier) {
             this.id = id;
             this.block = block;
             this.group = group;
@@ -144,11 +144,11 @@ public class PBlocks {
         }
     }
 
-    private static BlockBuilder register(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PLootTableProvider, Block> lootSupplier) {
+    private static BlockBuilder register(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PBlockLootTableProvider, Block> lootSupplier) {
         return new BlockBuilder(id, block, group, modelSupplier, lootSupplier);
     }
 
-    private static Block registerBlock(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PLootTableProvider, Block> lootSupplier, List<TagKey<Block>> tags, Consumer<FabricItemSettings> itemSettings) {
+    private static Block registerBlock(String id, Block block, ItemGroup group, BiConsumer<BlockStateModelGenerator, Block> modelSupplier, BiConsumer<PBlockLootTableProvider, Block> lootSupplier, List<TagKey<Block>> tags, Consumer<FabricItemSettings> itemSettings) {
         id = id.toLowerCase();
         String name = StringUtils.toNormalCase(id);
         Block registeredBlock = Registry.register(Registry.BLOCK, new Identifier(Prog.MOD_ID, id), block);

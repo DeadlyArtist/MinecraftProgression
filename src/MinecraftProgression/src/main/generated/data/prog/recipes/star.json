@@ -1,0 +1,17 @@
+{
+  "type": "prog:cosmic_constructor_shaped",
+  "key": {
+    "s": {
+      "item": "prog:star_fragment"
+    }
+  },
+  "pattern": [
+    "  s  ",
+    "sssss",
+    " sss ",
+    "s   s"
+  ],
+  "result": {
+    "item": "prog:star"
+  }
+}

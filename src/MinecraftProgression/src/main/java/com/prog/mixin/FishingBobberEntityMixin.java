@@ -3,6 +3,7 @@ package com.prog.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalFloatRef;
 import com.prog.entity.attribute.PEntityAttributes;
+import com.prog.lootTable.PLootTables;
 import com.prog.utils.FishingUtils;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.block.Block;
@@ -12,6 +13,7 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.LootTables;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
@@ -190,6 +192,10 @@ public class FishingBobberEntityMixin {
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/loot/LootTable;generateLoot(Lnet/minecraft/loot/context/LootContext;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;"))
     public ObjectArrayList<ItemStack> generateLoot(LootTable instance, LootContext context, @Local LootContext.Builder builder) {
         var owner = self.getPlayerOwner();
+        var result = FishingUtils.changeAllowedFluids(self, self.getBlockPos());
+        if (result.inLava) instance = self.world.getServer().getLootManager().getTable(PLootTables.LAVA_FISHING_GAMEPLAY);
+        else if (result.inVoid) instance = self.world.getServer().getLootManager().getTable(PLootTables.VOID_FISHING_GAMEPLAY);
+
         var luck = (float) luckOfTheSeaLevel + owner.getLuck();
         var treasure = FishingUtils.isTreasure(self.random, luck);
         if (!treasure) return instance.generateLoot(context);

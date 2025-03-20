@@ -12,7 +12,7 @@ This mod is currently in an early playtesting stage. The core features are done 
 Fabric: 1.19.2
 
 ## Modpack
-For a simple, lightweight modpack built around this mod, see the [More Progression Pack](https://www.curseforge.com/minecraft/modpacks/more-progression-pack). By adding many of the basic modding commodities and quality of life changes (such as [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items), [Jade](https://www.curseforge.com/minecraft/mc-mods/jade), and many more), as well as few carefully selected other mods (such as [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), some simple structure mods, [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs), [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge), and more), the progression experience is taken to the next level.
+For a simple, lightweight modpack built around this mod, see the [More Progression Pack](https://www.curseforge.com/minecraft/modpacks/more-progression-pack). By adding many of the basic modding commodities and quality of life changes (such as [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items), [Jade](https://www.curseforge.com/minecraft/mc-mods/jade), and many more), as well as few carefully selected other mods (such as [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), [Explorer's Compass](https://www.curseforge.com/minecraft/mc-mods/explorers-compass), some simple structure mods, [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs), [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge), and more), the progression experience is taken to the next level.
 
 ## Design Goals
 Extended Progression: Default minecraft progression from wood to stone to iron to diamond is very enjoyable, but too short. The main goal of this mod is to fix that by introducing tiers beyond diamond.
@@ -71,16 +71,17 @@ Below is a list of useful things that might be easy to miss.
 *Ghast Tear*: Upgrade your helmet to gain lava vision. This is useful for quickly farming a lot of ancient debris.  
 *Carved Pumpkin*: Upgrade your helmet to not draw enderman aggro from staring.  
 *Mechanical Boots*: Upgrade your boots to enjoy a step assist.  
-*Ring of Attraction*: Upgrade your chestplate to passively pull in all nearby items.  
+*Ring of Attraction*: Upgrade your chestplate to passively pull in all nearby items. This greatly helps with fishing in lava.  
 *Dream Catcher*: Upgrade your chestplate to gain Insomnia Immunity.  
 *White Banner*: Upgrade your chestplate to gain Bad Omen Immunity.  
 *Ocean's Grace*: Upgrade your helmet to gain Mining Fatigue Immunity.  
 *Silent Heart*: Upgrade your helmet to gain Darkness Immunity, and your boots to become Silent.  
 *Anchor*: Upgrade your chestplate to gain Levitation Immunity.  
+*Fishing*: Some upgrades and gourmet foods can only be found by fishing in the lava or the void.  
 
 ### Resources
 *Ancient Debris*: You now need at least a titan pickaxe to mine them. Using a diamond pickaxe will not work.  
-*Evergloom*: Can be found whereever sculk can be found (such as in ancient cities).  
+*Evergloom*: Can be found whereever sculk can be found (such as in ancient cities). It is recommended to install a mod like [Explorer's Compass](https://www.curseforge.com/minecraft/mc-mods/explorers-compass) to find ancient cities.  
 *Verum Ore*: Look below the end islands to find them.  
 *Stellar Shards*: They spawn in geodes that are exclusive to the end.  
 
@@ -151,6 +152,7 @@ https://www.curseforge.com/minecraft/mc-mods/more-crossbows-cj
 https://github.com/YggdrasziI/BetterShears3  
 https://github.com/fzzyhmstrs/ai  
 https://github.com/fzzyhmstrs/tns  
+https://clockworkraven.itch.io/ (Premium Assets)  
 
 ## Author
 

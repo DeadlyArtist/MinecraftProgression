@@ -1,27 +1,18 @@
 package com.prog.mixin;
 
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalBooleanRef;
 import com.llamalad7.mixinextras.sugar.ref.LocalDoubleRef;
 import com.prog.client.utils.TooltipUtils;
-import com.prog.entity.PComponents;
-import com.prog.entity.attribute.PEntityAttributes;
 import com.prog.event.ItemEvents;
 import com.prog.event.ItemStackEvents;
 import com.prog.itemOrBlock.PItemTags;
-import com.prog.itemOrBlock.custom.TieredCrossbowItem;
-import com.prog.itemOrBlock.custom.TieredFishingRodItem;
-import com.prog.itemOrBlock.custom.TieredTridentItem;
 import com.prog.text.PTexts;
 import com.prog.utils.*;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
@@ -43,11 +34,15 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.text.DecimalFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
+
+    @Unique
+    private final ItemStack self = (ItemStack) (Object) this;
+
     @Inject(method = "<init>(Lnet/minecraft/item/ItemConvertible;I)V", at = @At("TAIL"))
     private void onConstructorHead(ItemConvertible item, int count, CallbackInfo info) {
         var stack = (ItemStack) (Object) this;
@@ -93,7 +88,7 @@ public class ItemStackMixin {
         ItemStack self = (ItemStack) (Object) this;
         var modifierId = modifier.getId();
         if (modifierId.equals(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID)) {
-            d.set(d.get() + EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get(), true));
+            //d.set(d.get() + EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get(), true));
             bl.set(true);
         } else if (modifierId.equals(MeleeUtils.SHIELD_BASE_MODIFIER_ID)) {
             bl.set(true);
@@ -113,11 +108,39 @@ public class ItemStackMixin {
             )
     )
     private float redirectGetAttributeBaseValue(ItemStack stack, EntityGroup group, @Local(ordinal = 0) double d) {
-        ItemStack self = (ItemStack) (Object) this;
-        return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d);
+        //return (float) EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d);
+        return 0;
     }
 
-    // Redirect the first list.add with positive "d"
+    @Environment(EnvType.CLIENT)
+    @Redirect(method = "getTooltip",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/text/DecimalFormat;format(D)Ljava/lang/String;", ordinal = 0))
+    private String redirectBlueModifier(DecimalFormat instance, double v, @Local EntityAttributeModifier entityAttributeModifier, @Local Multimap<EntityAttribute, EntityAttributeModifier> multimap, @Local Map.Entry<EntityAttribute, EntityAttributeModifier> entry) {
+        return TooltipUtils.getBonusString(self, multimap, entry.getKey(), entityAttributeModifier, instance, v);
+    }
+
+//    @Environment(EnvType.CLIENT)
+//    @Redirect(method = "getTooltip",
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Ljava/text/DecimalFormat;format(D)Ljava/lang/String;", ordinal = 1))
+//    private String redirectPlusModifier(DecimalFormat instance, double v, @Local EntityAttributeModifier entityAttributeModifier) {
+//        return TooltipUtils.getBonusString(self, entityAttributeModifier, instance, v);
+//    }
+//
+//    @Environment(EnvType.CLIENT)
+//    @Redirect(method = "getTooltip",
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Ljava/text/DecimalFormat;format(D)Ljava/lang/String;", ordinal = 2))
+//    private String redirectMinusModifier(DecimalFormat instance, double v, @Local EntityAttributeModifier entityAttributeModifier) {
+//        return TooltipUtils.getBonusString(self, entityAttributeModifier, instance, v);
+//    }
+
+
+    // Redirect the first list. add with positive "d"
     @Environment(EnvType.CLIENT)
     @Redirect(method = "getTooltip",
             at = @At(
@@ -128,7 +151,7 @@ public class ItemStackMixin {
         return list.add(TooltipUtils.tryAppendDisabled((Text) text, entry.getKey()));
     }
 
-    // Redirect the second list.add with negative "d"
+    // Redirect the second list. add with negative "d"
     @Environment(EnvType.CLIENT)
     @Redirect(method = "getTooltip",
             at = @At(

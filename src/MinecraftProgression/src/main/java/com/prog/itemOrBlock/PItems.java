@@ -43,7 +43,21 @@ public class PItems {
     public static final Item STAR_APPLE = register("STAR_APPLE", new Item(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item ENCHANTED_STAR_APPLE = register("ENCHANTED_STAR_APPLE", new EnchantedGoldenAppleItem(new FabricItemSettings().group(ItemGroup.FOOD).rarity(Rarity.EPIC).food(PFoodComponents.ENCHANTED_STAR_APPLE)), (modelSupplier, self) -> modelSupplier.register(self, PItems.STAR_APPLE, Models.GENERATED)).finished();
     public static final Item COSMIC_SOUP = register("COSMIC_SOUP", new StewItem(new FabricItemSettings().group(ItemGroup.FOOD).maxCount(1).rarity(Rarity.EPIC).food(PFoodComponents.COSMIC_SOUP)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item BURNED_CD = register("BURNED_CD", new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item RUBY = register("RUBY", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item STAR_FRAGMENT = register("STAR_FRAGMENT", new Item(new FabricItemSettings().group(ItemGroup.MISC).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item STAR = register("STAR", new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.RARE).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
 
+    // Fishing
+    public static final Item BLUE_ALGAE = register("BLUE_ALGAE", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.BLUE_ALGAE).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item BLACK_BASS = register("BLACK_BASS", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.BLACK_BASS).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item GOLDEN_LOBSTER = register("GOLDEN_LOBSTER", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.GOLDEN_LOBSTER).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item RAINBOWFISH = register("RAINBOWFISH", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.RAINBOWFISH).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item SUNFISH = register("SUNFISH", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.SUNFISH).fireproof()), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item FLYING_FISH = register("FLYING_FISH", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.FLYING_FISH)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item SPACE_EEL = register("SPACE_EEL", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.SPACE_EEL)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item STELLAR_JELLY = register("STELLAR_JELLY", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.STELLAR_JELLY)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item VACUUM_FISH = register("VACUUM_FISH", new Item(new FabricItemSettings().group(ItemGroup.FOOD).food(PFoodComponents.VACUUM_FISH)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
 
     // Upgrades
     public static final Item MECHANICAL_BOOTS = register("MECHANICAL_BOOTS", new ArmorItem(SpecialArmorMaterials.MECHANICAL_BOOTS, EquipmentSlot.FEET, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
@@ -68,7 +82,7 @@ public class PItems {
     public static final Item STELLAR_TRIDENT = register("STELLAR_TRIDENT", new TieredTridentItem(TridentMaterials.END, new FabricItemSettings().group(ItemGroup.COMBAT)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tags(List.of(PItemTags.UPGRADABLE)).finished();
 
     // Steel
-    public static final Item STEEL_INGOT = register("STEEL_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item STEEL_INGOT = register("STEEL_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item STEEL_BINDING = register("STEEL_BINDING", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
 
     // Steel tier armor
@@ -116,8 +130,8 @@ public class PItems {
 
 
     // Refined obsidian
-    public static final Item REFINED_OBSIDIAN_INGOT = register("REFINED_OBSIDIAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
-    public static final Item REFINED_OBSIDIAN_MODULE = register("REFINED_OBSIDIAN_MODULE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
+    public static final Item REFINED_OBSIDIAN_INGOT = register("REFINED_OBSIDIAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item REFINED_OBSIDIAN_MODULE = register("REFINED_OBSIDIAN_MODULE", new Item(new FabricItemSettings().group(ItemGroup.REDSTONE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
     public static final Item APOCALYPTIC_SCEPTER = register("APOCALYPTIC_SCEPTER", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
 
     // Refined obsidian tier armor
@@ -144,10 +158,10 @@ public class PItems {
 
 
     // Titan
-    public static final Item EMBERITE = register("EMBERITE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item EMBERITE = register("EMBERITE", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item FLAME_ORB = register("FLAME_ORB", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
-    public static final Item COMPRESSED_QUARTZ = register("COMPRESSED_QUARTZ", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
-    public static final Item TITAN_INGOT = register("TITAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item COMPRESSED_QUARTZ = register("COMPRESSED_QUARTZ", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item TITAN_INGOT = register("TITAN_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item TITAN_CORE = register("TITAN_CORE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
 
     // Titan tier armor
@@ -200,9 +214,9 @@ public class PItems {
 
 
     // Evergloom
-    public static final Item PURE_EVERGLOOM_INGOT = register("PURE_EVERGLOOM_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item PURE_EVERGLOOM_INGOT = register("PURE_EVERGLOOM_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item KNOWLEDGE_POWDER = register("KNOWLEDGE_POWDER", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
-    public static final Item PURE_EVERBLOOD_INGOT = register("PURE_EVERBLOOD_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item PURE_EVERBLOOD_INGOT = register("PURE_EVERBLOOD_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item DEMON_HEART = register("DEMON_HEART", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).tierCore().finished();
 
     // Evergloom tier armor
@@ -229,9 +243,9 @@ public class PItems {
 
 
     // End
-    public static final Item VERUM_INGOT = register("VERUM_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
-    public static final Item RAW_VERUM = register("RAW_VERUM", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
-    public static final Item STELLAR_SHARD = register("STELLAR_SHARD", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item VERUM_INGOT = register("VERUM_INGOT", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item RAW_VERUM = register("RAW_VERUM", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
+    public static final Item STELLAR_SHARD = register("STELLAR_SHARD", new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item VOID_SOUL_HELMET = register("VOID_SOUL_HELMET", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Void Soul (Helmet)").tierCore().finished();
     public static final Item VOID_SOUL_CHESTPLATE = register("VOID_SOUL_CHESTPLATE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Void Soul (Chestplate)").tierCore().finished();
     public static final Item VOID_SOUL_LEGGINGS = register("VOID_SOUL_LEGGINGS", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).name("Void Soul (Leggings)").tierCore().finished();
