@@ -42,7 +42,7 @@ public class RenderUtils {
 
     public static SpriteIdentifier getShieldBaseSpriteIdentifier(Item item) {
         var id = ItemUtils.getId(item);
-        return new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(id.getNamespace(), "entity/" + id.getPath() + "_base"));
+        return new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(id.getNamespace(), "entity/" + id.getPath() + "_base_nopattern")); // should be _base, but causes black sprite for some reason
     }
 
     public static SpriteIdentifier getShieldBaseNoPatternSpriteIdentifier(Item item) {

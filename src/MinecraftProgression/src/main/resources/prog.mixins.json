@@ -64,6 +64,7 @@
     "ServerPlayerEntityMixin",
     "ServerPlayNetworkHandlerMixin",
     "SheepEntityMixin",
+    "ShieldDecorationRecipeMixin",
     "ShieldItemMixin",
     "SittingFlamingPhaseMixin",
     "SmithinScreenHandlerMixin",
