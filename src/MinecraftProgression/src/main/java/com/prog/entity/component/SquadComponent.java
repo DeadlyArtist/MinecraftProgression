@@ -195,10 +195,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
         if (normal() || isFollower() || !(entity.world instanceof ServerWorld serverWorld)) return;
         if (entity.world.getClosestPlayer(entity, 24.0) != null) return;
 
-        var min = rank;
-        var max = rank * 3;
-        var amount = MathHelper.nextInt(entity.random, min, max);
-        amount = MathHelper.clamp(amount, 0, 12);
+        var amount = MathHelper.clamp(rank + 1, 0, 20);
         for (var i = 0; i < amount; i++) {
             spawnFollower();
         }
