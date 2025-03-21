@@ -124,6 +124,7 @@ These have been implemented in an update.
 *Lava and Void Fishing*: Some higher ranked fishing rods are now able to fish in lava, or even in the void.  
 *Evergloom*: Added a new tier using a new block that only spawns in sculk.  
 *Stellar Geode*: Added a new geode that only spawns in the end.  
+*Trident Reserves Slot*: Throwing a trident with loyalty will reserve its slot in the most amazing way imaginable.
 
 ## License
 This mod is licensed under MIT license.
