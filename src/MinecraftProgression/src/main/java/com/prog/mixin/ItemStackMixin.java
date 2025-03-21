@@ -22,6 +22,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
@@ -234,6 +236,24 @@ public class ItemStackMixin {
                         nbt.put(key.replaceFirst(oldPrefix, UpgradeUtils.UPGRADE_NBT_PREFIX), value);
                     }
                 });
+            }
+        }
+        var item = stack.getItem();
+        if (item instanceof TridentItem && world instanceof ServerWorld serverWorld && stack.hasNbt()) {
+            var nbt = stack.getNbt();
+            if (nbt.contains("thrown")) {
+                var thrownUuid = nbt.getUuid("thrown");
+                var thrown = serverWorld.getEntity(thrownUuid);
+                if (thrown == null) {
+                    nbt.remove("thrown");
+                } else {
+                    var thrownTicks = nbt.getInt("thrown_ticks");
+                    thrownTicks++;
+                    nbt.putInt("thrown_ticks", thrownTicks);
+                    if (thrownTicks > 20 * 20) { // 20 seconds
+                        nbt.remove("thrown");
+                    }
+                }
             }
         }
     }

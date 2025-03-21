@@ -1,12 +1,12 @@
-// 1.19.2	2025-03-20T23:13:39.0269216	Tags for minecraft:block
-ea3982d5ca13cffde57a6ec0a9f60a11bf7f10d3 data\minecraft\tags\blocks\mineable\pickaxe.json
+// 1.19.2	2025-03-21T19:34:43.0594271	Tags for minecraft:block
 75fa2796e98dbaa08a6518ad3632c261966f455c data\fabric\tags\blocks\needs_tool_level_5.json
-7dbfe824b443c176b669729b95fd122a505d70fa data\minecraft\tags\blocks\needs_diamond_tool.json
+ec1a9b059aed726b2c2d9dc30e51806d716a55c3 data\minecraft\tags\blocks\mineable\pickaxe.json
 3ad93edd5fc44a5850ae436daea82fed7265289e data\minecraft\tags\blocks\wither_immune.json
-b6e3f7667d5aa3e18909906d0d4ebff61acbbc70 data\fabric\tags\blocks\needs_tool_level_8.json
-be79516aac72b47837edf1a0659639a933e8a3c6 data\minecraft\tags\blocks\crystal_sound_blocks.json
+2e6366f5001e8ac68ae1ae5cd0630d0464bc1b59 data\minecraft\tags\blocks\needs_diamond_tool.json
+b8d53a2876d2163b45d7f4033d1e28241dec9506 data\fabric\tags\blocks\needs_tool_level_8.json
+f953a079e9a3daaedcbbed5af27951438185b0e8 data\minecraft\tags\blocks\crystal_sound_blocks.json
 70883eb7413f68c3c030f63aaf8471d9f7e1c311 data\fabric\tags\blocks\needs_tool_level_7.json
-f7191b289b4c9686ebd91b5254c37a5960317541 data\minecraft\tags\blocks\dragon_immune.json
-487700103ef4adfe2ae6c3b340be2dc5941baffa data\minecraft\tags\blocks\needs_iron_tool.json
-926c9258a08dbf75bec066a18ce88ca9bd502f90 data\fabric\tags\blocks\needs_tool_level_6.json
-c241cd7faf91a45219c7378d4b8076000c6d1412 data\fabric\tags\blocks\needs_tool_level_4.json
+3cdf3d42a8a9d778e45bdee984d9a877fa6424a6 data\minecraft\tags\blocks\dragon_immune.json
+16287efdd3c63f039cc29f9e4ac590a6319083fe data\minecraft\tags\blocks\needs_iron_tool.json
+ab68aba11cc5a47b2a0df19ecea226a3888d4c0f data\fabric\tags\blocks\needs_tool_level_6.json
+089c750b271a01e32b2c9d99a69f233e81671ab7 data\fabric\tags\blocks\needs_tool_level_4.json

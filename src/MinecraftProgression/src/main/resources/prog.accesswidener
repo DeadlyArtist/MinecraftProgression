@@ -45,6 +45,9 @@ accessible field net/minecraft/item/ItemStack CAN_PLACE_ON_KEY Ljava/lang/String
 accessible field net/minecraft/item/ItemStack HIDE_FLAGS_KEY Ljava/lang/String;
 accessible method net/minecraft/item/ItemStack isSectionVisible (ILnet/minecraft/item/ItemStack$TooltipSection;)Z
 
+# ItemRenderer
+accessible method net/minecraft/client/render/item/ItemRenderer renderBakedItemModel (Lnet/minecraft/client/render/model/BakedModel;Lnet/minecraft/item/ItemStack;IILnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;)V
+
 # RenderLayers
 accessible field net/minecraft/client/render/RenderLayers BLOCKS Ljava/util/Map;
 
@@ -61,10 +64,15 @@ accessible field net/minecraft/entity/LivingEntity playerHitTimer I
 accessible field net/minecraft/entity/mob/MobEntity experiencePoints I
 accessible method net/minecraft/entity/mob/MobEntity getLootContextBuilder (ZLnet/minecraft/entity/damage/DamageSource;)Lnet/minecraft/loot/context/LootContext$Builder;
 
+# Persistent Projectile Entity
+accessible field net/minecraft/entity/projectile/PersistentProjectileEntity life I
+accessible field net/minecraft/entity/projectile/PersistentProjectileEntity inGround Z
+
 # TridentEntity
 accessible field net/minecraft/entity/projectile/TridentEntity tridentStack Lnet/minecraft/item/ItemStack;
 accessible field net/minecraft/entity/projectile/TridentEntity LOYALTY Lnet/minecraft/entity/data/TrackedData;
 accessible field net/minecraft/entity/projectile/TridentEntity ENCHANTED Lnet/minecraft/entity/data/TrackedData;
+accessible method net/minecraft/entity/projectile/TridentEntity tryPickup (Lnet/minecraft/entity/player/PlayerEntity;)Z
 
 # FishingBobberEntity
 accessible class net/minecraft/entity/projectile/FishingBobberEntity$PositionType

@@ -30,6 +30,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.TridentItem;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -87,6 +88,10 @@ public class PClient implements ClientModInitializer {
 
             // Contains upgrades
             UpgradeUtils.addUpgradeTooltip(lines, stack);
+
+            if (item instanceof TridentItem && stack.hasNbt() && stack.getNbt().contains("thrown")) {
+                lines.add(PTexts.THROWN_TOOLTIP.get());
+            }
         });
 
         ItemTooltipCallback.EVENT.register((itemStack, context, lines) -> {

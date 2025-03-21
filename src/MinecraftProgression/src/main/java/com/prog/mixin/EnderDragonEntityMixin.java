@@ -42,6 +42,11 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
         return DragonUtils.DRAGON_FIRST_KILL_XP;
     }
 
+    @ModifyConstant(method = "tickWithEndCrystals", constant = @Constant(floatValue = 1, ordinal = 0))
+    private float changeCrystalHealing(float constant) {
+        return DragonUtils.HEALTH_REGENERATED_BY_CRYSTAL;
+    }
+
     @ModifyConstant(method = "launchLivingEntities", constant = @Constant(floatValue = 5, ordinal = 0))
     private float changeDamageBody(float constant) {
         return (float) getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);

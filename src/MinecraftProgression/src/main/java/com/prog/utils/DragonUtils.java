@@ -2,7 +2,6 @@ package com.prog.utils;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
-import net.minecraft.entity.boss.dragon.phase.PhaseType;
 import net.minecraft.entity.projectile.DragonFireballEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -10,18 +9,22 @@ import net.minecraft.world.WorldEvents;
 
 public class DragonUtils {
 
-    public static int DRAGON_MAX_HEALTH = 2222;
+    public static int DRAGON_MAX_HEALTH = 11111;
     public static int DRAGON_ATTACK_DAMAGE = 400;
     public static int HIGHEST_PHASE = 3;
     public static int MAXIMUM_FIREBALL_ANGLE = 70;
     public static int FIREBALL_EXPLOSION_DAMAGE_MULTIPLIER = 10;
+    public static int HEALTH_REGENERATED_BY_CRYSTAL = 100;
 
-    public static int DRAGON_FIRST_KILL_XP = 150000;
+    public static int DRAGON_FIRST_KILL_XP = 200000;
     public static int DRAGON_KILL_XP = 100000;
 
+    public static double SECOND_PHASE_PERCENT = 0.66;
+    public static double THIRD_PHASE_PERCENT = 0.33;
+
     public static int getPhase(EnderDragonEntity dragon) {
-        if (dragon.getHealth() / dragon.getMaxHealth() < 0.2) return 3;
-        if (dragon.getHealth() / dragon.getMaxHealth() < 0.5) return 2;
+        if (dragon.getHealth() / dragon.getMaxHealth() < THIRD_PHASE_PERCENT) return 3;
+        if (dragon.getHealth() / dragon.getMaxHealth() < SECOND_PHASE_PERCENT) return 2;
         return 1;
     }
 

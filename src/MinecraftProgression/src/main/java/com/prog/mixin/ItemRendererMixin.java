@@ -1,9 +1,12 @@
 package com.prog.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.prog.client.utils.ItemModelRegistry;
+import com.prog.client.utils.RenderUtils;
 import com.prog.utils.ItemUtils;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.*;
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
@@ -16,6 +19,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,6 +31,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
+
+    @Redirect(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isEmpty()Z", ordinal = 0))
+    public boolean redirectIsEmpty(ItemStack instance, @Local ModelTransformation.Mode renderMode) {
+        boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND || renderMode == ModelTransformation.Mode.FIXED;
+        if (!bl && instance.getItem() instanceof TridentItem && instance.hasNbt() && instance.getNbt().contains("thrown")) return true;
+        return instance.isEmpty();
+    }
 
     @Redirect(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z", ordinal = 0))
     public boolean redirectIsOf(ItemStack instance, Item item) {
@@ -49,6 +60,13 @@ public abstract class ItemRendererMixin {
     @Redirect(method = "getModel", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/BakedModelManager;getModel(Lnet/minecraft/client/util/ModelIdentifier;)Lnet/minecraft/client/render/model/BakedModel;", ordinal = 0))
     public BakedModel redirectRenderTrident2(BakedModelManager instance, ModelIdentifier id, @Local ItemStack stack) {
         return instance.getModel(new ModelIdentifier(ItemUtils.getId(stack.getItem()) + "_in_hand#inventory"));
+    }
+
+    @Inject(method = "renderGuiItemModel", at = @At("TAIL"))
+    private void injectGreyOverlay(ItemStack stack, int x, int y, BakedModel model, CallbackInfo ci) {
+        if (stack.getItem() instanceof TridentItem && stack.hasNbt() && stack.getNbt().contains("thrown")) {
+            RenderUtils.renderGreyOverlay(x, y);
+        }
     }
 
 
