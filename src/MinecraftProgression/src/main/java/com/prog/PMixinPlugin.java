@@ -22,6 +22,7 @@ public class PMixinPlugin implements IMixinConfigPlugin {
             // Universal Enchants
             "com.prog.mixin.compat.universalenchants.AdditionalEnchantmentDataProviderAccessor", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
             "com.prog.mixin.compat.universalenchants.AdditionalEnchantmentDataProviderMixin", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
+            "com.prog.mixin.compat.universalenchants.DataEntryBuilderAccessor", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
             "com.prog.mixin.compat.universalenchants.ItemCompatHandlerMixin", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS),
             "com.prog.mixin.compat.universalenchants.ServerConfigMixin", () -> XCompat.isModLoaded(XIDs.UNIVERSAL_ENCHANTS)
     );

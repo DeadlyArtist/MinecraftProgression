@@ -1,21 +1,21 @@
 {
   "replace": false,
   "values": [
-    "prog:ultimate_diamond_sword",
-    "prog:ultimate_diamond_shield",
-    "prog:ultimate_diamond_boots",
-    "prog:ultimate_diamond_leggings",
     "prog:flint_and_amethyst",
-    "prog:ultimate_diamond_helmet",
-    "prog:ultimate_diamond_bow",
     "prog:ultimate_diamond_shovel",
-    "prog:ultimate_diamond_axe",
+    "prog:ultimate_diamond_shield",
+    "prog:ultimate_diamond_fishing_rod",
     "prog:amethyst_shears",
-    "prog:ultimate_diamond_hoe",
+    "prog:ultimate_diamond_bow",
+    "prog:ultimate_diamond_boots",
     "prog:amethyst_trident",
+    "prog:ultimate_diamond_axe",
+    "prog:ultimate_diamond_leggings",
+    "prog:ultimate_diamond_helmet",
     "prog:ultimate_diamond_chestplate",
+    "prog:ultimate_diamond_hoe",
     "prog:ultimate_diamond_crossbow",
     "prog:ultimate_diamond_pickaxe",
-    "prog:ultimate_diamond_fishing_rod"
+    "prog:ultimate_diamond_sword"
   ]
 }

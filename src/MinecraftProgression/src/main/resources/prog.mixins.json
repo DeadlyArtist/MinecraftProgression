@@ -91,6 +91,7 @@
     "compat.soulbound.SoulBoundEnchantmentMixin",
     "compat.universalenchants.AdditionalEnchantmentDataProviderAccessor",
     "compat.universalenchants.AdditionalEnchantmentDataProviderMixin",
+    "compat.universalenchants.DataEntryBuilderAccessor",
     "compat.universalenchants.ItemCompatHandlerMixin",
     "compat.universalenchants.ServerConfigMixin"
   ],

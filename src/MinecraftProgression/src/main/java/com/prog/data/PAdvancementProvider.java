@@ -237,7 +237,7 @@ public class PAdvancementProvider extends FabricAdvancementProvider {
                 PTexts.ADV_MACHINE_ANVIL_TITLE.get(), PTexts.ADV_MACHINE_ANVIL_DESC.get(), fake("story/root"));
 
         Advancement enchantX = registerAdvancement(consumer, "enchant_x",
-                PTexts.ADV_ENCHANTING_X_TITLE.get(), PTexts.ADV_ENCHANTING_X_DESC.get(), Items.ANVIL, anvil, AdvancementFrame.GOAL, AnvilCriterion.Conditions.atLeast(10));
+                PTexts.ADV_ENCHANTING_X_TITLE.get(), PTexts.ADV_ENCHANTING_X_DESC.get(), Items.ENCHANTED_BOOK, anvil, AdvancementFrame.GOAL, AnvilCriterion.Conditions.atLeast(10));
     }
 
     private Advancement registerConsumableAdvancement(Consumer<Advancement> consumer, Item item, String id, Text title, Text desc, Advancement parent, AdvancementFrame frame) {

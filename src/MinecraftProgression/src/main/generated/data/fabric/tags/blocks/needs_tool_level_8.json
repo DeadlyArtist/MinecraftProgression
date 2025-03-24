@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     "prog:budding_stellar",
-    "prog:medium_stellar_bud",
     "prog:stellar_block",
-    "prog:small_stellar_bud",
     "prog:large_stellar_bud",
+    "prog:small_stellar_bud",
+    "prog:verum_block",
     "prog:stellar_cluster",
-    "prog:verum_block"
+    "prog:medium_stellar_bud"
   ]
 }

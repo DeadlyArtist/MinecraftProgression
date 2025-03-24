@@ -2,17 +2,17 @@
   "replace": false,
   "values": [
     "prog:steel_pickaxe",
-    "prog:steel_hoe",
-    "prog:steel_helmet",
-    "prog:steel_bow",
-    "prog:steel_chestplate",
-    "prog:steel_boots",
-    "prog:steel_sword",
-    "prog:steel_fishing_rod",
-    "prog:steel_axe",
     "prog:steel_shovel",
     "prog:steel_crossbow",
+    "prog:steel_bow",
+    "prog:steel_chestplate",
+    "prog:steel_fishing_rod",
+    "prog:steel_sword",
+    "prog:steel_axe",
+    "prog:steel_boots",
     "prog:steel_leggings",
-    "prog:steel_shield"
+    "prog:steel_shield",
+    "prog:steel_helmet",
+    "prog:steel_hoe"
   ]
 }

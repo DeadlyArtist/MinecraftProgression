@@ -1,37 +1,58 @@
 package com.prog.mixin.compat.universalenchants;
 
+import com.google.gson.JsonArray;
+import com.llamalad7.mixinextras.sugar.Local;
 import com.prog.PSettings;
+import com.prog.utils.LOGGER;
 import fuzs.universalenchants.world.item.enchantment.data.AdditionalEnchantmentDataProvider;
 import fuzs.universalenchants.world.item.enchantment.serialize.entry.DataEntry;
+import fuzs.universalenchants.world.item.enchantment.serialize.entry.TypeEntry;
 import net.minecraft.enchantment.*;
 import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Mixin(value = AdditionalEnchantmentDataProvider.class, remap = false)
 public class AdditionalEnchantmentDataProviderMixin {
 
-    @ModifyArg(
-            method = "<init>",
+    @Unique
+    private final AdditionalEnchantmentDataProvider self = (AdditionalEnchantmentDataProvider) (Object) this;
+
+    @Inject(
+            method = "getEnchantmentDataEntries",
             at = @At(
                     value = "INVOKE",
-                    target = "Lfuzs/universalenchants/world/item/enchantment/data/AdditionalEnchantmentDataProvider$AdditionalEnchantmentsData;<init>(Lnet/minecraft/enchantment/EnchantmentTarget;[Lnet/minecraft/enchantment/Enchantment;)V", ordinal = 3
-            ),
-            index = 1
+                    target = "Lfuzs/universalenchants/world/item/enchantment/data/AdditionalEnchantmentDataProvider;setupAdditionalCompatibility(Ljava/util/Map;)V",
+                    shift = At.Shift.AFTER
+            )
     )
-    private Enchantment[] modifyBowEnchantments(Enchantment[] original) {
-        return new Enchantment[]{Enchantments.PIERCING, Enchantments.QUICK_CHARGE, Enchantments.LOOTING};
+    private void modifyBowEnchantments(CallbackInfoReturnable<Map<Enchantment, List<DataEntry<?>>>> cir, @Local Map<Enchantment, DataEntry.Builder> builders) {
+
+        // Ensure Multishot is not compatible with Bow
+        if (builders.containsKey(Enchantments.MULTISHOT)) {
+            var builderAccessor = (DataEntryBuilderAccessor)(Object)builders.get(Enchantments.MULTISHOT);
+            var entries = builderAccessor.getEntries();
+            entries.removeIf(entry -> {
+                if (entry instanceof TypeEntry.CategoryEntry categoryEntry && !categoryEntry.isExclude()) {
+                    var jsonArray = new JsonArray();
+                    entry.serialize(jsonArray);
+                    var id = jsonArray.get(0).getAsString();
+                    var bowId = "$minecraft:bow";
+                    if (Objects.equals(id, bowId)) return true;
+                }
+                return false;
+            });
+        }
     }
 
-    // Inject after the 'Registry.ENCHANTMENT.iterator()' iterable line.
     @Inject(
             method = "setupAdditionalCompatibility",
             at = @At(value = "HEAD"),

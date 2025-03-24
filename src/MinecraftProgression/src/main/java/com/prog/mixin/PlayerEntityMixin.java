@@ -38,6 +38,11 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     private void tick(CallbackInfo ci) {
         PlayerEntity entity = (PlayerEntity) (Object) this;
         EntityEvents.PLAYER_ENTITY_TICK.invoker().tick(entity);
+
+        var mainHand = self.getMainHandStack();
+        if (mainHand.getItem() instanceof TridentItem && mainHand.hasNbt() && mainHand.getNbt().contains("thrown")) {
+            self.resetLastAttackedTicks();
+        }
     }
 
     // Function adapted from https://github.com/pauverblom/flight-affinity/blob/1.20.x/src/main/java/net/baneina/flightaffinity/mixin/PlayerEntityMixin.java
@@ -55,6 +60,13 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     private void getNextLevelExperience(CallbackInfoReturnable<Integer> info) {
         info.setReturnValue(30);
         info.cancel();
+    }
+
+    @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
+    private void injectAttack(Entity target, CallbackInfo ci) {
+        var mainHand = self.getMainHandStack();
+        if (mainHand.getItem() instanceof TridentItem && mainHand.hasNbt() && mainHand.getNbt().contains("thrown"))
+            ci.cancel();
     }
 
     @Inject(
