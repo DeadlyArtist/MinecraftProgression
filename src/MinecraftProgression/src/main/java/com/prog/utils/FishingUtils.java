@@ -77,9 +77,9 @@ public class FishingUtils {
     //}
     //
     //var treasureQuality = 80
-    //var logBase = 1.33;
+    //var logBase = 1.35;
     //var baseLogValue = Math.floor(logX(logBase, treasureQuality));
-    //var desiredLevel = baseLogValue - 4;
+    //var desiredLevel = baseLogValue - 6;
     //var probabilityForHigherLevel = 0;
     //var qualityRequiredForCurrentLevel = 0;
     //var qualityRequiredForNextLevel = 0;
@@ -93,9 +93,9 @@ public class FishingUtils {
     //
     //[desiredLevel, qualityRequiredForCurrentLevel, qualityRequiredForNextLevel, probabilityForHigherLevel].join("\t")
     public static ItemStack generateTreasure(Random random, double treasureQuality) {
-        var logBase = 1.33;
+        var logBase = 1.35;
         var baseLogValue = (int) MathUtils.logX(logBase, treasureQuality);
-        var desiredLevel = baseLogValue - 5;
+        var desiredLevel = baseLogValue - 6;
         var probabilityForHigherLevel = treasureQuality <= RangedUtils.BASE_TREASURE_QUALITY ? 0 : 0.1;
         if (desiredLevel < 1) {
             desiredLevel = 1;
