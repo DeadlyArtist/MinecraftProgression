@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/catch_lava_fish",
+  "criteria": {
+    "obtain_burned_cd": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:burned_cd"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_burned_cd.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:burned_cd"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_burned_cd.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_burned_cd"
+    ]
+  ]
+}

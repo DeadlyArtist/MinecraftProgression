@@ -125,6 +125,7 @@ These have been implemented in an update.
 *Evergloom*: Added a new tier using a new block that only spawns in sculk.  
 *Stellar Geode*: Added a new geode that only spawns in the end.  
 *Trident Reserves Slot*: Throwing a trident with loyalty will reserve its slot in the most amazing way imaginable.  
+*Advancements*: Added all kinds of advancements.  
 
 ## License
 This mod is licensed under MIT license.

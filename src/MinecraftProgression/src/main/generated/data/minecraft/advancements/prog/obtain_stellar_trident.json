@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/throw_trident",
+  "criteria": {
+    "obtain_stellar_trident": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:stellar_trident"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_stellar_trident.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:stellar_trident"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_stellar_trident.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_stellar_trident"
+    ]
+  ]
+}

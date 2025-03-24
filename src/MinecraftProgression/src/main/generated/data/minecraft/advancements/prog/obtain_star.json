@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/catch_void_fish",
+  "criteria": {
+    "obtain_star": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:star"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_star.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "prog:star"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_star.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_star"
+    ]
+  ]
+}

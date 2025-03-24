@@ -51,4 +51,11 @@ public class RangedUtils {
     public static double getProjectileSpeedMultiplier(LivingEntity entity) {
          return entity.getAttributeValue(PEntityAttributes.PROJECTILE_SPEED) / 4;
     }
+
+    public static float getMultishotOffset(int index) {
+        index++;
+        var sign = index % 2 == 0 ? -1 : 1;
+        var offset = (index / 2) * 10;
+        return sign * offset;
+    }
 }

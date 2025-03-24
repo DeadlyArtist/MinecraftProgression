@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:prog/catch_lava_fish",
+  "criteria": {
+    "flying_fish": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:flying_fish"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    },
+    "space_eel": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:space_eel"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    },
+    "stellar_jelly": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:stellar_jelly"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    },
+    "vacuum_fish": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:vacuum_fish"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.catch_void_fish.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:end_fishing_rod"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.catch_void_fish.title"
+    }
+  },
+  "requirements": [
+    [
+      "flying_fish",
+      "stellar_jelly",
+      "vacuum_fish",
+      "space_eel"
+    ]
+  ]
+}

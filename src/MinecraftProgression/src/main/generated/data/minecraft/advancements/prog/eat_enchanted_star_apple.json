@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:prog/eat_star_apple",
+  "criteria": {
+    "eat_enchanted_star_apple": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:enchanted_star_apple"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_enchanted_star_apple.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "prog:enchanted_star_apple"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_enchanted_star_apple.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_enchanted_star_apple"
+    ]
+  ]
+}

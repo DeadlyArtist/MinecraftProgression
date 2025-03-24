@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_pufferfish": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:pufferfish"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_pufferfish.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:pufferfish"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_pufferfish.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_pufferfish"
+    ]
+  ]
+}

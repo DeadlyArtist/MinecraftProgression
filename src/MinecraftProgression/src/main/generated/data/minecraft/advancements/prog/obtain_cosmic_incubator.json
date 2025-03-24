@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:end/dragon_egg",
+  "criteria": {
+    "obtain_cosmic_incubator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:cosmic_incubator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_cosmic_incubator.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:cosmic_incubator"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_cosmic_incubator.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_cosmic_incubator"
+    ]
+  ]
+}

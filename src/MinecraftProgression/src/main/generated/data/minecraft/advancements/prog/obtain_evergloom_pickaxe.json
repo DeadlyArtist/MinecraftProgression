@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:prog/obtain_evergloom_ingot",
+  "criteria": {
+    "obtain_evergloom_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:evergloom_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_evergloom_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:evergloom_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_evergloom_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_evergloom_pickaxe"
+    ]
+  ]
+}

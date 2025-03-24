@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "obtain_amethyst_shears": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:amethyst_shears"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_amethyst_shears.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:amethyst_shears"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_amethyst_shears.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_amethyst_shears"
+    ]
+  ]
+}

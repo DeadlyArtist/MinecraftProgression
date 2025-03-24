@@ -7,7 +7,7 @@ import net.minecraft.recipe.Ingredient;
 public enum PToolMaterials implements ToolMaterial {
     STEEL(MiningLevels.IRON, 6.0F, -1, 14,
             new ToolStats(7, -2.4F),   // Sword
-            new ToolStats(9, -3.1F),   // Axe
+            new ToolStats(12, -3.1F),   // Axe
             new ToolStats(5, -2.8F),   // Pickaxe
             new ToolStats(4, -3.0F),   // Shovel
             new ToolStats(2, -1.0F)   // Hoe
@@ -15,7 +15,7 @@ public enum PToolMaterials implements ToolMaterial {
 
     ULTIMATE_DIAMOND(MiningLevels.DIAMOND, 8.0F, -1, 18,
             new ToolStats(10, -2.4F),   // Sword
-            new ToolStats(13, -3.0F),   // Axe
+            new ToolStats(18, -3.0F),   // Axe
             new ToolStats(8, -2.8F),   // Pickaxe
             new ToolStats(7, -3.0F),   // Shovel
             new ToolStats(4, 0.0F)   // Hoe
@@ -23,7 +23,7 @@ public enum PToolMaterials implements ToolMaterial {
 
     REFINED_OBSIDIAN(PMiningLevels.REFINED_OBSIDIAN, 9.0F, -1, 20,
             new ToolStats(14, -2.4F),   // Sword
-            new ToolStats(18, -3.0F),   // Axe
+            new ToolStats(25, -3.0F),   // Axe
             new ToolStats(12, -2.8F),   // Pickaxe
             new ToolStats(10, -3.0F),   // Shovel
             new ToolStats(6, 0.0F)   // Hoe
@@ -31,7 +31,7 @@ public enum PToolMaterials implements ToolMaterial {
 
     TITAN(PMiningLevels.TITAN, 10.0F, -1, 24,
             new ToolStats(25, -2.4F),   // Sword
-            new ToolStats(30, -3.0F),   // Axe
+            new ToolStats(40, -3.0F),   // Axe
             new ToolStats(20, -2.8F),   // Pickaxe
             new ToolStats(18, -3.0F),   // Shovel
             new ToolStats(11, 2.0F)   // Hoe
@@ -47,7 +47,7 @@ public enum PToolMaterials implements ToolMaterial {
 
     EVERGLOOM(PMiningLevels.EVERGLOOM, 12.0F, -1, 27,
             new ToolStats(61, -2.4F),   // Sword
-            new ToolStats(75, -3.0F),   // Axe
+            new ToolStats(100, -3.0F),   // Axe
             new ToolStats(48, -2.8F),   // Pickaxe
             new ToolStats(41, -3.0F),   // Shovel
             new ToolStats(24, 2.0F)   // Hoe
@@ -55,7 +55,7 @@ public enum PToolMaterials implements ToolMaterial {
 
     END(PMiningLevels.END, 14.0F, -1, 30,
             new ToolStats(86, -2.4F),   // Sword
-            new ToolStats(110, -3.0F),   // Axe
+            new ToolStats(150, -3.0F),   // Axe
             new ToolStats(71, -2.8F),   // Pickaxe
             new ToolStats(62, -3.0F),   // Shovel
             new ToolStats(34, 2.0F)   // Hoe

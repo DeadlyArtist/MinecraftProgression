@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:prog/obtain_smithing_table",
+  "criteria": {
+    "steel_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "steel_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "steel_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "steel_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_steel_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:steel_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_steel_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "steel_helmet",
+      "steel_chestplate",
+      "steel_leggings",
+      "steel_boots"
+    ]
+  ]
+}

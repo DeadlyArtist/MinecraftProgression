@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:prog/obtain_verum_ingot",
+  "criteria": {
+    "obtain_end_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_end_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:end_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_end_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_end_pickaxe"
+    ]
+  ]
+}

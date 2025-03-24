@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:prog/obtain_refined_obsidian_ingot",
+  "criteria": {
+    "refined_obsidian_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "refined_obsidian_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "refined_obsidian_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "refined_obsidian_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_refined_obsidian_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:refined_obsidian_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_refined_obsidian_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "refined_obsidian_helmet",
+      "refined_obsidian_chestplate",
+      "refined_obsidian_leggings",
+      "refined_obsidian_boots"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/form_obsidian",
+  "criteria": {
+    "obtain_assembly": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:assembly"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_assembly.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:assembly"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_assembly.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_assembly"
+    ]
+  ]
+}

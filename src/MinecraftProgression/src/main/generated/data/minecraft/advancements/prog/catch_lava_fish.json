@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:husbandry/fishy_business",
+  "criteria": {
+    "black_bass": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:black_bass"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    },
+    "golden_lobster": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:golden_lobster"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    },
+    "rainbowfish": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:rainbowfish"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    },
+    "sunfish": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:sunfish"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.catch_lava_fish.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:refined_obsidian_fishing_rod"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.catch_lava_fish.title"
+    }
+  },
+  "requirements": [
+    [
+      "sunfish",
+      "rainbowfish",
+      "black_bass",
+      "golden_lobster"
+    ]
+  ]
+}

@@ -1,6 +1,7 @@
 package com.prog;
 
 import com.kwpugh.ring_of_attraction.util.MagnetUtil;
+import com.prog.criterion.PCriteria;
 import com.prog.data.PItemTagProvider;
 import com.prog.data.PKeybindingLangHelper;
 import com.prog.data.PRecipeProvider;
@@ -79,6 +80,7 @@ public class Prog implements ModInitializer {
         PNetwork.init();
         PKeybindingLangHelper.init();
         PItemTagProvider.initTags();
+        PCriteria.init();
 
         // Events
         //ServerTickEvents.START_WORLD_TICK.register(server -> LOGGER.info("WORLD"));
@@ -167,8 +169,11 @@ public class Prog implements ModInitializer {
             var upgrades = UpgradeUtils.extractUpgradeData(stack);
             upgrades.forEach((name, effects) -> effects.forEach(effect -> attributeModifiers.put(effect.target, effect.modifier)));
 
+            if (item instanceof TridentItem) {
+                attributeModifiers.put(XEntityAttributes.ATTACK_RANGE, EntityAttributeModifierUtils.increment("trident_attack_range_increase_1"));
+            }
 
-            if (item instanceof SwordItem && stack.isIn(PItemTags.TITAN_OR_HIGHER)) {
+            if (item instanceof ArmorItem armorItem && armorItem.getSlotType() == EquipmentSlot.CHEST && stack.isIn(PItemTags.REFINED_OBSIDIAN_OR_HIGHER)) {
                 attributeModifiers.put(XEntityAttributes.ATTACK_RANGE, EntityAttributeModifierUtils.increment("default_attack_range_increase_1"));
             }
 

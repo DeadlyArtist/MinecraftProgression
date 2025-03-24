@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "prog:stellar_block",
-    "prog:budding_stellar"
+    "prog:budding_stellar",
+    "prog:stellar_block"
   ]
 }

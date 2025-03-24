@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:nether/obtain_ancient_debris",
+  "criteria": {
+    "obtain_primal_netherite_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_primal_netherite_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:primal_netherite_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_primal_netherite_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_primal_netherite_pickaxe"
+    ]
+  ]
+}

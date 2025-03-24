@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:prog/catch_lava_fish",
+  "criteria": {
+    "obtain_golden_lobster": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:golden_lobster"
+          ]
+        }
+      },
+      "trigger": "minecraft:fishing_rod_hooked"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.catch_golden_lobster.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "prog:golden_lobster"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.catch_golden_lobster.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_golden_lobster"
+    ]
+  ]
+}

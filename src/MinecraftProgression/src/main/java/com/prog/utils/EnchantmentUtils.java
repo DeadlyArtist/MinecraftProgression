@@ -149,6 +149,8 @@ public class EnchantmentUtils {
                 enchantment instanceof UnbreakingEnchantment
         ) return MAX_ENCHANTMENT_LEVEL;
 
+        if (enchantment instanceof MultishotEnchantment) return 3;
+
         return enchantment.getMaxLevel();
     }
 }

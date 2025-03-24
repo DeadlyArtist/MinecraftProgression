@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:story/mine_diamond",
+  "criteria": {
+    "obtain_ultimate_diamond_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:ultimate_diamond_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_ultimate_diamond_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:ultimate_diamond_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_ultimate_diamond_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_ultimate_diamond_pickaxe"
+    ]
+  ]
+}

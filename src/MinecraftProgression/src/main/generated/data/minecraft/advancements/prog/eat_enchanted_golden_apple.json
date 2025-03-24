@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:prog/eat_golden_apple",
+  "criteria": {
+    "eat_enchanted_golden_apple": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:enchanted_golden_apple"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_enchanted_golden_apple.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_enchanted_golden_apple.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_enchanted_golden_apple"
+    ]
+  ]
+}

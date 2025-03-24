@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:prog/defeat_higher_rank",
+  "criteria": {
+    "defeat_much_higher_rank": {
+      "conditions": {
+        "above": true,
+        "rank": 4
+      },
+      "trigger": "prog:defeat_rank"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.defeat_much_higher_rank.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "prog:primal_netherite_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.defeat_much_higher_rank.title"
+    }
+  },
+  "requirements": [
+    [
+      "defeat_much_higher_rank"
+    ]
+  ]
+}

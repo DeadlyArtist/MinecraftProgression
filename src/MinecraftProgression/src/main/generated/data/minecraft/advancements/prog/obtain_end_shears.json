@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/obtain_amethyst_shears",
+  "criteria": {
+    "obtain_end_shears": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_shears"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_end_shears.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:end_shears"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_end_shears.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_end_shears"
+    ]
+  ]
+}

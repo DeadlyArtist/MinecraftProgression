@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:nether/obtain_ancient_debris",
+  "criteria": {
+    "primal_netherite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "primal_netherite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "primal_netherite_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "primal_netherite_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:primal_netherite_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_primal_netherite_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:primal_netherite_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_primal_netherite_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "primal_netherite_helmet",
+      "primal_netherite_chestplate",
+      "primal_netherite_leggings",
+      "primal_netherite_boots"
+    ]
+  ]
+}

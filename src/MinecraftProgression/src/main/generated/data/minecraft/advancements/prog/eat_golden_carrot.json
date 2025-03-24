@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_golden_carrot": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:golden_carrot"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_golden_carrot.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:golden_carrot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_golden_carrot.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_golden_carrot"
+    ]
+  ]
+}

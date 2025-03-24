@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/obtain_cosmic_incubator",
+  "criteria": {
+    "obtain_verum_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:verum_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_verum_ingot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:verum_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_verum_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_verum_ingot"
+    ]
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:prog/obtain_evergloom_ingot",
+  "criteria": {
+    "evergloom_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:evergloom_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "evergloom_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:evergloom_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "evergloom_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:evergloom_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "evergloom_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:evergloom_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_evergloom_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:evergloom_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_evergloom_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "evergloom_helmet",
+      "evergloom_chestplate",
+      "evergloom_leggings",
+      "evergloom_boots"
+    ]
+  ]
+}

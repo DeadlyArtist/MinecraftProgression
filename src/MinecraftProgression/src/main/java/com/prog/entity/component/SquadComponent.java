@@ -2,7 +2,6 @@ package com.prog.entity.component;
 
 import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
-import com.prog.itemOrBlock.tiers.PTierData;
 import com.prog.text.PTexts;
 import com.prog.utils.EntityAttributeModifierUtils;
 import com.prog.utils.RandomUtils;
@@ -80,16 +79,7 @@ public class SquadComponent implements Component, ServerTickingComponent {
         // var level = 7
         // var power = level * 10 / 10;
         // [power].join("    ")
-        var power = 0D;
-        if (player != null) {
-            for (var stack : player.getInventory().armor) {
-                var item = stack.getItem();
-                var level = PTierData.getTierLevel(item);
-                var weight = level * 10 / 10; // non operation, can adjust scaling here.
-                power += weight;
-            }
-        }
-        power /= 4;
+        var power = SquadUtils.getExactPlayerRank(player);
 
         rank = (int) Math.floor(power);
         var hiddenRankRest = power - rank;

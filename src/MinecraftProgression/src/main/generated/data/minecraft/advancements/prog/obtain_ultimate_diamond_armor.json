@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:story/mine_diamond",
+  "criteria": {
+    "ultimate_diamond_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:ultimate_diamond_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ultimate_diamond_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:ultimate_diamond_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ultimate_diamond_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:ultimate_diamond_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ultimate_diamond_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:ultimate_diamond_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_ultimate_diamond_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:ultimate_diamond_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_ultimate_diamond_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "ultimate_diamond_helmet",
+      "ultimate_diamond_chestplate",
+      "ultimate_diamond_leggings",
+      "ultimate_diamond_boots"
+    ]
+  ]
+}

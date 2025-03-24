@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:prog/obtain_anvil",
+  "criteria": {
+    "enchant_x": {
+      "conditions": {
+        "levels": {
+          "min": 10
+        }
+      },
+      "trigger": "minecraft:anvil"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.enchant_x.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:anvil"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.enchant_x.title"
+    }
+  },
+  "requirements": [
+    [
+      "enchant_x"
+    ]
+  ]
+}

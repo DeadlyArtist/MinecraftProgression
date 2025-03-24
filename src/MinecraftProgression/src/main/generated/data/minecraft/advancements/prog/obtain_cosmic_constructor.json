@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:end/root",
+  "criteria": {
+    "obtain_cosmic_constructor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:cosmic_constructor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_cosmic_constructor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:cosmic_constructor"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_cosmic_constructor.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_cosmic_constructor"
+    ]
+  ]
+}

@@ -53,6 +53,7 @@
     "PlacedFeaturesMixin",
     "PlayerEntityMixin",
     "PotionItemMixin",
+    "PowderSnowBlockMixin",
     "ProjectileUtilMixin",
     "ProtectionEnchantmentMixin",
     "PumpkinBlockMixin",

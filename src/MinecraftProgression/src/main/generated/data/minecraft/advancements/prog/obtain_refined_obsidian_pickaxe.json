@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:prog/obtain_refined_obsidian_ingot",
+  "criteria": {
+    "obtain_refined_obsidian_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_refined_obsidian_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:refined_obsidian_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_refined_obsidian_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_refined_obsidian_pickaxe"
+    ]
+  ]
+}

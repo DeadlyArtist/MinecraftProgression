@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:prog/obtain_titan_ingot",
+  "criteria": {
+    "titan_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titan_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titan_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "titan_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_titan_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:titan_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_titan_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "titan_helmet",
+      "titan_chestplate",
+      "titan_leggings",
+      "titan_boots"
+    ]
+  ]
+}

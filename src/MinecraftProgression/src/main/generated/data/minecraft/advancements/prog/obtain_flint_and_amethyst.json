@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/enter_the_nether",
+  "criteria": {
+    "obtain_flint_and_amethyst": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:flint_and_amethyst"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_flint_and_amethyst.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:flint_and_amethyst"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_flint_and_amethyst.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_flint_and_amethyst"
+    ]
+  ]
+}

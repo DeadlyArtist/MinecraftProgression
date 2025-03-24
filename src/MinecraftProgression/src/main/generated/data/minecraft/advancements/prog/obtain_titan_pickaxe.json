@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:prog/obtain_titan_ingot",
+  "criteria": {
+    "obtain_titan_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:titan_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_titan_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:titan_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_titan_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_titan_pickaxe"
+    ]
+  ]
+}

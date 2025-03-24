@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:prog/obtain_verum_ingot",
+  "criteria": {
+    "end_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "end_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "end_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "end_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:end_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_end_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:end_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_end_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "end_helmet",
+      "end_chestplate",
+      "end_leggings",
+      "end_boots"
+    ]
+  ]
+}

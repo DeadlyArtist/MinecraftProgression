@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "criteria": {
+    "obtain_steel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_steel_ingot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:steel_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_steel_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_steel_ingot"
+    ]
+  ]
+}

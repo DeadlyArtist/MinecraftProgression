@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/obtain_incinerator",
+  "criteria": {
+    "obtain_refined_obsidian_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:refined_obsidian_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_refined_obsidian_ingot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:refined_obsidian_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_refined_obsidian_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_refined_obsidian_ingot"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_cosmic_soup": {
+      "conditions": {
+        "item": {
+          "items": [
+            "prog:cosmic_soup"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_cosmic_soup.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:cosmic_soup"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_cosmic_soup.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_cosmic_soup"
+    ]
+  ]
+}

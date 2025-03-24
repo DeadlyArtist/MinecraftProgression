@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "obtain_angel_ring": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:angel_ring"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_angel_ring.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:angel_ring"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_angel_ring.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_angel_ring"
+    ]
+  ]
+}

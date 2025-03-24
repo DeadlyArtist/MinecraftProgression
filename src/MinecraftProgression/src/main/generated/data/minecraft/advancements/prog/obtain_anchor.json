@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "obtain_anchor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:anchor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_anchor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:anchor"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_anchor.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_anchor"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/obtain_primal_netherite_pickaxe",
+  "criteria": {
+    "obtain_evergloom_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:pure_evergloom_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_pure_evergloom_ingot.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:pure_evergloom_ingot"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_pure_evergloom_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_evergloom_ingot"
+    ]
+  ]
+}

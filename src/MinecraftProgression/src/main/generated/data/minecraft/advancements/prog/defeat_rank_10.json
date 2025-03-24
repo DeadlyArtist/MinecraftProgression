@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:prog/defeat_rank_5",
+  "criteria": {
+    "defeat_rank_10": {
+      "conditions": {
+        "above": false,
+        "rank": 10
+      },
+      "trigger": "prog:defeat_rank"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.defeat_rank_10.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:end_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.defeat_rank_10.title"
+    }
+  },
+  "requirements": [
+    [
+      "defeat_rank_10"
+    ]
+  ]
+}

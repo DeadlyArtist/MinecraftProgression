@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:prog/obtain_smithing_table",
+  "criteria": {
+    "obtain_steel_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:steel_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_steel_pickaxe.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:steel_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_steel_pickaxe.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_steel_pickaxe"
+    ]
+  ]
+}

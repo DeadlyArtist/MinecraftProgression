@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:nether/obtain_blaze_rod",
+  "criteria": {
+    "obtain_incinerator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:incinerator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_incinerator.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "prog:incinerator"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_incinerator.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_incinerator"
+    ]
+  ]
+}

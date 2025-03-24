@@ -1,18 +1,18 @@
 package com.prog.itemOrBlock.tiers;
 
 public enum TridentMaterials implements TridentMaterial {
-    STEEL(11),
-    ULTIMATE_DIAMOND(14),
-    REFINED_OBSIDIAN(17),
-    TITAN(25),
-    PRIMAL_NETHERITE(35),
-    EVERGLOOM(52),
-    END(72);
+    STEEL(9),
+    ULTIMATE_DIAMOND(12),
+    REFINED_OBSIDIAN(18),
+    TITAN(32),
+    PRIMAL_NETHERITE(40),
+    EVERGLOOM(80),
+    END(110);
 
     public final double damage;
 
     TridentMaterials(double damage) {
-        this.damage = damage;
+        this.damage = damage - 1;
     }
 
     @Override

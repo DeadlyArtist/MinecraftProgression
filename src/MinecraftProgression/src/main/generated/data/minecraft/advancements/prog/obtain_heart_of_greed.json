@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "obtain_heart_of_greed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:heart_of_greed"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_heart_of_greed.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:heart_of_greed"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_heart_of_greed.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_heart_of_greed"
+    ]
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "obtain_oceans_grace": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:oceans_grace"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_oceans_grace.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:oceans_grace"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_oceans_grace.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_oceans_grace"
+    ]
+  ]
+}

@@ -3,23 +3,33 @@ package com.prog.mixin.compat.universalenchants;
 import com.prog.PSettings;
 import fuzs.universalenchants.world.item.enchantment.data.AdditionalEnchantmentDataProvider;
 import fuzs.universalenchants.world.item.enchantment.serialize.entry.DataEntry;
-import net.minecraft.enchantment.DamageEnchantment;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.enchantment.ProtectionEnchantment;
+import net.minecraft.enchantment.*;
 import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 @Mixin(value = AdditionalEnchantmentDataProvider.class, remap = false)
 public class AdditionalEnchantmentDataProviderMixin {
+
+    @ModifyArg(
+            method = "<init>",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lfuzs/universalenchants/world/item/enchantment/data/AdditionalEnchantmentDataProvider$AdditionalEnchantmentsData;<init>(Lnet/minecraft/enchantment/EnchantmentTarget;[Lnet/minecraft/enchantment/Enchantment;)V", ordinal = 3
+            ),
+            index = 1
+    )
+    private Enchantment[] modifyBowEnchantments(Enchantment[] original) {
+        return new Enchantment[]{Enchantments.PIERCING, Enchantments.QUICK_CHARGE, Enchantments.LOOTING};
+    }
 
     // Inject after the 'Registry.ENCHANTMENT.iterator()' iterable line.
     @Inject(

@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:adventure/kill_a_mob",
+  "criteria": {
+    "defeat_higher_rank": {
+      "conditions": {
+        "above": true,
+        "rank": 2
+      },
+      "trigger": "prog:defeat_rank"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.defeat_higher_rank.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "prog:ultimate_diamond_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.defeat_higher_rank.title"
+    }
+  },
+  "requirements": [
+    [
+      "defeat_higher_rank"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_slime": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:slime_ball"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_slime.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:slime_ball"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_slime.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_slime"
+    ]
+  ]
+}

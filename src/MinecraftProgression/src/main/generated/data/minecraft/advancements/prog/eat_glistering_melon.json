@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_glistering_melon": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:glistering_melon_slice"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_glistering_melon.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:glistering_melon_slice"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_glistering_melon.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_glistering_melon"
+    ]
+  ]
+}

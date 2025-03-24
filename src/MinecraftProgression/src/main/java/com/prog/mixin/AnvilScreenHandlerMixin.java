@@ -2,11 +2,15 @@ package com.prog.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
+import com.prog.criterion.PCriteria;
 import com.prog.utils.EnchantmentUtils;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.AnvilScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.tag.ItemTags;
 import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,6 +36,15 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
 
     public AnvilScreenHandlerMixin(@Nullable ScreenHandlerType<?> type, int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(type, syncId, playerInventory, context);
+    }
+
+    @Inject(method = "onTakeOutput", at = @At("HEAD"))
+    private void injectOnTakeOutput(CallbackInfo ci, @Local PlayerEntity player, @Local ItemStack stack) {
+        if (player instanceof ServerPlayerEntity serverPlayer) {
+            for (var enchantmentEntry : EnchantmentHelper.get(stack).entrySet()) {
+                PCriteria.ANVIL.trigger(serverPlayer, stack, enchantmentEntry.getValue());
+            }
+        }
     }
 
     @Inject(method = "updateResult()V", at = @At("TAIL"))

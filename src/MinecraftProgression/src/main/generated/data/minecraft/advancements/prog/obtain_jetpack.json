@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:prog/obtain_refined_obsidian_ingot",
+  "criteria": {
+    "obtain_jetpack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "jetpackattribute:mechanical_jetpack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_jetpack.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "jetpackattribute:mechanical_jetpack"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_jetpack.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_jetpack"
+    ]
+  ]
+}

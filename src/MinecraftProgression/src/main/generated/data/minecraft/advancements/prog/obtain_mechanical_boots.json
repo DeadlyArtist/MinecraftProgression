@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "obtain_mechanical_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "prog:mechanical_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.obtain_mechanical_boots.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "prog:mechanical_boots"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.obtain_mechanical_boots.title"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_mechanical_boots"
+    ]
+  ]
+}

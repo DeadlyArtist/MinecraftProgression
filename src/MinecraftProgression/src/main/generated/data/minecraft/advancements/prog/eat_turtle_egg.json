@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_turtle_egg": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:turtle_egg"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_turtle_egg.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:turtle_egg"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_turtle_egg.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_turtle_egg"
+    ]
+  ]
+}

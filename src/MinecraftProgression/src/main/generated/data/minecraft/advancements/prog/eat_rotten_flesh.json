@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "eat_rotten_flesh": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:rotten_flesh"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.prog.eat_rotten_flesh.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.prog.eat_rotten_flesh.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_rotten_flesh"
+    ]
+  ]
+}

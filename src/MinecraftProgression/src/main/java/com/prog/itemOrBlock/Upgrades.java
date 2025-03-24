@@ -66,7 +66,7 @@ public class Upgrades {
         register(Items.CHAINMAIL_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.CHAINMAIL_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.CHAINMAIL_LEGGINGS, UEffectMapper.leggings(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
-        register(Items.LEATHER_BOOTS, UEffectMapper.boots(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
+        register(Items.LEATHER_BOOTS, UEffectMapper.boots(List.of(UEffect.increment(EntityAttributes.GENERIC_ARMOR), UEffect.increment(PEntityAttributes.LIGHT_STEPS))));
         register(Items.LEATHER_CHESTPLATE, UEffectMapper.chestplate(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.LEATHER_HELMET, UEffectMapper.helmet(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
         register(Items.LEATHER_LEGGINGS, UEffectMapper.leggings(UEffect.increment(EntityAttributes.GENERIC_ARMOR)));
