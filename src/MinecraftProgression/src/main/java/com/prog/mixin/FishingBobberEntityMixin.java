@@ -19,6 +19,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -192,9 +193,9 @@ public class FishingBobberEntityMixin {
     @Redirect(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/loot/LootTable;generateLoot(Lnet/minecraft/loot/context/LootContext;)Lit/unimi/dsi/fastutil/objects/ObjectArrayList;"))
     public ObjectArrayList<ItemStack> generateLoot(LootTable instance, LootContext context, @Local LootContext.Builder builder) {
         var owner = self.getPlayerOwner();
-        var result = FishingUtils.changeAllowedFluids(self, self.getBlockPos());
-        if (result.inLava) instance = self.world.getServer().getLootManager().getTable(PLootTables.LAVA_FISHING_GAMEPLAY);
-        else if (result.inVoid) instance = self.world.getServer().getLootManager().getTable(PLootTables.VOID_FISHING_GAMEPLAY);
+        var result = FishingUtils.getFluidBelow(self.world, self.getBlockPos());
+        if (result == FluidTags.LAVA && owner.getAttributeValue(PEntityAttributes.LAVA_FISHING) == 1) instance = self.world.getServer().getLootManager().getTable(PLootTables.LAVA_FISHING_GAMEPLAY);
+        else if (result == null && owner.getAttributeValue(PEntityAttributes.VOID_FISHING) == 1) instance = self.world.getServer().getLootManager().getTable(PLootTables.VOID_FISHING_GAMEPLAY);
 
         var luck = (float) luckOfTheSeaLevel + owner.getLuck();
         var treasure = FishingUtils.isTreasure(self.random, luck);

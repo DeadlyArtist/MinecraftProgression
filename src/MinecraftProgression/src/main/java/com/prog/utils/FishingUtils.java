@@ -4,9 +4,12 @@ import com.prog.entity.PComponents;
 import com.prog.entity.attribute.PEntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tag.FluidTags;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
@@ -71,6 +74,34 @@ public class FishingUtils {
         return voidBelow;
     }
 
+    public static boolean isLavaBelow(World world, BlockPos pos) {
+        var voidBelow = true;
+        BlockPos belowPos = pos.up();
+        while (belowPos.getY() > world.getBottomY()) {
+            belowPos = belowPos.down();
+            var fluidState = world.getFluidState(pos);
+            if (fluidState.isEmpty()) {
+                voidBelow = false;
+                break;
+            }
+        }
+        return voidBelow;
+    }
+
+    public static TagKey<Fluid> getFluidBelow(World world, BlockPos pos) {
+        var voidBelow = true;
+        BlockPos belowPos = pos.up();
+        while (belowPos.getY() > world.getBottomY()) {
+            belowPos = belowPos.down();
+            if (!world.isAir(belowPos)) {
+                var fluidState = world.getFluidState(pos);
+                if (fluidState.isIn(FluidTags.LAVA)) return FluidTags.LAVA;
+                return FluidTags.WATER;
+            }
+        }
+        return null;
+    }
+
     // https://deadlyartist.github.io/aidevsuite/#local/live_calculator?mode=run
     // function logX(x, y) {
     //    return Math.log(y) / Math.log(x);
@@ -106,7 +137,7 @@ public class FishingUtils {
         }
         if (random.nextDouble() < probabilityForHigherLevel) desiredLevel++;
 
-        var reducedLevelProbability = 0.7;
+        var reducedLevelProbability = 0.8;
         if (random.nextDouble() < reducedLevelProbability) desiredLevel = random.nextBetween(1, desiredLevel);
 
         var incrementProb = 0.2;
