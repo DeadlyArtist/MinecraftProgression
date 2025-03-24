@@ -56,9 +56,10 @@ public class BowItemMixin {
                     target = "Lnet/minecraft/entity/projectile/PersistentProjectileEntity;setVelocity(Lnet/minecraft/entity/Entity;FFFFF)V"
             )
     )
-    private void redirectSetVelocity(PersistentProjectileEntity persistentProjectileEntity, Entity entity, float pitch, float yaw, float roll, float speed, float divergence, @Local float f) {
+    private void redirectSetVelocity(PersistentProjectileEntity persistentProjectileEntity, Entity entity, float pitch, float yaw, float roll, float speed, float divergence, @Local float f, @Local(ordinal = 0) ItemStack stack) {
         var projectileMixin = (IPersistentProjectileEntityMixin) (Object) persistentProjectileEntity;
         projectileMixin.setChargeModifier(f);
+        projectileMixin.setSourceStack(stack);
 
         var playerEntity = (PlayerEntity) entity; // Caller function guarantees
         persistentProjectileEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, speed * (float) RangedUtils.getProjectileSpeedMultiplier(playerEntity), 1.0F);

@@ -10,6 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TextContent;
 import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -46,6 +47,14 @@ public class RangedUtils {
         var chargeDamageModifier = chargeModifier / 1.5;
         if (chargeModifier == 1) chargeDamageModifier = chargeModifier * random.nextTriangular(1, 0.2);
         return damage * chargeDamageModifier;
+    }
+
+    public static double getDistanceDamageIncrease(BlockPos sourcePosition, BlockPos currentPosition, double damage) {
+        double dx = sourcePosition.getX() - currentPosition.getX();
+        double dz = sourcePosition.getZ() - currentPosition.getZ();
+        double horizontalDistance = Math.sqrt(dx * dx + dz * dz);
+        double distanceMultiplier = 1 + (horizontalDistance / 50.0); // Every 50 blocks adds 100% damage
+        return damage * distanceMultiplier;
     }
 
     public static double getProjectileSpeedMultiplier(LivingEntity entity) {
