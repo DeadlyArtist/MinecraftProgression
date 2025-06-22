@@ -126,6 +126,7 @@ These have been implemented in an update.
 *Stellar Geode*: Added a new geode that only spawns in the end.  
 *Trident Reserves Slot*: Throwing a trident with loyalty will reserve its slot in the most amazing way imaginable.  
 *Advancements*: Added all kinds of advancements.  
+*Better Bow*: Bow damage now increases with range.  
 
 ## License
 This mod is licensed under MIT license.
