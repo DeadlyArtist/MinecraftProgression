@@ -9,6 +9,7 @@
     "ArgumentTypesMixin",
     "ArrowItemMixin",
     "BeehiveBlockMixin",
+    "BlockItemMixin",
     "BowAttackGoalMixin",
     "BowItemMixin",
     "CakeBlockMixin",

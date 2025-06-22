@@ -41,6 +41,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.village.raid.Raid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -123,7 +124,7 @@ public class Prog implements ModInitializer {
 //            }
         });
 
-        ItemEvents.APPEND_STACKS.register(((group, stacks, item) -> {
+        ItemEvents.APPEND_STACKS_TO_GROUP.register(((group, stacks, item) -> {
             if (group == PItemGroups.MORE_PROGRESSION) {
                 if (ItemUtils.getId(item).getNamespace() == Prog.MOD_ID) stacks.add(new ItemStack(item));
             }
@@ -138,6 +139,16 @@ public class Prog implements ModInitializer {
             }
             if (group == PItemGroups.GOURMET_FOOD) {
                 if (ItemUtils.hasTag(item, PItemTags.GOURMET_FOOD)) stacks.add(new ItemStack(item));
+            }
+        }));
+
+        ItemEvents.APPEND_STACKS.register(((group, stacks, item) -> {
+            if (group != ItemGroup.SEARCH && group != item.group) return;
+
+            if (item == Items.WHITE_BANNER) {
+                ItemStack ominousBanner = Raid.getOminousBanner();
+                int insertIndex = Math.max(0, stacks.size() - 1);
+                stacks.add(insertIndex, ominousBanner);
             }
         }));
 

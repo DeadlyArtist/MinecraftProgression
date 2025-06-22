@@ -17,6 +17,6 @@ public class ItemGroupMixin {
     @Inject(method = "appendStacks", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;appendStacks(Lnet/minecraft/item/ItemGroup;Lnet/minecraft/util/collection/DefaultedList;)V", shift = At.Shift.AFTER))
     public void injectAppendStacks(DefaultedList<ItemStack> stacks, CallbackInfo ci, @Local Item item) {
         var self = (ItemGroup) (Object) this;
-        ItemEvents.APPEND_STACKS.invoker().append(self, stacks, item);
+        ItemEvents.APPEND_STACKS_TO_GROUP.invoker().append(self, stacks, item);
     }
 }

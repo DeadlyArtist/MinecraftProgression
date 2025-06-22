@@ -4,13 +4,14 @@ import com.prog.event.EntityEvents;
 import com.prog.event.ItemEvents;
 import com.prog.itemOrBlock.PFoodComponents;
 import com.prog.itemOrBlock.PItemTags;
+import com.prog.utils.LOGGER;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.village.raid.Raid;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,6 +26,9 @@ import java.util.List;
 
 @Mixin(Item.class)
 public class ItemMixin {
+    @Unique
+    private final Item self = (Item) (Object) this;
+
 //    // Doesn't work since the item has not yet been assigned.
 //    @ModifyVariable(
 //            method = "<init>(Lnet/minecraft/item/Item$Settings;)V",
@@ -59,5 +63,10 @@ public class ItemMixin {
             case UNCOMMON -> Rarity.RARE;
             default -> Rarity.EPIC;
         };
+    }
+
+    @Inject(method = "appendStacks", at = @At("TAIL"))
+    private void injectIntoAppendStacks(ItemGroup group, DefaultedList<ItemStack> stacks, CallbackInfo ci) {
+        ItemEvents.APPEND_STACKS.invoker().append(group, stacks, self);
     }
 }
