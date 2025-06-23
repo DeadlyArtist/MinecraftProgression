@@ -124,6 +124,9 @@ public class Upgrades {
             registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "bomb"), UEffectMapper.damage());
             registerCompat(ItemUtils.byId(XIDs.SUPPLEMENTARIES, "bomb_blue"), UEffectMapper.damage(2));
         }
+        if (XCompat.isModLoaded(XIDs.END_REMASTERED)) {
+            registerCompat(ItemUtils.byId(XIDs.END_REMASTERED, "undead_soul"), UEffectMapper.best(2));
+        }
     }
 
     public static void registerCompat(Item item, Function<Item, List<UEffect>> effects) {

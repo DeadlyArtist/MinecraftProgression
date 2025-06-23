@@ -37,6 +37,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.tag.BlockTags;
@@ -280,11 +281,15 @@ public class Prog implements ModInitializer {
         });
 
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if (source.isBuiltin() && EntityType.WARDEN.getLootTableId().equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .with(ItemEntry.builder(PItems.LIVING_SOUL_FRAGMENT));
-
+            if (EntityType.WARDEN.getLootTableId().equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder().with(ItemEntry.builder(PItems.LIVING_SOUL_FRAGMENT));
                 tableBuilder.pool(poolBuilder);
+            }
+            if (EntityType.SKELETON.getLootTableId().equals(id)) {
+                if (XCompat.isModLoaded(XIDs.END_REMASTERED)) {
+                    LootPool.Builder poolBuilder = LootPool.builder().with(ItemEntry.builder(ItemUtils.byId(XIDs.END_REMASTERED, "undead_soul"))).conditionally(RandomChanceLootCondition.builder(0.01f));
+                    tableBuilder.pool(poolBuilder);
+                }
             }
         });
     }
