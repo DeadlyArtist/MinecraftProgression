@@ -128,7 +128,7 @@ These have been implemented in an update.
 *Trident Reserves Slot*: Throwing a trident with loyalty will reserve its slot in the most amazing way imaginable.  
 *Advancements*: Added all kinds of advancements.  
 *Better Bow*: Bow damage now increases with range.  
-*End Remastered*: Added special mod support. Living souls now have a 1% chance to drop from skeletons.  
+*End Remastered*: Added special mod support. Undead souls now have a 1% chance to drop from skeletons.  
 
 ## License
 This mod is licensed under MIT license.
