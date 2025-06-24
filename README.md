@@ -93,6 +93,7 @@ Special mod support:
 [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge)  
 [Ecologics](https://www.curseforge.com/minecraft/mc-mods/ecologics)  
 [Supplementaries](https://www.curseforge.com/minecraft/mc-mods/supplementaries)  
+[End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered)  
 
 ## Mod Incompatibility
 This mod was designed as a standalone experience, as it introduces lots of significant changes to make this much progression possible, including very high damage and armor. This massive change in balance makes this mod very overpowered in combination with other mods. Additionally, its unique tier and armor/tool upgrade system would require other mods to be programmed specifically for this mod to stay relevant.
@@ -127,6 +128,7 @@ These have been implemented in an update.
 *Trident Reserves Slot*: Throwing a trident with loyalty will reserve its slot in the most amazing way imaginable.  
 *Advancements*: Added all kinds of advancements.  
 *Better Bow*: Bow damage now increases with range.  
+*End Remastered*: Added special mod support. Living souls now have a 1% chance to drop from skeletons.  
 
 ## License
 This mod is licensed under MIT license.

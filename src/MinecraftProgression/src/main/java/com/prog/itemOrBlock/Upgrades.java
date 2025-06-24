@@ -104,7 +104,7 @@ public class Upgrades {
         register(PItems.STELLAR_SHARD, UEffectMapper.damage(5));
         register(PItems.RUBY, UEffectMapper.best(3));
         register(PItems.BURNED_CD, List.of(UEffectMapper.tool(UEffect.increment(EntityAttributes.GENERIC_ATTACK_SPEED, 0.1)), UEffectMapper.fishingRod(UEffect.increment(PEntityAttributes.TREASURE_QUALITY, 2))));
-        register(PItems.STAR_FRAGMENT, UEffectMapper.damage(5));
+        register(PItems.STAR_FRAGMENT, UEffectMapper.best(5));
         register(PItems.STAR, UEffectMapper.best(10));
 
         // Other
