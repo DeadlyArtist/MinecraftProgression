@@ -12,7 +12,7 @@ This mod is currently in an early playtesting stage. The core features are done 
 Fabric: 1.19.2
 
 ## Modpack
-For a simple, lightweight modpack (with quests!) built around this mod, see the [More Progression Pack](https://www.curseforge.com/minecraft/modpacks/more-progression-pack). By adding many of the basic modding commodities and quality of life changes (such as [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items), [Jade](https://www.curseforge.com/minecraft/mc-mods/jade), and many more), as well as few carefully selected other mods (such as [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), [Explorer's Compass](https://www.curseforge.com/minecraft/mc-mods/explorers-compass), some simple structure mods, [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs), [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge), and more), the progression experience is taken to the next level.
+For a simple, lightweight modpack (with quests!) built around this mod, see the [More Progression Pack](https://www.curseforge.com/minecraft/modpacks/more-progression-pack). By adding many of the basic modding commodities and quality of life changes (such as [REI](https://www.curseforge.com/minecraft/mc-mods/roughly-enough-items), [Jade](https://www.curseforge.com/minecraft/mc-mods/jade), and many more), as well as few carefully selected other mods (such as [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), some simple structure mods, [Frog Legs](https://www.curseforge.com/minecraft/mc-mods/froglegs), [Universal Enchants](https://www.curseforge.com/minecraft/mc-mods/universal-enchants-forge), and more), the progression experience is taken to the next level.
 
 ## Design Goals
 Extended Progression: Default minecraft progression from wood to stone to iron to diamond is very enjoyable, but too short. The main goal of this mod is to fix that by introducing tiers beyond diamond.
@@ -81,7 +81,7 @@ Below is a list of useful things that might be easy to miss.
 
 ### Resources
 *Ancient Debris*: You now need at least a titan pickaxe to mine them. Using a diamond pickaxe will not work.  
-*Evergloom*: Can be found whereever sculk can be found (such as in ancient cities). It is recommended to install a mod like [Explorer's Compass](https://www.curseforge.com/minecraft/mc-mods/explorers-compass) to find ancient cities.  
+*Evergloom*: Can be found whereever sculk can be found (such as in ancient cities, which can be found via an ancient compass).
 *Verum Ore*: Look below the end islands to find them.  
 *Stellar Shards*: They spawn in geodes that are exclusive to the end.  
 
@@ -129,6 +129,7 @@ These have been implemented in an update.
 *Advancements*: Added all kinds of advancements.  
 *Better Bow*: Bow damage now increases with range.  
 *End Remastered*: Added special mod support. Undead souls now have a 1% chance to drop from skeletons.  
+*Ancient Compass*: Added ancient compass, which points to the nearest ancient city.  
 
 ## License
 This mod is licensed under MIT license.

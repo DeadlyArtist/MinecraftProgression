@@ -37,6 +37,7 @@ public class PItems {
     public static final Map<Item, ItemData> data = new HashMap<>();
 
     // Misc
+    public static final Item ANCIENT_COMPASS = register("ANCIENT_COMPASS", new AncientCompassItem(new FabricItemSettings().group(ItemGroup.TOOLS)), (modelSupplier, self) -> modelSupplier.registerCompass(self)).tags(List.of(ItemTags.COMPASSES)).finished();
     public static final Item MACHINE_CIRCUIT = register("MACHINE_CIRCUIT", new Item(new FabricItemSettings().group(ItemGroup.REDSTONE)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item TELEPORTATION_CORE = register("TELEPORTATION_CORE", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();
     public static final Item HEART_OF_GREED = register("HEART_OF_GREED", new Item(new FabricItemSettings().group(ItemGroup.MISC)), (modelSupplier, self) -> modelSupplier.register(self, Models.GENERATED)).finished();

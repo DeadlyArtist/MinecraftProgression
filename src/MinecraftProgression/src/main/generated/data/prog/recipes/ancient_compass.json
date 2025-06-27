@@ -1,0 +1,19 @@
+{
+  "type": "prog:assembly_shaped",
+  "key": {
+    "c": {
+      "item": "minecraft:compass"
+    },
+    "n": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "pattern": [
+    "nnn",
+    "ncn",
+    "nnn"
+  ],
+  "result": {
+    "item": "prog:ancient_compass"
+  }
+}

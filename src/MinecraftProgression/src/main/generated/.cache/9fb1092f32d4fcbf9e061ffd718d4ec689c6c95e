@@ -1,4 +1,4 @@
-// 1.19.2	2025-03-24T16:06:16.5229066	Recipes
+// 1.19.2	2025-06-27T20:21:37.2101965	Recipes
 0c28caebc8c558e611918408357beb64581daf5e data\prog\advancements\recipes\tools\primal_netherite_axe_from_smithing.json
 a563aa090e6b52c92e145822f14954d2fd830108 data\prog\advancements\recipes\combat\refined_obsidian_crossbow_from_smithing.json
 b995b45691197a81774091df44f78b095a33495f data\prog\advancements\recipes\misc\angel_ring.json
@@ -95,6 +95,7 @@ f1d2c002b67834f66b8b3822003f4a402f6c95ca data\prog\recipes\steel_pickaxe_from_sm
 ed20c1467384b55ff0e5f97b03e9e954b65dbd78 data\prog\recipes\end_boots_from_smithing.json
 898fe12478a7e3403954ce517c21ffd5d1b930b4 data\prog\advancements\recipes\combat\end_crossbow_from_smithing.json
 323b33d2f4f2e0b2150daea7c7946dc326b230ab data\prog\recipes\anchor.json
+6fe954ab9f6e4ea46cc67b905e468215fddae0c2 data\prog\recipes\ancient_compass.json
 e81a5dd6a6bdbdb2fc408a555db17a40c92e2b8b data\prog\recipes\primal_netherite_sword_from_smithing.json
 0be3bb5b95afdd1644355f9b7af420ec283f50da data\prog\recipes\demon_heart.json
 f5b38152f0caa2d641e700a68f813775d6f13cd6 data\prog\recipes\ultimate_diamond_pickaxe_from_smithing.json
@@ -324,6 +325,7 @@ ee17aae9d820eafffc3ebe34ce8ec9638b9356d6 data\prog\advancements\recipes\decorati
 de2fdec4d265309840bdc5026fb6ff6b5a45b702 data\prog\recipes\evergloom_leggings_from_smithing.json
 28ed4c5c30e6224961cd16f7c9aa0f06ec42ff7a data\prog\recipes\evergloom_shield_from_smithing.json
 d6e06c51a11b98eea67ae0cb286112f9f847379e data\prog\advancements\recipes\redstone\machine_circuit.json
+819ecc73354aa54e813d3c8cd9d12f18c1e8e53e data\prog\advancements\recipes\tools\ancient_compass.json
 926131d4921133757abdb96d59591d48aca6fb20 data\prog\recipes\hell_trident_from_smithing.json
 ee12e8232c16e6a3ad59ebf1c64abc7a05c5b73a data\prog\recipes\crying_obsidian.json
 d37375e05e2cc2e9d029c8e8fb9b59477f155214 data\prog\recipes\refined_obsidian_module.json

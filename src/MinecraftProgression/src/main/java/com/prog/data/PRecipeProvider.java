@@ -528,6 +528,7 @@ public class PRecipeProvider extends FabricRecipeProvider {
         createShapedRecipe(List.of("ffgff", "fg gf", "  g  "), List.of(Input.of(Items.FEATHER), Input.of(Items.GOLD_INGOT)), PItems.ANGEL_RING).requireAssembly().offer(exporter);
         createShapedRecipe(List.of("ggg", "ghg", "ggg"), List.of(Input.of(Items.GOLD_BLOCK), Input.of(Items.HEART_OF_THE_SEA)), PItems.HEART_OF_GREED).offer(exporter);
         createShapedRecipe(List.of("  s  ", "sssss", " sss ", "s   s"), List.of(Input.of(PItems.STAR_FRAGMENT)), PItems.STAR).requireCosmicConstructor().offer(exporter);
+        createShapedRecipe(List.of("nnn", "ncn", "nnn"), List.of(Input.of(Items.NETHERITE_SCRAP), Input.of(Items.COMPASS)), PItems.ANCIENT_COMPASS).requireAssembly().offer(exporter);
 
 
         // Tier Cores
