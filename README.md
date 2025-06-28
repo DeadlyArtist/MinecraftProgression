@@ -59,6 +59,7 @@ Below is a list of useful things that might be easy to miss.
 *Enchant your Gear*: Try to enchant your gear with protection and sharpness as early as possible to get a headstart over your enemies. You can find good enchantments by killing monsters with a rank or by fishing with a good rod (a high lure enchantment is recommended).  
 *Fixed Anvil*: Applying enchantments now costs a fair price, regardless in which order you apply them, even if you already have a lower level of the enchantment applied. Additionally, anvils no longer break, and many enchantments now allow you to merge them in the anvil beyond their usual limit.  
 *Linear Experience*: You need the same amount of xp to reach the next level, regardless of your current level.  
+*Enhanced Grindstone*: You can now place an enchanted item at the top and a book at the bottom of the grindstone to move the bottommost enchantment of the item to the book. You can use a book and quill or a written book to specify which enchantments to move (a comma separated list of numbers that specify the position from the top, meaning 1 refers to the topmost enchantment). You can put ^ before a number to invert it (so it becomes the position from the bottom, meaning ^1 refers to the bottommost enchantment). If the first list entry is a *, then all enchantments are selected, except for the numbers that follow.  
 *Shield*: While equipped, a shield provides a flat damage reduction.  
 *Fixed Ender Dragon Fight*: Changed the ender dragon to be very aggressive and engaging, so don't go there unless you are fully prepared. It is recommended to play this mod in combination with [End Remastered](https://www.curseforge.com/minecraft/mc-mods/endremastered), which reworks the end portal to require collecting different eyes from all over minecraft.  
 
@@ -130,6 +131,7 @@ These have been implemented in an update.
 *Better Bow*: Bow damage now increases with range.  
 *End Remastered*: Added special mod support. Undead souls now have a 1% chance to drop from skeletons.  
 *Ancient Compass*: Added ancient compass, which points to the nearest ancient city.  
+*Enhanced Grindstone*: You can now move enchantments from an item to a book using the grindstone.  
 
 ## License
 This mod is licensed under MIT license.
