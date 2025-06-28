@@ -18,6 +18,7 @@ public class TieredTridentItem extends TridentItem {
     public TieredTridentItem(TridentMaterial material, Settings settings) {
         super(settings);
         this.material = material;
+        this.maxCount = 1;
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(

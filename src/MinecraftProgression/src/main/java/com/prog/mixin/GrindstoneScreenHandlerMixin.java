@@ -62,17 +62,15 @@ public class GrindstoneScreenHandlerMixin {
             var slot1 = input.getStack(0);
             var slot2 = input.getStack(1);
             var newSlot1 = GrindstoneUtils.getUpdatedSlot1(slot1, slot2);
+            var newSlot2 = GrindstoneUtils.getUpdatedSlot2(slot1, slot2);
 
             input.setStack(0, newSlot1);
+            input.setStack(1, newSlot2);
         }
 
         @Redirect(method = "onTakeItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/inventory/Inventory;setStack(ILnet/minecraft/item/ItemStack;)V", ordinal = 1))
         private void setStack2(Inventory input, int i, ItemStack empty) {
-            var slot1 = input.getStack(0);
-            var slot2 = input.getStack(1);
-            var newSlot2 = GrindstoneUtils.getUpdatedSlot2(slot1, slot2);
-
-            input.setStack(1, newSlot2);
+            // do nothing
         }
     }
 

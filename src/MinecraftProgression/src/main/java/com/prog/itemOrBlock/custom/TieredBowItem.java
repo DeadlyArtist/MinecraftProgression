@@ -17,6 +17,7 @@ public class TieredBowItem extends BowItem {
     public TieredBowItem(BowMaterial material, Settings settings) {
         super(settings);
         this.material = material;
+        this.maxCount = 1;
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(this, new Identifier("pull"), (stack, world, entity, seed) -> {

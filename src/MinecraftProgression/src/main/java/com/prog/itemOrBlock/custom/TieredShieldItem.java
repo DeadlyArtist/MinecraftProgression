@@ -15,6 +15,7 @@ public class TieredShieldItem extends ShieldItem {
     public TieredShieldItem(ShieldMaterial material, Item.Settings settings) {
         super(settings);
         this.material = material;
+        this.maxCount = 1;
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(

@@ -16,6 +16,7 @@ public class TieredFishingRodItem extends FishingRodItem {
     public TieredFishingRodItem(FishingRodMaterial material, Settings settings) {
         super(settings);
         this.material = material;
+        this.maxCount = 1;
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(this, new Identifier("cast"), (stack, world, entity, seed) -> {

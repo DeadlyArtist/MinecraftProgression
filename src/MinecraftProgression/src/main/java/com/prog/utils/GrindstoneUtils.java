@@ -22,7 +22,7 @@ public class GrindstoneUtils {
     }
 
     public static boolean isSpecialTransfer(ItemStack slot1, ItemStack slot2) {
-        return slot1.hasEnchantments() && isAllowedBook(slot2);
+        return slot1.hasEnchantments() && slot1.getCount() == 1 && isAllowedBook(slot2);
     }
 
     public static List<Integer> getTargetEnchantmentIndices(Map<Enchantment, Integer> enchantments, ItemStack slot2) {

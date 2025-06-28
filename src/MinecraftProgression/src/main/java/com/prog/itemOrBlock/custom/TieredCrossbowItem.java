@@ -14,6 +14,7 @@ public class TieredCrossbowItem extends CrossbowItem {
     public TieredCrossbowItem(CrossbowMaterial material, Settings settings) {
         super(settings);
         this.material = material;
+        this.maxCount = 1;
 
         if (FabricUtils.isClient()) {
             ModelPredicateProviderRegistry.register(this, new Identifier("pull"), (stack, world, entity, seed) -> {

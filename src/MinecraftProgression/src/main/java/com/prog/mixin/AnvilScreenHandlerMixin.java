@@ -47,6 +47,15 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
         }
     }
 
+    @Inject(method = "updateResult()V", at = @At("HEAD"), cancellable = true)
+    private void disableStackedEnchantments(CallbackInfo ci) {
+        if (this.input.getStack(0).getCount() != 1) {
+            this.output.setStack(0, ItemStack.EMPTY);
+            this.levelCost.set(0);
+            ci.cancel();
+        }
+    }
+
     @Inject(method = "updateResult()V", at = @At("TAIL"))
     private void capNameChangeCost(CallbackInfo ci) {
         if (this.input.getStack(1).isEmpty()) {
