@@ -22,7 +22,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -47,8 +46,7 @@ public class ItemStackMixin {
 
     @Inject(method = "<init>(Lnet/minecraft/item/ItemConvertible;I)V", at = @At("TAIL"))
     private void onConstructorHead(ItemConvertible item, int count, CallbackInfo info) {
-        var stack = (ItemStack) (Object) this;
-        ItemStackEvents.ITEM_STACK_CTOR.invoker().ctor(stack);
+        ItemStackEvents.ITEM_STACK_CTOR.invoker().ctor(self);
     }
 
     @Inject(method = "isOf", at = @At("HEAD"), cancellable = true)
@@ -73,8 +71,7 @@ public class ItemStackMixin {
             )
     )
     private void injectAppendTooltip(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local List<Text> list) {
-        var stack = (ItemStack) (Object) this;
-        ItemEvents.APPEND_TOOLTIP.invoker().append(stack, context, list);
+        ItemEvents.APPEND_TOOLTIP.invoker().append(self, context, list);
     }
 
     @Inject(
@@ -87,7 +84,6 @@ public class ItemStackMixin {
             )
     )
     private void injectGetId(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local EntityAttributeModifier modifier, @Local LocalDoubleRef d, @Local LocalBooleanRef bl) {
-        ItemStack self = (ItemStack) (Object) this;
         var modifierId = modifier.getId();
         if (modifierId.equals(RangedUtils.PROJECTILE_DAMAGE_BASE_MODIFIER_ID)) {
             //d.set(d.get() + EnchantmentUtils.getAttackDamageIncrease(EntityGroup.DEFAULT, self, d.get(), true));
@@ -185,13 +181,11 @@ public class ItemStackMixin {
             )
     )
     private void injectInfo(@Nullable PlayerEntity player, TooltipContext context, CallbackInfoReturnable<List<Text>> cir, @Local List<Text> list, @Local(ordinal = 0) int i) {
-        var stack = (ItemStack) (Object) this;
-
-        if (stack.isSectionVisible(i, ItemStack.TooltipSection.UNBREAKABLE)) {
+        if (self.isSectionVisible(i, ItemStack.TooltipSection.UNBREAKABLE)) {
             List<String> parts = new ArrayList<>();
-            var upgradable = stack.isIn(PItemTags.UPGRADABLE);
-            if (upgradable || (stack.hasNbt() && stack.getNbt().getBoolean("Unbreakable"))) parts.add(Text.translatable("item.unbreakable").getString());
-            if (ItemUtils.isFireproof(stack)) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
+            var upgradable = self.isIn(PItemTags.UPGRADABLE);
+            if (upgradable || (self.hasNbt() && self.getNbt().getBoolean("Unbreakable"))) parts.add(Text.translatable("item.unbreakable").getString());
+            if (ItemUtils.isFireproof(self)) parts.add(PTexts.FIREPROOF_TOOLTIP.get().getString());
             if (upgradable) parts.add(PTexts.SOULBOUND_TOOLTIP.get().getString());
 
             if (!parts.isEmpty()) list.add(Text.literal(String.join(", ", parts)).formatted(Formatting.BLUE));
@@ -200,32 +194,29 @@ public class ItemStackMixin {
 
     @Inject(method = "onCraft", at = @At("HEAD"))
     private void onCraft(World world, PlayerEntity player, int amount, CallbackInfo ci) {
-        var stack = (ItemStack) (Object) this;
-        if (stack.isIn(PItemTags.UPGRADABLE)) {
-            stack.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
-            if (stack.getDamage() > 0) {
-                stack.setDamage(0);
+        if (self.isIn(PItemTags.UPGRADABLE)) {
+            self.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
+            if (self.getDamage() > 0) {
+                self.setDamage(0);
             }
         }
     }
 
     @Inject(method = "setNbt", at = @At("TAIL"))
     private void setNbt(NbtCompound nbt, CallbackInfo ci) {
-        var stack = (ItemStack) (Object) this;
-        if (stack.isIn(PItemTags.UPGRADABLE)) {
-            stack.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
-            if (stack.getDamage() > 0) {
-                stack.setDamage(0);
+        if (self.isIn(PItemTags.UPGRADABLE)) {
+            self.setSubNbt(ItemStack.UNBREAKABLE_KEY, NbtByte.ONE);
+            if (self.getDamage() > 0) {
+                self.setDamage(0);
             }
         }
     }
 
     @Inject(method = "inventoryTick", at = @At("HEAD"))
     private void inventoryTick(World world, Entity entity, int slot, boolean selected, CallbackInfo ci) {
-        var stack = (ItemStack) (Object) this;
-        if (stack.isIn(PItemTags.UPGRADABLE)) {
-            if (stack.hasNbt()) {
-                var nbt = stack.getNbt();
+        if (self.isIn(PItemTags.UPGRADABLE)) {
+            if (self.hasNbt()) {
+                var nbt = self.getNbt();
                 var keys = nbt.getKeys();
                 keys.forEach(key -> {
                     var oldPrefix = "prog_upgrade_";
@@ -238,9 +229,9 @@ public class ItemStackMixin {
                 });
             }
         }
-        var item = stack.getItem();
-        if (item instanceof TridentItem && world instanceof ServerWorld serverWorld && stack.hasNbt()) {
-            var nbt = stack.getNbt();
+        var item = self.getItem();
+        if (item instanceof TridentItem && world instanceof ServerWorld serverWorld && self.hasNbt()) {
+            var nbt = self.getNbt();
             if (nbt.contains("thrown")) {
                 var thrownUuid = nbt.getUuid("thrown");
                 var thrown = serverWorld.getEntity(thrownUuid);
