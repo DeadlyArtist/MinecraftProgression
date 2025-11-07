@@ -160,6 +160,7 @@ https://www.curseforge.com/minecraft/mc-mods/more-crossbows-cj
 https://github.com/YggdrasziI/BetterShears3  
 https://github.com/fzzyhmstrs/ai  
 https://github.com/fzzyhmstrs/tns  
+https://github.com/Nic4Las/Minecraft-Enderite-Mod  
 https://clockworkraven.itch.io/ (Premium Assets)  
 
 ## Author
